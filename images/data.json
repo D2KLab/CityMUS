@@ -1,0 +1,36 @@
+{
+    "43.6952763,7.2657423": {
+        "city": "Nice",
+        "names": ["Nice, Casino municipal"],
+        "coordinates": ["43.6952763", "7.2657423"]
+    },
+    "43.7101728,7.2619532": {
+        "city": "Nice",
+        "names": ["Nice", "Nice :", "Nizza"], 
+        "coordinates": ["43.7101728", "7.2619532"]
+    },
+    "43.6979695,7.2780937": {
+        "city": "Nice",
+        "names": ["Nice, Th\u00e9\u00e2tre municipal"],
+        "coordinates": ["43.6979695", "7.2780937"]
+    },
+    "43.6954691,7.2724733": {
+        "city": "Nice",
+        "names": ["Nice, Op\u00e9ra"],
+        "coordinates": ["43.6954691", "7.2724733"]
+    },
+    "43.6958659,7.2747155": {
+        "city": "Nice", 
+        "names": ["Nice, Mus\u00e9e de l&#39;image"],
+        "coordinates": ["43.6958659", "7.2747155"]
+    }, 
+    "43.709137,7.269403": {
+        "city": "Nice",
+        "names": ["Nice, Mus\u00e9e Chagall"],
+        "coordinates": ["43.709137", "7.269403"]
+    },
+    "43.6950604,7.2650323": {
+        "city": "Nice",
+        "names": ["Nice, Festival Manca", "Nice, festival Manca"],
+        "coordinates": ["43.6950604", "7.2650323"]}
+}
