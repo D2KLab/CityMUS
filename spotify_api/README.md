@@ -26,9 +26,13 @@ python spotify_getVideos.py Compositions_Doremus.csv
 Now, just let the script run; if you have to switch off the computer, it is not a problem. In fact, when you relaunch the script, it restarts from where it stopped.
 
 Running the script, some messages are printed on the screen; you don't need to know the meaning but if you want:
-a) "Remaning: NUMBER" -> it indicates the number of Doremus compositions that are not yet linked
-b) "Time: TIME" -> it is only an indication of the time; this message is printed every 50 linked compositions; looking at the difference between two time messages you can understand how much the program is fast
-c) "Request Error" -> it could happen that there are some errors, but it is not a problem because they are caused by the high number of requests.They are really rare. At the end of all the script, running it another time, we should get also the link for the query that caused the error
-d) other messages could appear; they depend on the spotipy library
+
+* a) "Remaning: NUMBER" -> it indicates the number of Doremus compositions that are not yet linked
+
+* b) "Time: TIME" -> it is only an indication of the time; this message is printed every 50 linked compositions; looking at     the difference between two time messages you can understand how much the program is fast
+
+* c) "Request Error" -> it could happen that there are some errors, but it is not a problem because they are caused by the  high number of requests.They are really rare. At the end of all the script, running it another time, we should get also the link for the query that caused the error
+
+* d) other messages could appear; they depend on the spotipy library
 
 That's all!
