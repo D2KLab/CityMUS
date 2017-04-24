@@ -16,7 +16,7 @@ pip install spotipy
 
 ## The instruction to run the script are reported here:
 ### 1) Download the zip file "spotify_api.zip" at this link:
-https://drive.google.com/open?id=0B2m64YbMzInoLWVlU2pOX1owbVk
+https://drive.google.com/open?id=0B2m64YbMzInoVE9XU21sQ1E3Qnc
 ### 2) Unzip the folder
 ### 3) Using the terminal, go inside the unzipped directory and launch the scipt typing:
 
