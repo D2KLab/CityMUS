@@ -1,15 +1,15 @@
 # Get Spotify Songs
 To link the doremus id works with real songs, we are trying to use both Youtube and Spotify API.
-We wrote a script that should run for about 30 hours to link Soptify tracks with Doremus works.
+We wrote a script that should run for about 30 hours to link Sotify tracks with Doremus works.
 
 ## Before all, it's necessary to install Python 2.7.13 (not the version 3) and the library spotipy go here 
 ### 1) To download Python  2.7.13 go here: https://www.python.org/downloads/
 ### 2) To install the library you can:
-a) Install pip typing on the command line:
+* Install pip typing on the command line:
 ```
 python get-pip.py
 ```
-b) Add the library spotipy typing:
+* Add the library spotipy typing:
 ```
 pip install spotipy
 ```
@@ -23,7 +23,7 @@ https://drive.google.com/open?id=0B2m64YbMzInoVE9XU21sQ1E3Qnc
 ```
 python spotify_getVideos.py Compositions_Doremus.csv
 ```
-Now, just let the script run; if you have to switch off the computer, it is not a problem. In fact, when you relaunch the script, it restarts from where it stopped.
+Now, just let the script run; if you have to switch off the computer, it is not a problem. In fact, when you re-launch the script, it restarts from where it stopped.
 
 Running the script, some messages are printed on the screen; you don't need to know the meaning but if you want:
 
