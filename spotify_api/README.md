@@ -12,6 +12,6 @@ We wrote a script that should run for about 30 hours to link Soptify tracks with
 ### 2) Unzip the folder
 ### 3)Using the terminal, go inside the unzipped directory and type:
 
-``
+```
 python spotify_getVideos.py Compositions_Doremus.csv
 ```
