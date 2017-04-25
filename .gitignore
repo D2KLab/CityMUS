@@ -1,4 +1,3 @@
-.*
 node_modules
 www
 .tmp
@@ -11,5 +10,3 @@ plugins
 *.swo
 *.log
 *.DS_Store
-
-!/.gitignore
