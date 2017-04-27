@@ -1,0 +1,151 @@
+3cixty_uri,3cixty_label,dbpedia_label,dbpedia_uri,score
+http://data.linkedevents.org/location/c5e5c428-0342-330e-be99-351a9c1c936f,Avenue Jean Médecin,Avenue Jean-Médecin,http://dbpedia.org/resource/Avenue_Jean_Médecin,100.0
+http://data.linkedevents.org/location/998bc434-34ac-4ccd-aaf1-6d627a5b832c,Avenue Jean médecin,Avenue Jean-Médecin,http://dbpedia.org/resource/Avenue_Jean_Médecin,100.0
+http://data.linkedevents.org/location/1db0128e-60f3-32ef-8241-de334d241ad8,Avenue Jean-Médecin,Avenue Jean-Médecin,http://dbpedia.org/resource/Avenue_Jean_Médecin,100.0
+http://data.linkedevents.org/location/1acb1681-f68e-44d5-9935-461094849699,Aéroport de Nice-Côte d'Azur,Aéroport de Nice-Côte d'Azur,http://dbpedia.org/resource/Nice_Côte_d'Azur_Airport,100.0
+http://data.linkedevents.org/location/fe4f6290-77c5-33e5-82eb-a6edf97067d6,Basilique Notre-Dame de Nice,Basilique Notre-Dame de Nice,http://dbpedia.org/resource/Notre-Dame_de_Nice,100.0
+http://data.linkedevents.org/location/477208d2-9ce0-310d-b39d-e4fb4aeff229,Cantón de Saint-Laurent-du-Var-Cagnes-sur-Mer-Este,Cantón de Saint-Laurent-du-Var-Cagnes-sur-Mer-Este,http://dbpedia.org/resource/Canton_of_Saint-Laurent-du-Var-Cagnes-sur-Mer-Est,100.0
+http://data.linkedevents.org/location/a540e533-b401-3a7b-9a03-5bb88d551d6a,Cantón de Villefranche-sur-Mer,Canton de Villefranche-sur-Mer,http://dbpedia.org/resource/Canton_of_Villefranche-sur-Mer,100.0
+http://data.linkedevents.org/location/4f65536a-760a-3393-bc68-fdaf230c5c85,Castle of Nice,Castle of Nice,http://dbpedia.org/resource/Castle_of_Nice,100.0
+http://data.linkedevents.org/location/2f46028d-567c-4b0c-998a-0844562c7c41,Cathédrale Saint-Nicolas de Nice,Cathédrale Saint-Nicolas de Nice,"http://dbpedia.org/resource/Russian_Orthodox_Cathedral,_Nice",100.0
+http://data.linkedevents.org/location/c815138a-075d-4736-9302-1b6695429470,Château de Nice,Château de Nice,http://dbpedia.org/resource/Castle_of_Nice,100.0
+http://data.linkedevents.org/location/7a47c850-88e1-3b25-8ddb-6dcefef9c4c3,Cimetière du Château,Cimetière du Château,http://dbpedia.org/resource/Cimetière_du_Château,100.0
+http://data.linkedevents.org/location/transit/Nice/stop/009f7c23-f010-31ff-ab10-c19ed9bd3a58,Falicon,Falicon,http://dbpedia.org/resource/Falicon,100.0
+http://data.linkedevents.org/location/ea5a808a-6769-4813-8fc4-650aa0887aeb,Hotel Negresco,Hotel Negresco,http://dbpedia.org/resource/Hotel_Negresco,100.0
+http://data.linkedevents.org/location/ff117b4f-bcca-3620-950a-4478b9154697,Jardín Botánico de Niza,Jardín Botánico de Niza,http://dbpedia.org/resource/Jardin_botanique_de_la_Ville_de_Nice,100.0
+http://data.linkedevents.org/location/274fc357-6730-4b4f-a779-d2d99845bca0,Musée International d’art Naif Anatole Jakovsky,Musée international d'art naïf Anatole Jakovsky,http://dbpedia.org/resource/Musée_international_d'Art_naïf_Anatole_Jakovsky,100.0
+http://data.linkedevents.org/location/1e71ebd3-d495-4c35-88ff-3f749b65263b,Musée Matisse,Musée Matisse,http://dbpedia.org/resource/Musée_Matisse_(Nice),100.0
+http://data.linkedevents.org/location/9ff42bb1-0cf8-3cd1-a80b-11b271a115e5,Nellcôte,Nellcôte,http://dbpedia.org/resource/Nellcôte,100.0
+http://data.linkedevents.org/location/dcadce63-5660-3fcb-b184-3044a2a40c33,Nice,Nice,http://dbpedia.org/resource/Nice,100.0
+http://data.linkedevents.org/location/579aa423-cb1b-3d35-90d5-ef482aa093ad,Nice Lawn Tennis Club,Nice Lawn Tennis Club,http://dbpedia.org/resource/Nice_Lawn_Tennis_Club,100.0
+http://data.linkedevents.org/location/0b4e13ed-1681-3a73-b3d0-0b2e0e711ef9,Niza,Niza,http://dbpedia.org/resource/Nice,100.0
+http://data.linkedevents.org/location/ca1ecfc9-6d74-327e-a949-060d0a847d10,Observatoire Oceanologique de Villefranche,Observatoire Oceanologique de Villefranche,http://dbpedia.org/resource/Observatoire_Oceanologique_de_Villefranche,100.0
+http://data.linkedevents.org/location/759f64c3-8b08-499c-89a2-81db3d2e3b76,Observatoire de Nice,Observatoire de Nice,http://dbpedia.org/resource/Nice_Observatory,100.0
+http://data.linkedevents.org/location/37012dce-9584-49c9-af70-68dc192a9ef4,Opéra de Nice,Opéra de Nice,http://dbpedia.org/resource/Opéra_de_Nice,100.0
+http://data.linkedevents.org/location/ce05490c-b7eb-3b0f-b8cd-d4439079684f,Opéra de Nice,Opéra de Nice,http://dbpedia.org/resource/Opéra_de_Nice,100.0
+http://data.linkedevents.org/location/20a9c6d5-434c-4aa3-a0d6-9e40f090ed8f,Palais Lascaris,Palais Lascaris,http://dbpedia.org/resource/Palais_Lascaris,100.0
+http://data.linkedevents.org/location/803dddd2-91ed-3328-84fa-1c87df8ec5e4,Palais Lascaris,Palais Lascaris,http://dbpedia.org/resource/Palais_Lascaris,100.0
+http://data.linkedevents.org/location/ff2228b7-e347-43c0-bb7d-501a0171636c,Palais Nikaia,Palais Nikaia,http://dbpedia.org/resource/Palais_Nikaia,100.0
+http://data.linkedevents.org/location/81d857b7-9195-4cb0-a0ad-127b9924ee92,Promenade des Anglais,Promenade des Anglais,http://dbpedia.org/resource/Promenade_des_Anglais,100.0
+http://data.linkedevents.org/location/e5e52f18-e8c3-3b35-8674-88524b23a10e,"Russian Orthodox Cemetery, Nice","Russian Orthodox Cemetery, Nice","http://dbpedia.org/resource/Russian_Orthodox_Cemetery,_Nice",100.0
+http://data.linkedevents.org/location/ffc2adaf-5478-3402-8985-6cd21edd092b,Saint-André-de-la-Roche,Saint-André-de-la-Roche,http://dbpedia.org/resource/Saint-André-de-la-Roche,100.0
+http://data.linkedevents.org/location/09d76e37-e222-3951-af84-4102c19fc533,Saint-Laurent-du-Var,Saint-Laurent-du-Var,http://dbpedia.org/resource/Saint-Laurent-du-Var,100.0
+http://data.linkedevents.org/location/2e6a7e7a-74c6-3a53-bc3a-b842404d460a,"Sainte Jeanne d'Arc, Nice","Sainte Jeanne d'Arc, Nice","http://dbpedia.org/resource/Sainte_Jeanne_d'Arc,_Nice",100.0
+http://data.linkedevents.org/location/8c3490cf-d609-4a96-8b78-542de8aa3754,Stade du Ray,Stade du Ray,http://dbpedia.org/resource/Stade_du_Ray,100.0
+http://data.linkedevents.org/location/a7eb8d2a-1424-3750-8772-52fcce6695ce,Stadio Charles Ehrmann,Stadio Charles Ehrmann,http://dbpedia.org/resource/Stade_Charles-Ehrmann,100.0
+http://data.linkedevents.org/location/e8eb056b-a24b-36ea-bff3-b7fee89f4c51,Terra Amata (archaeological site),Terra Amata (archaeological site),http://dbpedia.org/resource/Terra_Amata_(archaeological_site),100.0
+http://data.linkedevents.org/location/transit/Nice/stop/36a26941-fec4-33dd-afc5-5989d34a9d15,Villa Arson,Villa Arson,http://dbpedia.org/resource/Villa_Arson,100.0
+http://data.linkedevents.org/location/e924c2b4-fd26-3610-a746-6dcc73cd68c1,Villa Leopolda,Villa Leopolda,http://dbpedia.org/resource/Villa_Leopolda,100.0
+http://data.linkedevents.org/location/0cac804e-4909-3326-83a6-c24757325011,Villefranche-sur-Mer,Villefranche-sur-Mer,http://dbpedia.org/resource/Villefranche-sur-Mer,100.0
+http://data.linkedevents.org/location/c827deef-47f2-369a-8f3a-59a4f76a3dc4,Villefranche-sur-Mer,Villefranche-sur-Mer,http://dbpedia.org/resource/Villefranche-sur-Mer,100.0
+http://data.linkedevents.org/location/e5a7b599-f1a3-34c3-aa96-b8976fde65e2,Ницца,Ницца,http://dbpedia.org/resource/Nice,100.0
+http://data.linkedevents.org/location/01efe89a-f3c9-3941-a431-1e2167a3c1c6,ملعب تشارلز-أرمان,ملعب تشارلز-أرمان,http://dbpedia.org/resource/Stade_Charles-Ehrmann,100.0
+http://data.linkedevents.org/location/25cf9930-650e-41c8-9e7f-987666e2f721,Musée d'art moderne et d'art contemprorain,Musée d'Art Moderne et d'Art Contemporain,http://dbpedia.org/resource/Musée_d'art_moderne_et_d'art_contemporain,98.6
+http://data.linkedevents.org/location/c19f553c-06cd-3dee-8626-fa4e801fc664,Acropolis,Acropolis (Nice),http://dbpedia.org/resource/Palais_des_Congrès_Acropolis,98.0
+http://data.linkedevents.org/location/transit/Nice/stop/05786200-7110-395b-a2a1-43e450bf2ca6,Acropolis,Acropolis (Nice),http://dbpedia.org/resource/Palais_des_Congrès_Acropolis,98.0
+http://data.linkedevents.org/location/19a7b596-f6eb-3161-88a5-b54fe7640876,Magnan,Magnan (Nice),http://dbpedia.org/resource/Magnan_(river),97.4
+http://data.linkedevents.org/location/3951c4aa-c112-3891-938e-1277e023228f,Magnan,Magnan (Nice),http://dbpedia.org/resource/Magnan_(river),97.4
+http://data.linkedevents.org/location/e4a459b4-83b7-3000-bfc4-bd2f97a6b812,Magnan,Magnan (Nice),http://dbpedia.org/resource/Magnan_(river),97.4
+http://data.linkedevents.org/location/transit/Nice/stop/16c1c30f-db7d-36d3-bb9c-e3494fbc52bc,Magnan,Magnan (Nice),http://dbpedia.org/resource/Magnan_(river),97.4
+http://data.linkedevents.org/location/25d5106a-2606-483f-be18-a6f7aefcad62,Stade Allianz Riviera,Allianz Riviera,http://dbpedia.org/resource/Allianz_Riviera,96.4
+http://data.linkedevents.org/location/b5183cee-7d9a-3085-825f-ace9c1522f04,Museo Marc-Chagall,Musée Marc Chagall,http://dbpedia.org/resource/Musée_Marc_Chagall,96.0
+http://data.linkedevents.org/location/be084093-7487-4c11-aad0-0abaaa298ca6,Stade Charles ehhmann,Stade Charles-Ehrmann,http://dbpedia.org/resource/Stade_Charles-Ehrmann,96.0
+http://data.linkedevents.org/location/transit/Nice/stop/50f0da64-0b1a-38d5-8a23-ce6c3603ead3,Jean Médecin,Avenue Jean-Médecin,http://dbpedia.org/resource/Avenue_Jean_Médecin,95.6
+http://data.linkedevents.org/location/transit/Nice/stop/7babce14-b6cc-31c1-b286-1cacd0a2fe7c,Arènes / Musée Matisse,Musée Matisse (Nice),http://dbpedia.org/resource/Musée_Matisse_(Nice),95.2
+http://data.linkedevents.org/location/a98a064b-1b7a-462d-b8df-3dfcc05a7c67,Théâtre de verdure,Théâtre de verdure de Nice,http://dbpedia.org/resource/Théâtre_de_verdure_de_Nice,95.2
+http://data.linkedevents.org/location/7456938c-522d-3db3-b7c3-9b2bc69da5e9,Villa Nellcote,Nellcôte,http://dbpedia.org/resource/Nellcôte,95.2
+http://data.linkedevents.org/location/2e361e60-56e1-3321-82d4-0b42b51559b3,Villefance-sur-Mer,Villefranche-sur-Mer,http://dbpedia.org/resource/Villefranche-sur-Mer,95.0
+http://data.linkedevents.org/location/4c9e21b0-15b1-3586-b584-39c4b1f7381b,Arroport Nice Cote D' Azur,Aéroport Nice Côte d'Azur,http://dbpedia.org/resource/Nice_Côte_d'Azur_Airport,94.8
+http://data.linkedevents.org/location/2b4dbce7-a191-38ed-a11f-b5fb5aa078b4,IAE (Institut d'Administration des Entreprises),Institut d'administration des entreprises de Nice,http://dbpedia.org/resource/IAE_Nice,94.6
+http://data.linkedevents.org/location/7037f474-a0d1-3e31-a2cd-50d3be563456,Negressco Nice,Negresco,http://dbpedia.org/resource/Hotel_Negresco,94.4
+http://data.linkedevents.org/location/0cfa2697-a099-317d-9d44-d4b1f6966de9,Cathédrale Saint Nicolas,Cathédrale Saint-Nicolas de Nice,"http://dbpedia.org/resource/Russian_Orthodox_Cathedral,_Nice",94.0
+http://data.linkedevents.org/location/2dff4d67-78ed-3062-b6fc-09768eaab5a7,Cathédrale Saint-Nicolas,Cathédrale Saint-Nicolas de Nice,"http://dbpedia.org/resource/Russian_Orthodox_Cathedral,_Nice",94.0
+http://data.linkedevents.org/location/d31e5d0d-18f9-4ec9-8792-1ba3421cb4c5,Cathédrale Sainte-Réparate,Cathédrale Sainte-Réparate de Nice,http://dbpedia.org/resource/Nice_Cathedral,94.0
+http://data.linkedevents.org/location/3fd1f8ed-0c77-33a5-9a2b-0a839840f482,Eglise Sainte-Jeanne d'Arc,Église Sainte-Jeanne-d'Arc de Nice,"http://dbpedia.org/resource/Sainte_Jeanne_d'Arc,_Nice",94.0
+http://data.linkedevents.org/location/82cbb8f6-f597-3bbf-80d1-4c84a4b6f92c,Hôtel Magnan,Magnan (Nice),http://dbpedia.org/resource/Magnan_(river),94.0
+http://data.linkedevents.org/location/deb6ed1d-12c6-3340-a8d8-5c99896f310e,Plage Magnan,Magnan (Nice),http://dbpedia.org/resource/Magnan_(river),94.0
+http://data.linkedevents.org/location/7b449db3-9849-312f-be0f-60327763ba74,Église Sainte-Jeanne-d'Arc,Église Sainte-Jeanne-d'Arc de Nice,"http://dbpedia.org/resource/Sainte_Jeanne_d'Arc,_Nice",94.0
+http://data.linkedevents.org/location/f1b5b337-ff3a-4ccc-9cc0-11b8fa9307df,Église Sainte-Jeanne-d'Arc,Église Sainte-Jeanne-d'Arc de Nice,"http://dbpedia.org/resource/Sainte_Jeanne_d'Arc,_Nice",94.0
+http://data.linkedevents.org/location/70ee6eb7-dfff-308d-a374-038c2bd67a44,Aéroport Nice Côte D'azur Tl 1 Portes 3,Aéroport Nice Côte d'Azur,http://dbpedia.org/resource/Nice_Côte_d'Azur_Airport,93.6
+http://data.linkedevents.org/location/8acb3ce4-4f52-30cb-8344-d07539d404d1,Taxi drap,Drap,http://dbpedia.org/resource/Drap,93.6
+http://data.linkedevents.org/location/f8aab220-c363-3713-a83b-7b627f2ee423,Le Château de Nice,Château de Nice,http://dbpedia.org/resource/Castle_of_Nice,93.2
+http://data.linkedevents.org/location/04615f5b-67cc-48fc-a224-40786b28eca7,Musée des beaux arts,Musée des Beaux-Arts de Nice,http://dbpedia.org/resource/Musée_des_Beaux-Arts_de_Nice,93.0
+http://data.linkedevents.org/location/ee451609-6808-3894-927e-9467965d6528,ALLIANZ RIVIERA P0,Allianz Riviera,http://dbpedia.org/resource/Allianz_Riviera,91.6
+http://data.linkedevents.org/location/f9dab041-7775-351d-8ed1-61afa3e9da6d,"Chez Pipo, Aéroport Nice Côte D'azur",Aéroport Nice Côte d'Azur,http://dbpedia.org/resource/Nice_Côte_d'Azur_Airport,91.6
+http://data.linkedevents.org/location/06764c6b-ec36-358a-aad7-5d6b9619651e,Tunnel Magnan,Magnan (Nice),http://dbpedia.org/resource/Magnan_(river),91.6
+http://data.linkedevents.org/location/8d08ca3f-82af-3d1e-b338-29de31551f2e,Nicea Prim,Nicea,http://dbpedia.org/resource/Nice,91.4
+http://data.linkedevents.org/location/ce7d2521-a697-3ac6-b5c2-8a1b7086e8cf,Школа Гали Ницца,Ницца,http://dbpedia.org/resource/Nice,91.4
+http://data.linkedevents.org/location/ee935005-1441-3ac7-ba21-9fef3cdd1289,"[u'Basilique Notre Dame de l\u2019Assomption', u'Basilique Notre-Dame de l\u2019Assomption']",Basilique Notre-Dame de Nice,http://dbpedia.org/resource/Notre-Dame_de_Nice,91.0
+http://data.linkedevents.org/location/40bbdc97-9918-4c9b-ad1e-323e859d6e93,Basilique Notre-Dame de l'assomption,Basilique Notre-Dame de Nice,http://dbpedia.org/resource/Notre-Dame_de_Nice,91.0
+http://data.linkedevents.org/location/c35b31ec-450f-36a1-86d4-3eddd0afa78c,JOE & the JUICE Nice Côte D'azur Airport,Nice Côte d'Azur Airport,http://dbpedia.org/resource/Nice_Côte_d'Azur_Airport,91.0
+http://data.linkedevents.org/location/e3b121b5-9b68-3170-8697-3731797052ff,La rotonde du Negresco,Negresco,http://dbpedia.org/resource/Hotel_Negresco,91.0
+http://data.linkedevents.org/location/52af777d-d951-4ffd-888d-66dbc8a7cad4,Observatoire Océanologique,Observatoire Oceanologique de Villefranche,http://dbpedia.org/resource/Observatoire_Oceanologique_de_Villefranche,91.0
+http://data.linkedevents.org/location/da8ad11a-551c-3a3e-af26-36f0778c7684,Centro de Niza,Niza,http://dbpedia.org/resource/Nice,90.8
+http://data.linkedevents.org/location/dd155534-a236-3ecc-8d40-5217072ead8b,Eglise St Michel Villefranche Sur Mer,Villefranche-sur-Mer,http://dbpedia.org/resource/Villefranche-sur-Mer,90.6
+http://data.linkedevents.org/location/af2a934b-e179-3fc5-8c6a-b05251dc7773,Notre Dame,Notre-Dame de Nice,http://dbpedia.org/resource/Notre-Dame_de_Nice,90.6
+http://data.linkedevents.org/location/transit/Nice/stop/0c4df47f-bcbe-3f51-9619-7a1a496e3e52,Notre Dame,Notre-Dame de Nice,http://dbpedia.org/resource/Notre-Dame_de_Nice,90.6
+http://data.linkedevents.org/location/fe65be67-1de7-3977-878c-651536f1774a,Aéroport Nice Côte D'azur - Salon Azur,Aéroport Nice Côte d'Azur,http://dbpedia.org/resource/Nice_Côte_d'Azur_Airport,90.4
+http://data.linkedevents.org/location/d73ca961-4256-3291-9f21-cb1ab2d188b5,Sprachschule Nizza,Nizza,http://dbpedia.org/resource/Nice,90.2
+http://data.linkedevents.org/location/42c10f9b-d591-319c-96a0-7566f50d2fd6,Centre PMI Magnan,Magnan (Nice),http://dbpedia.org/resource/Magnan_(river),89.8
+http://data.linkedevents.org/location/transit/Nice/stop/55eeca3a-2cf7-3951-829f-33ecfcadaffd,Eglise Jeanne d'Arc,Église Sainte-Jeanne-d'Arc de Nice,"http://dbpedia.org/resource/Sainte_Jeanne_d'Arc,_Nice",89.0
+http://data.linkedevents.org/location/eeda4e0e-12a7-3f08-9543-ccd41d977dc1,Bowling Acropolis,Acropolis (Nice),http://dbpedia.org/resource/Palais_des_Congrès_Acropolis,88.2
+http://data.linkedevents.org/location/3f91bfdf-ce2d-343a-b3ab-ea15f14603d5,Magnan Plage,Magnan (Nice),http://dbpedia.org/resource/Magnan_(river),88.2
+http://data.linkedevents.org/location/33384ecb-0509-32bf-9e6f-6351aad4310e,Pop Sud Bsn Stade du Ray,Stade du Ray,http://dbpedia.org/resource/Stade_du_Ray,88.0
+http://data.linkedevents.org/location/ee1882f9-14ac-341a-84fb-4a36f4387152,Nice,Negresco,http://dbpedia.org/resource/Hotel_Negresco,87.4
+http://data.linkedevents.org/location/d841bcc8-b334-384f-97b6-d915ec39d884,"Populaire Sud, Stade Du Ray",Stade du Ray,http://dbpedia.org/resource/Stade_du_Ray,87.4
+http://data.linkedevents.org/location/06b13080-2698-3ba0-8366-16897b5842b7,Bord de Mer sur La Promenade des Anglais,Promenade des Anglais,http://dbpedia.org/resource/Promenade_des_Anglais,87.2
+http://data.linkedevents.org/location/aa3fa45a-2d9d-38b8-897c-cff2a87f339e,Casino Supermarche Magnan,Magnan (Nice),http://dbpedia.org/resource/Magnan_(river),87.2
+http://data.linkedevents.org/location/285ddc3e-0595-3200-b435-51c42f8ddc6b,Open De Nice - Parc Imperial,Open de Nice,http://dbpedia.org/resource/Open_de_Nice_Côte_d'Azur,87.2
+http://data.linkedevents.org/location/d615f7b1-0488-39fa-91e7-89f316a2f543,C.E.D.A.C Terra Amata,Terra Amata,http://dbpedia.org/resource/Terra_Amata_(archaeological_site),87.0
+http://data.linkedevents.org/location/c5231567-a0c8-317b-8367-bbd45c8fd338,Cal Notre Dame.,Notre-Dame de Nice,http://dbpedia.org/resource/Notre-Dame_de_Nice,87.0
+http://data.linkedevents.org/location/4de07618-696c-40ab-a3fb-f857c7d7fa8d,Musée Chagall,Musée Marc-Chagall (Nice),http://dbpedia.org/resource/Musée_Marc_Chagall,86.6
+http://data.linkedevents.org/location/transit/Nice/stop/5a0968bb-4d80-3a47-8f49-5daa44f8015f,Musée Chagall,Musée Marc-Chagall (Nice),http://dbpedia.org/resource/Musée_Marc_Chagall,86.6
+http://data.linkedevents.org/location/187a1240-83c5-3ddb-aedf-02b540410d21,Scm Notre Dame,Notre-Dame de Nice,http://dbpedia.org/resource/Notre-Dame_de_Nice,86.4
+http://data.linkedevents.org/location/af019ceb-f9a2-3dc8-8c44-3bc59d70dd7b,Avenue Notre Dame,Notre-Dame de Nice,http://dbpedia.org/resource/Notre-Dame_de_Nice,86.2
+http://data.linkedevents.org/location/441caeee-2095-372f-8451-b99427d19de2,Station Acropolis [T1],Acropolis (Nice),http://dbpedia.org/resource/Palais_des_Congrès_Acropolis,86.2
+http://data.linkedevents.org/location/e352db2e-11ef-32de-98f9-80bc1c3c5813,Concert De Johnny Halliday Au Palais Nikaia - Nice,Palais Nikaia,http://dbpedia.org/resource/Palais_Nikaia,86.0
+http://data.linkedevents.org/location/8729e5b4-859c-3223-a736-283e3a0d8213,Drap Pizza,Drap,http://dbpedia.org/resource/Drap,85.6
+http://data.linkedevents.org/location/21e0dffa-cdef-3f46-8516-b682e80a6186,Conservatoire de Nice,Conservatoire à rayonnement régional de Nice,http://dbpedia.org/resource/Conservatory_of_Nice,85.4
+http://data.linkedevents.org/location/be7fac75-bb59-41fd-a626-4bd7e77f0a7f,"Acropolis, SALLE PICASSO",Acropolis (Nice),http://dbpedia.org/resource/Palais_des_Congrès_Acropolis,85.2
+http://data.linkedevents.org/location/af531691-6e1a-3d0c-9b14-161a180633a2,Résidence LP Cimiez,Cimiez,http://dbpedia.org/resource/Cimiez,85.2
+http://data.linkedevents.org/location/adf208de-f86a-39c8-b94e-b9a7edfcfbe4,Eglise Notre Dame,Notre-Dame de Nice,http://dbpedia.org/resource/Notre-Dame_de_Nice,85.0
+http://data.linkedevents.org/location/2649f841-2b2c-3cae-945d-bc9e950a027c,Ancien Chateau,Château de Nice,http://dbpedia.org/resource/Castle_of_Nice,84.6
+http://data.linkedevents.org/location/8f924776-50cf-3f89-a528-370bc4572900,Cascade Du Château,Château de Nice,http://dbpedia.org/resource/Castle_of_Nice,84.4
+http://data.linkedevents.org/location/transit/Nice/stop/b47f8a1b-979a-37a2-87b2-8677961e7572,Magnan / Promenade,Magnan (Nice),http://dbpedia.org/resource/Magnan_(river),84.4
+http://data.linkedevents.org/location/094d7550-f27d-3b4a-a202-39dc8f30edb3,Magnan/Promenade,Magnan (Nice),http://dbpedia.org/resource/Magnan_(river),84.4
+http://data.linkedevents.org/location/af887513-003f-3f89-be91-6a91dc46e731,Acropolis / Barla,Acropolis (Nice),http://dbpedia.org/resource/Palais_des_Congrès_Acropolis,84.2
+http://data.linkedevents.org/location/transit/Nice/stop/6c43f06d-cea5-34fb-8508-b9ed95082ff1,Acropolis / Barla,Acropolis (Nice),http://dbpedia.org/resource/Palais_des_Congrès_Acropolis,84.2
+http://data.linkedevents.org/location/194f9733-3758-39ca-87a6-e5a2dba3956a,Allianz Riviera Salon Du 2 Roues,Allianz Riviera,http://dbpedia.org/resource/Allianz_Riviera,84.2
+http://data.linkedevents.org/location/046f42d1-6aa3-3aa5-9b9c-447211757313,PARC AUTO NOTRE DAME,Notre-Dame de Nice,http://dbpedia.org/resource/Notre-Dame_de_Nice,84.2
+http://data.linkedevents.org/location/9a49f764-b2db-306d-bf80-3f953b433a7b,Les Delices de l'opera,Opéra de Nice,http://dbpedia.org/resource/Opéra_de_Nice,84.0
+http://data.linkedevents.org/location/9cc70579-d234-3c61-8481-b43aa8071773,Les Délices de l'Opéra,Opéra de Nice,http://dbpedia.org/resource/Opéra_de_Nice,84.0
+http://data.linkedevents.org/location/b7988bf1-3093-3337-ac4a-bd1cbe56fb3f,Gymnase De Drap,Drap,http://dbpedia.org/resource/Drap,83.8
+http://data.linkedevents.org/location/e441922d-f420-3df7-ae9e-ea6c69757a94,Gymnase De Drap,Drap,http://dbpedia.org/resource/Drap,83.8
+http://data.linkedevents.org/location/50fbac29-c16d-3f28-b022-b322ae1102c8,Nice,Avenue Jean-Médecin,http://dbpedia.org/resource/Avenue_Jean_Médecin,83.8
+http://data.linkedevents.org/location/3a5c9c01-fa50-3bba-b1c2-06a97dcc971f,"British Airways Lounge, Aeroport Nice Cote D'azur",Aéroport Nice Côte d'Azur,http://dbpedia.org/resource/Nice_Côte_d'Azur_Airport,83.6
+http://data.linkedevents.org/location/8e31bbf8-71c2-4adf-9517-44a780fccd15,Jardin Botanique,Jardin botanique de la ville de Nice,http://dbpedia.org/resource/Jardin_botanique_de_la_Ville_de_Nice,83.4
+http://data.linkedevents.org/location/transit/Nice/stop/430e4073-6031-3f15-aa2d-0f0a0bc4688e,Jardin Botanique,Jardin botanique de la ville de Nice,http://dbpedia.org/resource/Jardin_botanique_de_la_Ville_de_Nice,83.4
+http://data.linkedevents.org/location/621a938e-392a-30d9-8a68-b11988247814,Médiathèque Drap,Drap,http://dbpedia.org/resource/Drap,83.4
+http://data.linkedevents.org/location/c618ee8b-760a-34ab-b674-0e633138bef3,Nice,Théâtre de verdure de Nice,http://dbpedia.org/resource/Théâtre_de_verdure_de_Nice,83.4
+http://data.linkedevents.org/location/e0fcb67d-5a0a-38f8-a813-0fbee6139bd8,Pharmacie de l'Opéra,Opéra de Nice,http://dbpedia.org/resource/Opéra_de_Nice,83.2
+http://data.linkedevents.org/location/83d66be6-10bb-3714-8949-9a4fb2dc609f,Brasserie Nouvelle Acropolis,Acropolis (Nice),http://dbpedia.org/resource/Palais_des_Congrès_Acropolis,83.0
+http://data.linkedevents.org/location/78a1fc40-29ab-3e64-bfc7-1a609dc1ef34,Boutique Opéra,Opéra de Nice,http://dbpedia.org/resource/Opéra_de_Nice,82.8
+http://data.linkedevents.org/location/d9536850-32d7-39fe-9653-e5a5104dbed4,"Controle technique AutoSecuritas Saint-André de la Roche, Gvilo SAS",Saint-André-de-la-Roche,http://dbpedia.org/resource/Saint-André-de-la-Roche,82.8
+http://data.linkedevents.org/location/1170d984-8afa-402c-a95e-a214da6b801a,"Acropolis, SALLE KLEIN",Acropolis (Nice),http://dbpedia.org/resource/Palais_des_Congrès_Acropolis,81.6
+http://data.linkedevents.org/location/691d49ea-dfab-36a9-9f81-f10f0bbc1493,Pub Opéra,Opéra de Nice,http://dbpedia.org/resource/Opéra_de_Nice,81.6
+http://data.linkedevents.org/location/b358e551-dc21-313d-9e07-e164fedc2623,La Fete Du Chateau,Château de Nice,http://dbpedia.org/resource/Castle_of_Nice,81.4
+http://data.linkedevents.org/location/984aa988-572e-46a9-90ff-307de1e07606,"Acropolis, SALLE CHAGALL",Acropolis (Nice),http://dbpedia.org/resource/Palais_des_Congrès_Acropolis,81.0
+http://data.linkedevents.org/location/2f1202af-dd58-4cb6-a514-7193988ebbff,"Acropolis, SALLE MATISSE",Acropolis (Nice),http://dbpedia.org/resource/Palais_des_Congrès_Acropolis,81.0
+http://data.linkedevents.org/location/26208d0b-4222-380b-b62a-b10cce87a785,Falicon Immobilier,Falicon,http://dbpedia.org/resource/Falicon,81.0
+http://data.linkedevents.org/location/69e7b5b8-91f1-3c2b-a61b-f1e9783d4b60,Rade de Villefranche,Canton de Villefranche-sur-Mer,http://dbpedia.org/resource/Canton_of_Villefranche-sur-Mer,81.0
+http://data.linkedevents.org/location/e20b55c6-b823-3f8f-9092-573cca58be6f,School Specialized Du Château,Château de Nice,http://dbpedia.org/resource/Castle_of_Nice,81.0
+http://data.linkedevents.org/location/edabcf01-a38e-32b4-bf4d-6b281172f7d4,Agata,Terra Amata,http://dbpedia.org/resource/Terra_Amata_(archaeological_site),80.8
+http://data.linkedevents.org/location/511a0f45-0d01-3de4-be50-7310f2168d59,La naturelle,Muséum d'histoire naturelle de Nice,http://dbpedia.org/resource/Muséum_d'histoire_naturelle_de_Nice,80.8
+http://data.linkedevents.org/location/cf7030ab-83a2-30da-aa62-64295f33976f,Acropolis Congress Venue,Acropolis (Nice),http://dbpedia.org/resource/Palais_des_Congrès_Acropolis,80.6
+http://data.linkedevents.org/location/0229a7a3-9ebd-3489-907d-4476668003e4,Allianz Riviera. Salon Vip Baie Des Anges.,Allianz Riviera,http://dbpedia.org/resource/Allianz_Riviera,80.6
+http://data.linkedevents.org/location/7023d15b-cdb7-4a29-b146-33c970d99f20,"Acropolis, SALLE DUFY",Acropolis (Nice),http://dbpedia.org/resource/Palais_des_Congrès_Acropolis,80.4
+http://data.linkedevents.org/location/8559dbe2-cd31-3bcf-8c1b-9733b156ab59,Atelier Nice,IAE Nice,http://dbpedia.org/resource/IAE_Nice,80.4
+http://data.linkedevents.org/location/65f02ba3-8789-3fa2-8fbf-fdda024839cd,Station n°161,Station Nice CP,http://dbpedia.org/resource/Gare_de_Nice_CP,80.4
+http://data.linkedevents.org/location/afedc5d7-c075-3f12-8dc0-658c6763296d,Musée Chéret,Musée des Beaux-Arts Jules Chéret,http://dbpedia.org/resource/Musée_des_Beaux-Arts_de_Nice,80.2
+http://data.linkedevents.org/location/transit/Nice/stop/ecbc03bf-4692-369a-9602-ab9e19fa6f78,Musée Chéret,Musée des Beaux-Arts Jules Chéret,http://dbpedia.org/resource/Musée_des_Beaux-Arts_de_Nice,80.2
+http://data.linkedevents.org/location/a1fdf66a-cb0a-3441-b5f6-073791527ffb,Palais Immobilier Opéra,Opéra de Nice,http://dbpedia.org/resource/Opéra_de_Nice,80.2
