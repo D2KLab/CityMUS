@@ -141,3 +141,6 @@ with open('data/dbpedia_match.csv','wb') as out:
     for row in dbpedia_match_sorted:
         row_utf8 = [s.encode('utf-8') if type(s) == unicode else s for s in row]
         csv_out.writerow(row_utf8)
+        
+with open('data/dbpedia_match.json','wb') as out:
+    json.dump(dbpedia_match_sorted,out)
