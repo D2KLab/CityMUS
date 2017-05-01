@@ -14,3 +14,5 @@ in the future. The script automatically keeps trace of the work already done.
 |`Input works file` |It is the file where are contained all matched works, in the  |kdkdk
 
 TO CONTINUE
+
+![Concept diagram](https://drive.google.com/open?id=0B2m64YbMzInoNnUwM0kwdU9aTTQ)
