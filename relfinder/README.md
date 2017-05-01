@@ -15,4 +15,4 @@ in the future. The script automatically keeps trace of the work already done.
 
 TO CONTINUE
 
-![Concept diagram](https://drive.google.com/open?id=0B2m64YbMzInoNnUwM0kwdU9aTTQ)
+![Diagram](Concept_diagram.png)
