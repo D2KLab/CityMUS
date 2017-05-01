@@ -66,7 +66,6 @@ df1 = pd.read_csv(sys.argv[1])
 works_list = df1[df1.columns[1]]
 poi_filepath = sys.argv[2]
 if "Nice" == poi_filepath:
-    print "aaaaa"
     max_depth = '4'
     if 'wikidata' in poi_filepath:
         output_path = 'output_files/all_links_wikidata_Nice/'
@@ -87,11 +86,12 @@ else:
         output_path = 'output_files/all_links_wikidata/'
         trace_path = 'output_files/already_done_wikidata.csv'
         endpoint = "https://query.wikidata.org/sparql"
+        POI_list = df2[df2.columns[3]].drop_duplicates()
     else:
         output_path = 'output_files/all_links_dbpedia/'
         trace_path = 'output_files/already_done_dbpedia.csv'
         endpoint = "https://dbpedia.org/sparql"
-    POI_list = df2[df2.columns[3]].drop_duplicates()
+        POI_list = df2[df2.columns[0]]
 
 #POI_list = pd.read_csv(sys.argv[2])[0]
 #POI_list = ["http://dbpedia.org/resource/Nice"]
