@@ -19,7 +19,7 @@ Trying running the script, we have noted that it takes a very long time. In fact
 As you can deduce, when the number of works and POIs is high, the algorithm is too slow. To solve this problem we thought to not pass to Relfinder the POIs but to pass the Nice entity, increasing the max depth. This suggestion is justified by the hyphotesis that every POI should be linked with Nice, being a Nice POI. Teorically this is true, but we have noted that in Wikidata some POIs are not linked with Nice and in Dbpedia some POIs are too far from the Nice entity. However these are a minority, so we think that this is a good alternative. As Nice entity, we'll use:
 
 * the entity [http://www.wikidata.org/entity/Q33959](http://www.wikidata.org/entity/Q33959) for Wikidata
-* the entity [http://dbpedia.org/resource/Nice](http://dbpedia.org/resource/Nice) or [http://dbpedia.org/resource/Category:Nice](http://dbpedia.org/resource/Category:Nice)  for DBpedia
+* the entities [http://dbpedia.org/resource/Nice](http://dbpedia.org/resource/Nice) and [http://dbpedia.org/resource/Category:Nice](http://dbpedia.org/resource/Category:Nice)  for DBpedia
 
 Below there is a graph that shows the case in which we try linking directly works and POIs and the case in which we link works and Nice. In addition the possible paths are showed; the red ones are the bad ones, in which the work is linked with Nice beore, and then from Nice to the specic POI. In this case the work will be linked with all POIs linked with Nice and this is not good because we'll have low discimination. This case is the one that disappears when we genearally link the works with Nice, but this is not a big problem because we are not really interested to these links.
 
