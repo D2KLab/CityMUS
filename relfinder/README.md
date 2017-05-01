@@ -39,18 +39,24 @@ To execute `SubProc.py` understanding the right command line argument to pass is
 
 So basically we have 4 possible alternatives (commands) to execute the script:
 
-1. `python Subproc.py input_files/2_4_doremus_dbpedia_works.csv input_files/3cixty_dbpedia_match.csv 100`
-2. `python Subproc.py input_files/2_4_doremus_dbpedia_works.csv Nice 100`
-3. `python Subproc.py input_files/2_0_doremus_wikidata_works.csv 3cixty_wikidata_match.csv 100`
-4. `python Subproc.py input_files/2_0_doremus_wikidata_works.csv Nice 100`
+* For DBpedia
+  1. `python Subproc.py input_files/2_4_doremus_dbpedia_works.csv input_files/3cixty_dbpedia_match.csv 100`
+  2. `python Subproc.py input_files/2_4_doremus_dbpedia_works.csv Nice 100`
+* For Wikidata
+  3. `python Subproc.py input_files/2_0_doremus_wikidata_works.csv 3cixty_wikidata_match.csv 100`
+  4. `python Subproc.py input_files/2_0_doremus_wikidata_works.csv Nice 100`
 
 Here an explanation:
 
-| Alternative/Command number | Description | Extimated time | 
+| Alternative/Command number | Description | Extimated time
 |---|---|---|
-1 |`Input works file` |<span style="color:blue">some *This is Blue italic.* text</span>
-2 |`Input POIS file` or  `Nice`|It is the filepath where are contained all POIS for which we want to execute Relfinder or the string "Nice" if we want to execute Relfinder generically for Nice
-3 |`The number of threads` |We have seen that it's better to execute the scrpit using 100 threads
+1 |Link **wors** and **POIs** in Dbpedia|2-3 days
+2 |Link **wors** and **Nice** in Dbpedia|5 hours
+3 |Link **wors** and **POIs** in Wikidata|more than 10 days
+4 |Link **wors** and **Nice** in Wikidata|1-2 days
+
+For Wikidata the script takes more time because the number of matched POIs and works is higher than for Dbpedia. As you can imagine, the alternative 3 is not runnable becuase it takes too long. However we can run the other alternatives.
+
 
 
 
