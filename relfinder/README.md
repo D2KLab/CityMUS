@@ -48,7 +48,7 @@ Here an explanation:
 
 | Alternative/Command number | Description | Extimated time | 
 |---|---|---|
-1 |`Input works file` |It is the filepath where are contained all works for which we want to execute Relfinder|<span style="color:blue">some *This is Blue italic.* text</span>
+1 |`Input works file` |<span style="color:blue">some *This is Blue italic.* text</span>
 2 |`Input POIS file` or  `Nice`|It is the filepath where are contained all POIS for which we want to execute Relfinder or the string "Nice" if we want to execute Relfinder generically for Nice
 3 |`The number of threads` |We have seen that it's better to execute the scrpit using 100 threads
 
