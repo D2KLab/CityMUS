@@ -76,7 +76,7 @@ if "Nice" == poi_filepath:
         output_path = 'output_files/all_links_dbpedia_Nice/'
         trace_path = 'output_files/already_done_dbpedia_Nice.csv'
         endpoint = "https://dbpedia.org/sparql"
-        POI_list = ["http://dbpedia.org/resource/Nice","http://www.wikidata.org/entity/Q33959"]
+        POI_list = ["http://dbpedia.org/resource/Nice","http://dbpedia.org/resource/Category:Nice"]
 else:
     max_depth = '3'
     df2 = pd.read_csv(poi_filepath)
