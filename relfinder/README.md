@@ -48,7 +48,7 @@ So basically we have 4 possible alternatives (commands) to execute the script:
 
 Here an explanation:
 
-| Alternative/Command number | Description | Extimated time
+| Alternative | Description | Extimated time
 |---|---|---|
 1 |Link **wors** and **POIs** in Dbpedia|2-3 days
 2 |Link **wors** and **Nice** in Dbpedia|5 hours
