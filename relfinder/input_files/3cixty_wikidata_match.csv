@@ -1,0 +1,377 @@
+3cixty_uri,3cixty_label,dbpedia_label,dbpedia_uri,score,correct
+http://data.linkedevents.org/location/c19f553c-06cd-3dee-8626-fa4e801fc664,Acropolis,Acropolis,http://www.wikidata.org/entity/Q2823500,100.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/05786200-7110-395b-a2a1-43e450bf2ca6,Acropolis,Acropolis,http://www.wikidata.org/entity/Q2823500,100.00.00,y
+http://data.linkedevents.org/location/c5e5c428-0342-330e-be99-351a9c1c936f,Avenue Jean Médecin,avenue Jean-Médecin,http://www.wikidata.org/entity/Q2873716,100.00.00,y
+http://data.linkedevents.org/location/998bc434-34ac-4ccd-aaf1-6d627a5b832c,Avenue Jean médecin,avenue Jean-Médecin,http://www.wikidata.org/entity/Q2873716,100.00.00,y
+http://data.linkedevents.org/location/1db0128e-60f3-32ef-8241-de334d241ad8,Avenue Jean-Médecin,avenue Jean-Médecin,http://www.wikidata.org/entity/Q2873716,100.00.00,y
+http://data.linkedevents.org/location/fe4f6290-77c5-33e5-82eb-a6edf97067d6,Basilique Notre-Dame de Nice,basilique Notre-Dame de Nice,http://www.wikidata.org/entity/Q2886962,100.00.00,y
+http://data.linkedevents.org/location/a540e533-b401-3a7b-9a03-5bb88d551d6a,Cantón de Villefranche-sur-Mer,canton de Villefranche-sur-Mer,http://www.wikidata.org/entity/Q94088,100.00.00,y
+http://data.linkedevents.org/location/71bcbf51-8443-46e2-a8fe-74b2126005c7,Cap 3000,Cap 3000,http://www.wikidata.org/entity/Q2936988,100.00.00,y
+http://data.linkedevents.org/location/07dd2e6f-3d38-3cc3-88be-d5cc26b4ea68,Cap de Nice,Cap de Nice,http://www.wikidata.org/entity/Q2937139,100.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/30e46bf4-14cb-34e5-9870-14c37436c5b9,Carabacel,Carabacel,http://www.wikidata.org/entity/Q2937760,100.00.00,y
+http://data.linkedevents.org/location/ebddcc70-487e-3163-b882-32888777162d,Cascade de Gairaut,cascade de Gairaut,http://www.wikidata.org/entity/Q2940840,100.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/92849823-569d-38cb-b4ea-4d752014bc64,Cascade de Gairaut,cascade de Gairaut,http://www.wikidata.org/entity/Q2940840,100.00.00,y
+http://data.linkedevents.org/location/0cfa2697-a099-317d-9d44-d4b1f6966de9,Cathédrale Saint Nicolas,cathédrale Saint-Nicolas,http://www.wikidata.org/entity/Q2205594,100.00.00,y
+http://data.linkedevents.org/location/2dff4d67-78ed-3062-b6fc-09768eaab5a7,Cathédrale Saint-Nicolas,cathédrale Saint-Nicolas,http://www.wikidata.org/entity/Q2205594,100.00.00,y
+http://data.linkedevents.org/location/a8ddffec-5ec9-3f3c-9c7a-b14a15a77c2b,Chapelle de la Visitation Sainte Claire,chapelle de la Visitation Sainte-Claire,http://www.wikidata.org/entity/Q2957346,100.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/639c76e0-ec6d-3cb6-b6f8-aa64ffe90847,Château de Crémat,château de Crémat,http://www.wikidata.org/entity/Q2969092,100.00.00,y
+http://data.linkedevents.org/location/c815138a-075d-4736-9302-1b6695429470,Château de Nice,château de Nice,http://www.wikidata.org/entity/Q2970127,100.00.00,y
+http://data.linkedevents.org/location/eeb2e242-ca6d-3a5c-8dea-2c0cfb8810fe,Château de Valrose,château de Valrose,http://www.wikidata.org/entity/Q2970898,100.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/547d7cbc-4575-31f3-808d-38c653e444bf,Château de l'Anglais,château de l'Anglais,http://www.wikidata.org/entity/Q2640864,100.00.00,y
+http://data.linkedevents.org/location/9585cef1-03c2-3613-8473-df46fea2b85e,Citadelle Saint-Elme,citadelle Saint-Elme,http://www.wikidata.org/entity/Q2974372,100.00.00,y
+http://data.linkedevents.org/location/c6cff77a-77e4-4290-a24a-7abd8e4c9dbb,Cours Saleya,Cours Saleya,http://www.wikidata.org/entity/Q3001353,100.00.00,y
+http://data.linkedevents.org/location/b33cf91c-4c45-3c56-ada7-8944b944e9ba,Croix Séraphique de Cimiez,croix séraphique de Cimiez,http://www.wikidata.org/entity/Q3003690,100.00.00,y
+http://data.linkedevents.org/location/e2e86668-775d-304b-90f6-42b15e8f4a06,Excelsior Régina Palace,Excelsior Régina Palace,http://www.wikidata.org/entity/Q3061807,100.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/009f7c23-f010-31ff-ab10-c19ed9bd3a58,Falicon,Falicon,http://www.wikidata.org/entity/Q867129,100.00.00,y
+http://data.linkedevents.org/location/adc47e7a-e998-3ddd-8f18-70a0b3e69487,Fontaine des Tritons,fontaine des Tritons,http://www.wikidata.org/entity/Q3076243,100.00.00,y
+http://data.linkedevents.org/location/11d73c22-a88a-3c4d-bed3-55b8626a0375,Gare de Nice Riquier,gare de Nice-Riquier,http://www.wikidata.org/entity/Q975315,100.00.00,y
+http://data.linkedevents.org/location/512052eb-b546-31ac-b035-994527c9eacb,Gare de Nice-Riquier,gare de Nice-Riquier,http://www.wikidata.org/entity/Q975315,100.00.00,y
+http://data.linkedevents.org/location/fe4ac53b-8900-3ae8-bd15-e17fa10cd511,Gare de Nice-Saint-Roch,gare de Nice-Saint-Roch,http://www.wikidata.org/entity/Q3097204,100.00.00,y
+http://data.linkedevents.org/location/79f83901-c5f5-3353-a0b7-b47d45828335,Gare de Saint-Laurent du Var,gare de Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q15188534,100.00.00,y
+http://data.linkedevents.org/location/3d8f4fbc-9dff-3680-bac3-ace51ca01a9f,Gare de Saint-Laurent-du-Var,gare de Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q15188534,100.00.00,y
+http://data.linkedevents.org/location/2526f97d-c74d-37c2-b390-968e3d7c61cd,Gare de Villefranche-sur-Mer,gare de Villefranche-sur-Mer,http://www.wikidata.org/entity/Q1862280,100.00.00,y
+http://data.linkedevents.org/location/93e52bec-e921-33cb-b6a1-6315b702ceb3,Gare de l'Ariane - La Trinité,gare de l'Ariane - La Trinité,http://www.wikidata.org/entity/Q15188509,100.00.00,y
+http://data.linkedevents.org/location/20462387-04bd-3da2-b133-0a59ddb2f4ba,Halle des sports Charles-Ehrmann,Halle des sports Charles-Ehrmann,http://www.wikidata.org/entity/Q16303731,100.00.00,y
+http://data.linkedevents.org/location/ea5a808a-6769-4813-8fc4-650aa0887aeb,Hotel Negresco,hôtel Negresco,http://www.wikidata.org/entity/Q743147,100.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/b4f04959-ff45-3469-8ef8-49967b1b1aa2,Lycée Masséna,lycée Masséna,http://www.wikidata.org/entity/Q3268838,100.00.00,y
+http://data.linkedevents.org/location/19a7b596-f6eb-3161-88a5-b54fe7640876,Magnan,Magnan,http://www.wikidata.org/entity/Q3277062,100.00.00,y
+http://data.linkedevents.org/location/3951c4aa-c112-3891-938e-1277e023228f,Magnan,Magnan,http://www.wikidata.org/entity/Q3277062,100.00.00,y
+http://data.linkedevents.org/location/e4a459b4-83b7-3000-bfc4-bd2f97a6b812,Magnan,Magnan,http://www.wikidata.org/entity/Q3277062,100.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/16c1c30f-db7d-36d3-bb9c-e3494fbc52bc,Magnan,Magnan,http://www.wikidata.org/entity/Q3277062,100.00.00,y
+http://data.linkedevents.org/location/b0c224d3-382c-393c-ac53-d17be052aaa0,Monastère de Cimiez,monastère de Cimiez,http://www.wikidata.org/entity/Q3320265,100.00.00,y
+http://data.linkedevents.org/location/3186377d-ac1c-3a71-bf40-8c37002ba227,Mont Boron,mont Boron,http://www.wikidata.org/entity/Q3321705,100.00.00,y
+http://data.linkedevents.org/location/ed3c7c5d-61d3-41dc-83d0-14a0cbf5da20,Monument aux morts de Rauba-Capeù,monument aux morts de Rauba-Capeù,http://www.wikidata.org/entity/Q3323294,100.00.00,y
+http://data.linkedevents.org/location/274fc357-6730-4b4f-a779-d2d99845bca0,Musée International d’art Naif Anatole Jakovsky,musée international d'art naïf Anatole Jakovsky,http://www.wikidata.org/entity/Q3330613,100.00.00,y
+http://data.linkedevents.org/location/413cb48a-2d39-43f9-949e-62b5d2e041aa,Musée Masséna,musée Masséna,http://www.wikidata.org/entity/Q3329270,100.00.00,y
+http://data.linkedevents.org/location/1e71ebd3-d495-4c35-88ff-3f749b65263b,Musée Matisse,musée Matisse,http://www.wikidata.org/entity/Q1563354,100.00.00,y
+http://data.linkedevents.org/location/947ec7be-9cc5-3466-9fcb-5263c51b8442,Musée National du Sport,musée national du Sport,http://www.wikidata.org/entity/Q3330734,100.00.00,y
+http://data.linkedevents.org/location/676841f5-0f51-3fa7-9f5a-aed6ee41ba7a,Musée archéologique de Nice-Cimiez,musée archéologique de Nice-Cimiez,http://www.wikidata.org/entity/Q3329446,100.00.00,y
+http://data.linkedevents.org/location/50fbac29-c16d-3f28-b022-b322ae1102c8,Nice,Nice,http://www.wikidata.org/entity/Q33959,100.00.00,y
+http://data.linkedevents.org/location/dcadce63-5660-3fcb-b184-3044a2a40c33,Nice,Nice,http://www.wikidata.org/entity/Q33959,100.00.00,y
+http://data.linkedevents.org/location/579aa423-cb1b-3d35-90d5-ef482aa093ad,Nice Lawn Tennis Club,Nice Lawn Tennis Club,http://www.wikidata.org/entity/Q691078,100.00.00,y
+http://data.linkedevents.org/location/813fcaf9-4578-356c-bfb7-fac2c4049173,Nice Lingostière,Nice Lingostière,http://www.wikidata.org/entity/Q3339613,100.00.00,y
+http://data.linkedevents.org/location/759f64c3-8b08-499c-89a2-81db3d2e3b76,Observatoire de Nice,observatoire de Nice,http://www.wikidata.org/entity/Q508362,100.00.00,y
+http://data.linkedevents.org/location/37012dce-9584-49c9-af70-68dc192a9ef4,Opéra de Nice,opéra de Nice,http://www.wikidata.org/entity/Q608423,100.00.00,y
+http://data.linkedevents.org/location/ce05490c-b7eb-3b0f-b8cd-d4439079684f,Opéra de Nice,opéra de Nice,http://www.wikidata.org/entity/Q608423,100.00.00,y
+http://data.linkedevents.org/location/e4e2fecd-c7cd-3fad-b079-874a6d689041,Palais Baréty,palais Baréty,http://www.wikidata.org/entity/Q15952894,100.00.00,y
+http://data.linkedevents.org/location/046a44c9-1cfd-3619-85d9-7d635cba35bf,Palais Hongran,palais Hongran,http://www.wikidata.org/entity/Q13518326,100.00.00,y
+http://data.linkedevents.org/location/20a9c6d5-434c-4aa3-a0d6-9e40f090ed8f,Palais Lascaris,palais Lascaris,http://www.wikidata.org/entity/Q3360882,100.00.00,y
+http://data.linkedevents.org/location/803dddd2-91ed-3328-84fa-1c87df8ec5e4,Palais Lascaris,palais Lascaris,http://www.wikidata.org/entity/Q3360882,100.00.00,y
+http://data.linkedevents.org/location/0ea336b9-37cc-3bba-bec5-330e530ecf5d,Palais Meyerbeer,palais Meyerbeer,http://www.wikidata.org/entity/Q13518224,100.00.00,y
+http://data.linkedevents.org/location/ff2228b7-e347-43c0-bb7d-501a0171636c,Palais Nikaia,palais Nikaia,http://www.wikidata.org/entity/Q1033364,100.00.00,y
+http://data.linkedevents.org/location/731551f8-0ba6-3f97-b37f-a3f089e83509,Palais communal de Nice,palais communal de Nice,http://www.wikidata.org/entity/Q3360951,100.00.00,y
+http://data.linkedevents.org/location/220c7ac5-f2bc-3212-bd5d-84460cf60226,Palais d'York,palais d'York,http://www.wikidata.org/entity/Q13516908,100.00.00,y
+http://data.linkedevents.org/location/a09c5181-5cd4-3cda-b684-8d092f43fa45,Palais de l'agriculture,palais de l'agriculture,http://www.wikidata.org/entity/Q4277750,100.00.00,y
+http://data.linkedevents.org/location/cf4083d7-f30a-48a7-bc07-15fa80c6a139,Palais des Sports Jean-Bouin,palais des sports Jean-Bouin,http://www.wikidata.org/entity/Q3361121,100.00.00,y
+http://data.linkedevents.org/location/59d4e126-2497-32f3-acbb-e69bb72030c2,Parc d'estienne d'orves,parc d'Estienne-d'Orves,http://www.wikidata.org/entity/Q3363963,100.00.00,y
+http://data.linkedevents.org/location/b82d3d3d-6037-4be8-a6be-532cd7287c32,Place Garibaldi,place Garibaldi,http://www.wikidata.org/entity/Q3389830,100.00.00,y
+http://data.linkedevents.org/location/2e0e6f14-70cb-374f-aad8-bcea201bf94a,Place Masséna,place Masséna,http://www.wikidata.org/entity/Q3389982,100.00.00,y
+http://data.linkedevents.org/location/50d99c53-c04a-4f1d-b869-92044f3e8e1b,Place masséna,place Masséna,http://www.wikidata.org/entity/Q3389982,100.00.00,y
+http://data.linkedevents.org/location/30673145-4176-3eb3-9fb9-baab8af551b1,Port Lympia,port Lympia,http://www.wikidata.org/entity/Q3398372,100.00.00,y
+http://data.linkedevents.org/location/81d857b7-9195-4cb0-a0ad-127b9924ee92,Promenade des Anglais,promenade des Anglais,http://www.wikidata.org/entity/Q1849491,100.00.00,y
+http://data.linkedevents.org/location/7f98ad67-48a8-4527-ae60-7595adfe906c,Promenade du Paillon,Promenade du Paillon,http://www.wikidata.org/entity/Q16510514,100.00.00,y
+http://data.linkedevents.org/location/92fc831b-1766-33c1-91a4-d5b6cf31285e,Promenade du Paillon,Promenade du Paillon,http://www.wikidata.org/entity/Q16510514,100.00.00,y
+http://data.linkedevents.org/location/3f85a881-3445-3668-b393-7ddeaf7e1792,Quartier du port,quartier du port,http://www.wikidata.org/entity/Q3413294,100.00.00,y
+http://data.linkedevents.org/location/69e7b5b8-91f1-3c2b-a61b-f1e9783d4b60,Rade de Villefranche,Rade de Villefranche,http://www.wikidata.org/entity/Q16510586,100.00.00,y
+http://data.linkedevents.org/location/ffc2adaf-5478-3402-8985-6cd21edd092b,Saint-André-de-la-Roche,Saint-André-de-la-Roche,http://www.wikidata.org/entity/Q746896,100.00.00,y
+http://data.linkedevents.org/location/8c3490cf-d609-4a96-8b78-542de8aa3754,Stade du Ray,stade du Ray,http://www.wikidata.org/entity/Q1469394,100.00.00,y
+http://data.linkedevents.org/location/96a9895b-051a-4ff6-88f4-ab119bc84bdf,Théatre National de Nice,théâtre national de Nice,http://www.wikidata.org/entity/Q3527885,100.00.00,y
+http://data.linkedevents.org/location/81d8b993-e0a8-3c64-8999-3519e02b54d6,Tunnel de Las Planas,tunnel de Las Planas,http://www.wikidata.org/entity/Q3542142,100.00.00,y
+http://data.linkedevents.org/location/f4e6f09d-4cac-3ca1-a1a5-8d9ce6aef9e1,Viaduc de l'Oli,viaduc de l'Oli,http://www.wikidata.org/entity/Q3556639,100.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/8926a1ca-300c-342f-a018-85a913d8f4a3,Viaduc de l'Oli,viaduc de l'Oli,http://www.wikidata.org/entity/Q3556639,100.00.00,y
+http://data.linkedevents.org/location/0c925d91-79be-3e35-98b3-f735aaba6108,Viaduc du Magnan,viaduc du Magnan,http://www.wikidata.org/entity/Q3556706,100.00.00,y
+http://data.linkedevents.org/location/2878441c-d3c8-3a07-b2b9-f24495876af7,Viaduc du Vallon des Fleurs,viaduc du Vallon des Fleurs,http://www.wikidata.org/entity/Q3556721,100.00.00,y
+http://data.linkedevents.org/location/45eff589-7a02-390b-93d7-68ee49f4db25,Vieux-Nice,Vieux-Nice,http://www.wikidata.org/entity/Q3558059,100.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/36a26941-fec4-33dd-afc5-5989d34a9d15,Villa Arson,villa Arson,http://www.wikidata.org/entity/Q1107189,100.00.00,y
+http://data.linkedevents.org/location/987614d9-4631-30fd-bd8c-5439f040d4b5,Villa Beau Site,villa Beau Site,http://www.wikidata.org/entity/Q3558462,100.00.00,y
+http://data.linkedevents.org/location/e924c2b4-fd26-3610-a746-6dcc73cd68c1,Villa Leopolda,villa Leopolda,http://www.wikidata.org/entity/Q1495042,100.00.00,y
+http://data.linkedevents.org/location/d8430e07-cd64-31d6-804f-bda1f16ffc93,Villa Paradiso,villa Paradiso,http://www.wikidata.org/entity/Q3558695,100.00.00,y
+http://data.linkedevents.org/location/0cac804e-4909-3326-83a6-c24757325011,Villefranche-sur-Mer,Villefranche-sur-Mer,http://www.wikidata.org/entity/Q207080,100.00.00,y
+http://data.linkedevents.org/location/c827deef-47f2-369a-8f3a-59a4f76a3dc4,Villefranche-sur-Mer,Villefranche-sur-Mer,http://www.wikidata.org/entity/Q207080,100.00.00,y
+http://data.linkedevents.org/location/4246c7d3-a75a-3e92-8076-a30942163b19,Zygofolis,Zygofolis,http://www.wikidata.org/entity/Q3576402,100.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/5e1bc5f2-a30d-3211-8fc1-afb2183f2316,gare de La Trinité-Victor,gare de La Trinité-Victor,http://www.wikidata.org/entity/Q3096816,100.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/6b708f71-d1ba-306a-b769-2fb536e886fc,gare de Nice-Pont-Michel,gare de Nice-Pont-Michel,http://www.wikidata.org/entity/Q18749562,100.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/cbb9335f-84c1-3ec9-a582-e2b195102b69,gare de Nice-Riquier,gare de Nice-Riquier,http://www.wikidata.org/entity/Q975315,100.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/b568dce2-af77-305b-8faa-26511ccf57dc,gare de Nice-Ville,gare de Nice-Ville,http://www.wikidata.org/entity/Q738970,100.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/65d8b7dc-6dc4-3f84-b6fe-09c61978c01a,gare de Villefranche-sur-Mer,gare de Villefranche-sur-Mer,http://www.wikidata.org/entity/Q1862280,100.00.00,y
+http://data.linkedevents.org/location/88ebcf57-e176-3883-8b22-f797caff9cc7,"[u""Parc d'Estienne d'Orves"", u'parc estiennedorv']",parc d'Estienne-d'Orves,http://www.wikidata.org/entity/Q3363963,100.00.00,y
+http://data.linkedevents.org/location/11a68062-02ca-304a-9147-8e786d658773,Église Saint-Jacques-le-Majeur de Nice,église Saint-Jacques-le-Majeur de Nice,http://www.wikidata.org/entity/Q3581839,100.00.00,y
+http://data.linkedevents.org/location/8eb77f60-4f44-3a6b-a394-5824478ef725,Église Saint-Roch de Nice,église Saint-Roch de Nice,http://www.wikidata.org/entity/Q3584280,100.00.00,y
+http://data.linkedevents.org/location/1316a33b-c466-3465-bbc1-dcf38d5e8257,Église Sainte-Hélène de Nice,église Sainte-Hélène de Nice,http://www.wikidata.org/entity/Q15954021,100.00.00,y
+http://data.linkedevents.org/location/7a47c850-88e1-3b25-8ddb-6dcefef9c4c3,Cimetière du Château,cimetière du château (Nice),http://www.wikidata.org/entity/Q2972611,98.08.00,y
+http://data.linkedevents.org/location/477208d2-9ce0-310d-b39d-e4fb4aeff229,Cantón de Saint-Laurent-du-Var-Cagnes-sur-Mer-Este,canton de Saint-Laurent-du-Var-Cagnes-sur-Mer-Est,http://www.wikidata.org/entity/Q1727236,98.06.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/b88c14e3-d257-366b-acae-a36ce7216c83,gare de L'Ariane-la-Trinité,gare de l'Ariane - La Trinité,http://www.wikidata.org/entity/Q15188509,98.02.00,y
+http://data.linkedevents.org/location/4d67c534-9bf0-39ea-ae42-45adc98a8fd6,Alhambra (Nice),Alhambra,http://www.wikidata.org/entity/Q2836046,97.06.00,y
+http://data.linkedevents.org/location/af12dbfd-4410-3f73-a32e-63ed8a27292d,Consulat Général de Tunisie,Consulat général de Tunisie à Nice,http://www.wikidata.org/entity/Q16507616,97.06.00,y
+http://data.linkedevents.org/location/ac773520-61e0-3728-977b-9bb29e09b111,Le Palais Meyerbeer,palais Meyerbeer,http://www.wikidata.org/entity/Q13518224,97.06.00,y
+http://data.linkedevents.org/location/033a4b96-3d88-37b4-a2aa-730abd6ac227,Palais De La Mediterrannee,palais de la Méditerranée,http://www.wikidata.org/entity/Q3361055,97.06.00,y
+http://data.linkedevents.org/location/42b489f3-9108-3364-abc6-79d30b3b0ee7,Chapelle de la Très-Sainte-Trinité et du Saint-Suaire,chapelle de la Très-Sainte-Trinité et du Saint-Suaire de Nice,http://www.wikidata.org/entity/Q2957343,96.08.00,y
+http://data.linkedevents.org/location/42c9c066-3ecf-3ba1-bf13-70f348da0624,KFC Nice Lingostière,Nice Lingostière,http://www.wikidata.org/entity/Q3339613,96.08.00,y
+http://data.linkedevents.org/location/832202f8-20cf-3f7a-97e0-7aebc01cc9ed,Eglise Sainte Marie Madeleine,église Sainte-Marie-Madeleine de Nice,http://www.wikidata.org/entity/Q27345374,96.06.00,y
+http://data.linkedevents.org/location/09bd69a0-0924-37ed-90f9-bf3150b58c6b,Église Saint-François de Paule,église Saint-François-de-Paule de Nice,http://www.wikidata.org/entity/Q3581467,96.06.00,y
+http://data.linkedevents.org/location/3bf5c49d-bd1f-3d61-b19d-8f7a75a9bf4e,"[u'ERAM NICE LINGOSTIERE', u'Eram']",Nice Lingostière,http://www.wikidata.org/entity/Q3339613,96.02.00,y
+http://data.linkedevents.org/location/783ff840-d17d-3056-8ae7-20005ee1c917,PARC AUTO PALAIS DE LA MEDITERRANEE,palais de la Méditerranée,http://www.wikidata.org/entity/Q3361055,96.02.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/b1b51472-d612-3053-ac36-6a07565f8359,Saint-Laurent-du-Var Gare,gare de Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q15188534,96.02.00,y
+http://data.linkedevents.org/location/b5183cee-7d9a-3085-825f-ace9c1522f04,Museo Marc-Chagall,musée Marc-Chagall,http://www.wikidata.org/entity/Q3329265,96.00.00,y
+http://data.linkedevents.org/location/be084093-7487-4c11-aad0-0abaaa298ca6,Stade Charles ehhmann,stade Charles-Ehrmann,http://www.wikidata.org/entity/Q1767749,96.00.00,y
+http://data.linkedevents.org/location/ef91b102-fb0b-39e4-b7e6-d89924595548,saint jean l'evangeliste (église),église Saint-Jean-l'Évangéliste de Nice,http://www.wikidata.org/entity/Q15958164,96.00.00,y
+http://data.linkedevents.org/location/fa837516-eb3c-3abc-b4bd-d1245760944b,Le Palais De l'Agriculture,palais de l'agriculture,http://www.wikidata.org/entity/Q4277750,95.08.00,y
+http://data.linkedevents.org/location/1a0bb0c1-efcb-3a5e-8c54-86c048ef8347,Sur la Place Massena,place Masséna,http://www.wikidata.org/entity/Q3389982,95.08.00,y
+http://data.linkedevents.org/location/058e74b6-3b1f-3d19-9d3a-9b5c2f21ad45,Zara Cap 3000,Cap 3000,http://www.wikidata.org/entity/Q2936988,95.08.00,y
+http://data.linkedevents.org/location/63128343-0559-355e-80f4-52c874b6539f,Eglise Sainte Monique,église Sainte-Monique de Nice,http://www.wikidata.org/entity/Q27345388,95.06.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/50f0da64-0b1a-38d5-8a23-ce6c3603ead3,Jean Médecin,avenue Jean-Médecin,http://www.wikidata.org/entity/Q2873716,95.06.00,y
+http://data.linkedevents.org/location/f79d0283-b4bd-3211-9ad5-14ade37f4c46,Mairie de Villefranche sur Mer,Villefranche-sur-Mer,http://www.wikidata.org/entity/Q207080,95.06.00,y
+http://data.linkedevents.org/location/a77827f6-6a87-3261-8713-d3334b118ccb,Église Sainte Thérèse,église Sainte-Thérèse de Nice,http://www.wikidata.org/entity/Q27345400,95.06.00,y
+http://data.linkedevents.org/location/6e8a58ac-1f6d-3d50-aaec-9f7cb674c851,Eglise Notre Dame de Lourdes,église Notre-Dame-de-Lourdes de Nice,http://www.wikidata.org/entity/Q15958168,95.04.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/e896983b-e0a6-3bb6-842b-f9167990f616,Garibaldi,place Garibaldi,http://www.wikidata.org/entity/Q3389830,95.04.00,y
+http://data.linkedevents.org/location/a256a95b-20fc-346a-89b8-b36b750123ec,Église Saint Joseph,église Saint-Joseph de Nice,http://www.wikidata.org/entity/Q27345235,95.04.00,y
+http://data.linkedevents.org/location/a98a064b-1b7a-462d-b8df-3dfcc05a7c67,Théâtre de verdure,théâtre de verdure de Nice,http://www.wikidata.org/entity/Q3527730,95.02.00,y
+http://data.linkedevents.org/location/0a3f2da9-e1d5-3539-aa29-45239666f622,"[u'Eglise Saint Marc', u'\xc9glise Saint Marc']",église Saint-Marc de Nice,http://www.wikidata.org/entity/Q27345248,95.00.00,y
+http://data.linkedevents.org/location/25cf9930-650e-41c8-9e7f-987666e2f721,Musée d'art moderne et d'art contemprorain,musée d'art moderne et d'art contemporain de Nice,http://www.wikidata.org/entity/Q936859,95.00.00,y
+http://data.linkedevents.org/location/60485b37-6d5b-3ca4-8ae5-99619651c064,Terrasse du Palais de la Méditerranée,palais de la Méditerranée,http://www.wikidata.org/entity/Q3361055,95.00.00,y
+http://data.linkedevents.org/location/2e361e60-56e1-3321-82d4-0b42b51559b3,Villefance-sur-Mer,Villefranche-sur-Mer,http://www.wikidata.org/entity/Q207080,95.00.00,y
+http://data.linkedevents.org/location/4c9e21b0-15b1-3586-b584-39c4b1f7381b,Arroport Nice Cote D' Azur,aéroport Nice Côte d'Azur,http://www.wikidata.org/entity/Q821557,94.08.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/7babce14-b6cc-31c1-b286-1cacd0a2fe7c,Arènes / Musée Matisse,musée Matisse,http://www.wikidata.org/entity/Q1563354,94.08.00,y
+http://data.linkedevents.org/location/29e9e77a-3dd1-3cee-ae55-243bb1e40018,Eglise Arménienne Sainte Marie,église arménienne Sainte-Marie de Nice,http://www.wikidata.org/entity/Q16008715,94.08.00,y
+http://data.linkedevents.org/location/34cdd9e5-d07d-3131-a606-c855eb1027a6,Nice Ville - Promenade Des Anglais,promenade des Anglais,http://www.wikidata.org/entity/Q1849491,94.08.00,y
+http://data.linkedevents.org/location/5678b859-6661-3422-b1b5-ffa7c0826303,Ponte Napoleone III,pont Napoléon III,http://www.wikidata.org/entity/Q3907996,94.08.00,y
+http://data.linkedevents.org/location/36087d80-5af4-3649-83ad-23a922bcaa6c,LCL Saint Laurent du Var,Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q217755,94.04.00,y
+http://data.linkedevents.org/location/c7f1ee32-df85-3717-8195-e2767351f9b8,Stade de Saint Laurent du Var,Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q217755,94.04.00,y
+http://data.linkedevents.org/location/a1892e16-00a7-39f6-a5b0-2f60a70e28f9,Suzuki Saint Laurent du Var,Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q217755,94.02.00,y
+http://data.linkedevents.org/location/2f46028d-567c-4b0c-998a-0844562c7c41,Cathédrale Saint-Nicolas de Nice,cathédrale Saint-Nicolas,http://www.wikidata.org/entity/Q2205594,94.00.00,y
+http://data.linkedevents.org/location/d31e5d0d-18f9-4ec9-8792-1ba3421cb4c5,Cathédrale Sainte-Réparate,cathédrale Sainte-Réparate de Nice,http://www.wikidata.org/entity/Q1084011,94.00.00,y
+http://data.linkedevents.org/location/ca3228c9-16f3-4c4c-b044-a1d3de38a171,Chapelle de la Miséricorde,chapelle de la Miséricorde de Nice,http://www.wikidata.org/entity/Q2957328,94.00.00,y
+http://data.linkedevents.org/location/a0b08401-6bbe-330c-8e73-ff5dfe6bcaa0,Eglise Anglica de Nice,église anglicane de Nice,http://www.wikidata.org/entity/Q3585459,94.00.00,y
+http://data.linkedevents.org/location/3fd1f8ed-0c77-33a5-9a2b-0a839840f482,Eglise Sainte-Jeanne d'Arc,église Sainte-Jeanne-d'Arc de Nice,http://www.wikidata.org/entity/Q3107385,94.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/bfe57c47-ee0a-3970-9f9e-e53eda1a2d9b,Masséna,place Masséna,http://www.wikidata.org/entity/Q3389982,94.00.00,y
+http://data.linkedevents.org/location/a7eb8d2a-1424-3750-8772-52fcce6695ce,Stadio Charles Ehrmann,stade Charles-Ehrmann,http://www.wikidata.org/entity/Q1767749,94.00.00,y
+http://data.linkedevents.org/location/7b449db3-9849-312f-be0f-60327763ba74,Église Sainte-Jeanne-d'Arc,église Sainte-Jeanne-d'Arc de Nice,http://www.wikidata.org/entity/Q3107385,94.00.00,y
+http://data.linkedevents.org/location/f1b5b337-ff3a-4ccc-9cc0-11b8fa9307df,Église Sainte-Jeanne-d'Arc,église Sainte-Jeanne-d'Arc de Nice,http://www.wikidata.org/entity/Q3107385,94.00.00,y
+http://data.linkedevents.org/location/82cbb8f6-f597-3bbf-80d1-4c84a4b6f92c,Hôtel Magnan,Magnan,http://www.wikidata.org/entity/Q3277062,93.08.00,y
+http://data.linkedevents.org/location/ca1ecfc9-6d74-327e-a949-060d0a847d10,Observatoire Oceanologique de Villefranche,observatoire océanologique de Villefranche-sur-Mer,http://www.wikidata.org/entity/Q3348478,93.08.00,y
+http://data.linkedevents.org/location/deb6ed1d-12c6-3340-a8d8-5c99896f310e,Plage Magnan,Magnan,http://www.wikidata.org/entity/Q3277062,93.08.00,y
+http://data.linkedevents.org/location/70ee6eb7-dfff-308d-a374-038c2bd67a44,Aéroport Nice Côte D'azur Tl 1 Portes 3,aéroport Nice Côte d'Azur,http://www.wikidata.org/entity/Q821557,93.06.00,y
+http://data.linkedevents.org/location/8acb3ce4-4f52-30cb-8344-d07539d404d1,Taxi drap,Drap,http://www.wikidata.org/entity/Q1089758,93.06.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/5f3a1386-1430-3bd2-8f5d-83bab0adbd9f,Vallon des Fleurs,viaduc du Vallon des Fleurs,http://www.wikidata.org/entity/Q3556721,93.04.00,y
+http://data.linkedevents.org/location/1a16b806-7a3e-329b-a0a0-1742516ec317,Chapelle Sainte Croix,chapelle Sainte-Croix de Nice,http://www.wikidata.org/entity/Q2957092,93.02.00,y
+http://data.linkedevents.org/location/f8aab220-c363-3713-a83b-7b627f2ee423,Le Château de Nice,château de Nice,http://www.wikidata.org/entity/Q2970127,93.02.00,y
+http://data.linkedevents.org/location/06764c6b-ec36-358a-aad7-5d6b9619651e,Tunnel Magnan,Magnan,http://www.wikidata.org/entity/Q3277062,93.02.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/05f02be1-0472-3fee-86ba-42d1d2b03e72,gare de Nice-St-Augustin,gare de Nice-Saint-Augustin,http://www.wikidata.org/entity/Q3097206,93.02.00,y
+http://data.linkedevents.org/location/1acb1681-f68e-44d5-9935-461094849699,Aéroport de Nice-Côte d'Azur,aéroport Nice Côte d'Azur,http://www.wikidata.org/entity/Q821557,93.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/84c5f2c0-870d-385d-af62-beade69eb567,Monastère / Cimiez,monastère de Cimiez,http://www.wikidata.org/entity/Q3320265,93.00.00,y
+http://data.linkedevents.org/location/04615f5b-67cc-48fc-a224-40786b28eca7,Musée des beaux arts,musée des beaux-arts de Nice,http://www.wikidata.org/entity/Q3330218,93.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/f6a4d380-aee2-3a6b-ab4e-b9a916b0d286,gare de St-Laurent-du-Var,gare de Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q15188534,93.00.00,y
+http://data.linkedevents.org/location/310ced27-73b1-3001-b450-d9209ba2a1b9,"[u'Solea Villefranche-sur-mer', u'Sol\xe9a gelateria di corsica Villefranche-sur-mer']",Villefranche-sur-Mer,http://www.wikidata.org/entity/Q207080,92.08.00,y
+http://data.linkedevents.org/location/99f684f4-c87c-3879-97c5-be9321c9f7d0,Starbuck Cap 3000,Cap 3000,http://www.wikidata.org/entity/Q2936988,92.08.00,y
+http://data.linkedevents.org/location/10d379c9-f3d4-3977-b0b2-d4b8287cffd3,Toilettage Nice Lingostière,Nice Lingostière,http://www.wikidata.org/entity/Q3339613,92.08.00,y
+http://data.linkedevents.org/location/c470be74-2b4c-40b1-8b48-a760340d470e,Parc des Arènes de Cimiez,arènes de Cimiez,http://www.wikidata.org/entity/Q2866137,92.06.00,y
+http://data.linkedevents.org/location/7a4d2db8-3f87-3959-a404-a456c20da0ae,Institut Guinot Saint Laurent du Var,Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q217755,92.04.00,y
+http://data.linkedevents.org/location/cac5fcef-50c2-3cca-8069-0d0255afd53c,Pharmacie Cap 3000,Cap 3000,http://www.wikidata.org/entity/Q2936988,92.04.00,y
+http://data.linkedevents.org/location/1cc71825-7466-3911-aa8b-45ce7c699634,Starbucks Cap 3000,Cap 3000,http://www.wikidata.org/entity/Q2936988,92.04.00,y
+http://data.linkedevents.org/location/c30d8cc8-7d7a-3c48-b775-2edd45c14e1b,Boutique SFR NICE LINGOSTIERE,Nice Lingostière,http://www.wikidata.org/entity/Q3339613,92.02.00,y
+http://data.linkedevents.org/location/dd155534-a236-3ecc-8d40-5217072ead8b,Eglise St Michel Villefranche Sur Mer,église Saint-Michel de Villefranche-sur-Mer,http://www.wikidata.org/entity/Q15953852,92.02.00,y
+http://data.linkedevents.org/location/7a825311-5f5d-3970-a292-1db8b9be0aad,Gare SNCF de Villefranche-sur-Mer,gare de Villefranche-sur-Mer,http://www.wikidata.org/entity/Q1862280,92.02.00,y
+http://data.linkedevents.org/location/eb24bff3-ff61-48d4-9479-5ebd823b68e2,Hyatt Regency Nice Palais de la Mediterranee,palais de la Méditerranée,http://www.wikidata.org/entity/Q3361055,92.00.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/9bb88f9e-bf66-3cc9-9ac9-7e748b9588a0,Saint-Roman de Bellet,église Saint-Roman de Bellet,http://www.wikidata.org/entity/Q3584302,92.00.00,y
+http://data.linkedevents.org/location/80614374-51e8-3f60-b1f3-a082bb0e0e0d,saint roman de bellet,église Saint-Roman de Bellet,http://www.wikidata.org/entity/Q3584302,92.00.00,y
+http://data.linkedevents.org/location/02f2cb79-c94f-3295-93cb-9d7816e8560d,Lenval,Fondation Lenval,http://www.wikidata.org/entity/Q3075486,91.08.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/ee45ee41-2b7f-380b-ab3c-ef64f01bd88c,Lenval,Fondation Lenval,http://www.wikidata.org/entity/Q3075486,91.08.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/b4955776-4e47-3ef5-932a-e7f5095f17d6,Valrose,château de Valrose,http://www.wikidata.org/entity/Q2970898,91.08.00,y
+http://data.linkedevents.org/location/611e015b-aae3-32eb-baf4-ea89d0989458,Agence Groupama Saint Laurent Du Var,Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q217755,91.06.00,y
+http://data.linkedevents.org/location/f9dab041-7775-351d-8ed1-61afa3e9da6d,"Chez Pipo, Aéroport Nice Côte D'azur",aéroport Nice Côte d'Azur,http://www.wikidata.org/entity/Q821557,91.06.00,y
+http://data.linkedevents.org/location/86538125-db4a-3c4b-8acb-32eb972e70dd,Notre Dame du Perpétuel Secours,église Notre-Dame-du-Perpétuel-Secours de Nice,http://www.wikidata.org/entity/Q15958166,91.06.00,y
+http://data.linkedevents.org/location/42c10f9b-d591-319c-96a0-7566f50d2fd6,Centre PMI Magnan,Magnan,http://www.wikidata.org/entity/Q3277062,91.04.00,y
+http://data.linkedevents.org/location/c9942230-113d-3fcf-813f-cef722dac131,Station Coiffure Saint-Laurent-du-Var,Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q217755,91.04.00,y
+http://data.linkedevents.org/location/efbfc5b9-07dc-3ce0-a81a-d6a8b99a7fc5,Institut Stanislas,Institution Stanislas,http://www.wikidata.org/entity/Q3152823,91.02.00,y
+http://data.linkedevents.org/location/ee935005-1441-3ac7-ba21-9fef3cdd1289,"[u'Basilique Notre Dame de l\u2019Assomption', u'Basilique Notre-Dame de l\u2019Assomption']",basilique Notre-Dame de Nice,http://www.wikidata.org/entity/Q2886962,91.00.00,y
+http://data.linkedevents.org/location/40bbdc97-9918-4c9b-ad1e-323e859d6e93,Basilique Notre-Dame de l'assomption,basilique Notre-Dame de Nice,http://www.wikidata.org/entity/Q2886962,91.00.00,y
+http://data.linkedevents.org/location/d3945ce3-a209-3e2d-b2a5-bf5d3a32b9aa,Boulevard De Riquier,Riquier,http://www.wikidata.org/entity/Q2379632,91.00.00,y
+http://data.linkedevents.org/location/530b504d-e945-3dc2-93da-0a41e3acc006,Caisse d'Epargne La Trinite,La Trinité,http://www.wikidata.org/entity/Q383475,90.08.00,y
+http://data.linkedevents.org/location/b94384ee-a073-3aaa-90ee-76c5070e0bb9,Forum Lingostière,Nice Lingostière,http://www.wikidata.org/entity/Q3339613,90.08.00,y
+http://data.linkedevents.org/location/5cc29387-b6f5-3471-8b95-3ca341b07a9a,Nice Lingostière - Centre Commercial,Nice Lingostière,http://www.wikidata.org/entity/Q3339613,90.08.00,y
+http://data.linkedevents.org/location/31f91316-87a5-3e8f-9cc0-b121794b92da,Sogea Pont Neuf Pont Neuf,Pont-Neuf,http://www.wikidata.org/entity/Q3396332,90.08.00,y
+http://data.linkedevents.org/location/b32a4bce-d4f5-3bc1-b07d-c9c885a14b48,Église Notre Dame De L'Assomption,église Notre-Dame-de-l'Assomption de Cimiez,http://www.wikidata.org/entity/Q27345097,90.08.00,y
+http://data.linkedevents.org/location/5baf5933-1e7f-3676-8319-c3247f3a3203,Guess Cap 3000,Cap 3000,http://www.wikidata.org/entity/Q2936988,90.06.00,y
+http://data.linkedevents.org/location/4ad3264e-6996-3278-8da9-c40f50d15449,La Poste Rue de France,rue de France,http://www.wikidata.org/entity/Q3450734,90.06.00,y
+http://data.linkedevents.org/location/2194c3e7-ad42-37ac-9335-1134992eb14e,O'neo Place Massena,place Masséna,http://www.wikidata.org/entity/Q3389982,90.06.00,y
+http://data.linkedevents.org/location/fe65be67-1de7-3977-878c-651536f1774a,Aéroport Nice Côte D'azur - Salon Azur,aéroport Nice Côte d'Azur,http://www.wikidata.org/entity/Q821557,90.04.00,y
+http://data.linkedevents.org/location/8f116c0d-0398-3b47-b385-38da877dae55,Carrefour Nice TNL,Nice TNL,http://www.wikidata.org/entity/Q3339618,90.04.00,y
+http://data.linkedevents.org/location/cdebca8a-de04-3179-867e-5bf21c214681,Vieux Nice PC,Vieux-Nice,http://www.wikidata.org/entity/Q3558059,90.04.00,y
+http://data.linkedevents.org/location/7100016f-16bb-3cc3-a7ac-315f9c7603e3,H&M Cap 3000,Cap 3000,http://www.wikidata.org/entity/Q2936988,90.02.00,y
+http://data.linkedevents.org/location/38a3dd1b-6711-39c9-9792-d097b2ee7ed8,Piscine de Saint André de la Roche,Saint-André-de-la-Roche,http://www.wikidata.org/entity/Q746896,90.00.00,y
+http://data.linkedevents.org/location/a3fbc2fb-0bf1-337d-b643-b8cbf4678741,Jeep Saint Laurent du Var,gare de Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q15188534,89.08.00,y
+http://data.linkedevents.org/location/2e8b1fb2-d092-38eb-a424-d314ef607df7,Saint-Pancrace,église Saint-Pancrace de Nice,http://www.wikidata.org/entity/Q27345268,89.08.00,y
+http://data.linkedevents.org/location/transit/Nice/stop/a70a6a32-9723-3173-bb33-c79308ab6a50,Saint-Pancrace,église Saint-Pancrace de Nice,http://www.wikidata.org/entity/Q27345268,89.08.00,y
+http://data.linkedevents.org/location/2e6a7e7a-74c6-3a53-bc3a-b842404d460a,"Sainte Jeanne d'Arc, Nice",église Sainte-Jeanne-d'Arc de Nice,http://www.wikidata.org/entity/Q3107385,89.08.00,y
+http://data.linkedevents.org/location/b9fc597f-43b7-3508-a6e3-b38ce05ee8bf,"[u'\xc9glise Orthodoxe Russe Saint Nicolas et Sainte Alexandra', u'\xc9glise Russe de Saint-Nicolas-et-Sainte-Alexandra']",église Saint-Nicolas-et-Sainte-Alexandra,http://www.wikidata.org/entity/Q421502,89.08.00,
+http://data.linkedevents.org/location/transit/Nice/stop/30fb7330-815c-398d-9cf3-b1496505e160,Notre Dame de Lourdes,église Notre-Dame-de-Lourdes de Nice,http://www.wikidata.org/entity/Q15958168,89.06.00,
+http://data.linkedevents.org/location/52af777d-d951-4ffd-888d-66dbc8a7cad4,Observatoire Océanologique,observatoire océanologique de Villefranche-sur-Mer,http://www.wikidata.org/entity/Q3348478,89.06.00,
+http://data.linkedevents.org/location/78c14f27-1e45-30e8-93b3-95bba46545b8,Église St. Joseph. St. Laurent Du Var,église Saint-Joseph de Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q27346454,89.06.00,
+http://data.linkedevents.org/location/586de699-80e6-3221-83ea-d809057912d4,O'Sushi Lingostiere,Nice Lingostière,http://www.wikidata.org/entity/Q3339613,89.04.00,
+http://data.linkedevents.org/location/transit/Nice/stop/c325a09b-f1cb-3d20-9604-49916201d665,Sainte-Hélène,église Sainte-Hélène de Nice,http://www.wikidata.org/entity/Q15954021,89.04.00,
+http://data.linkedevents.org/location/adb3f0c8-f031-35d7-a213-62c88f264da6,Eglise St-Etienne,église Saint-Étienne de Nice,http://www.wikidata.org/entity/Q27345190,89.02.00,
+http://data.linkedevents.org/location/265534cd-8ade-3252-84b9-50e4af465e30,Flunch Cap 3000,Cap 3000,http://www.wikidata.org/entity/Q2936988,89.02.00,
+http://data.linkedevents.org/location/83f8d675-ed20-327f-aa1e-b2d878fbc74b,Apple Cap 3000,Cap 3000,http://www.wikidata.org/entity/Q2936988,89.00.00,
+http://data.linkedevents.org/location/transit/Nice/stop/55eeca3a-2cf7-3951-829f-33ecfcadaffd,Eglise Jeanne d'Arc,église Sainte-Jeanne-d'Arc de Nice,http://www.wikidata.org/entity/Q3107385,89.00.00,
+http://data.linkedevents.org/location/aa3fa45a-2d9d-38b8-897c-cff2a87f339e,Casino Supermarche Magnan,Magnan,http://www.wikidata.org/entity/Q3277062,88.08.00,
+http://data.linkedevents.org/location/0be80a28-da05-3cb7-8f06-a1607e453ae5,Saint-Philippe,chapelle Saint-Philippe-Néri de Nice,http://www.wikidata.org/entity/Q15945257,88.08.00,
+http://data.linkedevents.org/location/transit/Nice/stop/622739cc-e858-3400-97ff-27184c5e8cfa,Saint-Philippe,chapelle Saint-Philippe-Néri de Nice,http://www.wikidata.org/entity/Q15945257,88.08.00,
+http://data.linkedevents.org/location/42884461-383d-354e-a678-c31651dc2d35,vieux  Ville,Vieux-Nice,http://www.wikidata.org/entity/Q3558059,88.06.00,
+http://data.linkedevents.org/location/70fcc06d-da6f-3007-8e32-b7e794d5a586,A St Andrer De La Roche !,Saint-André-de-la-Roche,http://www.wikidata.org/entity/Q746896,88.04.00,
+http://data.linkedevents.org/location/d8a2c73c-36c1-35c2-856c-42b37b24f8f2,Parc-Impérial,lycée du Parc-Impérial,http://www.wikidata.org/entity/Q3269037,88.04.00,
+http://data.linkedevents.org/location/cc9c91c6-50ac-323d-ac25-f0bb9edbafe5,Place de la Croix de Marbre,croix de Marbre,http://www.wikidata.org/entity/Q3003360,88.04.00,
+http://data.linkedevents.org/location/2f72e30d-e0d8-3419-9eea-ef5322883481,Desigual Cap 3000,Cap 3000,http://www.wikidata.org/entity/Q2936988,88.02.00,
+http://data.linkedevents.org/location/6748462f-114f-38b7-8238-0296d86b5b55,Laser Game Lingostiere,Nice Lingostière,http://www.wikidata.org/entity/Q3339613,88.02.00,
+http://data.linkedevents.org/location/transit/Nice/stop/7177bbc5-8b7a-3eb1-a7c9-1c71c713c3f8,Saint-Roch,église Saint-Roch de Nice,http://www.wikidata.org/entity/Q3584280,88.02.00,
+http://data.linkedevents.org/location/e42e53f4-d3cf-3c29-aae8-4bcbd19cec85,Toilettage Lingostière,Nice Lingostière,http://www.wikidata.org/entity/Q3339613,88.02.00,
+http://data.linkedevents.org/location/3b1e850f-1679-3e2c-b617-fc545e2683be,Église de Saint-Laurent du Var,église Saint-Laurent de Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q27346468,88.02.00,
+http://data.linkedevents.org/location/49a511e5-f0aa-332e-87ed-796bda3caea4,Archives Départementales,archives départementales des Alpes-Maritimes,http://www.wikidata.org/entity/Q2860502,88.00.00,
+http://data.linkedevents.org/location/transit/Nice/stop/de2de037-5d9b-38f6-8010-da5e6edfec80,La Trinité,gare de La Trinité-Victor,http://www.wikidata.org/entity/Q3096816,88.00.00,
+http://data.linkedevents.org/location/fa111840-f114-379e-8bae-556d4a4bca91,Lgt Honore Estienne Orves,lycée Honoré-d'Estienne-d'Orves,http://www.wikidata.org/entity/Q3268717,88.00.00,
+http://data.linkedevents.org/location/33384ecb-0509-32bf-9e6f-6351aad4310e,Pop Sud Bsn Stade du Ray,stade du Ray,http://www.wikidata.org/entity/Q1469394,88.00.00,
+http://data.linkedevents.org/location/40ed7bdc-4f81-3806-b1f1-0fe6f6d41523,Eglise De Gairaut,église Saint-Sauveur de Gairaut,http://www.wikidata.org/entity/Q15953949,87.08.00,
+http://data.linkedevents.org/location/transit/Nice/stop/e36eb42e-048f-314a-8615-124983701b63,Gare SNCF Saint-Augustin,gare de Nice-Saint-Augustin,http://www.wikidata.org/entity/Q3097206,87.08.00,
+http://data.linkedevents.org/location/transit/Nice/stop/3b1ce9c4-4613-3b32-b4ce-cf2c37c24f9a,Monastère,monastère de Cimiez,http://www.wikidata.org/entity/Q3320265,87.08.00,
+http://data.linkedevents.org/location/681bdcf8-af8e-3094-98a4-3b1e0569010c,Garage de la Banquière,Banquière,http://www.wikidata.org/entity/Q16913793,87.04.00,
+http://data.linkedevents.org/location/d841bcc8-b334-384f-97b6-d915ec39d884,"Populaire Sud, Stade Du Ray",stade du Ray,http://www.wikidata.org/entity/Q1469394,87.04.00,
+http://data.linkedevents.org/location/06b13080-2698-3ba0-8366-16897b5842b7,Bord de Mer sur La Promenade des Anglais,promenade des Anglais,http://www.wikidata.org/entity/Q1849491,87.02.00,
+http://data.linkedevents.org/location/078d9878-a745-3335-85a4-624afaab0a1c,Consulat de Tunisie à Nice,Consulat général de Tunisie à Nice,http://www.wikidata.org/entity/Q16507616,87.02.00,
+http://data.linkedevents.org/location/d615f7b1-0488-39fa-91e7-89f316a2f543,C.E.D.A.C Terra Amata,Terra Amata,http://www.wikidata.org/entity/Q1857046,87.00.00,
+http://data.linkedevents.org/location/b919b7af-25dc-3573-a113-a505a7196f49,"Chez Net, Villefrance-Sur-Mer",Villefranche-sur-Mer,http://www.wikidata.org/entity/Q207080,87.00.00,
+http://data.linkedevents.org/location/27215948-7ded-3438-9eb4-f6d15789e1a9,Loft Design au Coeur du Vieux Nice,Vieux-Nice,http://www.wikidata.org/entity/Q3558059,87.00.00,
+http://data.linkedevents.org/location/fb3c8469-5dfe-3dd1-8107-d66f0fe8b33a,Pont Michel,gare de Nice-Pont-Michel,http://www.wikidata.org/entity/Q18749562,87.00.00,
+http://data.linkedevents.org/location/transit/Nice/stop/906d435b-b7a6-3e40-94b0-7702feb3b9e1,Pont Michel,gare de Nice-Pont-Michel,http://www.wikidata.org/entity/Q18749562,87.00.00,
+http://data.linkedevents.org/location/b6b53853-5602-342c-a1dc-738656945420,Les Ecoles Falicon,Falicon,http://www.wikidata.org/entity/Q867129,86.08.00,
+http://data.linkedevents.org/location/transit/Nice/stop/3ff1a828-9829-3cff-817a-669eea677f19,Les Ecoles Falicon,Falicon,http://www.wikidata.org/entity/Q867129,86.08.00,
+http://data.linkedevents.org/location/ae755d64-5b3a-37d1-81ff-088300ba2a6a,5 Promenade,Jetée-Promenade de Nice,http://www.wikidata.org/entity/Q16508381,86.06.00,
+http://data.linkedevents.org/location/4de07618-696c-40ab-a3fb-f857c7d7fa8d,Musée Chagall,musée Marc-Chagall,http://www.wikidata.org/entity/Q3329265,86.06.00,
+http://data.linkedevents.org/location/transit/Nice/stop/5a0968bb-4d80-3a47-8f49-5daa44f8015f,Musée Chagall,musée Marc-Chagall,http://www.wikidata.org/entity/Q3329265,86.06.00,
+http://data.linkedevents.org/location/e0ad4007-99d6-38f8-870c-a22328d9c0bf,So Garibaldi,place Garibaldi,http://www.wikidata.org/entity/Q3389830,86.06.00,
+http://data.linkedevents.org/location/transit/Nice/stop/c7d6a0ee-0185-3dc6-9826-e70d2bc39388,Victoria,monument à la reine Victoria,http://www.wikidata.org/entity/Q3323418,86.04.00,
+http://data.linkedevents.org/location/0cc76455-a1a0-3dac-af95-fc9bfa585463,Bd de Cimiez,arènes de Cimiez,http://www.wikidata.org/entity/Q2866137,86.02.00,
+http://data.linkedevents.org/location/822eab1b-a35b-3011-a36f-0c438d49d035,Centre Commercial Lingostière,Nice Lingostière,http://www.wikidata.org/entity/Q3339613,86.02.00,
+http://data.linkedevents.org/location/transit/Nice/stop/b9a1df73-2a5a-355b-a7ce-a3b0be8dd5f7,Centre Commercial Lingostière,Nice Lingostière,http://www.wikidata.org/entity/Q3339613,86.02.00,
+http://data.linkedevents.org/location/e352db2e-11ef-32de-98f9-80bc1c3c5813,Concert De Johnny Halliday Au Palais Nikaia - Nice,palais Nikaia,http://www.wikidata.org/entity/Q1033364,86.00.00,
+http://data.linkedevents.org/location/2188c6d9-da1e-3cc8-a7ce-21cd5c53ec2a,Nice,Nice Lingostière,http://www.wikidata.org/entity/Q3339613,86.00.00,
+http://data.linkedevents.org/location/d1ff016e-29a7-3c2b-a9b5-38d44029f9e0,Parc Des Sports Charles Ehrman,Halle des sports Charles-Ehrmann,http://www.wikidata.org/entity/Q16303731,86.00.00,
+http://data.linkedevents.org/location/f75ff726-921a-36a3-a77b-049f36e63bbd,Petit-Château Valrose,château de Valrose,http://www.wikidata.org/entity/Q2970898,86.00.00,
+http://data.linkedevents.org/location/e95ccf56-a737-312b-a340-0228950a2cb1,laboratoire JSBIO hibiscus la trinité nice,La Trinité,http://www.wikidata.org/entity/Q383475,86.00.00,
+http://data.linkedevents.org/location/0c905bc6-03a8-3d93-b6d2-c2b8ee1c54cf,Appartements Vieux Nice / Marché Aux Fleurs,Vieux-Nice,http://www.wikidata.org/entity/Q3558059,85.08.00,
+http://data.linkedevents.org/location/842ba6bd-33bb-34db-8f77-ff85c22b949f,C.C TNL,Nice TNL,http://www.wikidata.org/entity/Q3339618,85.08.00,
+http://data.linkedevents.org/location/3f91bfdf-ce2d-343a-b3ab-ea15f14603d5,Magnan Plage,Magnan,http://www.wikidata.org/entity/Q3277062,85.08.00,
+http://data.linkedevents.org/location/7037f474-a0d1-3e31-a2cd-50d3be563456,Negressco Nice,hôtel Negresco,http://www.wikidata.org/entity/Q743147,85.08.00,
+http://data.linkedevents.org/location/d2b287ed-eda6-3b82-9791-c7d0fa687f3d,Ristorante Portofino - Port de Saint Laurent du Var,Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q217755,85.08.00,
+http://data.linkedevents.org/location/a2ed33e6-49d4-3f50-a93d-3bdf02ec6320,"Starbuck Coffee, Cap 3000",Cap 3000,http://www.wikidata.org/entity/Q2936988,85.08.00,
+http://data.linkedevents.org/location/441caeee-2095-372f-8451-b99427d19de2,Station Acropolis [T1],Acropolis,http://www.wikidata.org/entity/Q2823500,85.08.00,
+http://data.linkedevents.org/location/f154a6d9-82e7-3be4-8965-d79b58f29bec,Vieux Nice - Vieille Ville,Vieux-Nice,http://www.wikidata.org/entity/Q3558059,85.08.00,
+http://data.linkedevents.org/location/92099ea3-e616-3148-b1df-c9be601bdccc,station service c.c lingostiere,Nice Lingostière,http://www.wikidata.org/entity/Q3339613,85.08.00,
+http://data.linkedevents.org/location/transit/Nice/stop/b47f8a1b-979a-37a2-87b2-8677961e7572,Magnan / Promenade,Magnan,http://www.wikidata.org/entity/Q3277062,85.06.00,
+http://data.linkedevents.org/location/094d7550-f27d-3b4a-a202-39dc8f30edb3,Magnan/Promenade,Magnan,http://www.wikidata.org/entity/Q3277062,85.06.00,
+http://data.linkedevents.org/location/21e0dffa-cdef-3f46-8516-b682e80a6186,Conservatoire de Nice,Conservatoire à rayonnement régional de Nice,http://www.wikidata.org/entity/Q2994578,85.04.00,
+http://data.linkedevents.org/location/b94844f9-d0b4-33d8-8627-5e57e86528b6,Pharmacie Masséna,place Masséna,http://www.wikidata.org/entity/Q3389982,85.04.00,
+http://data.linkedevents.org/location/d235f6b9-3e3e-3269-94d7-291239d4c908,les Marinières à Villefranche-sur-Mer,gare de Villefranche-sur-Mer,http://www.wikidata.org/entity/Q1862280,85.04.00,
+http://data.linkedevents.org/location/ee1882f9-14ac-341a-84fb-4a36f4387152,Nice,musée Masséna,http://www.wikidata.org/entity/Q3329270,85.02.00,
+http://data.linkedevents.org/location/5f46d03d-c780-4b50-af97-5b485a901f86,Parc forestier du Mont-Boron,mont Boron,http://www.wikidata.org/entity/Q3321705,85.02.00,
+http://data.linkedevents.org/location/af531691-6e1a-3d0c-9b14-161a180633a2,Résidence LP Cimiez,Cimiez,http://www.wikidata.org/entity/Q1092126,85.02.00,
+http://data.linkedevents.org/location/6f53900f-4996-3afd-aaa5-43ce66bc0cea,Consolato Generale d'Italia a Nizza,Consulat général d'Italie à Nice,http://www.wikidata.org/entity/Q16507548,85.00.00,
+http://data.linkedevents.org/location/c3da37c8-92fe-3176-9110-54b90847f830,"[u'Couvent de la visitation Sainte-claire', u'Monument Tracker - Couvent de la visitation Sainte-claire']",chapelle de la Visitation Sainte-Claire,http://www.wikidata.org/entity/Q2957346,85.00.00,
+http://data.linkedevents.org/location/be7fac75-bb59-41fd-a626-4bd7e77f0a7f,"Acropolis, SALLE PICASSO",Acropolis,http://www.wikidata.org/entity/Q2823500,84.08.00,
+http://data.linkedevents.org/location/a4fb99d2-1fdf-3e4a-b9f0-d4280a0a01c2,Bar Saint Etienne,église Saint-Étienne de Nice,http://www.wikidata.org/entity/Q27345190,84.08.00,
+http://data.linkedevents.org/location/46e36398-623d-3242-bcc4-88161faad62e,Bar Saint-Étienne,église Saint-Étienne de Nice,http://www.wikidata.org/entity/Q27345190,84.08.00,
+http://data.linkedevents.org/location/0248dc5e-816a-3be4-89b4-435fc5095513,Centragence - Rue du Pont Vieux,Pont-Vieux,http://www.wikidata.org/entity/Q3396341,84.08.00,
+http://data.linkedevents.org/location/83e45b13-4e78-37c6-922c-7ff1dc35f5d5,Église Saint Michel,église Saint-Michel de Villefranche-sur-Mer,http://www.wikidata.org/entity/Q15953852,84.08.00,
+http://data.linkedevents.org/location/2649f841-2b2c-3cae-945d-bc9e950a027c,Ancien Chateau,château de Nice,http://www.wikidata.org/entity/Q2970127,84.06.00,
+http://data.linkedevents.org/location/77015172-5aa0-3e79-92a9-38c2410964fe,Jardin Albert Premier,jardin Albert-Ier,http://www.wikidata.org/entity/Q3162279,84.06.00,
+http://data.linkedevents.org/location/6828bc10-72c4-310b-920a-ec5b8ca81643,Le Vieux Bistro,Vieux-Nice,http://www.wikidata.org/entity/Q3558059,84.06.00,
+http://data.linkedevents.org/location/af2a934b-e179-3fc5-8c6a-b05251dc7773,Notre Dame,basilique Notre-Dame de Nice,http://www.wikidata.org/entity/Q2886962,84.06.00,
+http://data.linkedevents.org/location/transit/Nice/stop/0c4df47f-bcbe-3f51-9619-7a1a496e3e52,Notre Dame,basilique Notre-Dame de Nice,http://www.wikidata.org/entity/Q2886962,84.06.00,
+http://data.linkedevents.org/location/8f924776-50cf-3f89-a528-370bc4572900,Cascade Du Château,château de Nice,http://www.wikidata.org/entity/Q2970127,84.04.00,
+http://data.linkedevents.org/location/84b6c76b-5b28-35df-806d-0d6fe554e871,Drap Village,Drap,http://www.wikidata.org/entity/Q1089758,84.04.00,
+http://data.linkedevents.org/location/28acf6e0-f1c7-3db5-8efd-2bad41c879fc,Monument Aux Morts A Nice,monument aux morts de Rauba-Capeù,http://www.wikidata.org/entity/Q3323294,84.04.00,
+http://data.linkedevents.org/location/5fd6215f-b5d3-3334-8816-213f85324759,🚘,palais de Marbre,http://www.wikidata.org/entity/Q3360981,84.04.00,
+http://data.linkedevents.org/location/transit/Nice/stop/63a8cecb-44cc-376e-91de-ff18d4fc991a,Abbaye de Roseland / Napoléon III,abbaye de Roseland,http://www.wikidata.org/entity/Q13518764,84.02.00,
+http://data.linkedevents.org/location/34d6aa21-8f7b-3d10-ab5c-4716dd498805,Boutique Orange Cap 3000,Cap 3000,http://www.wikidata.org/entity/Q2936988,84.02.00,
+http://data.linkedevents.org/location/83d66be6-10bb-3714-8949-9a4fb2dc609f,Brasserie Nouvelle Acropolis,Acropolis,http://www.wikidata.org/entity/Q2823500,84.02.00,
+http://data.linkedevents.org/location/38190fd6-9c32-4a8f-a2cb-6ac59ec29840,Musée des arts artistiques,musée des arts asiatiques de Nice,http://www.wikidata.org/entity/Q3330160,84.02.00,
+http://data.linkedevents.org/location/c618ee8b-760a-34ab-b674-0e633138bef3,Nice,jardin Albert-Ier,http://www.wikidata.org/entity/Q3162279,84.02.00,
+http://data.linkedevents.org/location/e7befe1d-5c3d-3124-84f0-4fda081769ff,Olivier Millénaire du Parc Estienne D'orves,parc d'Estienne-d'Orves,http://www.wikidata.org/entity/Q3363963,84.02.00,
+http://data.linkedevents.org/location/7cc88e01-2748-39b3-909d-0d1b23d36830,Port de Villefranche-Darse,darse de Villefranche-sur-Mer,http://www.wikidata.org/entity/Q3016578,84.02.00,
+http://data.linkedevents.org/location/16b39494-a288-3e93-ba7f-44bdf0b94169,CAP VITAL SANTE ST LAURENT DU VAR,Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q217755,84.00.00,
+http://data.linkedevents.org/location/9a49f764-b2db-306d-bf80-3f953b433a7b,Les Delices de l'opera,opéra de Nice,http://www.wikidata.org/entity/Q608423,84.00.00,
+http://data.linkedevents.org/location/9cc70579-d234-3c61-8481-b43aa8071773,Les Délices de l'Opéra,opéra de Nice,http://www.wikidata.org/entity/Q608423,84.00.00,
+http://data.linkedevents.org/location/2e7cb4ef-677d-3c62-9ff5-d23f7ba3d742,Nice,quai Amiral-Riboty,http://www.wikidata.org/entity/Q16671765,84.00.00,
+http://data.linkedevents.org/location/b7988bf1-3093-3337-ac4a-bd1cbe56fb3f,Gymnase De Drap,Drap,http://www.wikidata.org/entity/Q1089758,83.08.00,
+http://data.linkedevents.org/location/e441922d-f420-3df7-ae9e-ea6c69757a94,Gymnase De Drap,Drap,http://www.wikidata.org/entity/Q1089758,83.08.00,
+http://data.linkedevents.org/location/7b6a1346-16e2-3aa8-bfce-62be9161c1ff,Parc du Paillon - Nice,Promenade du Paillon,http://www.wikidata.org/entity/Q16510514,83.08.00,
+http://data.linkedevents.org/location/dceb8bd3-3396-37a4-a7eb-aa4cee18fbe0,Pharmacie Meyerbeer,palais Meyerbeer,http://www.wikidata.org/entity/Q13518224,83.08.00,
+http://data.linkedevents.org/location/transit/Nice/stop/a9195f97-a179-36bc-87f6-b67429b44354,Riquier,gare de Nice-Riquier,http://www.wikidata.org/entity/Q975315,83.08.00,
+http://data.linkedevents.org/location/ad63e93e-ef00-3956-ac0b-87f3870942cc,Rue Masséna,place Masséna,http://www.wikidata.org/entity/Q3389982,83.08.00,
+http://data.linkedevents.org/location/3a5c9c01-fa50-3bba-b1c2-06a97dcc971f,"British Airways Lounge, Aeroport Nice Cote D'azur",aéroport Nice Côte d'Azur,http://www.wikidata.org/entity/Q821557,83.06.00,
+http://data.linkedevents.org/location/c5231567-a0c8-317b-8367-bbd45c8fd338,Cal Notre Dame.,basilique Notre-Dame de Nice,http://www.wikidata.org/entity/Q2886962,83.06.00,
+http://data.linkedevents.org/location/419257dc-1f1e-3aa9-9154-2b54f69d2174,Gare ferroviaire de Nice Ville - Gare Thiers,gare de Nice-Ville,http://www.wikidata.org/entity/Q738970,83.06.00,
+http://data.linkedevents.org/location/54f91ae8-7f00-3d49-8362-aa1bd3eec45a,Tour Saint François,couvent Saint-François de Nice,http://www.wikidata.org/entity/Q3001619,83.06.00,
+http://data.linkedevents.org/location/5b10be4f-d661-335b-ab15-4da211831b07,Coiffure Jean Louis David Cap 3000,Cap 3000,http://www.wikidata.org/entity/Q2936988,83.04.00,
+http://data.linkedevents.org/location/8e31bbf8-71c2-4adf-9517-44a780fccd15,Jardin Botanique,jardin botanique de la ville de Nice,http://www.wikidata.org/entity/Q630118,83.04.00,
+http://data.linkedevents.org/location/transit/Nice/stop/430e4073-6031-3f15-aa2d-0f0a0bc4688e,Jardin Botanique,jardin botanique de la ville de Nice,http://www.wikidata.org/entity/Q630118,83.04.00,
+http://data.linkedevents.org/location/621a938e-392a-30d9-8a68-b11988247814,Médiathèque Drap,Drap,http://www.wikidata.org/entity/Q1089758,83.04.00,
+http://data.linkedevents.org/location/e0fcb67d-5a0a-38f8-a813-0fbee6139bd8,Pharmacie de l'Opéra,opéra de Nice,http://www.wikidata.org/entity/Q608423,83.02.00,
+http://data.linkedevents.org/location/b5b14451-b270-3d87-a490-554d3bc1b4f6,Rue des Serruriers,monument des Serruriers,http://www.wikidata.org/entity/Q3323351,83.02.00,
+http://data.linkedevents.org/location/e4f416a6-db38-3339-be92-5580bf2b8cee,Société Hotelière Palais Méditerranée,palais de la Méditerranée,http://www.wikidata.org/entity/Q3361055,83.02.00,
+http://data.linkedevents.org/location/3f428c09-6f1e-3091-914e-0e1613fcdbd7,Alternance Saint Laurent du Var,gare de Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q15188534,83.00.00,
+http://data.linkedevents.org/location/6d76f2e3-2269-3785-a3d9-27e5ea138e3b,Colline Saint-Barthélémy,église Saint-Barthélemy de Nice,http://www.wikidata.org/entity/Q27345164,83.00.00,
+http://data.linkedevents.org/location/6ef96002-9f81-30bb-b2a4-3ec7c49b1ab6,Crédit Municipal de Nice,casino municipal de Nice,http://www.wikidata.org/entity/Q2941117,83.00.00,
+http://data.linkedevents.org/location/9f6b2430-efea-3f25-8182-f61189afc8b5,MacDonald's Lingostière,Nice Lingostière,http://www.wikidata.org/entity/Q3339613,83.00.00,
+http://data.linkedevents.org/location/d1d86f65-460e-3e91-a756-2e88beeccb26,Mairie de Saint Laurent du Var,église Saint-Laurent de Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q27346468,83.00.00,
+http://data.linkedevents.org/location/d784a8e1-c8e4-3bcb-a09b-6623e46639af,Nice,palais de l'agriculture,http://www.wikidata.org/entity/Q4277750,83.00.00,
+http://data.linkedevents.org/location/78a1fc40-29ab-3e64-bfc7-1a609dc1ef34,Boutique Opéra,opéra de Nice,http://www.wikidata.org/entity/Q608423,82.08.00,
+http://data.linkedevents.org/location/09d76e37-e222-3951-af84-4102c19fc533,Saint-Laurent-du-Var,canton de Saint-Laurent-du-Var-Cagnes-sur-Mer-Est,http://www.wikidata.org/entity/Q1727236,82.06.00,
+http://data.linkedevents.org/location/a0b14e53-80ed-3944-8806-1bb596eb1c64,Etam (tnl),Nice TNL,http://www.wikidata.org/entity/Q3339618,82.04.00,
+http://data.linkedevents.org/location/82677abf-ba53-3625-96a3-98ff0472c321,GV Sport Saint Laurent Du Var,gare de Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q15188534,82.04.00,
+http://data.linkedevents.org/location/e3b68db7-824a-3f97-8f96-23d7232263bd,Sci Barety,palais Baréty,http://www.wikidata.org/entity/Q15952894,82.04.00,
+http://data.linkedevents.org/location/b59bf668-1184-3615-8646-624dda94ecec,Gare Sncf Nice St Augustin,gare de Nice-Saint-Augustin,http://www.wikidata.org/entity/Q3097206,82.02.00,
+http://data.linkedevents.org/location/d826bfde-6a7f-30fb-8b44-0910ac6d2c6f,H Landers (TNL),Nice TNL,http://www.wikidata.org/entity/Q3339618,82.02.00,
+http://data.linkedevents.org/location/0180ea4c-fdf9-3bac-8e22-e82388e7a15f,Jardin des Roses Arène de Cimiez,arènes de Cimiez,http://www.wikidata.org/entity/Q2866137,82.02.00,
+http://data.linkedevents.org/location/af887513-003f-3f89-be91-6a91dc46e731,Acropolis / Barla,Acropolis,http://www.wikidata.org/entity/Q2823500,82.00.00,
+http://data.linkedevents.org/location/transit/Nice/stop/6c43f06d-cea5-34fb-8508-b9ed95082ff1,Acropolis / Barla,Acropolis,http://www.wikidata.org/entity/Q2823500,82.00.00,
+http://data.linkedevents.org/location/58a00265-fa07-3680-990c-b57bf6396b9e,Église Notre Dame de Bon Secours,église Notre-Dame-de-Bon-Conseil de Nice,http://www.wikidata.org/entity/Q27345074,82.00.00,
+http://data.linkedevents.org/location/cf7030ab-83a2-30da-aa62-64295f33976f,Acropolis Congress Venue,Acropolis,http://www.wikidata.org/entity/Q2823500,81.08.00,
+http://data.linkedevents.org/location/29201dbe-e9c8-3905-8e5a-801c60d2dc54,PARC AUTO MASSENA,place Masséna,http://www.wikidata.org/entity/Q3389982,81.08.00,
+http://data.linkedevents.org/location/b39190fe-245f-33cf-babf-f78c561522f6,Ste.-Hélène,église Sainte-Hélène de Nice,http://www.wikidata.org/entity/Q15954021,81.08.00,
+http://data.linkedevents.org/location/6db7ad31-66f0-357a-baac-40d3690d7268,26-Pairoliere,fortifications de la porte Pairolière,http://www.wikidata.org/entity/Q15948841,81.06.00,
+http://data.linkedevents.org/location/94a35c65-34e1-33a1-8f67-56e73703ef31,Boutique SFR NICE TNL,Nice TNL,http://www.wikidata.org/entity/Q3339618,81.06.00,
+http://data.linkedevents.org/location/58068c9b-4b29-38ac-b405-de49c9c8df9e,Commune de Nice,palais communal de Nice,http://www.wikidata.org/entity/Q3360951,81.06.00,
+http://data.linkedevents.org/location/b7c482cb-5cc6-3de3-80b2-c728409beade,Du4 Rue Alexandre Mari SCM,maison du 15 rue Alexandre-Mari,http://www.wikidata.org/entity/Q22916200,81.06.00,
+http://data.linkedevents.org/location/53a5227e-a564-3dcf-b3cd-91c98df45dc0,"[u'Les Am\xe9ricains et la 6e Flotte \xe0 Villefranche sur mer', u'Les Am\xe9ricains et la 6\xe8me Flotte \xe0 Villefranche sur mer']",darse de Villefranche-sur-Mer,http://www.wikidata.org/entity/Q3016578,81.06.00,
+http://data.linkedevents.org/location/691d49ea-dfab-36a9-9f81-f10f0bbc1493,Pub Opéra,opéra de Nice,http://www.wikidata.org/entity/Q608423,81.06.00,
+http://data.linkedevents.org/location/922c0793-2f69-3f12-b658-76dcf10934af,Arrêt de bus Sainte Hélène,église Sainte-Hélène de Nice,http://www.wikidata.org/entity/Q15954021,81.04.00,
+http://data.linkedevents.org/location/b358e551-dc21-313d-9e07-e164fedc2623,La Fete Du Chateau,château de Nice,http://www.wikidata.org/entity/Q2970127,81.04.00,
+http://data.linkedevents.org/location/534a79b5-6849-355a-b953-c9638c90ccb1,Terrassen Villefranche,Rade de Villefranche,http://www.wikidata.org/entity/Q16510586,81.04.00,
+http://data.linkedevents.org/location/1170d984-8afa-402c-a95e-a214da6b801a,"Acropolis, SALLE KLEIN",Acropolis,http://www.wikidata.org/entity/Q2823500,81.02.00,
+http://data.linkedevents.org/location/fdeb5ec9-92e3-308d-8110-d756269fbea4,Fondation Furtado Heine,villa Furtado-Heine,http://www.wikidata.org/entity/Q4352621,81.02.00,
+http://data.linkedevents.org/location/e61bf911-00cb-31a7-8a30-6c028be52577,Carrousel Palace - Jardin Albert 1er,jardin Albert-Ier,http://www.wikidata.org/entity/Q3162279,81.00.00,
+http://data.linkedevents.org/location/d17cc4cf-2aed-302b-b178-8a0e54f2ba92,Cimetière Saint Barthélémy,église Saint-Barthélemy de Nice,http://www.wikidata.org/entity/Q27345164,81.00.00,
+http://data.linkedevents.org/location/26208d0b-4222-380b-b62a-b10cce87a785,Falicon Immobilier,Falicon,http://www.wikidata.org/entity/Q867129,81.00.00,
+http://data.linkedevents.org/location/1eff352f-8d14-3fb9-a1e0-8dc2e52d1fbc,La Tete au Carre,Tête Carrée,http://www.wikidata.org/entity/Q3546907,81.00.00,
+http://data.linkedevents.org/location/54909bc3-dbaf-3019-8893-7212aa651bc4,P+R Pont-Michel,gare de Nice-Pont-Michel,http://www.wikidata.org/entity/Q18749562,81.00.00,
+http://data.linkedevents.org/location/75e341fb-5401-342f-b8bb-89286120a07a,PARC AUTO SULZER,rue Sulzer,http://www.wikidata.org/entity/Q3450103,81.00.00,
+http://data.linkedevents.org/location/681e3419-2ab5-317f-8595-c734f1f54990,Primeurs Garibaldi,place Garibaldi,http://www.wikidata.org/entity/Q3389830,81.00.00,
+http://data.linkedevents.org/location/e20b55c6-b823-3f8f-9092-573cca58be6f,School Specialized Du Château,château de Nice,http://www.wikidata.org/entity/Q2970127,81.00.00,
+http://data.linkedevents.org/location/edabcf01-a38e-32b4-bf4d-6b281172f7d4,Agata,Terra Amata,http://www.wikidata.org/entity/Q1857046,80.08.00,
+http://data.linkedevents.org/location/511a0f45-0d01-3de4-be50-7310f2168d59,La naturelle,muséum d'histoire naturelle de Nice,http://www.wikidata.org/entity/Q3330894,80.08.00,
+http://data.linkedevents.org/location/201f4bf3-5eca-38c7-9450-1fc990db821f,Massena Pocket,place Masséna,http://www.wikidata.org/entity/Q3389982,80.08.00,y
+http://data.linkedevents.org/location/e4ce2a02-63ac-3916-8210-15ffd6288bf8,SCI Saint-barthelemy,église Saint-Barthélemy de Nice,http://www.wikidata.org/entity/Q27345164,80.08.00,
+http://data.linkedevents.org/location/6e3f5190-236e-329e-920e-284adabec0d9,Sagec Mediterranee,palais de la Méditerranée,http://www.wikidata.org/entity/Q3361055,80.08.00,
+http://data.linkedevents.org/location/97108695-99e6-375a-9573-a5e7a105067e,1 Avenue Reine Victoria Nice,monument à la reine Victoria,http://www.wikidata.org/entity/Q3323418,80.06.00,
+http://data.linkedevents.org/location/fbbc5f49-4133-3783-97e8-6c07f524c5f4,ASL Arenas,quartier de l'Arenas,http://www.wikidata.org/entity/Q3413178,80.06.00,
+http://data.linkedevents.org/location/984aa988-572e-46a9-90ff-307de1e07606,"Acropolis, SALLE CHAGALL",Acropolis,http://www.wikidata.org/entity/Q2823500,80.06.00,
+http://data.linkedevents.org/location/2f1202af-dd58-4cb6-a514-7193988ebbff,"Acropolis, SALLE MATISSE",Acropolis,http://www.wikidata.org/entity/Q2823500,80.06.00,
+http://data.linkedevents.org/location/954d6700-2ee1-3c40-8706-0b51b9d436f4,La Tête Carrée de Sosno,Tête Carrée,http://www.wikidata.org/entity/Q3546907,80.06.00,
+http://data.linkedevents.org/location/b23807c8-8d54-3391-b8b6-6142881b914e,Laverie Saint Roch,église Saint-Roch de Nice,http://www.wikidata.org/entity/Q3584280,80.06.00,
+http://data.linkedevents.org/location/7c5c6b52-7e11-310c-bcc3-2e3470a82e0a,McDonald's Nice TNL Relocalisation,Nice TNL,http://www.wikidata.org/entity/Q3339618,80.06.00,
+http://data.linkedevents.org/location/5beebf25-f850-3d23-a52b-0267d7e1c54e,Paroisse Saint-Laurent du Var,église Sainte-Pétronille de Saint-Laurent-du-Var,http://www.wikidata.org/entity/Q27346505,80.06.00,
+http://data.linkedevents.org/location/0062e910-ae89-3097-9b9b-06990db48a66,Port de Villefranche,Villefranche-sur-Mer,http://www.wikidata.org/entity/Q207080,80.04.00,
+http://data.linkedevents.org/location/4bca8818-27d2-3923-a3a8-6529cbb12573,Port de Villefranche,Villefranche-sur-Mer,http://www.wikidata.org/entity/Q207080,80.04.00,
+http://data.linkedevents.org/location/3c67d884-0b8c-325a-a478-b49b447ea8d9,Domaine de Roseland,abbaye de Roseland,http://www.wikidata.org/entity/Q13518764,80.02.00,
+http://data.linkedevents.org/location/9e125373-5617-3b5b-96da-5c6c6106d201,Fournil Saint François,couvent Saint-François de Nice,http://www.wikidata.org/entity/Q3001619,80.02.00,
+http://data.linkedevents.org/location/a1fdf66a-cb0a-3441-b5f6-073791527ffb,Palais Immobilier Opéra,opéra de Nice,http://www.wikidata.org/entity/Q608423,80.02.00,
+http://data.linkedevents.org/location/46bac625-9cf9-33de-92aa-4c8f7f75fd7e,Villefranche Home,bastionnet de Villefranche-sur-Mer,http://www.wikidata.org/entity/Q22999286,80.02.00,
