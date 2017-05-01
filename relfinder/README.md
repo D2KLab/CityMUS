@@ -58,6 +58,7 @@ Here an explanation:
 For Wikidata the script takes more time because the number of matched POIs and works is higher than for Dbpedia. As you can imagine, the alternative 3 is not runnable becuase it takes too long. However we can run the other alternatives.
 
 
-
+In conclusion, to run the script is necessary to install the Python library **pandas** typing:
+`pip install pandas`
 
 
