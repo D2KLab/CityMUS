@@ -40,11 +40,11 @@ To execute `SubProc.py` understanding the right command line argument to pass is
 So basically we have 4 possible alternatives (commands) to execute the script:
 
 * For DBpedia
-  1. `python Subproc.py input_files/2_4_doremus_dbpedia_works.csv input_files/3cixty_dbpedia_match.csv 100`
-  2. `python Subproc.py input_files/2_4_doremus_dbpedia_works.csv Nice 100`
+ 1. `python Subproc.py input_files/2_4_doremus_dbpedia_works.csv input_files/3cixty_dbpedia_match.csv 100`
+ 2. `python Subproc.py input_files/2_4_doremus_dbpedia_works.csv Nice 100`
 * For Wikidata
-  3. `python Subproc.py input_files/2_0_doremus_wikidata_works.csv 3cixty_wikidata_match.csv 100`
-  4. `python Subproc.py input_files/2_0_doremus_wikidata_works.csv Nice 100`
+ 3. `python Subproc.py input_files/2_0_doremus_wikidata_works.csv 3cixty_wikidata_match.csv 100`
+ 4. `python Subproc.py input_files/2_0_doremus_wikidata_works.csv Nice 100`
 
 Here an explanation:
 
