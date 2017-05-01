@@ -147,7 +147,7 @@ count_threads = threading.activeCount()
 while count_threads > 1:
     sz = queue.qsize()
     print "Queue size: "+str(sz)
-    now = total_works - sz - count_threads
+    now = total_works - sz - count_threads + 1
     if now < 0:
         now = 0
     done = (100.0 * now)/total_works
