@@ -124,7 +124,7 @@ except:
 
 
 ind = 0
-for w in works_list[0:100]:
+for w in works_list:
     if ind not in files:
         t = (ind,w,endpoint)
         queue.put(t)
