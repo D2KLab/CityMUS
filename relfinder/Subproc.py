@@ -62,12 +62,13 @@ if len(sys.argv) != 4:
 if not os.path.exists("output_files/"):
     os.makedirs("output_files/")
 
-df1 = pd.read_csv(sys.argv[1])
+worksfilepath = sys.argv[1]
+df1 = pd.read_csv(worksfilepath)
 works_list = df1[df1.columns[1]]
 poi_filepath = sys.argv[2]
 if "Nice" == poi_filepath:
     max_depth = '4'
-    if 'wikidata' in poi_filepath:
+    if 'wikidata' in worksfilepath:
         output_path = 'output_files/all_links_wikidata_Nice/'
         trace_path = 'output_files/already_done_wikidata_Nice.csv'
         endpoint = "https://query.wikidata.org/sparql"
@@ -80,7 +81,7 @@ if "Nice" == poi_filepath:
 else:
     max_depth = '3'
     df2 = pd.read_csv(poi_filepath)
-    if 'wikidata' in poi_filepath:
+    if 'wikidata' in worksfilepath:
         df2['clean_score'] = df2['score'].apply(lambda x:float(x[0:-3]))
         df2 = df2[(df2.clean_score >= 90.0)]
         output_path = 'output_files/all_links_wikidata/'
