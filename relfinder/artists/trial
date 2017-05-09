@@ -1,0 +1,465 @@
+<sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="middle"/>
+  <variable name="ps1"/>
+ </head>
+ <results distinct="false" ordered="true">
+  <result>
+   <binding name="pf1"><uri>http://purl.org/dc/terms/subject</uri></binding>
+   <binding name="middle"><uri>http://dbpedia.org/resource/Category:Christian_Orthodox_cemeteries</uri></binding>
+   <binding name="ps1"><uri>http://purl.org/dc/terms/subject</uri></binding>
+  </result>
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="middle"/>
+  <variable name="ps1"/>
+ </head>
+ <results distinct="false" ordered="true">
+  <result>
+   <binding name="pf1"><uri>http://purl.org/dc/terms/subject</uri></binding>
+   <binding name="middle"><uri>http://dbpedia.org/resource/Category:Christian_Orthodox_cemeteries</uri></binding>
+   <binding name="ps1"><uri>http://purl.org/dc/terms/subject</uri></binding>
+  </result>
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="middle"/>
+  <variable name="pf1"/>
+  <variable name="ps1"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="middle"/>
+  <variable name="pf1"/>
+  <variable name="ps1"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+  <variable name="of2"/>
+  <variable name="pf3"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+  <variable name="of2"/>
+  <variable name="pf3"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+  <variable name="of2"/>
+  <variable name="pf3"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+  <variable name="of2"/>
+  <variable name="pf3"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="middle"/>
+  <variable name="ps1"/>
+  <variable name="os1"/>
+  <variable name="ps2"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="middle"/>
+  <variable name="ps1"/>
+  <variable name="os1"/>
+  <variable name="ps2"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="middle"/>
+  <variable name="pf1"/>
+  <variable name="os1"/>
+  <variable name="ps1"/>
+  <variable name="ps2"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="middle"/>
+  <variable name="pf1"/>
+  <variable name="os1"/>
+  <variable name="ps1"/>
+  <variable name="ps2"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+  <variable name="middle"/>
+  <variable name="ps1"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+  <variable name="middle"/>
+  <variable name="ps1"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="of1"/>
+  <variable name="pf1"/>
+  <variable name="middle"/>
+  <variable name="pf2"/>
+  <variable name="ps1"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="of1"/>
+  <variable name="pf1"/>
+  <variable name="middle"/>
+  <variable name="pf2"/>
+  <variable name="ps1"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+  <variable name="of2"/>
+  <variable name="pf3"/>
+  <variable name="of3"/>
+  <variable name="pf4"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+  <variable name="of2"/>
+  <variable name="pf3"/>
+  <variable name="of3"/>
+  <variable name="pf4"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+  <variable name="of2"/>
+  <variable name="pf3"/>
+  <variable name="of3"/>
+  <variable name="pf4"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+  <variable name="of2"/>
+  <variable name="pf3"/>
+  <variable name="of3"/>
+  <variable name="pf4"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="middle"/>
+  <variable name="ps1"/>
+  <variable name="os1"/>
+  <variable name="ps2"/>
+  <variable name="os2"/>
+  <variable name="ps3"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="middle"/>
+  <variable name="ps1"/>
+  <variable name="os1"/>
+  <variable name="ps2"/>
+  <variable name="os2"/>
+  <variable name="ps3"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="middle"/>
+  <variable name="pf1"/>
+  <variable name="os1"/>
+  <variable name="ps1"/>
+  <variable name="os2"/>
+  <variable name="ps2"/>
+  <variable name="ps3"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="middle"/>
+  <variable name="pf1"/>
+  <variable name="os1"/>
+  <variable name="ps1"/>
+  <variable name="os2"/>
+  <variable name="ps2"/>
+  <variable name="ps3"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+  <variable name="middle"/>
+  <variable name="ps1"/>
+  <variable name="os1"/>
+  <variable name="ps2"/>
+ </head>
+ <results distinct="false" ordered="true">
+  <result>
+   <binding name="pf1"><uri>http://purl.org/dc/terms/subject</uri></binding>
+   <binding name="of1"><uri>http://dbpedia.org/resource/Category:Eastern_Orthodoxy_in_France</uri></binding>
+   <binding name="pf2"><uri>http://www.w3.org/2004/02/skos/core#broader</uri></binding>
+   <binding name="middle"><uri>http://dbpedia.org/resource/Category:Eastern_Orthodoxy_by_country</uri></binding>
+   <binding name="ps1"><uri>http://purl.org/dc/terms/subject</uri></binding>
+   <binding name="os1"><uri>http://dbpedia.org/resource/Category:Eastern_Orthodoxy_in_Germany</uri></binding>
+   <binding name="ps2"><uri>http://www.w3.org/2004/02/skos/core#broader</uri></binding>
+  </result>
+  <result>
+   <binding name="pf1"><uri>http://purl.org/dc/terms/subject</uri></binding>
+   <binding name="of1"><uri>http://dbpedia.org/resource/Category:Eastern_Orthodoxy_in_France</uri></binding>
+   <binding name="pf2"><uri>http://www.w3.org/2004/02/skos/core#broader</uri></binding>
+   <binding name="middle"><uri>http://dbpedia.org/resource/Category:Eastern_Orthodoxy_in_Europe</uri></binding>
+   <binding name="ps1"><uri>http://purl.org/dc/terms/subject</uri></binding>
+   <binding name="os1"><uri>http://dbpedia.org/resource/Category:Eastern_Orthodoxy_in_Germany</uri></binding>
+   <binding name="ps2"><uri>http://www.w3.org/2004/02/skos/core#broader</uri></binding>
+  </result>
+  <result>
+   <binding name="pf1"><uri>http://www.w3.org/2002/07/owl#sameAs</uri></binding>
+   <binding name="of1"><uri>http://www.wikidata.org/entity/Q2464410</uri></binding>
+   <binding name="pf2"><uri>http://www.wikidata.org/entity/P31c</uri></binding>
+   <binding name="middle"><uri>http://www.wikidata.org/entity/Q39614</uri></binding>
+   <binding name="ps1"><uri>http://www.w3.org/2002/07/owl#sameAs</uri></binding>
+   <binding name="os1"><uri>http://www.wikidata.org/entity/Q320354</uri></binding>
+   <binding name="ps2"><uri>http://www.wikidata.org/entity/P31c</uri></binding>
+  </result>
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+  <variable name="middle"/>
+  <variable name="ps1"/>
+  <variable name="os1"/>
+  <variable name="ps2"/>
+ </head>
+ <results distinct="false" ordered="true">
+  <result>
+   <binding name="pf1"><uri>http://purl.org/dc/terms/subject</uri></binding>
+   <binding name="of1"><uri>http://dbpedia.org/resource/Category:Eastern_Orthodoxy_in_France</uri></binding>
+   <binding name="pf2"><uri>http://www.w3.org/2004/02/skos/core#broader</uri></binding>
+   <binding name="middle"><uri>http://dbpedia.org/resource/Category:Eastern_Orthodoxy_by_country</uri></binding>
+   <binding name="ps1"><uri>http://purl.org/dc/terms/subject</uri></binding>
+   <binding name="os1"><uri>http://dbpedia.org/resource/Category:Eastern_Orthodoxy_in_Germany</uri></binding>
+   <binding name="ps2"><uri>http://www.w3.org/2004/02/skos/core#broader</uri></binding>
+  </result>
+  <result>
+   <binding name="pf1"><uri>http://purl.org/dc/terms/subject</uri></binding>
+   <binding name="of1"><uri>http://dbpedia.org/resource/Category:Eastern_Orthodoxy_in_France</uri></binding>
+   <binding name="pf2"><uri>http://www.w3.org/2004/02/skos/core#broader</uri></binding>
+   <binding name="middle"><uri>http://dbpedia.org/resource/Category:Eastern_Orthodoxy_in_Europe</uri></binding>
+   <binding name="ps1"><uri>http://purl.org/dc/terms/subject</uri></binding>
+   <binding name="os1"><uri>http://dbpedia.org/resource/Category:Eastern_Orthodoxy_in_Germany</uri></binding>
+   <binding name="ps2"><uri>http://www.w3.org/2004/02/skos/core#broader</uri></binding>
+  </result>
+  <result>
+   <binding name="pf1"><uri>http://www.w3.org/2002/07/owl#sameAs</uri></binding>
+   <binding name="of1"><uri>http://www.wikidata.org/entity/Q2464410</uri></binding>
+   <binding name="pf2"><uri>http://www.wikidata.org/entity/P31c</uri></binding>
+   <binding name="middle"><uri>http://www.wikidata.org/entity/Q39614</uri></binding>
+   <binding name="ps1"><uri>http://www.w3.org/2002/07/owl#sameAs</uri></binding>
+   <binding name="os1"><uri>http://www.wikidata.org/entity/Q320354</uri></binding>
+   <binding name="ps2"><uri>http://www.wikidata.org/entity/P31c</uri></binding>
+  </result>
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="of1"/>
+  <variable name="pf1"/>
+  <variable name="middle"/>
+  <variable name="pf2"/>
+  <variable name="os1"/>
+  <variable name="ps1"/>
+  <variable name="ps2"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="of1"/>
+  <variable name="pf1"/>
+  <variable name="middle"/>
+  <variable name="pf2"/>
+  <variable name="os1"/>
+  <variable name="ps1"/>
+  <variable name="ps2"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+  <variable name="of2"/>
+  <variable name="pf3"/>
+  <variable name="middle"/>
+  <variable name="ps1"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="pf1"/>
+  <variable name="of1"/>
+  <variable name="pf2"/>
+  <variable name="of2"/>
+  <variable name="pf3"/>
+  <variable name="middle"/>
+  <variable name="ps1"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="of1"/>
+  <variable name="pf1"/>
+  <variable name="of2"/>
+  <variable name="pf2"/>
+  <variable name="middle"/>
+  <variable name="pf3"/>
+  <variable name="ps1"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql><sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+ <head>
+  <variable name="of1"/>
+  <variable name="pf1"/>
+  <variable name="of2"/>
+  <variable name="pf2"/>
+  <variable name="middle"/>
+  <variable name="pf3"/>
+  <variable name="ps1"/>
+ </head>
+ <results distinct="false" ordered="true">
+ </results>
+</sparql>
