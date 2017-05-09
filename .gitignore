@@ -11,3 +11,7 @@ plugins
 *.log
 *.DS_Store
 ./relfinder/input_files
+.idea
+
+.ipynb_checkpoints
+*.pyc 
