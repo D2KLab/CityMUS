@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+import requests
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ def hello_world():
 
 
 @app.route('/position')
-def show_coordinates():
+def position():
     # show the coordinates
     lat = request.args.get('lat', default=None, type=float)
     lon = request.args.get('lon', default=None, type=float)
@@ -27,6 +28,22 @@ def show_coordinates():
     # latitude and longitude are correct
 
     return jsonify({'Lat': lat, 'Lon': lon, 'correct': 'yes'})
+
+
+@app.route('/nice_default')
+def nice_default():
+
+    return
+
+    return requests.get('http://example.com').content
+
+
+
+
+
+
+
+
 
 
 # with app.test_request_context():
