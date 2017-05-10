@@ -1,0 +1,2 @@
+<result><binding name="pf1"><uri>http://dbpedia.org/ontology/country</uri></binding><binding name="middle"><uri>http://dbpedia.org/resource/France</uri></binding><binding name="ps1"><uri>http://www.w3.org/2000/01/rdf-schema#seeAlso</uri></binding></result>
+<result><binding name="pf1"><uri>http://dbpedia.org/ontology/country</uri></binding><binding name="middle"><uri>http://dbpedia.org/resource/France</uri></binding><binding name="ps1"><uri>http://dbpedia.org/ontology/country</uri></binding></result>
