@@ -1,4 +1,4 @@
-<?
+<?php
 
 require_once('RelationFinder.php');
 
@@ -36,4 +36,4 @@ foreach ($arr as $distance){
 		//echo "<br>needed ".(microtime(true)-$now)." seconds<br>";
 	}
 }
-
+?>
