@@ -1,12 +1,28 @@
 from flask import Flask, request, jsonify
-import requests
+import json
+from pymongo import MongoClient # Database connector
+from bson.objectid import ObjectId # For ObjectId to work
+
+#client = MongoClient('localhost', 27017)    #Configure the connection to the database
+#db = client.camp2016    #Select the database
+#todos = db.todo #Select the collection
+
+
+#initialization phase: load everything in memory
+DBPEDIA_POI = 'dbpedia_poi_square.json'
+with open(DBPEDIA_POI,'r') as fp:
+    print('opened the file')
+    dbpedia_poi = json.load(fp)
+
 
 app = Flask(__name__)
 
 
+
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
+def home_page():
+    return jsonify(dbpedia_poi)
+
 
 
 # Here starts the serious stuff
@@ -33,16 +49,7 @@ def position():
 @app.route('/nice_default')
 def nice_default():
 
-    return
-
-    return requests.get('http://example.com').content
-
-
-
-
-
-
-
+    return None
 
 
 
