@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CityMusic</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="custom.css"/>
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyBjU3XKAi9pXb_O6-BiIqkhCOPwEcg3RMM'></script>
+
+</head>
+<body>
+
+<div class="container-fluid top_container">
+    <h1>CityMusic</h1>
+</div>
+
+
+<nav ng-controller="NavCtrl" ng-show="showNavbar" class="navbar navbar-inverse top_container" data-spy="affix" data-offset-top="67">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 option">
+                <a ng-class="{'active':IsActive(home_path)}" class='navbar-brand' href="#/home">
+                    <span class="glyphicon glyphicon-home"  aria-hidden="true">  </span> <span> HOME  </span>
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 option">
+                <a ng-class="{'active':IsActive(map_path)}" class="navbar-brand" href="#/map">
+                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> </span> <span> MAP </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<div ng-view></div>
+
+
+
+<!-- Angular -->
+<script src="lib/angular/angular.min.js"></script>
+<script src="lib/angular/angular-route.min.js"></script>
+<script src="lib/angular/angular-resource.min.js"></script>
+
+
+<!-- Google Maps -->
+<script src="lib/google-maps/lodash.js"></script>
+<script src="lib/google-maps/angular-simple-logger.js"></script>
+<script src="lib/google-maps/angular-google-maps.min.js"></script>
+
+<!-- Gelocation -->
+<script src="geolocation/geolocation.js"></script>
+<script src="geolocation/geolocation-service.js"></script>
+
+<script src="app.js"></script>
+<script src="home/home.js"></script>
+<script src="map/map.js"></script>
+<script src="login/login.js"></script>
+
+
+</body>
+</html>

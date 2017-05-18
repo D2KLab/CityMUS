@@ -1,0 +1,29 @@
+.angular-google-map-container { height: 400px; }
+.panel-primary {
+}
+#map_options{
+    position:absolute;
+    top:110px;
+    right:3px;
+    width:40%;
+    max-width:200px;
+    background-color: transparent;
+    pointer-events:none;
+    z-index:1;
+
+}
+
+#reset_position{
+    width: 50%;
+    height:30px;
+    background:white;
+    float:left;
+    pointer-events:all;
+}
+
+#reset_route{
+    width:50%;
+    height:30px;
+    background:white;
+    pointer-events:all;
+}
