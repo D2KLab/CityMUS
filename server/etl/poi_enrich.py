@@ -55,7 +55,7 @@ def add_info(row):
     else:
         return False
 
-with open('data/dbpedia_match_nogeo.csv','r') as input_fp:
+with open('../data/dbpedia_match_nogeo.csv','r') as input_fp:
     reader=csv.reader(input_fp,)
     # skip header
     reader.next()
@@ -69,7 +69,7 @@ for row in rows:
     if add_info(row):
         new_rows.append(row)
         
-with open('data/dbpedia_match_nogeo_coordinates.csv','wb') as output_fp:
+with open('../data/dbpedia_match_nogeo_coordinates.csv','wb') as output_fp:
     writer=csv.writer(output_fp,)
     # skip header
     writer.writerow(['3cixty_uri','3cixty_label','dbpedia_label','dbpedia_uri','score','coordinates'])
@@ -121,7 +121,7 @@ for group in groups:
         
 new_pois = sorted(new_pois,key=lambda x: x[4],reverse=True)
 
-with open('data/dbpedia_match_nogeo_distinct.csv','wb') as output_fp:
+with open('../data/dbpedia_match_nogeo_distinct.csv','wb') as output_fp:
     writer=csv.writer(output_fp,)
     # skip header
     writer.writerow(['3cixty_uri','3cixty_label','dbpedia_label','dbpedia_uri','score','latitude','longitude'])
