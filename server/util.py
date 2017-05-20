@@ -36,3 +36,14 @@ def get_near_pois(source, original_pois):
     for poi in filtered_pois:
         poi['weight'] = int(round(poi['weight'] * 10. / total_weight))
     return filtered_pois
+
+
+def create_playlist_name(pois):
+
+    ids = [str(x['id']) for x in pois]
+    weights = [str(x['weight']) for x in pois]
+    lists = zip(ids, weights)
+    groups = [':'.join(x) for x in lists]
+    name = '_'.join(groups)
+    return name
+
