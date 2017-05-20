@@ -96,8 +96,30 @@ for group in groups:
         position = min_poi[5]
         min_poi[5] = position[0]
         min_poi.append(position[1])
+        sparql = SPARQLWrapper("http://dbpedia.org/sparql")
+        sparql.setQuery("""
+                    SELECT ?label ?preferredLabel 
+        WHERE { 
+           <%s> rdfs:label ?label .
+        FILTER (lang(?label) = "" || lang(?label) = "en") 
+           OPTIONAL { 
+             <%s> rdfs:label ?preferredLabel . 
+             FILTER (lang(?preferredLabel) = "" || lang(?preferredLabel) = "tk") 
+           } 
+        }
+                    """ % (min_poi[3],min_poi[3]))        
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+
+        for place in results['results']['bindings']:
+            try:
+                label = place['preferredLabel']['value']
+            except KeyError:
+                label = place['label']['value']
+            min_poi[2] = label
         new_pois.append(min_poi)
-new_pois = sorted(new_pois,key=lambda x: x[4],reverse=True)    
+        
+new_pois = sorted(new_pois,key=lambda x: x[4],reverse=True)
 
 with open('data/dbpedia_match_nogeo_distinct.csv','wb') as output_fp:
     writer=csv.writer(output_fp,)

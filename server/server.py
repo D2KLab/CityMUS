@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify
 import json
+import database_helper
+
 from pymongo import MongoClient # Database connector
 from bson.objectid import ObjectId # For ObjectId to work
 
@@ -9,21 +11,16 @@ from bson.objectid import ObjectId # For ObjectId to work
 
 
 #initialization phase: load everything in memory
-DBPEDIA_POI = 'dbpedia_poi_square.json'
-with open(DBPEDIA_POI,'r') as fp:
-    print('opened the file')
-    dbpedia_poi = json.load(fp)
+
+pois = database_helper.load_pois()
 
 
 app = Flask(__name__)
 
 
-
 @app.route('/')
 def home_page():
-    return jsonify(dbpedia_poi)
-
-
+    return 'hello world'
 
 # Here starts the serious stuff
 
@@ -46,12 +43,9 @@ def position():
     return jsonify({'Lat': lat, 'Lon': lon, 'correct': 'yes'})
 
 
-@app.route('/nice_default')
-def nice_default():
-
-    return None
-
-
+@app.route('/pois')
+def get_pois():
+    return jsonify(pois)
 
 # with app.test_request_context():
 #     print url_for('show_coordinates', lat=123, lon=24)
