@@ -48,3 +48,6 @@ def create_playlist_name(pois):
     name = '_'.join(groups)
     return name
 
+def get_recommendations_paths(pois,recommendations):
+    pass
+

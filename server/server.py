@@ -1,7 +1,11 @@
 from flask import Flask, request, jsonify, abort
 import json
 import database_helper
+import spotipy_util
 import util
+import threading
+
+playlist_lock = threading.Lock()
 
 
 from pymongo import MongoClient # Database connector
@@ -15,7 +19,9 @@ from bson.objectid import ObjectId # For ObjectId to work
 #initialization phase: load everything in memory
 
 pois = database_helper.load_pois()
-
+playlist_dict = spotipy_util.get_playlists_dict()
+print(playlist_dict)
+track_ids = ["1pAyyxlkPuGnENdj4g7Y4f", "7D2xaUXQ4DGY5JJAdM5mGP"]
 
 app = Flask(__name__)
 
@@ -48,7 +54,7 @@ def position():
 
     return jsonify(near_pois)
 
-@app.route('/playlist')
+@app.route('/playlist_name')
 def playlist_name():
     # show the coordinates
     lat = request.args.get('lat', default=None, type=float)
@@ -61,7 +67,6 @@ def playlist_name():
     if lon < -180 or lon > +180:
         abort(404)
 
-
     # latitude and longitude are correct
     # find nearest poi
     point = (lat, lon)
@@ -69,7 +74,32 @@ def playlist_name():
     name = util.create_playlist_name(near_pois)
     return jsonify(name)
 
+@app.route('/create_playlist')
+def create_playlist_from_position():
+    # show the coordinates
+    lat = request.args.get('lat', default=None, type=float)
+    lon = request.args.get('lon', default=None, type=float)
+    if lat is None or lon is None:
+        abort(404)
+        # abort(404)
+    if lat < -90 or lat > +90:
+        abort(404)
+    if lon < -180 or lon > +180:
+        abort(404)
 
+    # latitude and longitude are correct
+    # find nearest poi
+    point = (lat, lon)
+    near_pois = util.get_near_pois(point, pois)
+    playlist_name = util.create_playlist_name(near_pois)
+    with playlist_lock:
+        if playlist_name not in playlist_dict:
+            playlist = spotipy_util.create_playlist(playlist_name)
+            #todo: add tracks
+            playlist_dict[playlist_name] = playlist['id']
+            return playlist_dict[playlist_name]
+        else:
+            return playlist_dict[playlist_name]
 
 @app.route('/pois')
 def get_pois():
