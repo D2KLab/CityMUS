@@ -1,8 +1,7 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, abort
 import json
 import database_helper
-import spotipy.create_playlist_add_tracks as spot
-
+import util
 
 
 from pymongo import MongoClient # Database connector
@@ -34,16 +33,20 @@ def position():
     lat = request.args.get('lat', default=None, type=float)
     lon = request.args.get('lon', default=None, type=float)
     if lat is None or lon is None:
-        return jsonify({'Lat': lat, 'Lon': lon, 'correct': 'no'})
+        abort(404)
         # abort(404)
     if lat < -90 or lat > +90:
-        return jsonify({'Lat': lat, 'Lon': lon, 'correct': 'no'})
+        abort(404)
     if lon < -180 or lon > +180:
-        return jsonify({'Lat': lat, 'Lon': lon, 'correct': 'no'})
+        abort(404)
+
 
     # latitude and longitude are correct
+    # find nearest poi
+    point = (lat,lon)
+    near_pois = util.get_near_pois(point,pois)
 
-    return jsonify({'Lat': lat, 'Lon': lon, 'correct': 'yes'})
+    return jsonify(near_pois)
 
 
 @app.route('/pois')
