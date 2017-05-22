@@ -5,7 +5,7 @@ import spotipy_util
 import util
 import threading
 
-playlist_lock = threading.Lock()
+
 
 
 from pymongo import MongoClient # Database connector
@@ -19,6 +19,7 @@ from bson.objectid import ObjectId # For ObjectId to work
 #initialization phase: load everything in memory
 
 pois = database_helper.load_pois()
+playlist_lock = threading.Lock()
 playlist_dict = spotipy_util.get_playlists_dict()
 print(playlist_dict)
 track_ids = ["1pAyyxlkPuGnENdj4g7Y4f", "7D2xaUXQ4DGY5JJAdM5mGP"]
