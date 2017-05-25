@@ -19,6 +19,7 @@ from bson.objectid import ObjectId # For ObjectId to work
 #initialization phase: load everything in memory
 
 pois = database_helper.load_pois()
+artists = database_helper.load_artists_tracks()
 playlist_lock = threading.Lock()
 playlist_dict = spotipy_util.get_playlists_dict()
 print(playlist_dict)

@@ -37,3 +37,23 @@ def create_playlist(playlist_name,username=username, sp=sp):
 
 def add_tracks(playlist_name,track_ids,username=username):
     sp.user_playlist_add_tracks(username, playlist_name, track_ids)
+
+
+def get_artist_tracks(artist_name):
+    sp = spotipy.Spotify()
+    sp.trace = False
+
+    # get matching artist
+
+    results = sp.search(q='artist:' + name, type='artist')
+    artists = results['artists']['items']
+    artist = None
+    if len(artists) == 0:
+        return None
+    artist = max(artists, key=lambda x: x['popularity'])
+
+    top_tracks = sp.artist_top_tracks(artist['id'], country='FR')['tracks']
+    return_tracks = []
+    for track in top_tracks:
+        return_tracks.append((track['id'], track['name']))
+    return return_tracks
