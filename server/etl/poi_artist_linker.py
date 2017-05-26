@@ -4,7 +4,7 @@ import json
 import os
 
 
-POIS_PATH = os.path.normpath('../data/dbpedia_match_nogeo_distinct_convert.csv')
+POIS_PATH = os.path.normpath('../data/dbpedia_match_nogeo_distinct.csv')
 
 def get_linked_artists():
     with open('../data/artists_tracks.json', 'r') as input_fp:

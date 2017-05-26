@@ -81,21 +81,54 @@ keys = set(map(lambda row : row[3], new_rows))
 groups = [[row for row in new_rows if row[3] == key] for key in keys]
 new_pois = []
 for group in groups:
-    best_score = max(group,key= lambda x: x[4])
-    group = filter(lambda row: row[4] == best_score[4],group)
+    best_score = max(group, key=lambda x: x[4])
+    group = filter(lambda row: row[4] == best_score[4], group)
     group = filter(lambda row: row[4] > THRESHOLD, group)
     if len(group) >= 1:
-        # keep nearest to center
-        min_distance = float('inf')
-        min_poi = None
-        for row in group:
-            distance = vincenty(NICE_COORDINATES, row[5]).km
-            if distance < min_distance:
-                min_distance = distance
-                min_poi = row
-        position = min_poi[5]
-        min_poi[5] = position[0]
-        min_poi.append(position[1])
+        uri = group[0][3]
+
+        # get dbpedia position
+        sparql = SPARQLWrapper("http://dbpedia.org/sparql")
+        sparql.setQuery("""
+            SELECT ?place ?placeLabel ?lat ?long
+             WHERE {
+            <%s> geo:lat ?lat.
+            <%s> geo:long ?long.
+            }
+            """ % (uri, uri))
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        if len(results['results']['bindings']) > 0:
+            for place in results['results']['bindings']:
+                lat = float(place['lat']['value'])
+                long_ = float(place['long']['value'])
+            # keep nearest to dbpedia poi
+            min_distance = float('inf')
+            min_poi = None
+            for row in group:
+                distance = vincenty((lat, long_), row[5]).km
+                if distance < min_distance:
+                    min_distance = distance
+                    min_poi = row
+            position = min_poi[5]
+            min_poi[5] = position[0]
+            min_poi.append(position[1])
+
+        else:
+            # keep nearest to center
+            min_distance = float('inf')
+            min_poi = None
+            for row in group:
+                distance = vincenty(NICE_COORDINATES, row[5]).km
+                if distance < min_distance:
+                    min_distance = distance
+                    min_poi = row
+            position = min_poi[5]
+            min_poi[5] = position[0]
+            min_poi.append(position[1])
+
+        # get label
+
         sparql = SPARQLWrapper("http://dbpedia.org/sparql")
         sparql.setQuery("""
                     SELECT ?label ?preferredLabel 
@@ -104,10 +137,10 @@ for group in groups:
         FILTER (lang(?label) = "" || lang(?label) = "en") 
            OPTIONAL { 
              <%s> rdfs:label ?preferredLabel . 
-             FILTER (lang(?preferredLabel) = "" || lang(?preferredLabel) = "tk") 
+             FILTER (lang(?preferredLabel) = "" || lang(?preferredLabel) = "fr") 
            } 
         }
-                    """ % (min_poi[3],min_poi[3]))        
+                    """ % (min_poi[3], min_poi[3]))
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert()
 
@@ -118,8 +151,8 @@ for group in groups:
                 label = place['label']['value']
             min_poi[2] = label
         new_pois.append(min_poi)
-        
-new_pois = sorted(new_pois,key=lambda x: x[4],reverse=True)
+
+new_pois = sorted(new_pois, key=lambda x: x[4], reverse=True)
 
 with open('../data/dbpedia_match_nogeo_distinct.csv','wb') as output_fp:
     writer=csv.writer(output_fp,)

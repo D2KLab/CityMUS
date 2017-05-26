@@ -3,7 +3,7 @@ import json
 import os
 
 
-POIS_PATH = os.path.normpath('data/dbpedia_match_nogeo_distinct_convert.csv')
+POIS_PATH = os.path.normpath('data/dbpedia_match_nogeo_distinct.csv')
 ARTISTS_PATH = os.path.normpath('data/dbpedia_match_artists.csv')
 
 
