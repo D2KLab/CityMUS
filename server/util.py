@@ -43,7 +43,7 @@ def create_playlist_name(pois):
     ids = [str(x['id']) for x in pois]
     weights = [str(x['weight']) for x in pois]
     lists = zip(ids, weights)
-    lists = sorted(lists,key= lambda x: (x[1], x[2]),reverse=True)
+    lists = sorted(lists,key= lambda x: (x[1], x[0]),reverse=True)
     
     groups = [':'.join(x) for x in lists]
     name = '_'.join(groups)
