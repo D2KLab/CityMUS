@@ -18,7 +18,7 @@ sp.trace = False
 
 
 def get_playlists_dict(username=username):
-    client_credentials_manager = SpotifyClientCredentials(client_id=clientid)
+    client_credentials_manager = SpotifyClientCredentials(client_id=clientid,client_secret=clientsecret)
     sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
     playlists = sp.user_playlists(username)
