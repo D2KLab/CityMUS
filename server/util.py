@@ -13,7 +13,7 @@ def get_near_pois(source, original_pois):
             return point
         return add_distance
 
-    MAX_RADIUS = 150
+    MAX_RADIUS = 350
     MAX_RADIUS_SQRT = np.sqrt(MAX_RADIUS)
 
     new_pois = copy.deepcopy(original_pois)

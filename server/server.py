@@ -37,6 +37,7 @@ def home_page():
 
 @app.route('/position')
 def position():
+    #/position?lat=43.697093&lon=7.270747
     # show the coordinates
     lat = request.args.get('lat', default=None, type=float)
     lon = request.args.get('lon', default=None, type=float)

@@ -9,7 +9,7 @@ ARTISTS_PATH = os.path.normpath('data/dbpedia_match_artists.csv')
 
 def load_pois():
     with open(POIS_PATH, 'r') as input_fp:
-        count = 0
+        count = 1
         reader = csv.reader(input_fp, )
         # skip header
         reader.next()
@@ -19,8 +19,8 @@ def load_pois():
             poi['id'] = count
             poi['label'] = row[2]
             poi['uri'] = row[3]
-            poi['lat'] = row[5]
-            poi['long'] = row[6]
+            poi['lat'] = float(row[5])
+            poi['long'] = float(row[6])
             pois.append(poi)
             count += 1
         return pois
