@@ -18,7 +18,7 @@ sp.trace = False
 
 
 def get_playlists_dict(username=username):
-    client_credentials_manager = SpotifyClientCredentials()
+    client_credentials_manager = SpotifyClientCredentials(client_id=clientid)
     sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
     playlists = sp.user_playlists(username)
@@ -45,7 +45,7 @@ def get_artist_tracks(artist_name):
 
     # get matching artist
 
-    results = sp.search(q='artist:' + name, type='artist')
+    results = sp.search(q='artist:' + artist_name, type='artist')
     artists = results['artists']['items']
     artist = None
     if len(artists) == 0:
