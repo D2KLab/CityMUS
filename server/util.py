@@ -6,7 +6,7 @@ import copy
 def get_near_pois(source, original_pois):
     def add_distance_wrapper(source):
         def add_distance(point):
-            point['distance'] = vincenty(source, (float(point['lat']), float(point['long']))).meters
+            point['distance'] = vincenty(source, (float(point['latitude']), float(point['longitude']))).meters
             if point['distance'] < 5:
                 point['distance'] = 5
             point['distance_sqrt'] = np.sqrt(point['distance'])
