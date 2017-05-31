@@ -6,8 +6,6 @@ import util
 import threading
 
 
-
-
 from pymongo import MongoClient # Database connector
 from bson.objectid import ObjectId # For ObjectId to work
 
