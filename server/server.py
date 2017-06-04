@@ -12,6 +12,7 @@ poi_artists = database_helper.load_poi_artists()
 
 # load pois
 pois = database_helper.load_pois(poi_artists)
+print(len(pois))
 
 # load playlists
 playlist_lock = threading.Lock()
@@ -90,6 +91,7 @@ def create_playlist_from_position():
     # find nearest poi
     point = (lat, lon)
     near_pois = util.get_near_pois(point, pois)
+    print(near_pois)
     playlist_name = util.create_playlist_name(near_pois)
     print(playlist_name)
 

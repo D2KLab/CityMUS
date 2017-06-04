@@ -23,7 +23,7 @@ def load_pois(poi_artists):
             poi['longitude'] = float(row[6])
             if poi['uri'] in poi_artists:
                 pois.append(poi)
-            count += 1
+                count += 1
         return pois
 
 
