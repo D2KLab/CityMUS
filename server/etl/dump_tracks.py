@@ -1,13 +1,9 @@
-from pprint import pprint
 import csv
 import os
 import json
 import spotipy
 
-from SPARQLWrapper import SPARQLWrapper, TURTLE, JSON
-from pandas_ml import ConfusionMatrix
-import pandas as pd
-from sklearn import metrics
+from SPARQLWrapper import SPARQLWrapper, JSON
 
 
 def get_artist_tracks(artist_name):
@@ -45,7 +41,7 @@ def get_dbpedia_label(uri):
                         """ % (uri, uri))
     sparql.setReturnFormat(JSON)
     results = sparql.query().convert()
-    label = None
+
     for artist in results['results']['bindings']:
         try:
             label = artist['preferredLabel']['value']

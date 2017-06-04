@@ -1,12 +1,15 @@
 from geopy.distance import vincenty
 import numpy as np
 import copy
-
+from pprint import pprint
+import spotipy_util
 
 def get_near_pois(source, original_pois):
-    def add_distance_wrapper(source):
+    """given a position and the poi, get three nearest ones"""
+
+    def add_distance_wrapper(src):
         def add_distance(point):
-            point['distance'] = vincenty(source, (float(point['latitude']), float(point['longitude']))).meters
+            point['distance'] = vincenty(src, (float(point['latitude']), float(point['longitude']))).meters
             if point['distance'] < 5:
                 point['distance'] = 5
             point['distance_sqrt'] = np.sqrt(point['distance'])
@@ -21,7 +24,7 @@ def get_near_pois(source, original_pois):
     add_distance_function = add_distance_wrapper(source)
 
     near_pois = map(add_distance_function, new_pois)
-    #print(near_pois)
+
     near_pois = sorted(near_pois, key=lambda x: x['distance'])[:3]
 
     filtered_pois = [near_pois.pop(0)]
@@ -39,16 +42,54 @@ def get_near_pois(source, original_pois):
 
 
 def create_playlist_name(pois):
+    """given a list of (id,weight), return an identifier"""
 
     ids = [str(x['id']) for x in pois]
     weights = [str(x['weight']) for x in pois]
     lists = zip(ids, weights)
-    lists = sorted(lists,key= lambda x: (x[1], x[0]),reverse=True)
-    
+    lists = sorted(lists, key=lambda _: (_[1], _[0]), reverse=True)
+
     groups = [':'.join(x) for x in lists]
     name = '_'.join(groups)
     return name
 
-def get_recommendations_paths(pois,recommendations):
-    pass
 
+
+def select_tracks(playlist_name, pois, poi_artists):
+    """given a playlist name, return list of tracks and related paths"""
+
+    groups = playlist_name.split('_')
+    poi_weight_list = [group.split(':') for group in groups]
+    track_path_list = set()
+
+    for p_w in poi_weight_list:
+        poi_index = int(p_w[0])
+        weight = int(p_w[1])
+        dbpedia_uri = pois[poi_index-1]['uri']
+        artists_tracks_path = [poi_artists[dbpedia_uri][artist] for artist in poi_artists[dbpedia_uri]]
+        artists_tracks = [dictionary['tracks'] for dictionary in artists_tracks_path]
+
+        # create lists of tracks for each artist
+        artists_tracks = [zip(*_)[0] for _ in artists_tracks]
+
+        artists_path = [dictionary['path'] for dictionary in artists_tracks_path]
+
+        # round robin through artists:
+        n_tracks = 10
+        count = 0
+
+        for track_index in range(n_tracks):
+            for artist_index in range(len(artists_tracks)):
+
+                track = artists_tracks[artist_index][track_index]
+
+                path = tuple(artists_path[artist_index])
+                if (track, path) not in track_path_list:
+                    track_path_list.add((track, path))
+                    count += 1
+                if count == weight:
+                    break
+            if count == weight:
+                break
+
+    return list(track_path_list)

@@ -1,41 +1,38 @@
 from flask import Flask, request, jsonify, abort
-import json
 import database_helper
 import spotipy_util
 import util
 import threading
 
-
-from pymongo import MongoClient # Database connector
-from bson.objectid import ObjectId # For ObjectId to work
-
-#client = MongoClient('localhost', 27017)    #Configure the connection to the database
-#db = client.camp2016    #Select the database
-#todos = db.todo #Select the collection
+# initialization phase: load everything in memory
 
 
-#initialization phase: load everything in memory
+# load poi_artists
+poi_artists = database_helper.load_poi_artists()
 
-pois = database_helper.load_pois()
-#artists = database_helper.load_artists_tracks()
+# load pois
+pois = database_helper.load_pois(poi_artists)
+
+# load playlists
 playlist_lock = threading.Lock()
-playlist_dict = spotipy_util.get_playlists_dict()
+playlist_dict = spotipy_util.get_playlists_dict(pois,poi_artists)
 print(playlist_dict)
-track_ids = ["1pAyyxlkPuGnENdj4g7Y4f", "7D2xaUXQ4DGY5JJAdM5mGP"]
 
+
+# create application
 app = Flask(__name__)
+
+# define endpoints
 
 
 @app.route('/')
 def home_page():
     return 'hello world'
 
-# Here starts the serious stuff
-
 
 @app.route('/position')
 def position():
-    #/position?lat=43.697093&lon=7.270747
+    # /position?lat=43.697093&lon=7.270747
     # show the coordinates
     lat = request.args.get('lat', default=None, type=float)
     lon = request.args.get('lon', default=None, type=float)
@@ -47,7 +44,6 @@ def position():
     if lon < -180 or lon > +180:
         abort(404)
 
-
     # latitude and longitude are correct
     # find nearest poi
     point = (lat, lon)
@@ -55,8 +51,9 @@ def position():
 
     return jsonify(near_pois)
 
+
 @app.route('/playlist_name')
-def playlist_name():
+def get_playlist_name():
     # show the coordinates
     lat = request.args.get('lat', default=None, type=float)
     lon = request.args.get('lon', default=None, type=float)
@@ -74,6 +71,7 @@ def playlist_name():
     near_pois = util.get_near_pois(point, pois)
     name = util.create_playlist_name(near_pois)
     return jsonify(name)
+
 
 @app.route('/create_playlist')
 def create_playlist_from_position():
@@ -93,14 +91,30 @@ def create_playlist_from_position():
     point = (lat, lon)
     near_pois = util.get_near_pois(point, pois)
     playlist_name = util.create_playlist_name(near_pois)
+    print(playlist_name)
+
     with playlist_lock:
         if playlist_name not in playlist_dict:
             playlist = spotipy_util.create_playlist(playlist_name)
-            #todo: add tracks
-            playlist_dict[playlist_name] = playlist['id']
-            return playlist_dict[playlist_name]
+
+            # select tracks
+            tracks_path = util.select_tracks(playlist_name, pois, poi_artists)
+
+            # add tracks
+            print(tracks_path)
+            tracks = [_[0] for _ in tracks_path]
+            print(playlist['id'])
+            print(tracks)
+            spotipy_util.add_tracks(playlist['id'], tracks)
+
+            playlist_object = dict()
+            playlist_object['name'] = playlist_name
+            playlist_object['id'] = playlist['id']
+            playlist_object['tracks_paths'] = tracks_path
+            playlist_dict[playlist['name']] = playlist_object
+            return jsonify(playlist_dict[playlist_name])
         else:
-            return playlist_dict[playlist_name]
+            return jsonify(playlist_dict[playlist_name])
 
 @app.route('/pois')
 def get_pois():

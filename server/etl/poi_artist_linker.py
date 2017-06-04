@@ -6,12 +6,12 @@ import os
 
 POIS_PATH = os.path.normpath('../data/dbpedia_match_nogeo_distinct.csv')
 
+
 def get_linked_artists():
     with open('../data/artists_tracks.json', 'r') as input_fp:
         artists = json.load(input_fp)
 
         artists = artists.keys()
-
 
 
 with open(POIS_PATH, 'r') as input_fp:
