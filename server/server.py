@@ -7,7 +7,7 @@ import threading
 # initialization phase: load everything in memory
 
 
-# load poi_artists
+# load poi_artists_path
 poi_artists = database_helper.load_poi_artists()
 
 # load pois
