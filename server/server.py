@@ -4,6 +4,8 @@ import spotipy_util
 import util
 import threading
 
+
+
 # initialization phase: load everything in memory
 
 
@@ -114,9 +116,17 @@ def create_playlist_from_position():
             playlist_object['id'] = playlist['id']
             playlist_object['tracks_paths'] = tracks_path
             playlist_dict[playlist['name']] = playlist_object
-            return jsonify(playlist_dict[playlist_name])
+            #modified lorenzo
+            res = playlist_dict[playlist_name]
+            res['tracks_paths'] = {x[0]:{"path":x[1],"label":str(x[0])} for x in res['tracks_paths']}
+            #modified lorenzo
+            return jsonify(res)
         else:
-            return jsonify(playlist_dict[playlist_name])
+            #modified lorenzo
+            res = playlist_dict[playlist_name]
+            res['tracks_paths'] = {x[0]:{"path":x[1],"label":str(x[0])} for x in res['tracks_paths']}
+            #modified lorenzo
+            return jsonify(res)
 
 @app.route('/pois')
 def get_pois():
