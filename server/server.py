@@ -3,7 +3,7 @@ import database_helper
 import spotipy_util
 import util
 import threading
-
+from copy import deepcopy
 
 
 # initialization phase: load everything in memory
@@ -116,16 +116,17 @@ def create_playlist_from_position():
             playlist_object['id'] = playlist['id']
             playlist_object['tracks_paths'] = tracks_path
             playlist_dict[playlist['name']] = playlist_object
-            #modified lorenzo
-            res = playlist_dict[playlist_name]
+            # get the correct playlist from the playlist collection
+            res = deepcopy(playlist_dict[playlist_name])
+            # reshape playlist
             res['tracks_paths'] = {x[0]:{"path":x[1],"label":str(x[0])} for x in res['tracks_paths']}
-            #modified lorenzo
+
             return jsonify(res)
         else:
-            #modified lorenzo
-            res = playlist_dict[playlist_name]
+            # get the correct playlist from the playlist collection
+            res = deepcopy(playlist_dict[playlist_name])
+            # reshape playlist
             res['tracks_paths'] = {x[0]:{"path":x[1],"label":str(x[0])} for x in res['tracks_paths']}
-            #modified lorenzo
             return jsonify(res)
 
 @app.route('/pois')
