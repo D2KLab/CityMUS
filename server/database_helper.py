@@ -1,6 +1,9 @@
 import csv
 import json
 import os
+from threading import Lock
+import spotipy_util
+from copy import deepcopy
 
 
 POIS_PATH = os.path.normpath('data/dbpedia_match_nogeo_distinct.csv')
@@ -31,3 +34,22 @@ def load_poi_artists():
     with open(POIS_ARTISTS_PATH, 'r') as input_fp:
         poi_artists = json.load(input_fp)
         return poi_artists
+
+
+class PlaylistCollection:
+    def __init__(self, pois, poi_artists):
+        self.lock = Lock()
+        self.playlist_dict = spotipy_util.get_playlists_dict(pois, poi_artists)
+
+    def get_playlist(self, playlist_name):
+        with self.lock:
+            if playlist_name not in self.playlist_dict:
+                return None
+            else:
+                return deepcopy(self.playlist_dict[playlist_name])
+
+    def put_playlist(self, playlist_name, playlist):
+        with self.lock:
+            new_playlist = deepcopy(playlist)
+            self.playlist_dict[playlist_name] = new_playlist
+
