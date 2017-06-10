@@ -1,9 +1,7 @@
 # Ignore everything
 *
-
 # But not these files...
 !.gitignore
-!llncs.cls    
 !paper.bib    
 !paper.tex    
-!splncs03.bst
+
