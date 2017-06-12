@@ -116,22 +116,25 @@ Our project aims at making the user discover the existing connections that link 
 todo: change
 Most of the available music recommenders suggest music without taking into consideration the user’s context, e.g., her mood, current location, activity. 
 Finding music that suits a POI can be viewed as a context-aware recommendation problem, the place being the context for consuming the recommendation.         
-The main challenge that one must face when addressing the above mentioned goal is related to the fact that POIs and music are two rather different domains, and there is no obvious way to match such heterogeneous items. However, with the advent of the Semantic Web,  new opportunities arise to face the above difficulties.   
+The main challenge that one must face when addressing the above mentioned goal is related to the fact that POIs and music are two rather different domains, and there is no obvious way to match such heterogeneous items. However, with the advent of the Semantic Web, new opportunities arise to face the above difficulties.  
 
 \subsection{Motivation and context}
 In the past, many tried to link POIs and music in many different way. xxx managed to link music and POIs by using a common set of tags that describe emotional properties both for music and POIs.
-This method is completely supervised, in fact it is necessary to define in a clean way emotions for songs and POIs. This operation was done by hand and is hardly scalable.
-Marius Kaminskas restrict the subspace of DBpedia by identifying classes belonging to the two domains of interest, and the relations existing between instances of such classes. In this way they managed to find relations in a set of constrained paths. Looking on the future works proposition, they proposed the idea to exploit arbitrary semantic relations between POIs and musicians, e.g. direct relations such as 'Gustav Mahler was the director of Vienna State Opera', and complex non-directed relations such as 'Ana Bel' (a famous Spanish singer) composed a song whose lyrics are about La Puerta de Alcala (a well-known POI in Madrid, Spain). 
+This method was completely supervised, in fact it required the definition of a set of emotions for songs and POIs. This operation has been done by hand and is hardly scalable.
+In another project, Marius Kaminskas restricted the subspace of DBpedia by identifying classes related to the domains of interest, and the relations existing between instances of such classes. In this way they managed to find relations in a set of paths constrained to pass belong to those classes. Looking on the future works proposition, they proposed the idea to exploit arbitrary semantic relations between POIs and musicians, e.g. direct relations such as 'Gustav Mahler was the director of Vienna State Opera', and complex non-directed relations such as 'Ana Bel' (a famous Spanish singer) composed a song whose lyrics are about La Puerta de Alcala (a well-known POI in Madrid, Spain). 
 In order to do this, they wanted to use Relfinder and set the connections' weights programatically. In fact one of the bad things was that connections weights were assigned by experts and were not provided in the paper.
 
-What we intend to do is to find relations in a completely unsupervised way: this means that we intend to define a pathfinder that finds paths and a path discriminator that selects the interesting algorithms. Our intention is to limit to zero the need of human intervention in the hope that this approach will be completely data driven and easily scalable 
+Our intention is to build our approach on top of this paper and find relations in a completely unsupervised way: this means that we intend to define a pathfinder that finds paths and a path discriminator that selects the interesting relations. We aim at reducing the need of human intervention in defining classes and weights with the hope that this approach will be completely data driven and easily scalable to different cities. Moreover, we will use different datasets with the intention to exploit their implicit advantages and obtain overall a better recommender system.
 
 \subsection{Research problems}
 Finding relations inside DBpedia is a known problem which has been solved in the past. So we could simply look for POIs and Artists in Dbpedia and then link them using known algorithms.
 Unfortunately DBpedia is not perfect: it is true that it contains POIs and Artists, but these entities are not cleanly defined, they usually contains dirty data that can tremendously affect our performances.
-POIs and Artists can be found in highly specialized datasets, but unfortunately they do not contain links to eachother, and even worse they are not linked to DBpedia. This means that by using these databases alone we cannot find relations.
+
+On the other side, POIs and Artists can be found in highly specialized datasets, but unfortunately they do not contain links to each other, and even worse they are not linked to DBpedia. This means that by using these databases alone we cannot find relations.
 What is done in this cases is to link highly specialized datasets to DBpedia, in this way we can exploit the advantages of both worlds: highly specialized datasets give us confidence and trust in our main entities (POIs and Artists), while DBpedia allow us to find relations between them thanks to its generality.
-The following two sections will explain in a detailed way the whole process of connecting these highly specialized datasets to DBpedia.
+
+Once we have our two sets, we need to find paths that link them. This problem has been solved in the past with Relfinder, a tool that is able to fin relations between entities.
+What we have seen is that POIs and Artists are generally far from each other, in fact usually we need 5 hops to link them, this is more that the average DBpedia degree and it is also more than what Relfinder can do, in fact Relfinder query times are too high once we set more that 4 hops. This lead us to create a pathfinder that can work in acceptable times with 100.000 pairs that are far from each other.
 
 \subsection{Contributions}
 
@@ -143,9 +146,8 @@ The fifth part is about the mobile web application and the technologies involved
 
 \section{Interlinking and enriching POIs}
 \subsection{Problem description}
-Finding relations inside DBpedia is a known problem which has been solved in the past. So we could simply look for POIs and Artists in Dbpedia and then link them using known algorithms.
-Unfortunately DBpedia is not perfect: it is true that it contains POIs and Artists, but these entities are not cleanly defined, they usually contains dirty data that can tremendously affect our performances.
-We start our search of connecting POIs and Artists from the POIs. POIs can be found in highly specialized datasets that contains clean data that we can trust, one of these datasets is 3cixty. Now, it would be optimal to find a direct mapping between a 3cixty POI and a DBpedia POI, in this way we could actually enrich the 3cixty POI with the context informations that can be found on DBpedia. Unfortunately this link does not exist and we must create it on our own by using an heuristic.
+Interlinking different datasets is not trivial, many approaches that aimed at a semi-supervised interlinking has been proposed, but this is still a topic of research.
+The worst part of this is actually the class definition, in fact specialized datasets tend to have a very strict ontology, while DBpedia does not enforce it. This means that not all music artists are composers, and that not all places in nice are linked to nice. Since Nice is a middle city, we cannot allow to loose some matchings and we need to carefully analyze the DBpedia ontology.
 
 \subsection{Datasets: 3cixty, DBpedia, Wikidata}
 \subsubsection{3cixty}
@@ -238,8 +240,6 @@ Unfortunately there are many POIs that are without coordinates,so they are not s
 Wikidata is a project that aims at connecting the semantic world. We used it to get the POIs in Nice. Respect to DBpedia, Wikidata has a well defined ontology that is strictly enforced. This means that it is easier to select what we want. Moreover, most of POIs in wikidata have coordinates, so we can get them with a single query. Since wikidata supports complex geo-based queries, we made a query that looked for all POIs in a range of 25 Kilometers from the center of Nice.
 
 
-
-
 \subsection{Entity Linking process (+ ElasticSearch)}
 \subsubsection{Properties}
 \subsubsection{Transformations}
@@ -250,7 +250,7 @@ Wikidata is a project that aims at connecting the semantic world. We used it to 
 todo: add source of isni
 The evaluation of the found links is done by comparing the found links with those provided by ISNI. ISNI is the ISO certified global standard number for identifying the millions of contributors to creative works. By achieving these goals the ISNI will act as a bridge identifier across multiple domains and become a critical component in Linked Data and Semantic Web applications.
 
-ISNI matches are made by humans, so we can consider them as a ground truth that can be trusted. By comparing our matches we want to see if our performances are acceptable and if we can discover new links between ISNI numbers and DBpedia.
+ISNI matches are made by persons in the editorial world, so we can consider them as a ground truth that can be trusted. By comparing our matches we want to see if our performances are acceptable and if we can discover new links between ISNI numbers and DBpedia.
 
 todo: table with cool statistics
 todo: graph image
@@ -358,7 +358,96 @@ todo: Lorenzo
 \subsection{Relation visualization (and Path format)}
 todo: Lorenzo
 \section{Conclusion and Future Work}
+Regarding the fact that is difficult to evaluate the performances of a recommender system, in fact a user may seem appropriate the link but not like the song, we are convinced of our results.
+Regarding the first part: the interlinking, we can refer to the evaluation section of the two approaches. Regarding POIS, we see that we achieve a perfect POIs matching: matched POIS are 99\% correct, and their positioning is very accurate, comparable to Google Maps.
 
+Regarding the Artist matching, we obtained a perfect match, in fact we have checked that our linker fails when the ISNI matches are wrong. Moreover, we have found 3000 entities with high confidence that are not matched by ISNI. So we think that this linker can definetly considered a success.
+
+Pathfinding: we created a way that has never been publicated that is actually scalable. We think that having scalable solution for the relation finding is crucial for any project that aims to use heavily the huge knowledge graph that DBpedia is.
+
+Moreover, we find a good use of an equation proposed in another paper. todo. cite
+
+
+
+
+The high precision values (over 80% for top 5 results in
+
+Table 1) obtained by the evaluated recommendations let us
+
+claim that our approach is able to automatically identify
+
+musicians semantically related to a given place of interest
+
+(RQ1). The user studies also showed that, in our approach,
+
+musicians evaluated as relevant tend to have relative high
+
+numbers of paths in a POI’s semantic network for all the
+
+proposed types of relations (i.e., city, date and category),
+
+while these numbers are significantly lower for non-relevant
+
+musicians. This evidences that our approach, which is based
+
+on finding semantic paths between POIs and musicians, can
+
+be used effectively to define and evaluate the semantic relat-
+edness between such instances (RQ2). Moreover, we have
+
+shown that users perceive music composed/performed by the
+
+recommended musicians as well-suited for the POIs.
+
+We note that the presented framework fully relies on the
+
+data available in DBPedia repository – in order for a mu-
+sician to be recommended by our approach, its record has
+
+to be present in DBPedia. Admittedly, this is a limitation,
+
+since less known musicians may not have DBPedia entries.
+
+In the future, this could be addressed by using additional
+
+Linked Data repositories.
+
+An important next step in this research is adapting the
+
+proposed framework to incorporate user preferences into the
+
+recommendation process. As described in Section 3.1, this
+
+can be achieved using the weights of relations between classes
+
+and instances in the semantic network. We intend to ex-
+plore personalization approaches that translate user’s pref-
+erences into these weights. Furthermore, we intend to work
+
+on identifying and exploiting other arbitrary semantic rela-
+tions between POIs and musicians, e.g. direct relations such
+
+as ‘Gustav Mahler was the director of Vienna State Opera’,
+
+and complex non-directed relations such as ‘Ana Bel ́en (a fa-
+mous Spanish singer) composed a song whose lyrics are about
+
+La Puerta de Alcal ́a (a well-known POI in Madrid, Spain)’.
+
+We will search for these relations in different Linked Data
+
+repositories, and will use available tools such as RelFinder
+
+[7]. It is also important to better explore and evaluate strate-
+gies to initialize the importance weights of the relations and
+
+classes in the semantic network. In this context, we will ex-
+plore other approaches to define and measure the semantic
+
+relatedness between concepts [13], and will adapt or extend
+
+them for cases in which the concepts belong to different do-
+mains.
 
 
 Your introduction goes here! Some examples of commonly used commands and features are listed below, to help you get started.
