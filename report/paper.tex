@@ -96,24 +96,27 @@ Pasquale \textsc{Lisena} % Supervisor's Name
 % LOGO SECTION
 %----------------------------------------------------------------------------------------
 
-%\includegraphics{logo.png}\\[1cm] % Include a department/university logo - this will require the graphicx package
+\includegraphics[scale=0.8]{logo.jpg}\\ % Include a department/university logo - this will require the graphicx package
  
 %----------------------------------------------------------------------------------------
 
 \vfill % Fill the rest of the page with whitespace
 
 \end{titlepage}
+\begin{abstract}
+Abstract: 
+Our project aims at making the user discover the existing connections that link music to a Place, by stimulating his curiosity proposing non common relations. In this project we show a new approach for finding artists linked to a place of interest (POI). We propose an entity linking framework built upon DBpedia, 3cixty, and Doremus that is able to reach editorial accuracy in the interlinking process. Furthermore we present a graph exploration algorithm that is able to find deep connections in an short time and discriminate between them by looking at those that can be the most interesting. 
+\end{abstract}
+\newpage
+
 \tableofcontents
 \newpage
-\begin{abstract}
-Abstract: In this project we show a new approach for finding artists linked to a place of interest (POI). We propose a semantic-based framework built upon the DBpedia, 3cixty, and Doremus. Furthermore we present a graph exploration algorithm that is able to find deep connections in an short time and discriminate between them by looking at those that can be the most interesting. Our project aims to making the user know about the existing connections that can link music to a Place, by stimulating the curiosity of the user proposing non common relations.
-\end{abstract}
 
 \section{Introduction}
 todo: change
 Most of the available music recommenders suggest music without taking into consideration the user’s context, e.g., her mood, current location, activity. 
 Finding music that suits a POI can be viewed as a context-aware recommendation problem, the place being the context for consuming the recommendation.         
-The main challenge that one must face when addressing the above mentioned goal is related to the fact that POIs and music are two rather different domains, and there is no obvious way to match such heterogeneous items. However, with the advent of the Semantic Web, and specifically with its reference implementation in the Linked Data initiative, new opportunities arise to face the above difficulties.  
+The main challenge that one must face when addressing the above mentioned goal is related to the fact that POIs and music are two rather different domains, and there is no obvious way to match such heterogeneous items. However, with the advent of the Semantic Web,  new opportunities arise to face the above difficulties.   
 
 \subsection{Motivation and context}
 In the past, many tried to link POIs and music in many different way. xxx managed to link music and POIs by using a common set of tags that describe emotional properties both for music and POIs.
