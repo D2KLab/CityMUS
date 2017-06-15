@@ -7,17 +7,22 @@ import spotipy_util
 def get_near_pois(source, original_pois):
     """given a position and the poi, get three nearest ones"""
 
+    def log2(x):
+        return np.log(x)/np.log(2)
+
     def add_distance_wrapper(src):
         def add_distance(point):
             point['distance'] = vincenty(src, (float(point['latitude']), float(point['longitude']))).meters
-            if point['distance'] < 5:
-                point['distance'] = 5
-            point['distance_sqrt'] = np.sqrt(point['distance'])
+            point['distance'] += 10
+            point['distance_sqrt'] = log2(point['distance'])
             return point
         return add_distance
 
-    MAX_RADIUS = 350
-    MAX_RADIUS_SQRT = np.sqrt(MAX_RADIUS)
+
+
+    MAX_RADIUS = 1000
+
+    MAX_RADIUS_LOG = log2(MAX_RADIUS)
 
     new_pois = copy.deepcopy(original_pois)
 
@@ -28,13 +33,13 @@ def get_near_pois(source, original_pois):
     near_pois = sorted(near_pois, key=lambda x: x['distance'])[:3]
 
     filtered_pois = [near_pois.pop(0)]
-    filtered_pois += filter(lambda x: x['distance_sqrt'] < MAX_RADIUS_SQRT, near_pois)[:2]
+    filtered_pois += filter(lambda x: x['distance_log'] < MAX_RADIUS_LOG, near_pois)[:2]
 
     # weight part
-    total_score = sum(1. / x['distance_sqrt'] for x in filtered_pois)
+    total_score = sum(1. / x['distance_log'] for x in filtered_pois)
     total_weight = 0
     for poi in filtered_pois:
-        poi['weight'] = 1. / (total_score * poi['distance_sqrt'])
+        poi['weight'] = 1. / (total_score * poi['distance_log'])
         total_weight += poi['weight']
     for poi in filtered_pois:
         poi['weight'] = int(round(poi['weight'] * 10. / total_weight))
