@@ -12,19 +12,7 @@
 % License:
 % CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
 % 
-% Instructions for using this template:
-% This title page is capable of being compiled as is. This is not useful for 
-% including it in another document. To do this, you have two options: 
-%
-% 1) Copy/paste everything between \begin{document} and \end{document} 
-% starting at \begin{titlepage} and paste this into another LaTeX file where you 
-% want your title page.
-% OR
-% 2) Remove everything outside the \begin{titlepage} and \end{titlepage} and 
-% move this file to the same directory as the LaTeX file you wish to add it to. 
-% Then add \input{./title_page_1.tex} to your LaTeX file where you want your
-% title page.
-%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\title{Title page with logo}
 %----------------------------------------------------------------------------------------
@@ -96,7 +84,7 @@ Pasquale \textsc{Lisena} % Supervisor's Name
 % LOGO SECTION
 %----------------------------------------------------------------------------------------
 
-\includegraphics[scale=0.8]{logo.jpg}\\ % Include a department/university logo - this will require the graphicx package
+\includegraphics[scale=0.8]{images/logo.jpg}\\ % Include a department/university logo - this will require the graphicx package
  
 %----------------------------------------------------------------------------------------
 
@@ -113,10 +101,9 @@ Our project aims at making the user discover the existing connections that link 
 \newpage
 
 \section{Introduction}
-todo: change
-Most of the available music recommenders suggest music without taking into consideration the user’s context, e.g., her mood, current location, activity. 
+Most of the available music recommender systems suggest music without taking into consideration the user’s context. This means that a generic recommender system will propose the same set of songs regardless of the user mood, location, activity.
 Finding music that suits a POI can be viewed as a context-aware recommendation problem, the place being the context for consuming the recommendation.         
-The main challenge that one must face when addressing the above mentioned goal is related to the fact that POIs and music are two rather different domains, and there is no obvious way to match such heterogeneous items. However, with the advent of the Semantic Web, new opportunities arise to face the above difficulties.  
+The main challenge that one must face when addressing the above mentioned goal is related to the fact that POIs and music are two rather different domains, and there is no obvious way to match such heterogeneous items. However, with the advent of the Semantic Web, new opportunities arise to face the above difficulties. We will show that using generic semantic datasets we can recommend artists that are linked to the user location.
 
 \subsection{Motivation and context}
 In the past, many tried to link POIs and music in many different way. xxx managed to link music and POIs by using a common set of tags that describe emotional properties both for music and POIs.
@@ -137,6 +124,7 @@ Once we have our two sets, we need to find paths that link them. This problem ha
 What we have seen is that POIs and Artists are generally far from each other, in fact usually we need 5 hops to link them, this is more that the average DBpedia degree and it is also more than what Relfinder can do, in fact Relfinder query times are too high once we set more that 4 hops. This lead us to create a pathfinder that can work in acceptable times with 100.000 pairs that are far from each other.
 
 \subsection{Contributions}
+In this project we show a new approach for finding artists linked to a place of interest (POI). We propose an entity linking framework built upon DBpedia, 3cixty, and Doremus that is able to reach editorial accuracy in the interlinking process. Furthermore we present a graph exploration algorithm that is able to find deep connections in an short time and discriminate between them by looking at those that can be the most interesting. 
 
 \subsection{Report structure}
 The report is divided into five sections, one for each part of the project. The first two parts are about linking external datasets to Dbpedia, this is also known as entity linking and we perform it in the optic of enriching our data with the inter-concept links present in DBpedia.
@@ -146,8 +134,9 @@ The fifth part is about the mobile web application and the technologies involved
 
 \section{Interlinking and enriching POIs}
 \subsection{Problem description}
-Interlinking different datasets is not trivial, many approaches that aimed at a semi-supervised interlinking has been proposed, but this is still a topic of research.
-The worst part of this is actually the class definition, in fact specialized datasets tend to have a very strict ontology, while DBpedia does not enforce it. This means that not all music artists are composers, and that not all places in nice are linked to nice. Since Nice is a middle city, we cannot allow to loose some matchings and we need to carefully analyze the DBpedia ontology.
+Interlinking different datasets is not trivial, many approaches that aimed at a semi-supervised interlinking have been proposed, but this is still an active research topic.
+One of the main problems that must be faced in an interlinking process is the ontology definition, in fact specialized datasets tend to have a very strict ontology, while DBpedia does not enforce it. This means that in the case of POIs, not all places in nice are linked to nice, thus it is difficult to even correctly define a POI in Nice.
+Since we are dealing with a medium sized city such as Nice, we can't allow to loose some matchings and we need to carefully analyze the DBpedia ontology in order to leave out a minimum part of Nice POIs.
 
 \subsection{Datasets: 3cixty, DBpedia, Wikidata}
 \subsubsection{3cixty}
@@ -159,109 +148,161 @@ DBpedia is a project that aims at connecting the semantic world. We used it to g
 In order to get the POIs from DBpedia, it is necessary to perform SPARQL queries against the SPARQL endpoint. POIs are retrieved using two different sparql queries that target different kind of resources:
 \begin{enumerate}
 \item We perform a query that looks for all Geoentities that are in the area of nice. An entity is in the area of Nice if its coordinates are in a custom box that contains all the area of Nice.
-Unfortunately there are many POIs that are without coordinates,so they are not selected with this query.
-\item We perform some queries that get in a recursive way all entities that have as a parent the category of nice or nice and that are related to a place. The relation to a place is a list of classes that is done by hand and could be subjected to refinements.
+Unfortunately there are many POIs that are without coordinates,so they are not selected by this query.
+\item We take all resources that have as a parent either the Nice resource or the Category:Nice resource. Then we repeat this operation for each subcategory of Category:Nice in a recursive way. Among these resources, we keep those which type is in a set of classes defined by hand.
 \end{enumerate}
 \subsubsection{Wikidata}
-Wikidata is a project that aims at connecting the semantic world. We used it to get the POIs in Nice. Respect to DBpedia, Wikidata has a well defined ontology that is strictly enforced. This means that it is easier to select what we want. Moreover, most of POIs in wikidata have coordinates, so we can get them with a single query. Since wikidata supports complex geo-based queries, we made a query that looked for all POIs in a range of 25 Kilometers from the center of Nice.
+Wikidata is a project that aims at connecting the semantic world. We used it to get the POIs in Nice. Respect to DBpedia, Wikidata has a well defined ontology that is strictly enforced. This means that it is easier to select what we want. Moreover, most of POIs in wikidata have coordinates, so we can get them with a single query. Since wikidata supports complex geo-based queries, we can make a query that looks for all POIs in a range of 25 Kilometers from the center of Nice.
 \subsection{Entity Linking process}
-Now that we have locally all our entities, we can link them. Having the entities locally is crucial, in fact it allows us to make way more complex operations respect to those that can be done with SPARQL queries.
+In order to link our two set, we copy them locally and then we perform the linking process. Having the entities locally is crucial, in fact it allows us to make way more complex operations respect to those that can be done with SPARQL queries.
 \subsubsection{Properties}
-The first phase is to actually get the interesting properties of the entities. Regarding those that come from DBpedia, we take use only the labels. We do not use coordinates because not all entities have them and we do not want to bias our algorithm using DBpedia coordinates, which is known that are not very accurate. Regarding the labels, we take all labels from all entities, in this way we are going to do a multilingual match because we know that sometimes this can make the difference.
-Respect to Dbpedia, 3cixty entities have very accurate coordinates, and few labels. For this phase we do not need the coordinates, while regarding the labels, we keep the first one.
+The first phase is to actually get the interesting properties of the entities. Regarding those that come from DBpedia, we use only the labels. Regarding the labels, we take them in all the available languages. In this way we can do a multilingual match that improves our accuracy. Since this is not intuitive, here is an example.
+DBpedia labels:
+'Conservatory of Nice'
+'Conservatoire de Nice'
+3cixty label: 'Conservatoire de nice'
+In this case if we use the english label, we do not obtain a perfect match, while with the french label we obtain a perfect match.
+
+We do not use coordinates because not all entities have them. Moreover, we have seen experimentally that using the DBpedia coordinates we obtain worse results because they are inaccurate.
+
+
+Regarding 3cixty entities, they have very accurate coordinates, and few labels. For this phase we do not need the coordinates, while regarding the labels, we keep the first one.
+
 \subsubsection{Transformations}
-At this point of the pipeline, we have labels that are encoded in unicode utf-8. Common similarity metrics accepts only plain ASCII strings as input, so we need to convert them into ASCII. Since utf-8 can represent way more characters than ASCII, we need to strip non ASCII characters from our labels. This is done in an intelligent way using the python library 'unidecode', that is able to convert from unicode to ASCII deleting only few characters. For example, an accented letter like 'è' can't be represented in ASCII. Most of the libraries delete all incompatible characters, while 'unidecode', when possible, converts it to the nearest ASCII character, in this case 'è' is converted to 'e'. In this way we can retain most of the original information after this conversion process.
-The second step is probably the most important, and is the normalization of names. Some similarity metrics are extremely sensitive to noise. For example, when we use simple levenstein distance between ('aeroport','aeroport nice') is 5, while the distance ('aeroport','port') is 4. This is enough to raise some concerns: the simple addition of the city name can turn a perfect match into a mediocre one. In order to fix this problem we add the city name to all the labels where this is not present.
-The third step is to strip all not alphabetical characters and to convert to lowercase all strings, this offcourse gives us cleaner strings to compare.
+At this point of the pipeline, we have labels that are encoded into unicode utf-8. Common similarity metrics accepts only plain ASCII strings as input, so we need to convert them into ASCII. Since utf-8 can represent way more characters than ASCII, we need to strip non ASCII characters from our labels. This is done in an intelligent way using the python library 'unidecode', that is able to convert from unicode to ASCII by changing or deleting a minimum set of characters. For example, an accented letter like 'è' can't be represented in ASCII, and most of the libraries simply delete it, while 'unidecode' converts it to the nearest ASCII character: in this case 'è' is converted to 'e'. In this way we can retain most of the original information after this conversion process.
+The second step is probably the most important, and is the normalization of names. Some similarity metrics are extremely sensitive to noise. For example, when we use simple levenstein distance between ('airport','airport nice') is 5, while the distance ('airport','port') is 4. This is enough to raise some concerns: the simple addition of the city name can turn a perfect match into a mediocre one. In order to fix this problem we add the city name to all the labels where it is not present.
+The third step is to strip all non alphabetical characters and to convert to lowercase all strings, this off course gives us cleaner strings to compare.
+
+The whole transformation pipeline aims at maximizing the similarity measure between correct matches. This is extremely important, because later we can set a threshold to separate matches that have a good confidence from matches with a low confidence. If we do not perform the transformation phase, we would obtain correct matches that have the same confidence of the incorrect ones because we have basically some noise in all the strings.
 
 \subsubsection{Similarity measures and matching algorithm}
-Now that strings are clean, we can proceed to the matching. A first problem rises: we want to match a 3cixty poi to a dbpedia poi, or we want to match a dbpedia poi to a 3cixty poi? In the first case we are sure that each 3cixty poi will be matched to a single dbpedia poi, but there is the risk that multiple 3cixty poi are matched to the same DBpedia poi. Alternatively, we match are sure that each DBpedia poi is matched to at most a 3cixty poi, but there is the risk that two DBpedia poi are matched to the same 3cixty poi.
+Now that strings are clean, we can proceed to the actual matching. A first problem rises: we want to match a 3cixty poi to a dbpedia poi, or we want to match a dbpedia poi to a 3cixty poi? In the first case we are sure that each 3cixty poi will be matched to a single dbpedia poi, but there is the risk that multiple 3cixty poi are matched to the same DBpedia poi. Alternatively, we are sure that each DBpedia poi is matched to at most a 3cixty poi, but there is the risk that many DBpedia poi are matched to the same 3cixty poi.
 Regarding DBpedia, we are sure that POIs are univoque, while we know that for the same POI, in 3cixty there are multiple ones.
 Since at the end we will be using 3cixty coordinates, we opt for the first choice: if a DBpedia poi will be matched to multiple 3cixty pois, than we will follow an heuristic to choose the best match.
-Regarding similarity metrics among strings, there are multiple ones, but most of them are based on levenstein distance.
-Since each distance has its privileges and defects, we use multiple similarity measures, taken from the 'fuzzy wuzzy' python library.
-For each 3cixty poi get the label and calculate the different similarity metric against all labels of all DBpedia POIs.
 
-
+Regarding the similarity metric among strings, we use multiple similarity measures based on levenstein distance. We chose to use different metrics because we have seen experimentally that in this specific case, strings that represents POIs, a single similarity metric is not enough. From a technical point of view, we used a set of the similarity metrics provided by the 'fuzzywuzzy' python library.
 
 \subsubsection{Aggregations}
-The aggregation algorithm can be described as follow:
+Until now, we took one by one the 3cixty labels and we calculated the different similarity metrics against all DBpedia labels. 
+
+The aggregation algorithm is run for each 3cixty POI and can be described as follow:
 \begin{enumerate}
-\item For each similarity metric, take the three best matches and for them average the score of all similarity measures
-\item The final match is the POI corresponding with the string with the highest score
+\item For each similarity metric, take the three best matching labels and for each of them, calculate the average of all the similarity metrics.
+\item The final match is the POI corresponding with the label with the highest score.
 \end{enumerate}
 Why we don't simply take the average, or the minimum, or the maximum?
 The reasoning behind this is that by taking the average we are flattening all the scores, and there is the risk that the string with the highest similarity is a string that is mediocre in all the different metrics. If a string is mediocre in all comparisons, then we do not trust it. Instead, with our methodology we are keeping only those matches that excel in some similarity metric, and then we take the one that performs better on average. We think that in this way we can filter out all those matches with average strings that matches almost anything.
 
 \subsubsection{Filtering}
 Now that the matching is done, we need to filter our results.
-The first filter to do is to eliminate all those matches that match with Nice, but that have a label different from Nice. This usually happens because we added Nice to all strings. That addition was helpful, and it also created a safe default that now can be easily filtered.
-Most of these match are acronym that match with Nice e.g. 'ATP Nice' matches with Nice because half of the string is Nice and is artificial, because we added it.
+The first operation to do is to eliminate all those POIs that match with Nice, but that have a label different from Nice. This happens because we added Nice to all the strings. That addition was helpful, and it also created a safe default that we can easily filter.
+Most of these POIs filtered in this way are acronyms that match with Nice e.g. 'ATP Nice' matches with Nice because half of the string is Nice and is artificial, because we added it.
 
-At this point we filter out all matches with a score below a given threshold.
+The second operation to perform is the filtering based on the average score.
+The average score can be interpreted as a confidence. Intuitively, high scores corresponds to correct matches, while low scores corresponds to bad matches.
+The importance of the selction, transformation, similarity metric and aggregation pipeline is extremely high, in fact we want a confidence which we can trust. An untrusted confidence gives us no additional informations about good matches and bad matches.
+At this point we filter all matches with a score below a given threshold.
 
-Then, we have probably multiple 3cixty POIs connected to a single DBpedia POI.
-In order to choose the most representative 3cixty POI, from whom we will take the coordinates, we have few possibilities:
+Now we are at the half of our work, for each 3cixty POI we have a link to a DBpedia POI, but we might have multiple 3cixty POIs linked to the same DBpedia POI. We aim to a 1 to 1 relation, so we need to choose among a group of 3cixty POIs linked to the same DBpedia POI, the most representative.
+We have few possibilities:
 \begin{enumerate}
-\item K-medoids: We can actually cluster our points and look at the rapresentant of the biggest cluster 
+\item Pick the POI that minimize the distance to all the other POIs, this is like applying the K-medoids clustering with K equal 1.
 \item Pick the POI which is nearest to the center
 \item Pick the POI which is nearest to the DBpedia POI, if coordinates are available
-\item Pick the POI which is nearest to the position found on OpenStreetMap
+\item Pick the POI which is nearest to the position found on Google Maps
 \item Link our data to GeoNames, a dataset of POIs
 \end{enumerate}
-The first method might be the best one, but it requires several precautions.
-The second method is baiased towords pois in the center.
-The third method can work only with POIs with coordinates, and gives good results if DBpedia coordinates are good, but we already know that this is not true.
-The fourth method might be the best one, but we need to exit from the semantic world and hope that the API gives a good result, here the problem is that we have no control over the API.
-The fourth method can work, but we would need to design another linking process.
+The first method might be the best one, but it works if most of the POIs are actually clustered. If they are very sparse it does not work.
+The second method is biased towards POIs near the center.
+The third method can work only with DBpedia POIs with coordinates, and gives good results if DBpedia coordinates are good, but we already know that this is not true.
+The fourth method might be the best one, but we need to look outside the semantic world and trust the Google Maps API. Here the problem is that we have no control over the API, but we  know that Google Maps is very good at matching a name with a place.
+The fourth method could be the best one, in fact we can exploit GeoNames coordinates that are trusted. The main problem is the fact that not all DBpedia POIs have a corresponding POI.
 
-For simplicity and reliability, we decided to use both OpenStreetMap API and Google Map API, in this way we have a much bigger confidence.
-
-We make a request with the DBpedia label to the API, and we keep the POI which is nearest to one of them, in this case the minimum distance wins. If the distance is greater than a chosen threshold (500 meters), then the match is filtered out. 
-
+For simplicity and reliability, we used the Google Maps API because we trust it.
+We use the API by sending the DBpedia label to the service, the response contains the coordinates of the POI associated to the DBpedia label. At this point we select the nearest 3cixty POI and we keep it if the distance is less than 2 kilometers.
 \subsection{Evaluation (Google Map / OpenStreetMap)}
-The evaluation part is done using both the Google Map and OpenStreetMap. We calculated the Medium Square Error of the POIS to the positions recovered with the APIs, the error distance is the haversine distance.
+The evaluation part is done using the Google Maps API. As done before, we use the distance between the 3cixty POI coordinates and the POI coordinates provided by the API. Since we used the Google Maps API during our process, we expect that distances are low, in fact we know that each POI distance is less than 2 kilometers. What we want to check here is the distance distribution.
+\begin{figure}
+\centering
+\includegraphics[]{images/distance.png}\\
+%\caption{\label{fig:distance}This is a figure caption.}
+\end{figure}
+Looking at the distance distribution we note that most of the POIs are actually near to the Google Maps coordinates, while for few POIs this is not true. The main reason for this is the inherent unprecision that arise when wedefine a POI which occupies a big surface with coordinates that refer to a specific point. For example the surface of the airport of Nice is quite big and different services can locate it in different points of his surface. In the case of the airport, the distance is actually 500 meters. This means that if it is true that most of the POIs are under 500 meters, we can't use this as a threshold because we would leave out a large part of the correct POIs.
+
+At the end of our POI linking process we have 58 POIs that will be matched with the artists.
+
 \section{Interlinking and enriching Artists}
 \subsection{Problem description}
+DBpedia contains Artists and their works in a disorganized way.
+This consist a huge limit because we do not trust the data that we have in DBpedia. Even the simpler operations, such as finding all artists and all songs are extremely difficult due to the non-strict ontology of DBpedia. In order to have some order, we use DOREMUS, which contains trusted informations about artists and songs in a strict ontology.
+
 \subsection{Datasets: DOREMUS, DBpedia, Wikidata}
 \subsubsection{DOREMUS}
-3cixty is a semantic dataset that contains aggregated informations of POIs and events. The dataset is the result of an aggregation process that join the POI informations from different datasets e.g. Facebook, Foursquare, Yelp \dots
-In this project 3cixty is used as a trusted source of POIs for Nice.
-POIs have many informations, such as the category, the address, comments from users, and coordinates. In order to get all the POIs in Nice, we simply used the POIs endpoint selecting the Nice city.
-\subsubsection{DBpedia}
-DBpedia is a project that aims at connecting the semantic world. We used it to get the POIs in Nice.
-In order to get the POIs from DBpedia, it is necessary to perform SPARQL queries against the SPARQL endpoint. POIs are retrieved using two different sparql queries that target different kind of resources:
-\begin{enumerate}
-\item We perform a query that looks for all Geoentities that are in the area of nice. An entity is in the area of Nice if its coordinates are in a custom box that contains all the area of Nice.
-Unfortunately there are many POIs that are without coordinates,so they are not selected with this query.
-\item We perform some queries that get in a recursive way all entities that have as a parent the category of nice or nice and that are related to a place. The relation to a place is a list of classes that is done by hand and could be subjected to refinements.
-\end{enumerate}
-\subsubsection{Wikidata}
-Wikidata is a project that aims at connecting the semantic world. We used it to get the POIs in Nice. Respect to DBpedia, Wikidata has a well defined ontology that is strictly enforced. This means that it is easier to select what we want. Moreover, most of POIs in wikidata have coordinates, so we can get them with a single query. Since wikidata supports complex geo-based queries, we made a query that looked for all POIs in a range of 25 Kilometers from the center of Nice.
+DOREMUS is a semantic dataset that aims to a fine description of musical works in the fields of traditional and classical music: related musical or creation events, relations to authors, cultural background, interpretations, social functions, etc.
+With DOREMUS we can have absolute trust in the data regarding artists, and we can then found corresponding artists in DBpedia with a custom linking process.
 
+Retrieving all artists from DOREMUS is extremely easy, in fact we just need to ask for the Persons in the datasets. Then from these we filter persons that actually created at least a work.
+
+\subsubsection{DBpedia}
+Unfortunately DBpedia does not have a strict definition of a musical Artist. This means that retrieving artists from DBpedia is not trivial. What we do it to get all Persons, which are quite a lot. Most of them are not artists, and we filter them later.
+
+todo: lorenzo
+
+
+\subsubsection{Wikidata}
+If Wikidata was extremely reliable for the POIs, it is not that strict about musical artists, in fact we need to get all persons and then filter them in some way, looking at classes that are related to music.
 
 \subsection{Entity Linking process (+ ElasticSearch)}
+Here we do the same thing that we did with POIs, we need to extract interesting properties from our entities and then use them to find the correct matches. 
+With POIs we had one hundred entities from DBpedia, and we could do all operations locally. Here we would like to do the same, but we are dealing with millions of persons, and retrieving them and doing all operations locally is not feasible. For each artist in DOREMUS, we would compare his label with the label of millions of persons, and in Doremus we have thousands of artists.
+
+In order to speedup operations, we use a dump of DBpedia indexed on ElasticSearch. This allow us to perform all the comparison in a fraction of time thanks to the use of indexes.
+
+todo: Lorenzo
+
+
 \subsubsection{Properties}
 \subsubsection{Transformations}
 \subsubsection{Similarity measures}
 \subsubsection{Aggregations}
 \subsubsection{Filtering}
 \subsection{Evaluation}
-todo: add source of isni
-The evaluation of the found links is done by comparing the found links with those provided by ISNI. ISNI is the ISO certified global standard number for identifying the millions of contributors to creative works. By achieving these goals the ISNI will act as a bridge identifier across multiple domains and become a critical component in Linked Data and Semantic Web applications.
+The evaluation of the found links is done by comparing them with those provided by ISNI. ISNI is the ISO certified global standard number for identifying the millions of contributors to creative works. By achieving these goals the ISNI will act as a bridge identifier across multiple domains and become a critical component in Linked Data and Semantic Web applications.
 
 ISNI matches are made by persons in the editorial world, so we can consider them as a ground truth that can be trusted. By comparing our matches we want to see if our performances are acceptable and if we can discover new links between ISNI numbers and DBpedia.
 
-todo: table with cool statistics
-todo: graph image
+\begin{figure}
+\centering
+\includegraphics[]{images/counts_artists.png}\\
+%\caption{\label{fig:distance}This is a figure caption.}
+\end{figure}
+
+Since the matching confidence vary with the threshold, we can plot all the important counts and metrics respect to the threshold used.
+
+In the figure above there are all the counts of the important sets that describe our matching.
+Trues indicates the number of doremus entities matched by ISNI, they are ~3500 and of course they are independent from the threshold.
+Predicted indicates the number of doremus entities matched by us, the number vary with the confidence, there are different drops that corresponds to crucial thresholds defined by our matching algorithm. The most important thing is that their number goes from ~3000 to ~6000, this indicates that we are matching way more entities than ISNI.
+Doremus intersection represents the number of entities that are matched from both ISNI and us. This shows us that there is a part of the doremus entities that ISNI matches and that we are not able to match.
+Now, the following sets are all calculated from the intersection set, in fact we cannot compare the matching performances using entities that are not present in both sets.
+Equal show the number of correct matches, we see that this basically overlap with the intersection set, meaning that ISNI and our algorithm match a doremus entity with the same DBpedia entity. Since ISNI matches have a professional validity, this means that we can have a great confidence in the matches produced by our algorithm.
+
+Since equal and doremus intersection are not exactly the same, it means that either our algorithm or ISNI are doing a wrong match. Looking more closely we saw that in some cases ISNI matches were wrong, especially in corner cases, where there were two persons with the same name.
+This corner cases can fool also a professionist, and this is the reason why in our algorithm we embedded the comparison of birthdate and deathdate in DBpedia with those present in Doremus. This allowed us to disambiguate between different persons with the same name. In other cases this was not enough, there are persons with the same name and birth/death dates, or whose dates are not available, that can be correctly classified looking at other fields, such as their profession.
+
+
+\begin{figure}
+\centering
+\includegraphics[]{images/metrics_artists.png}\\
+%\caption{\label{fig:distance}This is a figure caption.}
+\end{figure}
+Looking at the usual metrics, we see that they are extremely high for this kind of match. This means that we are doing an almost perfect match.
 
 We can state that the proposed method based on combinations of labels, classes and dates is able to match almost perfectly the artists of the two datasets. Moreover, we are able to find 2000 artists that at the time of writing are not present in the ISNI register.
 
 \section{Path finder}
 \subsection{Problem description}
-todo: add citations
 Once we have a direct mapping between entities that comes from specialized datasets and DBpedia, we actually need to link POIs and Artists.
-The problem of finding relations between entities in DBpedia has already been approached and solved in the past, especially from Relfinder. The whole problem can be solved by writing a single query that finds a path of a given depth between two resources. This approach works well when datasets are relatively small and the two entities are two concepts that are semantically close. Instead, in our case we have concepts that are definetly far from each other, which implicates an high depth of an eventual path, and most importantly, we need to match hundreds of POIs with thousands of artists, This makes means that at the end the whole process will be repeated 100.000 times.
+The problem of finding relations between entities in DBpedia has already been approached and solved in the past, especially from Relfinder. The whole problem can be solved by writing a single query that finds a path of a given depth between two resources. This approach works well when datasets are relatively small or the two entities are two concepts that are semantically close. Instead, in our case we have concepts that are absolutely far from each other, which implicates an high depth of an eventual path, and most importantly, we need to match hundreds of POIs with thousands of artists, This makes means that at the end the whole process will be repeated 25.000 times.
 \subsection{Related work (Relfinder)}
 The path finding problem has already been solved in the past with Relfinder: a tool that is able to find all paths with a specified depth between two entities. 
 In fact, when we think at linking two entities, we need to set the position of the middle node and the number of middle nodes.
@@ -422,23 +463,8 @@ can be achieved using the weights of relations between classes
 
 and instances in the semantic network. We intend to ex-
 plore personalization approaches that translate user’s pref-
-erences into these weights. Furthermore, we intend to work
-
-on identifying and exploiting other arbitrary semantic rela-
-tions between POIs and musicians, e.g. direct relations such
-
-as ‘Gustav Mahler was the director of Vienna State Opera’,
-
-and complex non-directed relations such as ‘Ana Bel ́en (a fa-
-mous Spanish singer) composed a song whose lyrics are about
-
-La Puerta de Alcal ́a (a well-known POI in Madrid, Spain)’.
-
-We will search for these relations in different Linked Data
-
-repositories, and will use available tools such as RelFinder
-
-[7]. It is also important to better explore and evaluate strate-
+erences into these weights.
+It is also important to better explore and evaluate strate-
 gies to initialize the importance weights of the relations and
 
 classes in the semantic network. In this context, we will ex-
@@ -448,7 +474,6 @@ relatedness between concepts [13], and will adapt or extend
 
 them for cases in which the concepts belong to different do-
 mains.
-
 
 Your introduction goes here! Some examples of commonly used commands and features are listed below, to help you get started.
 
@@ -468,7 +493,7 @@ Use the table and tabular commands for basic tables --- see Table~\ref{tab:widge
 % Commands to include a figure:
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth]{frog.jpg}
+\includegraphics[width=0.5\textwidth]{images/frog.jpg}
 \caption{\label{fig:frog}This is a figure caption.}
 \end{figure}
 
