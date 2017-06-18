@@ -20,7 +20,7 @@ def get_near_pois(source, original_pois):
 
 
 
-    MAX_RADIUS = 1000
+    MAX_RADIUS = 2000
 
     MAX_RADIUS_LOG = log2(MAX_RADIUS)
 
