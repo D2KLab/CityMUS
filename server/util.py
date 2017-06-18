@@ -14,7 +14,7 @@ def get_near_pois(source, original_pois):
         def add_distance(point):
             point['distance'] = vincenty(src, (float(point['latitude']), float(point['longitude']))).meters
             point['distance'] += 10
-            point['distance_sqrt'] = log2(point['distance'])
+            point['distance_log'] = log2(point['distance'])
             return point
         return add_distance
 
