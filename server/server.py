@@ -13,6 +13,7 @@ poi_artists = database_helper.load_poi_artists()
 # load pois
 pois = database_helper.load_pois(poi_artists)
 print(len(pois))
+print(pois)
 
 # load playlists
 playlist_collection = database_helper.PlaylistCollection(pois, poi_artists)
