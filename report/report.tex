@@ -31,6 +31,7 @@
 \usepackage{listings}
 \setcounter{secnumdepth}{4}
 \usepackage{tikz}
+\usepackage{xfrac}
 \usetikzlibrary{arrows.meta}
 \tikzset{%
   >={Latex[width=2mm,length=2mm]},
@@ -441,9 +442,42 @@ Now we'll briefly describe the principal differences in the Wikidata artist Link
 As anticipated at the beginning of this section, we'll not use the Elastic Search but we considered all Wikidata entities that are composers of some works, looking at a specific property that denotes the composition act. For each of these entities we performed a second query to get the birth and death year. In this case we didn't get the category information because we have already considered only the composers.
 
 \subsubsection{Transformations}
-The only data that we transformed were the Doremus one because they presented the same problems than before for some years strings.
+The only data that we transformed were the Doremus one because they presented the same problems than before for some years strings. 
+
+\subsubsection{Similarity measures}
+To match the artist we used the same similarity criteria described before for DBpedia; however it was not feasible applying this similarity measures for all the possible links Wikidata-Doremus artists. In fact we got M Doremus artists (around 16000)  and N Wikidata artists (around 14000). The complexity of scoring all possible combinations would be $O(m*n)$, where m are the artists of Doremus and n those of Wikidata. To avoid this, we indexed the Wikidata artist by label, by birth year and by death year, reducing the complexity to $O(m*\tilde{n})$ where $\tilde{n}$ is the average number of artists by year.
+For this reason every founded match had at least one of these conditions: 
+\begin{enumerate}
+\item the same label
+\item the same birth year
+\item the same death year
+\end{enumerate}
+Actually this is not a big limit because we presumed that at least one similarity metric gave the best score.
+For the fields for which the match was not perfect we used the same similarity metrics used for DBpedia.
+As instance, supposing to have a pair Doremus-DBpedia artist for which the label perfectly matches, we computed the same year similarity measure than the one used for DBpedia artists. Alternatively, in the case in which the label doesn't match but birth or the death year match, we consider only the artist born or died in that year, computing the label similarity metric, keeping only the artist associated with the highest score and filtering it out if the label similarity score was too low.
+We remember that for DBpedia we didn't have this complexity issue because the Elastic Search already retrieved a small set of DBpedia candidates for each Doremus artist.
+This similarity approximation is not a big problem because in Wikidata there are a real high number of labels associated to each artist, in many languages but also in many different words ordering. So founding a perfect label match is not so rare.
+
+\subsubsection{Aggregations}
+The aggregation was performed considering a simple weighted sum.
+
+
+\begin{table}[!htb]
+\centering
+\caption{DBpedia/Wikidata comparison}
+\label{my-label}
+\begin{tabular}{@{}|l|l|l|@{}}
+\toprule
+                                                                                                  & \multicolumn{1}{c|}{\textbf{Pros}}                                                                               & \multicolumn{1}{c|}{\textbf{Cons}}                                     \\ \midrule
+\multicolumn{1}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Dbpedia\\ Elastic\\ Search\end{tabular}}} & \begin{tabular}[c]{@{}l@{}}- Fast\\ - Pre selection using ES\\ - Didn't present complexity problems\end{tabular} & - We used an old DBpedia dump                                           \\ \midrule
+\textbf{Wikidata}                                                                                 & \begin{tabular}[c]{@{}l@{}}- Updated Dbpdia dump\\ - Not necessary type entity checking\end{tabular}             & \begin{tabular}[c]{@{}l@{}}- Slow\\ - Complexity problems\end{tabular} \\ \bottomrule
+\end{tabular}
+\end{table}
+
 \subsection{Evaluation}
 The evaluation of the found links is done by comparing them with those provided by ISNI. ISNI is the ISO certified global standard number for identifying the millions of contributors to creative works. By achieving these goals the ISNI will act as a bridge identifier across multiple domains and become a critical component in Linked Data and Semantic Web applications.
+
+
 
 \subsubsection{DBpedia performances}
 ISNI matches are made by persons in the editorial world, so we can consider them as a ground truth that can be trusted. By comparing our matches we want to see if our performances are acceptable and if we can discover new links between ISNI numbers and DBpedia.
@@ -520,10 +554,10 @@ Another way to visualize the query is a Breath First Search that starts from the
 \begin{figure}[!htb]
   \centering 
     \includegraphics[width=0.9\textwidth]{images/bfs.png}
-    \caption{Bidirectional BFS}
+    \caption{Bidirectional BFS \cite{artificial_intelligence}}
 \end{figure}
 
-A common improvement of BFS is the two-way BFS, where the same algorithm is applied both at the source and the destination. In this way we can see that we can reach the same middle node by querying a way smaller portion of the graph.
+A common improvement of BFS is the two-way BFS, where the same algorithm is applied both at the source and the destination. In this way we can see that we can reach the same middle node by querying a way smaller portion of the graph. In this way the time and space complexity goes from $O(b^d)$ of the naive approach to $O(b^{\sfrac{d}{2}})$.
 Looking at paths found by Relfinder, we have seen that usually one direction inversion cover most of the cases, by limiting this we are actually simplifying a lot our problem. Then, we have seen that for artists and POIs, the connection is most of the times the result of a common node. This means that the direction must change at least one time. We reduced all the different cases to one. In fact what we do is to make two separate queries with depth from the source and from the destination. These queries return the list of all half-paths. We make a set of the involved nodes and then we intersect the two sets, in order to find the common nodes. At this point we operate joins that create full paths. The whole matching of POIs and Artists  requires only some hours against the weeks that would take Relfinder.
 \subsection{Selection Algorithm}
 Now that we have all our path, we need to find the best ones, those that shows interesting links between POIs and Artists.
