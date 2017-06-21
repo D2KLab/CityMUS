@@ -108,7 +108,7 @@ Raphaël  \textsc{Troncy} % Supervisor's Name
 \end{titlepage}
 \begin{abstract}
 Abstract: 
-Our project aims at making the user discover the existing connections that link music to a Place, by stimulating his curiosity proposing noncommon relations. In this project, we show a new approach for finding artists linked to a place of interest (POI). We propose an entity linking framework built on top of DBpedia, 3cixty, and DOREMUS that is able to reach editorial accuracy in the interlinking process. Furthermore, we present a graph exploration algorithm that is able to find deep connections in a short time and discriminate between them by looking at those that can be the most interesting. 
+Our project aims at making the user discover the existing connections that link music to a Place, by stimulating his curiosity proposing non-common relations. In this project, we show a new approach for finding artists linked to a place of interest (POI). We propose an entity linking framework built on top of DBpedia, 3cixty, and DOREMUS that is able to reach editorial accuracy in the interlinking process. Furthermore, we present a graph exploration algorithm that is able to find deep connections in a short time and discriminate between them by looking at those that can be the most interesting. 
 \end{abstract}
 \newpage
 
@@ -116,17 +116,23 @@ Our project aims at making the user discover the existing connections that link 
 \newpage
 
 \section{Introduction}
-Most of the available music recommender systems suggest music without taking into consideration the user’s context \cite{Knees:2013:SMS:2559928.2542206}. This means that a generic recommender system will propose the same set of songs regardless of the user mood, location, activity.
+Most of the available music recommender systems suggest music without taking into consideration the user context \cite{Knees:2013:SMS:2559928.2542206}. This means that a generic recommender system will propose the same set of songs regardless of the user mood, location, activity.
 Finding music that suits a POI can be viewed as a context-aware recommendation problem, the place is the context for consuming the recommendation.                    
-The main challenge that one must face when addressing the above-mentioned goal is related to the fact that POIs and music are two rather different domains, and there is no obvious way to match such heterogeneous items. However, with the advent of the Semantic Web, new opportunities arise to face the above difficulties. We will show that using generic semantic datasets we can recommend artists that are linked to the user location.
+The main challenge that one must face when addressing the above-mentioned goal is related to the fact that POIs and music are two rather different domains, and there is no obvious way to match such heterogeneous items. However, with the advent of the Semantic Web, new opportunities arise to face these type difficulties. We will show that using a general purpose semantic dataset such as DBpedia we can recommend artists that are linked to the user location.
 
 \subsection{Motivation and context}
-In the past, many tried to link POIs and music in many different ways. managed to link music and POIs by using a common set of tags that describe emotional properties both for music and POIs \cite{Kaminskas:2013:LMR:2507157.2507180}.
-This method was completely supervised, in fact it required the definition of a set of emotions for songs and POIs. This operation has been done by hand and is hardly scalable.
-In another project \cite{Kaminskas:2012:KMR:2390848.2390854}, a semantic approach has been used by restricting the subspace of DBpedia \footnote{DBpedia: http://wiki.dbpedia.org/} by identifying classes related to the domains of interest, and the relations existing between instances of such classes. In this way, they managed to find relations in a set of paths constrained to pass belong to those classes. Looking at the future works proposition, they proposed the idea to exploit arbitrary semantic relations between POIs and musicians.
-In order to do this, they proposed to use Relfinder \cite{Heim:2009:RRR:1695324.1695351} and set the connections' weights using an heuristic.  In fact, one of the bad things was that connections weights were assigned by experts and were not provided in the paper.
-Our intention is to build our approach on top of this paper and find relations in a completely unsupervised way: this means that we intend to define a pathfinder that finds paths and a path discriminator that selects the interesting relations. We aim at reducing the need for human intervention in defining classes and weights with the hope that this approach will be completely data driven and easily scalable to different cities. Moreover, we will use different datasets with the intention to exploit their implicit advantages and obtain overall a better recommender system.
+In the past, many tried to link POIs and music in many different ways. Someone managed to link music and POIs by using a common set of tags that describe emotional properties both for music and POIs \cite{Kaminskas:2013:LMR:2507157.2507180}. This method is completely supervised, in fact it requires the definition of a set of emotions for songs and POIs. This operation must be done manually and is hardly scalable.
+\begin{figure}[!htb]
+  \centering 
+    \includegraphics[width=1\textwidth]{images/semantic_net.png}
+    \caption{Semantic Network with predefined classes}
+\end{figure}
 
+In a second project \cite{Kaminskas:2012:KMR:2390848.2390854}, the goal is achieved by by restricting the subspace of DBpedia \footnote{DBpedia: http://wiki.dbpedia.org/} to a set classes related to the domains of interest. These classes includes concepts that are easily linkable to artists and POIs, such as historic periods, architectural styles and geographic informations. In this way, they managed to find relations in a set of paths constrained to pass through those classes.
+
+Looking at the future propositions, both projects proposed the idea to exploit arbitrary semantic relations between POIs and musicians.
+In order to do this, they proposed to use Relfinder \cite{Heim:2009:RRR:1695324.1695351} and set the connection weights using an heuristic. In fact, one of the disadvantages of those approaches is that connections weights are assigned by experts and were not provided in the paper.
+Our intention is to build our approach on top of this paper and find relations in a completely unsupervised way: this means that we intend to define a pathfinder that finds paths and a path discriminator that selects the interesting relations. We aim at reducing the need for human intervention in defining classes and weights with the hope that this approach will be completely data driven and easily scalable to different cities. Moreover, we will use different datasets with the intention to exploit their implicit advantages and obtain overall a better recommender system.
 
 \subsection{Research problems}
 Finding relations inside DBpedia is a known problem which has been solved in the past. So we could simply look for POIs and Artists in DBpedia and then link them using known algorithms.
