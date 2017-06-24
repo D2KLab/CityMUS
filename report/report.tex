@@ -116,9 +116,13 @@ Our project aims at making the user discover the existing connections that link 
 \newpage
 
 \section{Introduction}
-Most of the available music recommender systems suggest music without taking into consideration the user context \cite{Knees:2013:SMS:2559928.2542206}. This means that a generic recommender system will propose the same set of songs regardless of the user mood, location, activity.
-Finding music that suits a POI can be viewed as a context-aware recommendation problem, the place is the context for consuming the recommendation.                    
-The main challenge that one must face when addressing the above-mentioned goal is related to the fact that POIs and music are two rather different domains, and there is no obvious way to match such heterogeneous items. However, with the advent of the Semantic Web, new opportunities arise to face these type difficulties. We will show that using a general purpose semantic dataset such as DBpedia we can recommend artists that are linked to the user location.
+"In order to generate relevant recommendations, a context-aware recommender system (CARS) not only makes use of user preferences, but also exploits information about the specific contextual situation in which the recommended item will be consumed." \cite{Baltrunas:2012:CRA:2339097.2339111}
+
+This is in contrast with the fact that most of the available music recommender systems suggest music without taking into consideration the user context \cite{Knees:2013:SMS:2559928.2542206}. This is because defining and especially exploiting contexts is not a trivial operation. Context can be defined as any information that can be used to characterize the situation of an entity. \cite{Dey:2001:UUC:593570.593572}. These informations informations includes mood, location, activity, friends, daily and current activities of the target user.
+
+If we think of a recommender task in a mobile scenario (e.g., choosing a song while sightseeing), we see that most recommendations are requested by users while they are on their way. This causes a continuous change in the context that needs to be carefully addressed. Recommendations are much more useful and enjoyable for end users as they change with their current context . \cite{Ostuni:2012:CCM:2887638.2887642}
+
+Finding music that suits a Point of Interest(POIS) can be viewed as a context-aware recommendation problem, the place is the context for consuming the recommendation. The main challenge that one must face when addressing the above-mentioned goal is related to the fact that POIs and music are two rather different domains, and there is no obvious way to match such heterogeneous items. However, with the advent of the Semantic Web, new opportunities arise to face these type of difficulties. We will show that, using a general purpose semantic dataset such as DBpedia, we can recommend artists that are linked to the user location.
 
 \subsection{Motivation and context}
 In the past, many tried to link POIs and music in many different ways. Someone managed to link music and POIs by using a common set of tags that describe emotional properties both for music and POIs \cite{Kaminskas:2013:LMR:2507157.2507180}. This method is completely supervised, in fact it requires the definition of a set of emotions for songs and POIs. This operation must be done manually and is hardly scalable.
@@ -433,7 +437,11 @@ TODO insert aggregation functions formula
 
 \subsubsection{Filtering}
 
-TODO insert graph
+\begin{figure}[!htb]
+  \centering 
+    \includegraphics[width=1\textwidth]{images/score_distribution.jpg}
+    \caption{Score distribution}
+\end{figure}
 
 The graph above shows the scores distribution; the majority of matchings seems to have score near 1 that is good; however some noise it is still present; to remove it we cut all matchings with score lower that 0.5. 0.5 generally means that we don't have informations about the death and birth years but label matched perfectly and the DBpedia entity had an \verb|rdf:type| that clearly indicates that it is a composer.
 
@@ -557,18 +565,59 @@ The problem is that DBpedia is small world and its average degree is 4.3, this m
 It is our belief that a query that tries to find a path between two entities, is converted by the SPARQL engine in what we can compare to a join for each hop. This, with the small world characteristic of DBpedia means that we are doing huge joins for each query.
 Another way to visualize the query is a Breath First Search that starts from the source entity, and it expands hop after hop until the specified depth is reached. In this way is even more easy to see why we end up by querying billions of triples.
 
+
+\begin{figure}[!htb]
+  \centering 
+    \includegraphics[width=0.7\textwidth]{images/Path_Discovering.jpg}
+    \caption{Bidirectional BFS 1}
+\end{figure}
+
 \begin{figure}[!htb]
   \centering 
     \includegraphics[width=0.9\textwidth]{images/bfs.png}
-    \caption{Bidirectional BFS \cite{artificial_intelligence}}
+    \caption{Bidirectional BFS 2 \cite{artificial_intelligence}}
 \end{figure}
+
+
+
 
 A common improvement of BFS is the two-way BFS, where the same algorithm is applied both at the source and the destination. In this way we can see that we can reach the same middle node by querying a way smaller portion of the graph. In this way the time and space complexity goes from $O(b^d)$ of the naive approach to $O(b^{\sfrac{d}{2}})$.
 Looking at paths found by Relfinder, we have seen that usually one direction inversion cover most of the cases, by limiting this we are actually simplifying a lot our problem. Then, we have seen that for artists and POIs, the connection is most of the times the result of a common node. This means that the direction must change at least one time. We reduced all the different cases to one. In fact what we do is to make two separate queries with depth from the source and from the destination. These queries return the list of all half-paths. We make a set of the involved nodes and then we intersect the two sets, in order to find the common nodes. At this point we operate joins that create full paths. The whole matching of POIs and Artists  requires only some hours against the weeks that would take Relfinder.
+
+\subsection{Paths Filtering}
+Using our method we retrieve a really high number of paths: 41802195. Applying an algorithm to score each path would be really intensive. So we decide to filter out the less interesting paths.
+In practice we perform three filtering steps:
+\begin{enumerate}
+\item \textbf{Removing cycles} : in the  first filtering step we want to remove all paths in which a resource is presented two times. In fact it means that there is a shorter path between the POI and the artist, and it is already present in our table. As instance let's suppose to have these 2 paths (the letters represent the resources):
+$$a-->b-->c$$
+$$a-->b-->e-->b<--c$$
+$$\cdots$$
+We want to preserve only the first one. At the end of these step the number of remaining paths is: 1148286. This means that an half of our paths were cycles.
+
+\item \textbf{Preserving only shortest paths} :  we want to save only the shortest path between an artist and a POI. A shorter path doesn't mean certainly a better one. However the majority of our paths is really long (6 of depth), so this step is useful to delete all repeated data. Let's suppose to have these 2 paths (the letters represent the resources):
+$$a-->b-->d-->e-->f$$
+$$a-->b-->c-->d-->e-->f$$
+$$\cdots$$
+We want to preserve only the first one.
+
+\end{enumerate}
+
+At the end of these three filtering steps 27931 paths remain. We apply to these our selection algorithm.
+
+
 \subsection{Selection Algorithm}
-Now that we have all our path, we need to find the best ones, those that shows interesting links between POIs and Artists.
 todo: lorenzo
-Moreover, we find a good use of an equation proposed in another paper \cite{meng2013review}.
+Now that we have all our filtered path, we need to find the best ones, those that shows interesting links between POIs and Artists. Our interest is to consider both path length and exclusiveness. 
+Moreover, we take inspiration from \cite{meng2013review}.
+We define the exclusiveness as the inverse of the generality, where the generality is:
+
+$$gen =\frac{1}{\mid N \mid}\sum_i^Nocc(r_{i})$$
+
+Here $$r(r_{i})$$ corresponds to the i resource of the path and $$occ(r_{i})$$ to the number of occurrences of this resource belongs to all considered paths.
+
+$$sim(artist,poi) = 1-k(\frac{\log(len(artist,poi)-1)}{\log(2*(deep_max -1))})-(1-k)gen$$
+
+
 
 At the end, we select 5 Artists for each POI looking at those artists with the highest score, where the score is given by their most interesting path.
 
