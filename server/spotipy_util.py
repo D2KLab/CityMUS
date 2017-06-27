@@ -38,14 +38,11 @@ def get_playlists_dict(pois,poi_artists,username=username):
 
 
 def create_playlist(playlist_name, username=username, sp=sp):
-    try:
-        playlist = sp.user_playlist_create(username, playlist_name)
-    except spotipy.SpotifyException:
-        token = spotipy.util.prompt_for_user_token(username, scope, client_id=clientid, client_secret=clientsecret,
-                                                   redirect_uri=redirect)
-        sp = spotipy.Spotify(auth=token)
-        sp.trace = False
-        playlist = sp.user_playlist_create(username, playlist_name)
+    token = spotipy.util.prompt_for_user_token(username, scope, client_id=clientid, client_secret=clientsecret,
+                                       redirect_uri=redirect)
+    sp = spotipy.Spotify(auth=token)
+    sp.trace = False
+    playlist = sp.user_playlist_create(username, playlist_name)
 
     return playlist
 
