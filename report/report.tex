@@ -20,7 +20,7 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass[paper=a4, fontsize=11pt]{scrartcl}
-\linespread{1.1}
+\linespread{1.25}
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage{mathtools}
@@ -142,20 +142,16 @@ In order to do this, tools like Relfinder have been proposed \cite{Heim:2009:RRR
 Our goal is to build our approach on top of this paper and find relations in a completely unsupervised way: this means that we intend to define a path finder that finds paths and a path discriminator that selects the interesting relations.
 
 \subsection{Research problems}
-Finding relations inside DBpedia is a known problem which has been solved in the past. So we could simply look for POIs and Artists in DBpedia and then link them using known algorithms.
-Unfortunately, DBpedia is not perfect: it is true that it contains POIs and Artists, but these entities are not cleanly defined, they usually contain dirty data that can tremendously affect our performances.
-On the other side, POIs and Artists can be found in highly specialized datasets, but unfortunately, they do not contain links to each other, and even worse they are not linked to DBpedia. This means that by using these databases alone we cannot find relations.
-What is done in this cases is to link highly specialized datasets to DBpedia, in this way we can exploit the advantages of both worlds: highly specialized datasets give us confidence and trust in our main entities (POIs and Artists), while DBpedia allows us to find relations between them thanks to its generality.
-Once we have our two sets, we need to find paths that link them. This problem has been solved in the past with Relfinder, a tool that is able to find relations between entities.
-What we have seen is that POIs and Artists are generally far from each other, in fact usually we need 5 hops to link them, this is more that the average DBpedia degree and it is also more than what Relfinder can do, in fact, Relfinder query times are too high once we set more that 4 hops. This lead us to create a pathfinder that can work in acceptable times with 100.000 pairs that are far from each other.
+The main challenge is the goal itself: is it possible to suggest interesting artists based on the user context?
+Since we intend to find DBpedia relations between POIs and artists, how deep are this kind of relations? Are there tools that have already solved completely this problem? In which context they work and are they scalable on a big number of entities? What is the shape of these connections? Do they have a common pattern? How many are they? Can we filter only the interesting ones? How can we define an interesting connection?
+
+It is our intention to use specialized datasets that are not directly linked to DBpedia. Therefore, What are the important properties to consider when doing such a job? 
 
 \subsection{Contributions}
 In this project, we show a new approach for finding artists linked to a place of interest (POI). We propose an entity linking framework built upon DBpedia, 3cixty\footnote{3cixty: https://www.3cixty.com/}, and DOREMUS\footnote{DOREMUS: http://www.doremus.org/} that is able to reach editorial accuracy in the interlinking process. Furthermore, we present a graph exploration algorithm that is able to find deep connections in a short time and discriminate between them by looking at those that can be the most interesting.
 We aim at reducing the need for human intervention in defining classes and weights with the hope that this approach will be completely data driven and easily scalable to different cities. 
-Finally, we demonstrate the effectiveness of our work through an APP that  ....
-
+Finally, we demonstrate the effectiveness of our work through an APP that drives the user experience in the exploration of a city, recommending songs linked to the user position. In addition it presents the reason of the recommendation through a graphical visualization of the path between the artist that composed the song and the POI chosen for the recommendation.
 For this experimental work, we chose Nice because because it is a medium sized city that allows us to deal with both popular and unpopular places. Furthermore the number of POIs in Nice is manageable, this means that we can check immediately our results. Finally, POIs in Nice are enough to see if our proposed solution can scale.
-
 
 \subsection{Report structure}
 This report is divided into five sections, one for each part of the project. The first two parts are about linking external datasets to DBpedia, this task is known as entity linking and we perform it in the optic of enriching our data with the inter-concept links present in DBpedia.
@@ -194,7 +190,6 @@ For example, this is the JSON object associated to the `Nice Lawn Tennis Club': 
 }
 
 \end{lstlisting}
-
 \subsubsection{DBpedia}
 DBpedia\footnote{DBpedia: http://wiki.dbpedia.org/} is a crowd-sourced community effort to extract structured information from Wikipedia\footnote{Wikidata: https://en.wikipedia.org/} and make this information available on the Web. The DBpedia knowledge base has several advantages over existing knowledge bases: it covers many domains; it automatically evolves as Wikipedia changes, and it is truly multilingual. 
 We used it to get the POIs in Nice.
@@ -245,6 +240,16 @@ SELECT ?item ?itemLabel ?location WHERE {
 \end{lstlisting}
 
 \subsection{Entity Linking process}
+
+\begin{figure}[!htb]
+  \centering 
+    \includegraphics[width=1\textwidth]{images/pipeline.png}
+    \caption{Entity linking pipeline}
+    \label{fig:pipeline}
+\end{figure}
+
+
+Figure \ref{fig:pipeline} summarizes the main steps, datasets, and outputs of the entity linking process.
 In order to link our three set, we copy them locally and then we perform the linking process. Having the entities locally is crucial, in fact it allows us to make way more complex operations respect to those that can be done with SPARQL queries. The whole process can be described as follow:
 \begin{enumerate}
 \item Extract labels from DBpedia entities.
@@ -252,6 +257,7 @@ In order to link our three set, we copy them locally and then we perform the lin
 \item Compute similarity metrics with 3cixty entities.
 \item Aggregate results
 \item Filter matches above threshold.
+\item Evaluate results.
 \end{enumerate}
 
 \subsubsection{Properties}
@@ -259,11 +265,18 @@ The first phase is to actually get the interesting properties of the entities. R
 Here is an example:
 \begin{itemize}
 \item DBpedia labels: `Conservatory of Nice' @en, `Conservatoire de Nice' @fr
-\item 3cixty label: `Conservatoire de nice'
+\item 3cixty label: `Conservatoire de Nice'
 \end{itemize}
 In this case if we use the English label, we do not obtain a perfect match, while with the French label we obtain a perfect match. Other times we have the opposite result, but using labels in different languages we solve this problem.
 
-Among other informations, we have the coordinates, but we do not use them because not all entities have them. Moreover, we have seen experimentally that using the DBpedia coordinates we obtain worse results because of their inaccuracy.
+\begin{figure}[!htb]
+  \centering 
+    \includegraphics[width=0.5\textwidth]{images/parc.png}
+    \caption{Parc Phœnix coordinates: blue marker from DBpedia, red marker from Google Maps}
+    \label{fig:parc}
+\end{figure}
+
+Among other informations, we have the coordinates, but we do not use them because not all entities have them. Moreover, we have seen experimentally that using the DBpedia coordinates we obtain worse results because of their inaccuracy. This is clearly visible in Figure\ref{fig:parc}
 Regarding 3cixty entities, they have very accurate coordinates and few labels. For this phase we do not need the coordinates, while regarding the labels, we keep the first one.
 
 \subsubsection{Transformations}
@@ -357,7 +370,7 @@ This is a huge limit because we can not rely entirely on the data that we have i
 \subsubsection{DOREMUS}
 DOREMUS is a semantic dataset that aims to a fine description of musical works in the fields of traditional and classical music: related musical or creation events, relations to authors, cultural background, interpretations, social functions, etc.
 With DOREMUS we can have absolute trust in the data regarding artists, and we can then found corresponding artists in DBpedia with a custom linking process.
-Retrieving all artists from DOREMUS is extremely easy, in fact we just need to ask for the Persons in the datasets that are linked to a work at least. The performed query is written below; we retrieved not only the artist uri but also the artist name, the id,  the born year, the death year and the DBpedia `sameAs' link. These informations are useful as input data for our similarity metric and for the final evaluation.
+Retrieving all artists from DOREMUS is extremely easy, in fact we just need to ask for the Persons in the datasets that are linked to a work at least. The performed query is written below; we retrieved not only the artist uri but also the artist name, the id, the born year, the death year and the DBpedia `sameAs' link. These informations are useful as input data for our similarity metric and for the final evaluation.
 
 \begin{lstlisting}
 SELECT $uri_doremus 
@@ -372,8 +385,8 @@ WHERE {
   $uri_doremus a ecrm:E21_Person.
   $activity ecrm:P14_carried_out_by $uri_doremus.
   OPTIONAL{
-    $uri_doremus owl:sameAs $dbpedia.
-    FILTER (strStarts(str($dbpedia), 'http://dbpedia.org/resource/'))
+  	$uri_doremus owl:sameAs $dbpedia.
+  	FILTER (strStarts(str($dbpedia), 'http://dbpedia.org/resource/'))
   }
   OPTIONAL{$uri_doremus ecrm:P98i_was_born $born_year}
   OPTIONAL{$uri_doremus ecrm:P100i_died_in $death_year}
@@ -459,7 +472,7 @@ The same considerations could be done for the death year.
 In addition performing a query for every year asking about all people born in that year is faster than the inverse: performing a query for every resource asking about the death and the birth year. In fact we have a lot of entities retrieved by the ES queries; instead we have only about 2000 years from 0 to 2017. We used the first approach joining the result with ElasticSearch entities at the end. 
 To be faster, we'll perform a query for every 10 years, using the UNION operator. 
 
-We had also to check that the entities retrieved by the Elastic Search are composers,musicians, artists or at least people. So it was necessary to get the types of each resource, in particular the ones linked with the idea of composer. When we performed the final scoring we assigned higher scores more specific the category is. 
+We had also to check that the entities retrieved by the Elastic Search are composers,musicians, artists or at least people. So it was necessary to get the types of each resource, in particular the ones linked with the idea of composer. When we performed the final scoring we assigned higher scores to the most specific categories. 
 The considered categories are:
 
 \begin{enumerate}
@@ -473,7 +486,6 @@ The considered categories are:
 \item for musicians \verb|http://dbpedia.org/class/yago/Musician110339966| 
 
 \item for composers \verb|http://dbpedia.org/class/yago/Composer109947232| 
-
 \end{enumerate}
 
 \subsubsection{Transformations}
@@ -496,17 +508,24 @@ We defined a method to score the Doremus-DBpedia artist links. This criteria is 
 \item if the year information is present only on one side we assigned score 0 but we continued to consider the DBpedia entity as a possible candidate,because we haven't enough information to say that the 2 entities are not the same;
 \item if the information is present on both sides but it's different: we exclude the DBpedia artist from the candidates. Actually we didn't eliminate the candidate if the years differed for 1 or 2 years, because we have noticed that, especially for the ancient artists, the dates are not always precise;
 \item if we had only the information about the century: if it matched we preserved the candidate assigning it a low score; alternatively we deleted it;
-\item if the birth year was present on both sides and fitted but the death year is not present on both sides, it could mean that the artist is not already death. To check that we basically looked at the birth date and, if it was not too far from the current date, we considered the artist as still alive, and we increased the score also for the death year matching basing the rise on the probably to be alive computed through a Gaussian distribution. This score rise was less significant than when we had explicitly the same death year;
+\item if the birth year was present on both sides and fitted but the death year is not present on both sides, it could mean that the artist is not already death. To check that we basically looked at the birth date and, if it was not too far from the current date, we considered the artist as still alive, and we increased the score also for the death year matching basing the rise on the probably to be alive computed through a Gaussian distribution. This score rise was less significant than when we had explicitly the same death year.
 
 \end{enumerate}
 \item \textbf{The category similarity}: finally we checked the categories of the DBpedia entity: if it was a composer we assigned an high score, alternately we assigned a score as lower as the category is more general. The score assignment decreases following a Gaussian distribution. If the entity is not a person we assigned a negative score.
+The final scores are:
+\begin{itemize}
+\item People: 0.01
+\item Creators: 0.07
+\item Artists: 0.31
+\item Musicians: 0.74
+\item Composers: 1
+\end{itemize}
+
 \end{enumerate}
 
 \subsubsection{Aggregations}
 
 After having the 3 different similarity scores we computed a weighted sum of them  to get the final matching score. Actually it was not a precise weighted sum; in fact we wanted to keep into account some particular combinations; for example if the category is too generic and the label score is too low, we delete the candidate also if the years matches. We have taken this decision after some trials: considering also these candidates, the number of errors increases because it's more difficult to identify a good threshold to separate bad and good matchings.
-
-TODO insert aggregation functions formula
 
 \subsubsection{Filtering}
 
@@ -595,8 +614,25 @@ Now, the following sets are all calculated from the intersection set. In fact we
 Since \textit{equal} and \textit{DOREMUS intersection} are not exactly the same, it means that either our algorithm or ISNI are wrong. Looking more closely we saw that in some cases ISNI matches were wrong, especially in corner cases, where there were two persons with the same name. This corner cases can fool also an expert, and this is the reason why in our algorithm we embedded the comparison of birth-date and death-date in DBpedia with those present in Doremus. This allowed us to disambiguate between different persons with the same name. In other cases this was not enough, there are persons with the same name and birth/death dates, or whose dates are not available, that can be correctly classified looking at other fields, such as their profession.
 
 Looking at the usual metrics, we see that they are extremely high for this kind of match. We can state that the proposed method based on combinations of labels, classes and dates is able to match almost perfectly the artists of the two datasets. Moreover, we are able to find 2000 artists that at the time of writing are not present in the ISNI register. More important, we found different cases where ISNI matches were wrong and we corrected them.
+
 \subsubsection{Wikidata performances}
-todo: fabio
+\begin{figure}[!htb]
+  \centering
+  \begin{minipage}[b]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{images/count_artists_wiki.png}
+    \caption{Counts of artist sets.}
+    \label{fig:counts_artists_wiki}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.49\textwidth}
+    \includegraphics[width=\textwidth]{images/metrics_artists_wiki.png}
+    \caption{Metrics.}
+    \label{fig:metrics_artists_wiki}
+  \end{minipage}
+\end{figure}
+In Figure \ref{fig:counts_artists_wiki} is possible to note that the DOREMUS artists matched by ISNI with Wikidata are more numerous, in fact there are 4000 artists linked. This is because Wikidata ontology is more clear and it is easier to match entities.
+On the other side, our algorithm matches less artists respect to DBpedia. This is due to the fact that it is not immediate to select Wikidata artists, so we only have a subset of them.
+Looking at the artists matched by our algorithm and ISNI, we note that they are almost equal, this means that our algorithm is capable to perform a good linking operation. Moreover, our algorithm find \textapprox400 artists that are not present in the ISNI dataset.
 
 \section{Path finder}
 \subsection{Problem description}
@@ -645,7 +681,7 @@ Another way to visualize the query is a Breath First Search that starts from the
 \begin{figure}[!htb]
   \centering 
     \includegraphics[width=0.9\textwidth]{images/bfs.png}
-    \caption{Bidirectional BFS, adopted from `Artificial Intelligence: A Modern Approach'\cite{artificial_intelligence}}
+    \caption{Bidirectional BFS, adopted from `Artificial Intelligence: A Modern Approach'~\cite{artificial_intelligence}}
 \end{figure}
 
 A common improvement of BFS is the two-way BFS, where the same algorithm is applied both at the source and the destination. In this way we can see that we can reach the same middle node by querying a way smaller portion of the graph. In this way the time and space complexity goes from $O(b^d)$ of the naive approach to $O(b^{\sfrac{d}{2}})$.
@@ -671,9 +707,7 @@ We want to preserve only the first one.
 
 At the end of these three filtering steps 27931 paths remain. We apply to these our selection algorithm.
 
-
 \subsection{Selection Algorithm}
-todo: lorenzo
 Now that we have all our filtered path, we need to find the best ones, those that shows interesting links between POIs and Artists. Our interest is to consider both path length and exclusiveness. 
 Moreover, we take inspiration from \cite{meng2013review}.
 We define the exclusiveness as the inverse of the generality, where the generality is:
@@ -681,59 +715,65 @@ We define the exclusiveness as the inverse of the generality, where the generali
 $$gen =\frac{1}{\mid N \mid}\sum_i^Nocc(r_{i})$$
 
 Here $r(r_{i})$ corresponds to the $i_{th}$ resource of the path and $occ(r_{i})$ to the number of occurrences of this resource belongs to all considered paths.
+Then we define the similarity measure between artist and POI:
+$$sim(artist,poi) = 1-k(\frac{\log(len(artist,poi)-1)}{\log(2*(deep_{max} -1))})-(1-k)gen$$
 
-$$sim(artist,poi) = 1-k(\frac{\log(len(artist,poi)-1)}{\log(2*(deep_max -1))})-(1-k)gen$$
+In this formulation $deep_{max}$ identifies the biggest deep that we have in our paths (7); $len(artist,poi)$ identifies the considered path length.
 
-At the end, we select 5 Artists for each POI looking at those artists with the highest score, where the score is given by their most interesting path.
+At the end, we select 5 Artists for each POI looking at those artists with the highest score, where the score is given by their most interesting paths.
 
 \subsection{Paths Evaluation}
 Evaluating the goodness of the found paths is not trivial, and an ideal approach would be to ask to real users for a feedback.
 What we can do is to analyze the found paths and see if they show interesting connections.
 The following path is generated in Palais Lascaris:
 \begin{lstlisting}
-"http://dbpedia.org/resource/Chick_Corea", 
-"http://dbpedia.org/property/associatedActs", 
-"http://dbpedia.org/resource/Herbie_Hancock", 
-"http://dbpedia.org/ontology/instrument", 
-"http://dbpedia.org/resource/Fairlight_CMI", 
-"http://purl.org/dc/terms/subject", 
-"http://dbpedia.org/resource/Category:Music_technology", 
-"http://www.w3.org/2004/02/skos/core#broader", 
-"http://dbpedia.org/resource/Category:Musical_instruments", 
-"http://www.w3.org/2004/02/skos/core#broader",       
-"http://dbpedia.org/resource/Category:Musical_instrument_museums", 
-"http://purl.org/dc/terms/subject", 
-"http://dbpedia.org/resource/Palais_Lascaris"
+{
+"entity":"dbr:Chick_Corea",
+"p1":"dbp:associatedActs", 
+"o1":"dbr:Herbie_Hancock", 
+"p2":"dbo:instrument", 
+"o2":"dbr:Fairlight_CMI", 
+"p3":"http://purl.org/dc/terms/subject", 
+"o":"dbc:Music_technology", 
+"p3_":"http://www.w3.org/2004/02/skos/core#broader", 
+"o2_":"dbc:Musical_instruments", 
+"p2_":"http://www.w3.org/2004/02/skos/core#broader",       
+"o1_":"dbc:Musical_instrument_museums", 
+"p1_":"http://purl.org/dc/terms/subject", 
+"poi":"dbr:Palais_Lascaris"
+}
 \end{lstlisting}
 This path can be considered quite interesting, in fact it is able to link the Palais Lascaris with an Artist because it played with Herbie Hancock, which used in his exhibitions the Fairlight CMI.
 \begin{lstlisting}
-"http://dbpedia.org/resource/Aristide_Bruant", 
-"http://purl.org/dc/terms/subject", 
-"http://dbpedia.org/resource/Category:Nightclub_owners", 
-"http://www.w3.org/2004/02/skos/core#broader", 
-"http://dbpedia.org/resource/Category:Nightclubs", 
-"http://www.w3.org/2004/02/skos/core#broader", 
-"http://dbpedia.org/resource/Category:Music_venues", 
-"http://www.w3.org/2004/02/skos/core#broader", 
-"http://dbpedia.org/resource/Category:Music_venues_by_country", 
-"http://www.w3.org/2004/02/skos/core#broader", 
-"http://dbpedia.org/resource/Category:Music_venues_in_France", 
-"http://purl.org/dc/terms/subject", 
-"http://dbpedia.org/resource/Palais_Nikaia"
+{
+"entity":"dbr:Aristide_Bruant", 
+"p1":"http://purl.org/dc/terms/subject", 
+"o1":"dbr:Nightclub_owners", 
+"p2":"http://www.w3.org/2004/02/skos/core#broader", 
+"o2":"dbc:Nightclubs", 
+"p3":"http://www.w3.org/2004/02/skos/core#broader", 
+"o":"dbc:Music_venues", 
+"p3":"http://www.w3.org/2004/02/skos/core#broader", 
+"o2_":"dbc:Music_venues_by_country", 
+"p2_":"http://www.w3.org/2004/02/skos/core#broader", 
+"o1_":"dbc:Music_venues_in_France", 
+"p1_":"http://purl.org/dc/terms/subject", 
+"poi":"dbr:Palais_Nikaia"
+}
 \end{lstlisting}
 This path shows one of the defects of our path selection, in fact here we see that most of the relations are given by intermediate categories. This is not a bad thing by itself, but a long chain of categories usually means that the two entities on the edges will meet thanks to a very generic category. On the other hand, this connection is ranked as interesting, and it is partially true: how many artists are Nightclub owners?
 
 Another example that shows that categories can be really explanatory is the following one:
 \begin{lstlisting}
-"http://dbpedia.org/resource/Yannick_Noah", 
-"http://purl.org/dc/terms/subject",   
-"http://dbpedia.org/resource/Category:French_tennis_coaches", 
-"http://www.w3.org/2004/02/skos/core#broader", 
-"http://dbpedia.org/resource/Category:Tennis_in_France", 
-"http://www.w3.org/2004/02/skos/core#broader", 
-"http://dbpedia.org/resource/Category:Tennis_venues_in_France", 
-"http://purl.org/dc/terms/subject", 
-"http://dbpedia.org/resource/Nice_Lawn_Tennis_Club"
+"entity":"dbr:Yannick_Noah", 
+"p1":"http://purl.org/dc/terms/subject",   
+"o1":"dbc:French_tennis_coaches", 
+"p2":"http://www.w3.org/2004/02/skos/core#broader", 
+"o":"dbc:Tennis_in_France", 
+"p2":"http://www.w3.org/2004/02/skos/core#broader", 
+"o1_":"dbc:Tennis_venues_in_France", 
+"p1_":"http://purl.org/dc/terms/subject", 
+"poi":"dbr:Nice_Lawn_Tennis_Club"
 \end{lstlisting}
 
 Here the connection is almost direct: Yannick Noah was a tennis coach and as expected he is linked to the Nice Lawn Tennis Club.
@@ -812,22 +852,16 @@ The whole process can be summarized in:
 \end{tikzpicture}
 
 \subsubsection{Nearest POIs selection algorithm}
-Once the client position is validated, it is necessary to select the POIs that will be used for the recommendation. In fact, it is not possible to directly recommend tracks based on positions because otherwise we would have a playlist for each possible coordinates pair. The following operations needs to be done:
-\begin{enumerate}
-\item Calculate distance from the each POI to the user position. Since we are using coordinates, the distance is calculated using the haversine distance, which is very accurate and fast.
-\item Add to the list the nearest POI, regardless of the distance.
-\item Add the remaining two nearest POIs if their distance is inferior of 1 km.
-\item For each element in the list, add 10 meters to the distance and then take the log2. By adding 10 meters we are adding a bias to all our distances, in this way positions too near to us are not over-weighted respect far distances. Then, the log2 squashes distances until 1 km to a restricted range of values.
-\item Calculate repartition weights using the following equation:
+Once the client position is validated, it is necessary to select the POIs that will be used for the recommendation. 
+The recommendation is performed in the following way: select the nearest POI and two other POIs in a range of 2 km, then calculate repartition weights using the following equation:
 $$w_i = \Bigg \lfloor 10 \dfrac{\dfrac{1}{\log_2 (d_i + 10)}}{\sum \dfrac{1}{\log_2 (d_i + 10)} } \Bigg \rceil$$
+
 In this way we obtain normalized weights from 0 to 10 that are inversely proportional to the log base 2 of the distance. 
-\end{enumerate}
-At this point we have a direct mapping between POIs weights and a position
 
 \subsubsection{Artist' tracks selection algorithm}
 In order to understand the link between the recommended tracks and the POIs, we need to go deeper in the process that links a POI with his tracks.
 For each artist there is a direct mapping with its tracks.
-The problem is: given a playlist name, find the correct tracks.
+The problem is: given a group of POIs, find the correct tracks.
 The playlist name encodes the weights of each poi, and each weight express exactly the number of tracks that must be chosen for the POI associated.
 Since each POI is linked to different artists, we need a way to select songs from them in a balanced way.
 What we do is to cycle between all the artists to take each time the most important song that is not already present in the playlist. In this way we obtain different songs from different artists, and since the artist and songs are static, the tracks in the playlist will be always the same. In the future we think to add randomization to the whole selection process.
@@ -841,31 +875,79 @@ What we do is to cycle between all the artists to take each time the most import
 
 
 \section{Mobile Web Application}
-The Web application is implemented using AngularJS and its common MVVM model. Using the Angular framework we are able to create complex single page applications that reduces to the minimum the client server interactions. Another advantage of AngularJS is his widespread adoption and the presence of numerous libraries that communicates naturally with it. One of those is the Google Map module that we use to handle all the POI navigation.
-\subsubsection{Music Player}
-The music player is implemented using the Spotify Play Button. This is a special <iframe> that loads a simplified Spotify player for a specified playlist. This solution is extremely convenient because it simply needs a playlist ID to run. Since the playlists are created server side and are recovered using the REST API, the whole process is very simple.
-Unfortunately it is not possible to manipulate programmatically the <iframe> and this limit the whole user experience. As an improvement, we could build a custom player that still uses the Spotify API.
-\subsection{Google Map API}
-\subsubsection{POIs placement}
-todo: Lorenzo
-\subsubsection{Navigation}
+\begin{figure}[!htb]  
+\begin{minipage}[t]{0.45\textwidth}
+\includegraphics[width=\linewidth]{images/Player.png}
+\caption{Music Player}
+\label{fig:music_player}
+\end{minipage}
+\hspace{\fill}
+\begin{minipage}[t]{0.45\textwidth}
+\includegraphics[width=\linewidth]{images/Map.png}
+\caption{Map}
+\label{fig:map}
+\end{minipage}
 
-\subsection{Relation visualization (and Path format)}
-todo: Lorenzo
+\vspace*{0.5cm} % (or whatever vertical separation you prefer)
+\begin{minipage}[t]{0.45\textwidth}
+\includegraphics[width=\linewidth]{images/Visualization_1.png}
+\caption{Visualization Options}
+\label{fig:visualization_option}
+\end{minipage}
+\hspace{\fill}
+\begin{minipage}[t]{0.45\textwidth}
+\includegraphics[width=\linewidth]{images/Visualization_2.png}
+\caption{Visualization}
+\label{fig:visualization}
+\end{minipage}
+
+\end{figure}
+The Web application is implemented using AngularJS and its common MVC model. Using the Angular framework we are able to create complex single page applications that reduces to the minimum the client server interactions. Another advantage of AngularJS is his widespread adoption and the presence of numerous libraries that communicates naturally with it. One of those is the Google Map module that we use to handle all the POI navigation. In fact all the applications is based on the user position. 
+The app is composed of three views: Music Player, Map, Relation Visualization.
+
+\subsection{Music Player}
+The music player is implemented using the Spotify Play Button. This is a special \textless{}iframe\textgreater that loads a simplified Spotify player for a specified playlist. This solution is extremely convenient because it simply needs a playlist ID to run. Since the playlists are created server side and are recovered using the REST API, the whole process is very simple.
+Unfortunately it is not possible to manipulate programmatically the \textless{}iframe\textgreater and this limit the whole user experience. As an improvement, we could build a custom player that still uses the Spotify API.
+The list of songs proposed in the player are the ones associated to the artist linked with the POIs nearer to the user.
+The player page is visible in Figure \ref{fig:music_player}.
+
+\subsection{Angular Google Maps API}
+The Angular Google Maps directive supports the majority of the style attributes that the native API supports. Google’s native web API is used for visualizing maps and accessing rich mapping features. The ones used in the application are:
+
+\begin{enumerate}
+\item Markers: they are used to identify the POIs and the user position on the map
+\item Directions: they are used to give directions that allow the user to reach easily a specific POI on the map.
+\end{enumerate}
+
+The map view is composed of two elements: the big navigation map and on the bottom a small Spotify player. Figure \ref{fig:map})
+
+\subsection{Relation visualization}
+This view allows the user to visualize the link between POIs and artists. This is essential to deeply understand why a specific artist is recommended for a specific POI. Moreover, one of the goals of the project is to stimulate the user curiosity, proposing interesting connections between music and places.
+In order to draw the connection graph we use 'Sigma.js`'\footnote{Sigma.js: http://sigmajs.org/}, a JavaScript library dedicated to graph drawing. For our application the library is useful for the following purposes:
+\begin{enumerate}
+\item It offers a pretty good path visualization.
+\item It can define labels and styles to attach to nodes and edges.
+\item It allows to open a window associated with nodes and edges by clicking on them. The window shows the page related to the resource in the graph.
+\end{enumerate}
+In order to start visualizing connections it is necessary to select a composer between the ones linked with the songs in the playlist and a POI between the ones kept into consideration for the recommendation (Figure \ref{fig:visualization_option}).
+
+After selecting these options is possible to see the path between selected POI and the selected artist. This is showed in the Figure \ref{fig:visualization}. The green node represents the song related to the artist, the artist node is red, the POI node is blue. The middle resource that links POI and artist is represented in yellow.
+
 \section{Conclusion and Future Work}
-todo: fabio-lorenzo, improve
 In this work, we presented CityMusic: a context-aware content-based recommender system for artists. 
-Regarding the first part: the interlinking, we showed that is possible to link POIs and artists to DBpedia achieving good metrics.
+Regarding the first part: the interlinking, we showed that is possible to link POIs and artists to DBpedia achieving good metrics by using only the POI labels. In addition we linked also the Doremus artists with both Dbpedia and Wikidata artists, with an high level of precision. The quality allowed to correct some ISNI mistakes and to propose matchings that are not present in ISNI in order to add them to Doremus. 
 
-We worked on the Relfinder algorithm, by making it scalable. We think that having a scalable solution for the relation finding is crucial for any project that aims to use heavily the huge knowledge graph that DBpedia is.
+We worked on the Relfinder algorithm, by making it scalable. Having a scalable solution for the relation finding is crucial for any project that aims to use heavily the huge knowledge graph that DBpedia contains. So we developed a solution that is computationally efficient and that can be executed in short times. This allowed us to explore the semantic graph with high depths, retrieving a big number of paths.
+
+We proposed a metric to select the best paths between the ones retrieved. This metric drove to discover some particular paths, as the one linked to Yannick Noah.
 
 Our future plans are:
 \begin{enumerate}
-\item Improve the relation finding algorithm allowing it to find more complex relations without affecting performances.
-\item Improve the relation selection algorithm: this part needs a big rework because in the selected paths, there are some that are not meaningful for the user.
-\item Evaluate the overall approach with real users 
+\item Improve the relation finding algorithm allowing it to find more complex relations without affecting performances. In the case of the artist for example, we should try to increase the number of matchings considering the linked works. 
+\item Improve the relation selection algorithm: this part needs a big rework because in the selected paths, there are some that are not meaningful for the user. In addition we should try to explore the semantic graph not considering only one middle path but all possible. Actually we develop an algorithm that perform this job, but it's difficult to control the number of entities retrieved by the queries. 
+\item Evaluate the overall approach with real users.
 \item Use additional context informations available in 3cixty and DOREMUS. In this optic, 3cixty provides information about events and this could be added in the recommendation engine, maybe suggesting songs or artists that will be played in a place in the near future.
-\item Integrate the music context in the recommendation: now we recommend popular songs because we are not able to choose among them based on the current context. By linking DOREMUS songs with DBpedia we hope to extend the semantic recommendation taking into account song-specific relations with a POI. Linking songs to DBpedia is hard, but we showed that is possible, the main problem is to find good relations between POIs and Songs. This operation is even harder than linking artists to POIs because songs on DBpedia are very poor regarding of links with other resources.
+\item Integrate the music context in the recommendation: now we recommend popular songs because we are not able to choose among them based on the current context. By linking DOREMUS songs with DBpedia we hope to extend the semantic recommendation taking into account song-specific relations with a POI. Linking songs to DBpedia is hard, but we showed that is possible. The main challenge continue to be the search for good relations between POIs and Songs. This operation is even harder than linking artists to POIs because songs on DBpedia are very poorly described, and have big lacks in links with other resources.
 \end{enumerate}
 \bibliographystyle{unsrt}
 \bibliography{report}
