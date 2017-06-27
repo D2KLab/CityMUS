@@ -19,6 +19,8 @@ print(pois)
 playlist_collection = database_helper.PlaylistCollection(pois, poi_artists)
 print(playlist_collection.playlist_dict)
 
+# load tracks
+tracks_collection = database_helper.load_tracks()
 
 # create application
 app = Flask(__name__)
@@ -117,14 +119,15 @@ def create_playlist_from_position():
         # get the correct playlist from the playlist collection
         res = playlist_collection.get_playlist(playlist_name)
         # reshape playlist
-        res['tracks_paths'] = {x[0]:{"path":x[1],"label":str(x[0])} for x in res['tracks_paths']}
-
+        res['tracks_paths'] = {x[0]:{"path":x[1],"label": tracks_collection[x[0]]} for x in res['tracks_paths']}
+        print(res)
         return jsonify(res)
     else:
         # get the correct playlist from the playlist collection
         res = playlist_collection.get_playlist(playlist_name)
         # reshape playlist
-        res['tracks_paths'] = {x[0]:{"path":x[1],"label":str(x[0])} for x in res['tracks_paths']}
+        res['tracks_paths'] = {x[0]:{"path":x[1],"label": tracks_collection[x[0]]} for x in res['tracks_paths']}
+        print(res)
         return jsonify(res)
 
 @app.route('/pois')
