@@ -19,7 +19,8 @@ sp = spotipy.Spotify(auth=token)
 sp.trace = False
 
 
-def get_playlists_dict(pois,poi_artists,username=username):
+def get_playlists_dict(pois,poi_artists):
+    global sp
     client_credentials_manager = SpotifyClientCredentials(client_id=clientid,client_secret=clientsecret)
     sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
@@ -37,18 +38,33 @@ def get_playlists_dict(pois,poi_artists,username=username):
     return playlist_dict
 
 
-def create_playlist(playlist_name, username=username, sp=sp):
-    token = spotipy.util.prompt_for_user_token(username, scope, client_id=clientid, client_secret=clientsecret,
-                                       redirect_uri=redirect)
-    sp = spotipy.Spotify(auth=token)
-    sp.trace = False
-    playlist = sp.user_playlist_create(username, playlist_name)
+def create_playlist(playlist_name):
+    global token
+    global sp
 
+    try:
+        playlist = sp.user_playlist_create(username, playlist_name)
+    except spotipy.SpotifyException:
+        token = spotipy.util.prompt_for_user_token(username, scope, client_id=clientid, client_secret=clientsecret,
+                                                   redirect_uri=redirect)
+        sp = spotipy.Spotify(auth=token)
+        sp.trace = False
+        playlist = sp.user_playlist_create(username, playlist_name)
     return playlist
 
 
-def add_tracks(playlist_id,track_ids, username=username):
-    sp.user_playlist_add_tracks(username, playlist_id, track_ids)
+def add_tracks(playlist_id,track_ids):
+    global token
+    global sp
+
+    try:
+        sp.user_playlist_add_tracks(username, playlist_id, track_ids)
+    except spotipy.SpotifyException:
+        token = spotipy.util.prompt_for_user_token(username, scope, client_id=clientid, client_secret=clientsecret,
+                                                   redirect_uri=redirect)
+        sp = spotipy.Spotify(auth=token)
+        sp.trace = False
+        sp.user_playlist_add_tracks(username, playlist_id, track_ids)
 
 
 def get_artist_tracks(artist_name):
