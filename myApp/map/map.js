@@ -11,84 +11,31 @@ angular.module('myApp.map', ['ngRoute'])
     }])
 
     // Controller
-    .controller('MapCtrl', ['$scope', '$location', '$log','uiGmapGoogleMapApi','Geolocation','watchOptions',
-        function($scope, $location, $log,uiGmapGoogleMapApi,Geolocation,watchOptions) {
+    .controller('MapCtrl', ['$scope', '$location', '$log','uiGmapGoogleMapApi','Geolocation','watchOptions','Recommendation','shareRecommendation','$mdDialog',
+        function($scope, $location, $log,uiGmapGoogleMapApi,Geolocation,watchOptions,Recommendation,shareRecommendation,$mdDialog) {
             $scope.enableModification = false;
             $scope.enableDirections = false;
+            var lat,long;
+
 
             var image_user = {
                 url: 'files/user_mark.png'
             };
 
 
-            var pois = [ {
-                id:1,
-                latitude: 43.719740,
-                longitude: 7.257380,
-                title: '2 tiltle'
 
-            }, {
-                id: 2,
-                latitude: 43.699740,
-                longitude: 7.257398,
-                title: '3 title'
-            }];
+
 
 
 
             $scope.noSharedPosition = false;
 
-            var getCenterCoordinates = function(lat,long){
-                return {latitude: 43.709742, longitude: 7.257396 }
-            }
-
-            $scope.map = {
-                control: {},
-                center: {
-                    latitude: 43.709742,
-                    longitude: 7.257396
-                },
-                zoom: 14,
-            };
-
-            $scope.markers = pois;
-
-            var position_data = Geolocation.watchPosition(watchOptions);
-            position_data.then(
-                null,
-                function(err) {
-                    $scope.noSharedPosition = true;
-                },
-                function(position) {
-                    $scope.position = position;
 
 
-                    // marker object
-                    var position_marker = {
-                        id: "user_marker",
-                        latitude: $scope.position.coords.latitude,
-                        longitude: $scope.position.coords.longitude,
-                        title: 'your position',
-                        icon: image_user
-                    };
+            //$scope.markers = pois;
 
 
-                    $scope.markers.push(position_marker);
 
-                    if (!$scope.enableModification){
-                        $scope.map.center = {
-                            latitude: $scope.position.coords.latitude,
-                            longitude: $scope.position.coords.longitude
-                        };
-                        $scope.map.zoom = 14;
-                    }
-
-                    if ($scope.enableDirections){
-                        $scope.getDirections();
-                    }
-
-                }
-            );
             /*
 
 
@@ -101,14 +48,25 @@ angular.module('myApp.map', ['ngRoute'])
 
             $scope.show_hide_info = function(model) {
                 var model_id = model.id;
-                var model_title = model.title;
+                var model_title = model.label;
                 if (model_id!="user_marker"){
-                    if (!$scope.infowindow){
-                        $scope.model_title = model_title;
-                        $scope.model_index = $scope.markers.indexOf(model);
-                        console.log($scope.model_index);
-                    }
-                    $scope.infowindow = !$scope.infowindow;
+                    $scope.model_title = model_title;
+                    $scope.model_index = $scope.markers.indexOf(model);
+                    Recommendation.getSonglistbyPoi(model.latitude,model.longitude)
+                        .then(
+                            function(d) {
+                                $scope.model_songList = d;
+                                console.log($scope.model_songList);
+                            },
+                            function(errResponse){
+                                console.error('Error while fetching Currencies');
+                            }
+                        );
+                    $mdDialog.show({
+                        contentElement: '#myDialogMap',
+                        parent: angular.element(document.body),
+                        clickOutsideToClose: true
+                    });
                 }
             }
 
@@ -118,62 +76,61 @@ angular.module('myApp.map', ['ngRoute'])
                 }
             };
 
+
             $scope.disableModification = function(){
-                $scope.map.center = {
-                    latitude: $scope.position.coords.latitude,
-                    longitude: $scope.position.coords.longitude
-                };
+                if (lat != ''){
+                    $scope.map.center = {
+                        latitude: lat,
+                        longitude: long
+                    };
+                }
+                else {
+                    $scope.map.center = {
+                        latitude: 43.709742,
+                        longitude: 7.257396
+                    };
+                }
+                $scope.map.zoom = 14;
                 $scope.enableModification = false;
+            }
+            $scope.showPath = function(song){
+                shareRecommendation.setPath(song.label,song.path);
+                $location.path('/visualization');
+                $mdDialog.cancel();
+
             }
 
             $scope.disableDirections = function(){
-                alert('custom control clicked!');
+                $scope.enableDirections = false;
                 directionsDisplay.setMap(null);
                 directionsDisplay.setPanel(null); // clear directionpanel from the map
                 directionsDisplay = new google.maps.DirectionsRenderer(); // this is to render again, otherwise your route wont show for the second time searching
 
             }
-            /*
-            $scope.evaluateMarker = function (title) {
-                console.log(title);
-                console.log(3);
-                return true
-            };
-            */
 
-
-
-            // directions object -- with defaults
-
-
-            // get directions using google maps api
 
             var directionsDisplay = new google.maps.DirectionsRenderer();
             var directionsService = new google.maps.DirectionsService();
 
             $scope.getDirections = function () {
-
                 var dest_lat =$scope.markers[$scope.model_index].latitude;
                 var dest_long =$scope.markers[$scope.model_index].longitude;
 
-                var origin_lat = $scope.position.coords.latitude;
-                var origin_long = $scope.position.coords.longitude;
+                var origin_lat = lat;
+                var origin_long = long;
 
-                console.log(origin_lat);
-                console.log(dest_lat);
                 var request = {
                     origin: new google.maps.LatLng(origin_lat, origin_long),
                     destination: new google.maps.LatLng(dest_lat, dest_long),
                     travelMode: google.maps.DirectionsTravelMode.DRIVING
                 };
-                console.log(request)
                 directionsService.route(request, function (response, status) {
                     if (status === google.maps.DirectionsStatus.OK) {
                         directionsDisplay.setDirections(response);
-                        console.log($scope.map.control)
                         directionsDisplay.setMap($scope.map.control.getGMap());
                         directionsDisplay.setPanel(document.getElementById('directionsList'));
                         directionsDisplay.setOptions( { suppressMarkers: true } );
+                        $mdDialog.cancel();
                         //$scope.directions.showList = true;
                     } else {
                         alert('Google route unsuccesfull!');
@@ -181,12 +138,98 @@ angular.module('myApp.map', ['ngRoute'])
                 });
                 $scope.enableDirections = true;
             }
+            $scope.already_set = false;
+            $scope.$watch(Geolocation.getModification, function() {
+                var coordinates= Geolocation.getCoordinates();
+                lat = coordinates[0];
+                var err = coordinates[2];
+
+
+
+                if (lat != ''){
+                    long = coordinates[1];
+                    // marker object
+                    var position_marker = {
+                        id: "user_marker",
+                        latitude: lat,
+                        longitude: long,
+                        label: 'your position',
+                        icon: image_user
+                    };
+
+                    if (!$scope.already_set){
+                        $scope.markers = [];
+                        Recommendation.getPois()
+                            .then(
+                                function(d) {
+                                    $scope.markers = $scope.markers.concat(d);
+                                },
+                                function(errResponse){
+                                    console.error('Error while fetching Currencies');
+                                }
+                            );
+                        $scope.markers.push(position_marker);
+                        $scope.map = {
+                            control: {},
+                            center: {
+                                latitude: lat,
+                                longitude: long
+                            },
+                            zoom: 14,
+                        };
+                        $scope.already_set = true;
+                    }
+                    else {
+                        $scope.markers.push(position_marker);
+                        if (!$scope.enableModification){
+
+                            $scope.map.center = {
+                                latitude: lat,
+                                longitude: long
+                            };
+                            $scope.map.zoom = 14;
+                        }
+                        if ($scope.enableDirections){
+                            $scope.getDirections();
+                        }
+                    }
+                }
+                else if (err != ''){
+
+                    $scope.markers = [];
+                    Recommendation.getPois()
+                        .then(
+                            function(d) {
+                                $scope.markers = $scope.markers.concat(d);
+                            },
+                            function(errResponse){
+                                console.error('Error while fetching Currencies');
+                            }
+                        );
+
+                    $scope.map = {
+                        control: {},
+                        center: {
+                            latitude: 43.709742,
+                            longitude: 7.257396
+                        },
+                        zoom: 14,
+                    };
+                    $scope.noSharedPosition = true;
+
+
+
+                }
+
+
+            });
 
 
 
 
 
-            //TODO
+
+
 
 
         }]);

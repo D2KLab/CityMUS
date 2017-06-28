@@ -1,0 +1,29 @@
+#graph-container {
+    top:100px;
+    background-color: #edf5e9;
+    bottom: 80px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    color:black;
+}
+#option_button{
+    position: absolute;
+    bottom:0px;
+    right:0px;
+    background-color: black;
+    z-index:1;
+}
+
+
+#option_button:hover {
+    background-color: #1ecc5c; /* Green */
+}
+#visualize_btn {
+    background-color: black;color:white;
+}
+
+#visualize_btn:hover {
+    background-color: #1ecc5c;
+}
+

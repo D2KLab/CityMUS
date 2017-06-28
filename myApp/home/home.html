@@ -1,2 +1,9 @@
-<iframe src="https://open.spotify.com/embed?uri=spotify:user:fabio_ellena:playlist:3w5kU0VSvdfIySSLmcdlip" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-ng-src="http://www.gravatar.com/avatar/{{hash}}"
+<div id="form-song">
+    <select ng-show="flag_select" class="form-control" style= "margin: 0 auto; width:auto;text_align:center; margin-bottom: 10px;" ng-model="selectedSong" ng-options="song.label for song in songList">
+        <option disabled="disabled" value="" style="color:darkgray">Choose a song...</option>
+    </select>
+    <button ng-show="selectedTrack" style= "margin: 0 auto;" type="button" class="btn btn-success" ng-click="visualizePath()">Show Path</button>
+</div>
+
+
+

@@ -1,20 +1,65 @@
 @import "login/login.css";
 @import "home/home.css";
 @import "map/map.css";
+@import "visualization/visualization.css";
 @import "lib/webfonts/font_stylesheet.css";
 
+md-progress-circular.md-default-theme .md-inner .md-left .md-half-circle, md-progress-circular .md-inner .md-left .md-half-circle, md-progress-circular.md-default-theme .md-inner .md-right .md-half-circle, md-progress-circular .md-inner .md-right .md-half-circle {
+    border-top-color: white;
+}
+md-progress-circular.md-default-theme .md-inner .md-gap, md-progress-circular .md-inner .md-gap {
+    border-top-color: white;
+    border-bottom-color: white;
+}
+md-progress-circular.md-default-theme .md-inner .md-left .md-half-circle, md-progress-circular .md-inner .md-left .md-half-circle {
+    border-left-color: white;
+}
+md-progress-circular.md-default-theme .md-inner .md-left .md-half-circle, md-progress-circular .md-inner .md-left .md-half-circle {
+    border-left-color: white;
+}
+md-progress-circular.md-default-theme .md-inner .md-right .md-half-circle, md-progress-circular .md-inner .md-right .md-half-circle {
+    border-right-color: white;
+}
+.iframe_container{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 100px;
+    bottom: 90px;
+}
+.big_playlist{
+    border: solid;
+    border-color: rgba(226, 243, 232, 0.12);
+    width:90%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.small_playlist{
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    z-index: 2;
+    bottom: -20px;
+    left: 0px;
+}
 
 a{
     color:inherit;
 }
 
 
-body {
+html,body {
     /*font-family: 'inherit';*/
     font-family:'Circular,Helvetica,Arial,sans-serif';
     background-color: #181818;
     color: #76a08c;
+    height:100%;
+    margin: 0 auto;
+
 }
+
+
 
 .affix {
     top: 0;

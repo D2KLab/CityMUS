@@ -30,8 +30,8 @@
 <div class="panel panel-default">
 
     <div  id="map_options">
-        <button class="btn btn-default"id="reset_position"  ng-show="enableModification" ng-click="disableModification()"> Reset Position </button>
-        <button class="btn btn-default"id="reset_route"  ng-show="enableDirections" ng-click="disableDirections()"> Reset Route </button>
+        <button class="btn btn-default"id="reset_position"  ng-show="enableModification" ng-click="disableModification()"><span class="glyphicon glyphicon-record"></span> </button>
+        <button class="btn btn-default"id="reset_route"  ng-show="enableDirections" ng-click="disableDirections()"> <span class="glyphicon glyphicon-road"></span> </button>
     </div>
     <ui-gmap-google-map control="map.control" center="map.center" zoom="map.zoom" draggable="true" ng-mousedown="userModification()" style="z-index:-1;">
         <ui-gmap-markers models="markers" coords="'self'" icon="'icon'" click="onClickMarker" >
@@ -39,25 +39,7 @@
     </ui-gmap-google-map>
 
     <div ng-if="noSharedPosition">You should share your position to use tha app</div>
-    <form class="form-horizontal" role="form" style="color:transparent">
-        <div class="form-group">
-            <label for="origin" class="col-sm-2 control-label">Origin</label>
-            <div class="col-sm-8">
-                <input type="text" id="origin" class="form-control" ng-model="directions.origin" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="destination" class="col-sm-2 control-label">Destination</label>
-            <div class="col-sm-8">
-                <input type="text" id="destination" class="form-control" ng-model="directions.destination" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-8">
-                <button class="btn btn-primary" ng-click="getDirections()">Get Directions</button>
-            </div>
-        </div>
-    </form>
+
 
 
 
@@ -65,16 +47,26 @@
 
 </div>
 
-<div ng-if="infowindow" class="notifications" ng-click="show_hide_info(1,2,3)">
-    <div>
-        <div class="iw-container-search">
-            <div class="iw-title-search">{{model_title}}</div>
-            <div class="iw-content-search">
-                <div class="btn-group" role="group" aria-label="...">
-                    <button type="button" class="btn btn-success" ng-click="getDirections()"><span class="glyphicon glyphicon-road"></span></button>
-                    <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-th-list"></span></button>
+
+<div style="visibility: hidden">
+    <div class="md-dialog-container" style="background-color: background-color: #1ecc5c"id="myDialogMap">
+        <md-dialog aria-label="Marker Info">
+            <div style="background-color: #1ecc5c;">
+                <div class="iw-container-search">
+                    <div class="iw-title-search" style="widht:100%;text-align:center;background-color: #1ecc5c;height:auto">
+                        <h4 style="color:white;vertical-align:middle">{{model_title}}</h4>
+                    </div>
+                    <div class="iw-content-search">
+                        <ul>
+                            <li ng-repeat="song in model_songList">
+                                <a ng-click="showPath(song)" style="cursor:pointer">{{ song.label }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    </br>
+                    <button type="button" style="position:absolute; bottom:0px;right:0px;"class="btn btn-success" ng-click="getDirections()"><span class="glyphicon glyphicon-road"></span></button>
                 </div>
             </div>
-        </div>
+        </md-dialog>
     </div>
 </div>

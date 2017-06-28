@@ -1,0 +1,48 @@
+
+<div id="graph-container">
+    <md-button id="option_button"class="md-primary md-raised"  ng-click="showTabDialog($event)">
+        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+    </md-button>
+</div>
+
+<div style="visibility: hidden">
+    <div class="md-dialog-container" id="myDialog">
+        <md-dialog>
+            <form>
+                <md-toolbar>
+                    <div class="md-toolbar-tools" style="background-color: #1ecc5c;">
+                        <h2>Visualization Options</h2>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="cancel()">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content style="max-width:800px;max-height:810px; ">
+                    <md-content class="md-padding">
+                        <form>
+                            <div class="form-group">
+                                <label for="artist">Artist:</label>
+                                <select id="artist"class="form-control" ng-model="selectedArtist" ng-change="changeActive(1)" ng-options="artist.name for artist in artistList | filter:{active: 'true'}">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="poi">Poi:</label>
+                                <select id="poi"class="form-control" ng-model="selectedPoi" ng-change="changeActive(2)" ng-options="poi.name for poi in poiList | filter:{active: 'true'}">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </form>
+                    </md-content>
+                </md-dialog-content>
+
+                <md-dialog-actions layout="row" layout-align="center">
+                    <md-button id="visualize_btn"ng-click="showVisualization();cancel();" >
+                        Visualize Path
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </md-dialog>
+    </div>
+</div>
