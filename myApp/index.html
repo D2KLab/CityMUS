@@ -10,9 +10,10 @@
     <title>CityMusic</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="custom.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -27,26 +28,37 @@
     <h1>CityMusic</h1>
 </div>
 
-
-<nav ng-controller="NavCtrl" ng-show="showNavbar" class="navbar navbar-inverse top_container" data-spy="affix" data-offset-top="67">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6 option">
-                <a ng-class="{'active':IsActive(home_path)}" class='navbar-brand' href="#/home">
-                    <span class="glyphicon glyphicon-home"  aria-hidden="true">  </span> <span> HOME  </span>
-                </a>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 option">
-                <a ng-class="{'active':IsActive(map_path)}" class="navbar-brand" href="#/map">
-                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> </span> <span> MAP </span>
-                </a>
+<div ng-controller="NavCtrl">
+    <nav  ng-show="showNavbar" class="navbar navbar-inverse top_container" data-spy="affix" data-offset-top="67">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 option">
+                    <a ng-class="{'active':IsActive(home_path)}" class='navbar-brand' href="#/home">
+                        <span class="glyphicon glyphicon-music"  aria-hidden="true">  </span>
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 option">
+                    <a ng-class="{'active':IsActive(map_path)}" class="navbar-brand" href="#/map">
+                        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> </span>
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 option">
+                    <a ng-class="{'active':IsActive(visualization_path)}" class="navbar-brand" href="#/visualization">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"> </span>
+                    </a>
+                </div>
             </div>
         </div>
+    </nav>
+
+
+
+    <div class="iframe_container">
+        <iframe ng_if="showPlaylist" ng-class="{'big_playlist': isHome,'small_playlist': !isHome}" ng-src="{{ 'https://open.spotify.com/embed?uri=spotify:user:fabio_ellena:playlist:'+playlist_id+'?autoplay=1' }}"  frameborder="0" allowtransparency="true"></iframe>
     </div>
-</nav>
-
-
+</div>
 <div ng-view></div>
+
 
 
 
@@ -54,6 +66,13 @@
 <script src="lib/angular/angular.min.js"></script>
 <script src="lib/angular/angular-route.min.js"></script>
 <script src="lib/angular/angular-resource.min.js"></script>
+<script src="lib/angular/angular-animate.min.js"></script>
+<script src="lib/angular/angular-aria.min.js"></script>
+<script src="lib/angular/angular-messages.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
 
 
 <!-- Google Maps -->
@@ -65,11 +84,75 @@
 <script src="geolocation/geolocation.js"></script>
 <script src="geolocation/geolocation-service.js"></script>
 
+<!-- Recommendation and Server -->
+<script src="recommendation/recommendation.js"></script>
+<script src="recommendation/recommendation-service.js"></script>
+
+<!-- Sigma -->
+<script src="lib/sigma/src/sigma.core.js"></script>
+<script src="lib/sigma/src/conrad.js"></script>
+<script src="lib/sigma/src/utils/sigma.utils.js"></script>
+<script src="lib/sigma/src/utils/sigma.polyfills.js"></script>
+<script src="lib/sigma/src/sigma.settings.js"></script>
+<script src="lib/sigma/src/classes/sigma.classes.dispatcher.js"></script>
+<script src="lib/sigma/src/classes/sigma.classes.configurable.js"></script>
+<script src="lib/sigma/src/classes/sigma.classes.graph.js"></script>
+<script src="lib/sigma/src/classes/sigma.classes.camera.js"></script>
+<script src="lib/sigma/src/classes/sigma.classes.quad.js"></script>
+<script src="lib/sigma/src/classes/sigma.classes.edgequad.js"></script>
+<script src="lib/sigma/src/captors/sigma.captors.mouse.js"></script>
+<script src="lib/sigma/src/captors/sigma.captors.touch.js"></script>
+<script src="lib/sigma/src/renderers/sigma.renderers.canvas.js"></script>
+<script src="lib/sigma/src/renderers/sigma.renderers.webgl.js"></script>
+<script src="lib/sigma/src/renderers/sigma.renderers.svg.js"></script>
+<script src="lib/sigma/src/renderers/sigma.renderers.def.js"></script>
+<script src="lib/sigma/src/renderers/webgl/sigma.webgl.nodes.def.js"></script>
+<script src="lib/sigma/src/renderers/webgl/sigma.webgl.nodes.fast.js"></script>
+<script src="lib/sigma/src/renderers/webgl/sigma.webgl.edges.def.js"></script>
+<script src="lib/sigma/src/renderers/webgl/sigma.webgl.edges.fast.js"></script>
+<script src="lib/sigma/src/renderers/webgl/sigma.webgl.edges.arrow.js"></script>
+<script src="lib/sigma/src/renderers/canvas/sigma.canvas.labels.def.js"></script>
+<script src="lib/sigma/src/renderers/canvas/sigma.canvas.hovers.def.js"></script>
+<script src="lib/sigma/src/renderers/canvas/sigma.canvas.nodes.def.js"></script>
+<script src="lib/sigma/src/renderers/canvas/sigma.canvas.edges.def.js"></script>
+<script src="lib/sigma/src/renderers/canvas/sigma.canvas.edges.curve.js"></script>
+<script src="lib/sigma/src/renderers/canvas/sigma.canvas.edges.arrow.js"></script>
+<script src="lib/sigma/src/renderers/canvas/sigma.canvas.edges.curvedArrow.js"></script>
+<script src="lib/sigma/src/renderers/canvas/sigma.canvas.edgehovers.def.js"></script>
+<script src="lib/sigma/src/renderers/canvas/sigma.canvas.edgehovers.curve.js"></script>
+<script src="lib/sigma/src/renderers/canvas/sigma.canvas.edgehovers.arrow.js"></script>
+<script src="lib/sigma/src/renderers/canvas/sigma.canvas.edgehovers.curvedArrow.js"></script>
+<script src="lib/sigma/src/renderers/canvas/sigma.canvas.extremities.def.js"></script>
+<script src="lib/sigma/src/renderers/svg/sigma.svg.utils.js"></script>
+<script src="lib/sigma/src/renderers/svg/sigma.svg.nodes.def.js"></script>
+<script src="lib/sigma/src/renderers/svg/sigma.svg.edges.def.js"></script>
+<script src="lib/sigma/src/renderers/svg/sigma.svg.edges.curve.js"></script>
+<script src="lib/sigma/src/renderers/svg/sigma.svg.labels.def.js"></script>
+<script src="lib/sigma/src/renderers/svg/sigma.svg.hovers.def.js"></script>
+<script src="lib/sigma/src/middlewares/sigma.middlewares.rescale.js"></script>
+<script src="lib/sigma/src/middlewares/sigma.middlewares.copy.js"></script>
+<script src="lib/sigma/src/misc/sigma.misc.animation.js"></script>
+<script src="lib/sigma/src/misc/sigma.misc.bindEvents.js"></script>
+<script src="lib/sigma/src/misc/sigma.misc.bindDOMEvents.js"></script>
+<script src="lib/sigma/src/misc/sigma.misc.drawHovers.js"></script>
+
+
+
+<script src="lib/plugins/sigma.plugins.animate/sigma.plugins.animate.js"></script>
+<script src="lib/plugins/sigma.layout.noverlap/sigma.layout.noverlap.js"></script>
+<script src="lib/plugins/sigma.renderers.edgeLabels/settings.js"></script>
+<script src="lib/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.def.js"></script>
+<script src="lib/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curve.js"></script>
+<script src="lib/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curvedArrow.js"></script>
+
+
+
+<!-- Angular Modules -->
 <script src="app.js"></script>
 <script src="home/home.js"></script>
 <script src="map/map.js"></script>
 <script src="login/login.js"></script>
-
+<script src="visualization/visualization.js"></script>
 
 </body>
 </html>

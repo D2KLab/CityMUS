@@ -1,6 +1,23 @@
-.angular-google-map-container { height: 400px; }
-.panel-primary {
+.angular-google-map-container {
+    top:100px;
+    background-color: #edf5e9;
+    bottom: 80px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    color:black;
 }
+.iw-container-search{
+    background-color: white;
+}
+
+.iw-title-search{
+    widht:100%;text-align:center;height:auto;
+}
+.iw-content-search{
+    padding:5px;
+}
+
 #map_options{
     position:absolute;
     top:110px;
