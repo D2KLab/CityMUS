@@ -48,7 +48,7 @@ angular.module('myApp', [
     }])
 
     .constant('watchOptions', {
-        timeout : 3000,
+        timeout : 15000,
         enableHighAccuracy: false // may cause errors if true
     })
 
@@ -75,9 +75,9 @@ angular.module('myApp', [
                     $window.alert("You should share your position to use all functionalities!!!");
                 },
                 function(position) {
+                    console.log(27);
                     var lat  = position.coords.latitude;
                     var lon = position.coords.longitude;
-
                     Recommendation.getRecommendation(lat,lon)
                         .then(
                             function(d) {
