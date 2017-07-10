@@ -56,7 +56,7 @@
 
 
     .controller("NavCtrl", ['$scope', '$location', '$rootScope', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$window',
-      function($scope, $location, $rootScope, Geolocation, watchOptions, Recommendation, shareRecommendation, $window) {
+      function($scope, $location, $rootScope, Geolocation, watchOptions, Recommendation, shareRecommendation, $window) {$scope.spinner_visible = true;
         $scope.showPlaylist = false;
         $scope.isHome = false;
         $scope.isMap = false;
@@ -80,10 +80,11 @@
                   $scope.playlist_id = d.id;
                   $scope.songList = d.tracks_paths;
                   $scope.showPlaylist = true;
-                  console.log(d);
+                      $scope.spinner_visible = false;
                 },
                 function(errResponse) {
                   console.error('Error while fetching recommendation');
+                    $scope.spinner_visible = false;
                 }
               );
 

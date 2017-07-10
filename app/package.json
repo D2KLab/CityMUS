@@ -26,7 +26,8 @@
     "angular-aria": "^1.6.5",
     "angular-google-maps": "^2.4.1",
     "angular-ui-bootstrap": "^2.5.0",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "mdi": "^1.9.33"
   },
   "jshintConfig": {
     "esversion": 6

@@ -211,7 +211,6 @@
                 drawPath();
                 break;
               }
-              console.log(335);
             }
           }
         }

@@ -6,6 +6,7 @@
     // Controller
     .controller('HomeCtrl', ['$scope', '$location', '$log', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$window', '$rootScope',
       function($scope, $location, $log, Geolocation, watchOptions, Recommendation, shareRecommendation, $window, $rootScope) {
+        $scope.spinner_visible = true;
         $rootScope.iframeClass = "big_playlist";
         //console.log(watchOptions)
         $scope.selectedTrack = false;
@@ -23,6 +24,7 @@
         $scope.$watch('selectedSong', function(newValue, oldValue) {
 
           if (newValue != oldValue) {
+            $scope.spinner_visible = false;
             if (!newValue) {
               $scope.selectedTrack = false;
               return;

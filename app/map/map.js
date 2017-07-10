@@ -11,6 +11,7 @@
     // Controller
     .controller('MapCtrl', ['$scope', '$location', '$log', 'uiGmapGoogleMapApi', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$mdDialog', '$rootScope',
       function($scope, $location, $log, uiGmapGoogleMapApi, Geolocation, watchOptions, Recommendation, shareRecommendation, $mdDialog, $rootScope) {
+        $scope.spinner_visible = true;
         $rootScope.iframeClass = "small_playlist";
 
         $scope.enableModification = false;
@@ -59,6 +60,12 @@
             $scope.enableModification = true;
           }
         };
+
+        $scope.centerToNice = function(){
+          $scope.map.center = NICE_CENTER;
+          $scope.userModification();
+        };
+
 
 
 
@@ -136,6 +143,8 @@
                 console.error('Error while fetching pois', errResponse);
               });
 
+
+            $scope.spinner_visible = false;
             $scope.map = {
               control: {},
               center: {
@@ -143,6 +152,9 @@
                 longitude: 7.257396
               },
               zoom: 14,
+              options: {
+                disableDefaultUI: true
+              }
             };
             $scope.noSharedPosition = true;
             return;
@@ -162,6 +174,7 @@
           };
 
           if (!$scope.already_set) {
+            $scope.spinner_visible = false;
             $scope.markers = [];
             Recommendation.getPois()
               .then((d) => {
@@ -177,7 +190,10 @@
                 latitude: lat,
                 longitude: long
               },
-              zoom: 14
+              zoom: 14,
+              options: {
+                disableDefaultUI: true
+              }
             };
             $scope.already_set = true;
           } else {
