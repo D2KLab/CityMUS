@@ -21,8 +21,7 @@
 #map_options{
     position:absolute;
     top:110px;
-    right:3px;
-    width:40%;
+    left:3px;
     max-width:200px;
     background-color: transparent;
     pointer-events:none;
@@ -30,16 +29,19 @@
 
 }
 
-#reset_position{
-    width: 50%;
+#reset_Nice{
     height:30px;
     background:white;
-    float:left;
+    pointer-events:all;
+}
+
+#reset_position{
+    height:30px;
+    background:white;
     pointer-events:all;
 }
 
 #reset_route{
-    width:50%;
     height:30px;
     background:white;
     pointer-events:all;
