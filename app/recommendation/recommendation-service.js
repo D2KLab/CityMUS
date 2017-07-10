@@ -4,7 +4,7 @@
   const server_address = 'http://localhost:5000';
   angular.module('myApp.recommendation.service', [])
     .factory('Recommendation', ['$q', '$http', 'Geolocation', function($q, $http) {
-      var tracks = [];
+      var tracks = {};
 
 
       return {
@@ -80,7 +80,7 @@
         x = unescape(x);
         var y = x.split("/");
         var res = y[y.length - 1].replace(/_/g, " ").replace("Category:", "");
-        console.log(res);
+
         if ((res.length > 14) && (j !== 0) && (j !== 12) && (j !== 6)) {
           res = res.substr(0, 14) + '...';
         }

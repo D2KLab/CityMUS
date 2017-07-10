@@ -12,33 +12,29 @@
         $scope.flag_select = false;
         $scope.$watch(Recommendation.getTracks, function() {
           $scope.songList = Recommendation.getTracks();
-          $scope.flag_select = !$scope.songList.length;
+          $scope.flag_select = !!Object.values($scope.songList).length;
         });
 
 
         $scope.visualizePath = function() {
           $location.path('/visualization');
-        }
-
-
-
+        };
 
         $scope.$watch('selectedSong', function(newValue, oldValue) {
 
           if (newValue != oldValue) {
-            if (newValue == null) {
+            if (!newValue) {
               $scope.selectedTrack = false;
-            } else {
-              $scope.selectedTrack = true;
-              for (var key in $scope.songList) {
-                //console.log(key);
-                if ($scope.songList[key].label == newValue.label) {
-                  shareRecommendation.setPath(newValue.label, $scope.songList[key].path);
-                  break;
-                }
+              return;
+            }
+            $scope.selectedTrack = true;
+            for (var value of $scope.songList) {
+              //console.log(key);
+              if (value.label == newValue.label) {
+                shareRecommendation.setPath(newValue.label, value.path);
+                break;
               }
             }
-
           }
 
         });

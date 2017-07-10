@@ -1,6 +1,7 @@
-'use strict';
+(function(angular) {
+  'use strict';
 
-angular.module('myApp.recommendation', [
+  angular.module('myApp.recommendation', [
     'myApp.recommendation.service'
-]);
-
+  ]);
+})(angular);
