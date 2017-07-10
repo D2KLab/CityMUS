@@ -1,0 +1,4 @@
+Flask
+geopy
+spotipy
+numpy
