@@ -1,0 +1,33 @@
+{
+  "name": "city-mus",
+  "version": "0.1.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MultimediaSemantics/CityMusic.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MultimediaSemantics/CityMusic/issues"
+  },
+  "homepage": "https://github.com/MultimediaSemantics/CityMusic#readme",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.5",
+    "angular": "^1.6.5",
+    "angular-animate": "^1.6.5",
+    "angular-aria": "^1.6.5",
+    "angular-messages": "^1.6.5",
+    "angular-resource": "^1.6.5",
+    "angular-route": "^1.6.5",
+    "angular-ui-bootstrap": "^2.5.0",
+    "bootstrap": "^3.3.7"
+  }
+}

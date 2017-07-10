@@ -1,8 +1,10 @@
-from flask import Flask, request, jsonify, abort
+from flask import Flask, request, jsonify, abort, make_response, current_app
 import database_helper
 import spotipy_util
 import util
 import threading
+from datetime import timedelta
+from functools import update_wrapper
 from copy import deepcopy
 
 # initialization phase: load everything in memory
@@ -25,15 +27,72 @@ tracks_collection = database_helper.load_tracks()
 # create application
 app = Flask(__name__)
 
+# Cross-domain Decorator
+# https://stackoverflow.com/a/22182389/1218213
+# or http://flask.pocoo.org/snippets/56/
+def crossdomain(origin=None, methods=None, headers=None, max_age=21600,
+                attach_to_all=True, automatic_options=True):
+  """Decorator function that allows crossdomain requests.
+    Courtesy of
+    https://blog.skyred.fi/articles/better-crossdomain-snippet-for-flask.html
+  """
+  if methods is not None:
+    methods = ', '.join(sorted(x.upper() for x in methods))
+  if headers is not None and not isinstance(headers, basestring):
+    headers = ', '.join(x.upper() for x in headers)
+  if not isinstance(origin, basestring):
+    origin = ', '.join(origin)
+  if isinstance(max_age, timedelta):
+    max_age = max_age.total_seconds()
+
+  def get_methods():
+    """ Determines which methods are allowed
+    """
+    if methods is not None:
+      return methods
+
+    options_resp = current_app.make_default_options_response()
+    return options_resp.headers['allow']
+
+  def decorator(f):
+    """The decorator function
+    """
+    def wrapped_function(*args, **kwargs):
+      """Caries out the actual cross domain code
+      """
+      if automatic_options and request.method == 'OPTIONS':
+        resp = current_app.make_default_options_response()
+      else:
+        resp = make_response(f(*args, **kwargs))
+      if not attach_to_all and request.method != 'OPTIONS':
+        return resp
+
+      h = resp.headers
+      h['Access-Control-Allow-Origin'] = origin
+      h['Access-Control-Allow-Methods'] = get_methods()
+      h['Access-Control-Max-Age'] = str(max_age)
+      h['Access-Control-Allow-Credentials'] = 'true'
+      h['Access-Control-Allow-Headers'] = \
+          "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+      if headers is not None:
+        h['Access-Control-Allow-Headers'] = headers
+      return resp
+
+    f.provide_automatic_options = False
+    return update_wrapper(wrapped_function, f)
+  return decorator
+
 # define endpoints
 
 
 @app.route('/')
+@crossdomain(origin='*')
 def home_page():
     return 'hello world'
 
 
 @app.route('/position')
+@crossdomain(origin='*')
 def position():
     # /position?lat=43.697093&lon=7.270747
     # show the coordinates
@@ -56,6 +115,7 @@ def position():
 
 
 @app.route('/playlist_name')
+@crossdomain(origin='*')
 def get_playlist_name():
     # show the coordinates
     lat = request.args.get('lat', default=None, type=float)
@@ -77,6 +137,7 @@ def get_playlist_name():
 
 
 @app.route('/create_playlist')
+@crossdomain(origin='*')
 def create_playlist_from_position():
     # show the coordinates
     lat = request.args.get('lat', default=None, type=float)
@@ -131,6 +192,7 @@ def create_playlist_from_position():
         return jsonify(res)
 
 @app.route('/pois')
+@crossdomain(origin='*')
 def get_pois():
     return jsonify(pois)
 

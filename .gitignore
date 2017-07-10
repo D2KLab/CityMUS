@@ -14,4 +14,4 @@ plugins
 .idea
 
 .ipynb_checkpoints
-*.pyc 
+**/*.pyc
