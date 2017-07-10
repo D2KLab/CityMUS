@@ -74,9 +74,9 @@
             $window.alert("You should share your position to use all functionalities!!!");
           },
           function(position) {
-            console.log(27);
             var lat = position.coords.latitude;
             var lon = position.coords.longitude;
+            console.log('getting recommendation');
             Recommendation.getRecommendation(lat, lon)
               .then(function(d) {
                   $scope.playlist_id = d.id;

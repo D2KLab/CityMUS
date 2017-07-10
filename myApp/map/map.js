@@ -1,6 +1,11 @@
 (function(angular) {
   'use strict';
 
+  const NICE_CENTER = {
+    latitude: 43.709742,
+    longitude: 7.257396
+  };
+
   angular.module('myApp.map', [])
 
     // Controller
@@ -17,27 +22,11 @@
           url: 'files/user_mark.png'
         };
 
-
-
-
-
-
-
         $scope.noSharedPosition = false;
 
-
-
         //$scope.markers = pois;
-
-
-
-        /*
-
-
-*/
         $scope.onClickMarker = function(marker, eventName, model) {
           $scope.show_hide_info(model);
-
         };
 
 
@@ -63,7 +52,7 @@
               clickOutsideToClose: true
             });
           }
-        }
+        };
 
         $scope.userModification = function() {
           if (!$scope.enableModification) {
@@ -72,21 +61,21 @@
         };
 
 
+
         $scope.disableModification = function() {
-          if (!lat) {
+          // reset user position to the one coming from GPS
+          if (lat) {
             $scope.map.center = {
               latitude: lat,
               longitude: long
             };
           } else {
-            $scope.map.center = {
-              latitude: 43.709742,
-              longitude: 7.257396
-            };
+            $scope.map.center = NICE_CENTER;
           }
           $scope.map.zoom = 14;
           $scope.enableModification = false;
         };
+
         $scope.showPath = function(song) {
           shareRecommendation.setPath(song.label, song.path);
           $location.path('/visualization');
@@ -98,8 +87,7 @@
           directionsDisplay.setMap(null);
           directionsDisplay.setPanel(null); // clear directionpanel from the map
           directionsDisplay = new google.maps.DirectionsRenderer(); // this is to render again, otherwise your route wont show for the second time searching
-
-        }
+        };
 
 
         var directionsDisplay = new google.maps.DirectionsRenderer();
@@ -132,73 +120,21 @@
             }
           });
           $scope.enableDirections = true;
-        }
+        };
         $scope.already_set = false;
         $scope.$watch(Geolocation.getModification, function() {
           var coordinates = Geolocation.getCoordinates();
-          lat = coordinates[0];
           var err = coordinates[2];
 
-
-
-          if (lat != '') {
-            long = coordinates[1];
-            // marker object
-            var position_marker = {
-              id: "user_marker",
-              latitude: lat,
-              longitude: long,
-              label: 'your position',
-              icon: image_user
-            };
-
-            if (!$scope.already_set) {
-              $scope.markers = [];
-              Recommendation.getPois()
-                .then(
-                  function(d) {
-                    $scope.markers = $scope.markers.concat(d);
-                  },
-                  function(errResponse) {
-                    console.error('Error while fetching Currencies');
-                  }
-                );
-              $scope.markers.push(position_marker);
-              $scope.map = {
-                control: {},
-                center: {
-                  latitude: lat,
-                  longitude: long
-                },
-                zoom: 14,
-              };
-              $scope.already_set = true;
-            } else {
-              $scope.markers.push(position_marker);
-              if (!$scope.enableModification) {
-
-                $scope.map.center = {
-                  latitude: lat,
-                  longitude: long
-                };
-                $scope.map.zoom = 14;
-              }
-              if ($scope.enableDirections) {
-                $scope.getDirections();
-              }
-            }
-          } else if (err != '') {
-
+          if (err) {
             $scope.markers = [];
+            // give me all pois
             Recommendation.getPois()
-              .then(
-                function(d) {
-                  $scope.markers = $scope.markers.concat(d);
-                },
-                function(errResponse) {
-                  console.error('Error while fetching Currencies');
-                }
-              );
+              .then((d) => {
+                $scope.markers = $scope.markers.concat(d);
+              }, (errResponse) => {
+                console.error('Error while fetching pois', errResponse);
+              });
 
             $scope.map = {
               control: {},
@@ -209,21 +145,56 @@
               zoom: 14,
             };
             $scope.noSharedPosition = true;
+            return;
+          }
 
+          lat = coordinates[0];
+          long = coordinates[1];
 
+          // marker object
+          var position_marker = {
+            id: "user_marker",
+            latitude: lat,
+            longitude: long,
+            label: 'your position',
+            icon: image_user
+          };
 
+          if (!$scope.already_set) {
+            $scope.markers = [];
+            Recommendation.getPois()
+              .then((d) => {
+                $scope.markers = $scope.markers.concat(d);
+              }, (errResponse) => {
+                console.error('Error while fetching Currencies');
+              });
+            $scope.markers.push(position_marker);
+            $scope.map = {
+              control: {},
+              center: {
+                latitude: lat,
+                longitude: long
+              },
+              zoom: 14,
+            };
+            $scope.already_set = true;
+          } else {
+            $scope.markers.push(position_marker);
+            if (!$scope.enableModification) {
+
+              $scope.map.center = {
+                latitude: lat,
+                longitude: long
+              };
+              $scope.map.zoom = 14;
+            }
+            if ($scope.enableDirections) {
+              $scope.getDirections();
+            }
           }
 
 
         });
-
-
-
-
-
-
-
-
 
       }
     ]);
