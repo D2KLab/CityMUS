@@ -150,6 +150,7 @@
 
           lat = coordinates[0];
           long = coordinates[1];
+          if(!lat) return;
 
           // marker object
           var position_marker = {
@@ -168,6 +169,7 @@
               }, (errResponse) => {
                 console.error('Error while fetching Currencies');
               });
+
             $scope.markers.push(position_marker);
             $scope.map = {
               control: {},
@@ -175,7 +177,7 @@
                 latitude: lat,
                 longitude: long
               },
-              zoom: 14,
+              zoom: 14
             };
             $scope.already_set = true;
           } else {
