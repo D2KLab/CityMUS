@@ -25,9 +25,6 @@
     "angular-animate": "^1.6.5",
     "angular-aria": "^1.6.5",
     "angular-google-maps": "^2.4.1",
-    "angular-messages": "^1.6.5",
-    "angular-resource": "^1.6.5",
-    "angular-route": "^1.6.5",
     "angular-ui-bootstrap": "^2.5.0",
     "bootstrap": "^3.3.7"
   },

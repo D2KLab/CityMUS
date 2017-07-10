@@ -6,14 +6,12 @@
       'ui.router',
       'ngMaterial',
       'uiGmapgoogle-maps',
-      'myApp.login',
       'myApp.home',
       'myApp.map',
       'myApp.geolocation',
       'myApp.recommendation',
       'myApp.visualization'
     ])
-
     .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
       $urlRouterProvider.otherwise('/home');
