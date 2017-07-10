@@ -18,6 +18,16 @@ Dependencies:
     export FLASK_APP=main.py
     python -m flask run
 
+## Change the user for spotify
+
+* change the `username` in `spotipy_util.py`
+* Login on [Spotify Dev Page](https://developer.spotify.com/my-applications),
+  * set `citymus` as application
+  * add `http://localhost` as redirect
+  * copy `client_id` and `client_secret` in `spotipy_util.py`
+* run the server, an authorization page ask you to accept the connection to `citymus`
+  * then, copy and paste the uri
+
 ## Docker
 
     docker build -t doremus/citymus .

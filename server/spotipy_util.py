@@ -5,10 +5,10 @@ import util
 from spotipy.oauth2 import SpotifyClientCredentials
 
 
-clientid = '2b4bba8dba4d406a8086f33b644ddcd0'
-clientsecret = 'dc13827b3900467383a12e803b10e52f'
+clientid = '4b115cf521ba4691a64a622eb3158f44'
+clientsecret = '8d8e24a769cf4f6797e6325b33b16016'
 redirect = 'http://localhost'
-username = 'fabio_ellena'
+username = 'doremus_fr'
 
 # necessary to create/add track to public spotify
 scope = 'playlist-modify-public'
@@ -26,7 +26,7 @@ def get_playlists_dict(pois,poi_artists):
 
     playlists = sp.user_playlists(username)
     playlist_dict = dict()
-    
+
     for playlist in playlists['items']:
         name = playlist['name']
         tracks_paths = util.select_tracks(name,pois,poi_artists)
