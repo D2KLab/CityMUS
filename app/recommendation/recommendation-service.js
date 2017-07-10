@@ -4,8 +4,7 @@
   const server_address = 'http://localhost:5000';
   angular.module('myApp.recommendation.service', [])
     .factory('Recommendation', ['$q', '$http', 'Geolocation', function($q, $http) {
-      var tracks = {};
-
+      var tracks = [];
 
       return {
         getPois: function() {
@@ -23,16 +22,18 @@
 
         getRecommendation: function(lat, lon) {
           return $http.get(server_address + '/create_playlist?lat=+' + lat + '&lon=' + lon)
-            .then(
-              function(response) {
-                tracks = response.data.tracks_paths;
-                return response.data;
-              },
-              function(errResponse) {
-                console.error('Error while fetching users');
-                return $q.reject(errResponse);
+            .then(function(response) {
+              tracks = [];
+              for (let key of Object.keys(response.data.tracks_paths)) {
+                let v = response.data.tracks_paths[key];
+                v.key = key;
+                tracks.push(v);
               }
-            );
+              return response.data;
+            }, function(errResponse) {
+              console.error('Error while fetching users');
+              return $q.reject(errResponse);
+            });
         },
         getSonglistbyPoi: function(lat, lon) {
           return $http.get(server_address + '/create_playlist?lat=+' + lat + '&lon=' + lon)
@@ -88,6 +89,7 @@
       };
 
       var setPath = function(trackname, path_dirty) {
+
         track = trackname;
         null_res_1 = 0;
         null_res_2 = 0;
@@ -95,9 +97,10 @@
         path = [];
         positions_colors = [];
         var avg_resource = '';
-        for (var i = 0; i < path_dirty.length; i++) {
-          var p = path_dirty[i];
-          if (!p) {
+
+        for (let i in path_dirty) {
+          let p = path_dirty[i];
+          if (p) {
             var res = changeStringStyle(path_dirty[i], i);
             if (i == 6) avg_resource = res[0];
             path.push(res[0]);
@@ -119,9 +122,8 @@
         var pos_x = start_x;
         var pos_y = start_y;
 
-        for (i = 0; i < path.length; i++) {
+        for (let i = 0; i < path.length; i++) {
           var col;
-
           if (i % 2 == 0) {
             if (i == path.length - 1) {
               col = '#4D84FF';
@@ -157,12 +159,10 @@
       };
 
       return {
-        setPath: setPath,
-        getPath: getPath,
-        changeStringStyle: changeStringStyle,
-        getTrack: function() {
-          return track;
-        }
+        setPath,
+        getPath,
+        changeStringStyle,
+        getTrack: () => track
       };
     });
 })(angular);

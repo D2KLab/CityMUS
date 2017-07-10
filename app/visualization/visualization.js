@@ -134,12 +134,13 @@
           $scope.songList = Recommendation.getTracks();
           var artistList = {};
           var poiList = {};
-          for (var key in $scope.songList) {
-            var artist = $scope.songList[key]["path"][0];
+          console.log($scope.songList);
+          for (var song of $scope.songList) {
+            var artist = song.path[0];
             var artist_name = shareRecommendation.changeStringStyle(artist, 0)[1];
-            var poi = $scope.songList[key]["path"][12];
+            var poi = song.path[12];
             var poi_name = shareRecommendation.changeStringStyle(poi, 12)[1];
-            if (artist in artistList) artistList[artist]['uri_ref'].push(poi);
+            if (artist in artistList) artistList[artist].uri_ref.push(poi);
             else {
               artistList[artist] = {};
               artistList[artist]['uri'] = artist;
@@ -155,7 +156,7 @@
               poiList[poi]['uri_ref'] = [artist];
               poiList[poi]['active'] = true;
             }
-            //$scope.songList[key]
+            //song
             $scope.artistList = Object.values(artistList);
             $scope.poiList = Object.values(poiList);
           }
@@ -203,17 +204,17 @@
         };
 
         $scope.showVisualization = function() {
-          for (var key in $scope.songList) {
-            if (($scope.songList[key]["path"][0] == $scope.selectedArtist.uri) && ($scope.songList[key]["path"][12] == $scope.selectedPoi.uri)) {
-              shareRecommendation.setPath($scope.songList[key].label, $scope.songList[key].path);
+          for (var song of $scope.songList) {
+            if ((song.path[0] == $scope.selectedArtist.uri) && (song.path[12] == $scope.selectedPoi.uri)) {
+              shareRecommendation.setPath(song.label, song.path);
               data_link = shareRecommendation.getPath();
-              if (data_link[0] != "") {
+              if (data_link[0] !== "") {
                 drawPath();
                 break;
               }
             }
           }
-        }
+        };
 
 
 
