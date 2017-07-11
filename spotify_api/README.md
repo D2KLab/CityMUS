@@ -1,7 +1,7 @@
 # DOREMUS 2 Spotify
 
-To link the doremus id works with real songs, we are trying to use both YouTube and Spotify API.
-We wrote a script that should run for about 30 hours to link Spotify tracks with Doremus works.
+To link the DOREMUS works to playable tracks, we are using both YouTube and Spotify API.
+We wrote a script that should run for about 30 hours to link Spotify tracks with DOREMUS works.
 
 ## Installation
 
@@ -13,7 +13,7 @@ Dependencies:
       python get-pip.py
 
 * [_spotipy_ library](https://github.com/plamere/spotipy)
-      
+
       pip install spotipy
 
 
