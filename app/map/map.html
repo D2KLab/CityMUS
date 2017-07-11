@@ -1,8 +1,9 @@
+<div class="spinner" ng-if="!map"></div>
 <div class="panel panel-default" ng-if="map">
   <div id="map_options">
-    <button class="btn btn-default" id="reset_Nice" ng-click="centerToNice()"> <span class="mdi mdi-directions"></span> </button>
+    <button class="btn btn-default" id="reset_Nice" ng-click="centerToNice()"> <span> Nice </span> </button>
     <button class="btn btn-default" id="reset_position" ng-show="enableModification" ng-click="disableModification()"><span class="mdi mdi-crosshairs-gps"></span> </button>
-    <button class="btn btn-default" id="reset_route" ng-show="enableDirections" ng-click="disableDirections()"> <span class="mdi mdi-crosshairs-directions"></span> </button>
+    <button class="btn btn-default" id="reset_route" ng-show="enableDirections" ng-click="disableDirections()"> <span class="mdi mdi-directions"></span> </button>
   </div>
   <ui-gmap-google-map control="map.control" options="map.options" center="map.center" zoom="map.zoom" draggable="true" ng-mousedown="userModification()" style="z-index:-1;">
     <ui-gmap-markers models="markers" coords="'self'" icon="'icon'" click="onClickMarker">
@@ -38,4 +39,3 @@
     </md-dialog>
   </div>
 </div>
-<div class="spinner" ng-if="!map"></div>

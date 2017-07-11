@@ -11,8 +11,21 @@
     // Controller
     .controller('MapCtrl', ['$scope', '$location', '$log', 'uiGmapGoogleMapApi', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$mdDialog', '$rootScope',
       function($scope, $location, $log, uiGmapGoogleMapApi, Geolocation, watchOptions, Recommendation, shareRecommendation, $mdDialog, $rootScope) {
+
+        function distance(lat1, lon1, lat2, lon2) {
+          var p = 0.017453292519943295;    // Math.PI / 180
+          var c = Math.cos;
+          var a = 0.5 - c((lat2 - lat1) * p)/2 +
+              c(lat1 * p) * c(lat2 * p) *
+              (1 - c((lon2 - lon1) * p))/2;
+
+          return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
+        }
+
+
         $scope.spinner_visible = true;
         $rootScope.iframeClass = "small_playlist";
+
 
         $scope.enableModification = false;
         $scope.enableDirections = false;
@@ -29,6 +42,8 @@
         $scope.onClickMarker = function(marker, eventName, model) {
           $scope.show_hide_info(model);
         };
+
+
 
 
         $scope.show_hide_info = function(model) {
@@ -129,6 +144,7 @@
           $scope.enableDirections = true;
         };
         $scope.already_set = false;
+
         $scope.$watch(Geolocation.getModification, function() {
           var coordinates = Geolocation.getCoordinates();
           var err = coordinates[2];
@@ -148,14 +164,15 @@
             $scope.map = {
               control: {},
               center: {
-                latitude: 43.709742,
-                longitude: 7.257396
+                latitude: NICE_CENTER.latitude,
+                longitude: NICE_CENTER.longitude
               },
               zoom: 14,
               options: {
                 disableDefaultUI: true
               }
             };
+
             $scope.noSharedPosition = true;
             return;
           }
@@ -184,12 +201,24 @@
               });
 
             $scope.markers.push(position_marker);
-            $scope.map = {
-              control: {},
-              center: {
+            var center;
+            if (distance(NICE_CENTER.latitude,NICE_CENTER.longitude,lat,long) < 6){
+              center =  {
                 latitude: lat,
                 longitude: long
-              },
+              }
+            }
+            else {
+              center =  {
+                latitude: NICE_CENTER.latitude,
+                longitude: NICE_CENTER.longitude
+              };
+              $scope.enableModification = true;
+
+            }
+            $scope.map = {
+              control: {},
+              center:center,
               zoom: 14,
               options: {
                 disableDefaultUI: true

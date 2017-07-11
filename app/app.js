@@ -56,13 +56,16 @@
 
 
     .controller("NavCtrl", ['$scope', '$location', '$rootScope', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$window',
-      function($scope, $location, $rootScope, Geolocation, watchOptions, Recommendation, shareRecommendation, $window) {$scope.spinner_visible = true;
+      function($scope, $location, $rootScope, Geolocation, watchOptions, Recommendation, shareRecommendation, $window) {
+          $scope.spinner_visible = true;
         $scope.showPlaylist = false;
         $scope.isHome = false;
         $scope.isMap = false;
 
 
-
+        $scope.loading = function(){
+            return $location.path() == '/home' && $scope.spinner_visible;
+        };
 
         var default_playlist = '5tDTLlIwA0EzoYEbEky9Ro';
         $scope.playlist_id = default_playlist;
