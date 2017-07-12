@@ -9,21 +9,16 @@ Linked Data make possible the discovering of interesting connection between sema
 ## Content of the repository
 
 ##### Knowledge base matching
-* `3cixty` Match PoIs between 3cixty and DBpedia.
-* `artist_to_spotify` Match Artists between DOREMUS and Spotify.
-* `artist_to_spotify` Match Artists between DOREMUS and Spotify.
-* `matching_DB_Doremus`
-* `matching_performances`
+* `match_3cixty_dbpedia` Match PoIs between 3cixty and DBpedia.
+* `match_artist_doremus_spotify` Match Artists between DOREMUS and Spotify.
+* `match_doremus_lod` Match artists between DOREMUS and DBpedia/Wikidata -- see [stats](./match_doremus_lod/evaluation/v1/check_performance.ipynb).
 * `spotify_analytic`
-* `spotify_api` Match DOREMUS works to Spotify tracks.
-* `youtube_api` Match DOREMUS works to YouTube music videos.
-
+* `match_works_doremus_spotify` Match DOREMUS works to Spotify tracks.
+* `youtube_experiment` Use YouTube API for getting location related music videos.
 
 ##### Path finding
 
-* `pathfinding` A script for computing the shortest paths in a RDF graph.
-* `relfinder`
-* `Artists_POIs_PathDiscovering`
+* `path finder` A script for computing the shortest paths in a RDF graph, in the form of a _python notebook_.
 
 ##### Application
 * `app` The client application.
