@@ -1,5 +1,5 @@
 <div class="spinner" ng-if="!map"></div>
-<div class="panel panel-default" ng-if="map">
+<div ng-if="map" id="map">
   <div id="map_options">
     <button class="btn btn-default" id="reset_Nice" ng-click="centerToNice()"> <span> Nice </span> </button>
     <button class="btn btn-default" id="reset_position" ng-show="enableModification" ng-click="disableModification()"><span class="mdi mdi-crosshairs-gps"></span> </button>

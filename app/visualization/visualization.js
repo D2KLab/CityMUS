@@ -7,126 +7,28 @@
     // Controller
     .controller('VisualizationCtrl', ['$scope', '$location', '$log', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$mdDialog', '$window', '$rootScope',
       function($scope, $location, $log, Geolocation, watchOptions, Recommendation, shareRecommendation, $mdDialog, $window, $rootScope) {
-        $rootScope.iframeClass = "small_playlist";
-
-        var data_link = shareRecommendation.getPath();
-        var s = "";
-        var isGraph = false;
-
-        function drawPath() {
-          if (isGraph) {
-            s.graph.clear();
-            s.refresh();
-          }
-          isGraph = true;
-          var track = data_link[0];
-          var path = data_link[1];
-          var pathnames = data_link[2];
-          var positions_colors = data_link[3];
-          var i,
-            N = 20,
-            E = 200,
-            g = {
-              nodes: [],
-              edges: []
-            };
-          g.nodes.push({
-            id: 'n' + pathnames.length,
-            label: track,
-            x: 0.5,
-            y: 0.1,
-            size: 30,
-            color: '#1ECC5C'
-          });
-          for (i = 0; i < pathnames.length; i += 2) {
-
-            g.nodes.push({
-              id: 'n' + i,
-              label: pathnames[i],
-              link: path[i],
-              x: positions_colors[i][0],
-              y: positions_colors[i][1],
-              size: 30,
-              color: positions_colors[i][2]
-            });
-          }
-
-          g.edges.push({
-            id: 'e' + i,
-            source: 'n' + pathnames.length,
-            target: 'n' + 0,
-            size: 0.2,
-            type: 'curve',
-            color: '#1ECC5C',
-          });
+        $rootScope.iframeClass = "iframe_container_2";
 
 
-          for (i = 1; i < pathnames.length; i += 2)
-            g.edges.push({
-              id: 'e' + i,
-              label: pathnames[i],
-              link: path[i],
-              source: 'n' + (i - 1),
-              target: 'n' + (i + 1),
-              size: 0.2,
-              type: 'line',
-              color: '#ccc'
-            });
+        $scope.data_link = shareRecommendation.getPath();
 
-          s = new sigma({
-            graph: g,
-            renderer: {
-              container: document.getElementById('graph-container'),
-              type: 'canvas'
-            },
-            settings: {
-              doubleClickEnabled: false,
-              minEdgeSize: 0.5,
-              maxEdgeSize: 4,
-              enableEdgeHovering: true,
-              edgeHoverColor: 'edge',
-              defaultEdgeHoverColor: '#000',
-              edgeHoverSizeRatio: 1,
-              defaultLabelColor: '#00340E',
-              labelThreshold: 0,
-              labelSize: 'proportional',
-              labelAlignment: 'top',
-              sideMargin: 5
+        $scope.drawEnable = true;
+
+        $scope.getStyle = function (color) {
+          if (color == "#f0bf5c"){
+            return {
+              "background-color":color,
+              "margin-top" : "10px",
+              "margin-bottom": "10px"
             }
-          });
+          }
+          else return {"background-color":color}
+          };
 
-          // Bind the events:
-          s.bind('clickNode doubleClickNode rightClickNode', function(e) {
-            window.open(e.data.node.link, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
-            console.log(e.type, e.data.node.label, e.data.captor);
-          });
-          s.bind('overEdge clickEdge doubleClickEdge rightClickEdge', function(e) {
-            window.open(e.data.edge.link, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
-            console.log(e.type, e.data.edge, e.data.captor);
 
-            //overEdge outEdge
-          });
-          // Configure the noverlap layout:
-          var noverlapListener = s.configNoverlap({
-            nodeMargin: 10.0,
-            scaleNodes: 1.05
-          });
-          // Start the layout:
-          s.startNoverlap();
-
+        $scope.inspect = function(link){
+          window.open(link, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
         }
-
-        if (data_link[0] != "") {
-          drawPath();
-        } else {
-          $mdDialog.show({
-            contentElement: '#myDialog',
-            parent: angular.element(document.body),
-            clickOutsideToClose: true
-          });
-        }
-
-
 
         $scope.songList = Recommendation.getTracks();
 
@@ -134,7 +36,6 @@
           $scope.songList = Recommendation.getTracks();
           var artistList = {};
           var poiList = {};
-          console.log($scope.songList);
           for (var song of $scope.songList) {
             var artist = song.path[0];
             var artist_name = shareRecommendation.changeStringStyle(artist, 0)[1];
@@ -157,59 +58,111 @@
               poiList[poi]['active'] = true;
             }
             //song
-            $scope.artistList = Object.values(artistList);
-            $scope.poiList = Object.values(poiList);
+          }
+          var artistList_arr = Object.values(artistList);
+          var poiList_arr = Object.values(poiList);
+
+          $scope.artistData = {
+            availableOptions: artistList_arr
+          };
+
+          $scope.poiData = {
+            availableOptions: poiList_arr
+          };
+
+          if ($scope.data_link[0] != "") {
+            $scope.track = $scope.data_link[0];
+            $scope.path = $scope.data_link[1];
+
+            for (var i = 0; i < $scope.artistData.availableOptions.length; i++){
+              if ($scope.artistData.availableOptions[i].uri == $scope.path[0].link) {
+                $scope.artistData.selectedOption = $scope.artistData.availableOptions[i];
+              }
+            }
+            for (var i = 0; i < $scope.poiData.availableOptions.length; i++){
+              if ($scope.poiData.availableOptions[i].uri == $scope.path[$scope.path.length-1].link) {
+                $scope.poiData.selectedOption = $scope.poiData.availableOptions[i];
+              }
+            }
+
           }
         });
 
+        $scope.evaluateOption = function(artist){
+          return false;
+        }
+
         $scope.changeActive = function(option) {
+          var active_poi = [];
+          var active_artists = [];
           if (option == 1) {
-            if ($scope.selectedArtist != null) {
-              for (var i = 0; i < $scope.poiList.length; i++) {
-                if ($scope.poiList[i]['uri_ref'].indexOf($scope.selectedArtist['uri']) < 0)
-                  $scope.poiList[i]['active'] = false;
+            if ($scope.artistData.selectedOption != null) {
+              for (var i = 0; i < $scope.poiData.availableOptions.length; i++) {
+                if ($scope.poiData.availableOptions[i]['uri_ref'].indexOf($scope.artistData.selectedOption['uri']) < 0)
+                  $scope.poiData.availableOptions[i]['active'] = false;
                 else {
-                  if (!$scope.poiList[i]['active']) $scope.poiList[i]['active'] = true;
+                  active_poi.push(i);
+                  if (!$scope.poiData.availableOptions[i]['active']) $scope.poiData.availableOptions[i]['active'] = true;
                 }
               }
             } else {
-              for (var i = 0; i < $scope.poiList.length; i++) {
-                if (!$scope.poiList[i]['active']) $scope.poiList[i]['active'] = true;
+              for (var i = 0; i < $scope.poiData.availableOptions.length; i++) {
+                active_poi.push(i);
+                if (!$scope.poiData.availableOptions[i]['active']) $scope.poiData.availableOptions[i]['active'] = true;
               }
             }
+            if (active_poi.length == 1){
+              if (!$scope.drawEnable) $scope.drawEnable=true;
+              $scope.poiData.selectedOption =  $scope.poiData.availableOptions[active_poi[0]];
+              $scope.showVisualization();
+            }
+            else {
+              if ($scope.drawEnable) $scope.drawEnable=false;
+            }
           } else if (option == 2) {
-            if ($scope.selectedPoi != null) {
-              for (var i = 0; i < $scope.artistList.length; i++) {
-                if ($scope.artistList[i]['uri_ref'].indexOf($scope.selectedPoi['uri']) < 0)
-                  $scope.artistList[i]['active'] = false;
+            if ($scope.poiData.selectedOption != null) {
+              for (var i = 0; i < $scope.artistData.availableOptions.length; i++) {
+                if ($scope.artistData.availableOptions[i]['uri_ref'].indexOf($scope.poiData.selectedOption['uri']) < 0)
+                  $scope.artistData.availableOptions[i]['active'] = false;
                 else {
-                  if (!$scope.artistList[i]['active']) $scope.artistList[i]['active'] = true;
+                  active_artists.push(i);
+                  if (!$scope.artistData.availableOptions[i]['active']) $scope.artistData.availableOptions[i]['active'] = true;
                 }
               }
             } else {
-              for (var i = 0; i < $scope.artistList.length; i++) {
-                if (!$scope.artistList[i]['active']) $scope.artistList[i]['active'] = true;
+              for (var i = 0; i < $scope.artistData.availableOptions.length; i++) {
+                active_artists.push(i);
+                if (!$scope.artistData.availableOptions[i]['active']) $scope.artistData.availableOptions[i]['active'] = true;
               }
+            }
+            if (active_artists.length == 1){
+              if (!$scope.drawEnable) $scope.drawEnable=true;
+              $scope.artistData.selectedOption =  $scope.artistData.availableOptions[active_artists[0]];
+              $scope.showVisualization();
+            }
+            else {
+              if ($scope.drawEnable) $scope.drawEnable=false;
             }
           }
         }
 
-        $scope.showTabDialog = function(ev) {
-          $mdDialog.show({
-            contentElement: '#myDialog',
-            parent: angular.element(document.body),
-            targetEvent: ev,
-            clickOutsideToClose: true
-          });
-        };
 
         $scope.showVisualization = function() {
+
           for (var song of $scope.songList) {
-            if ((song.path[0] == $scope.selectedArtist.uri) && (song.path[12] == $scope.selectedPoi.uri)) {
+            if ((song.path[0] == $scope.artistData.selectedOption.uri) && (song.path[song.path.length-1] == $scope.poiData.selectedOption.uri)) {
+              for (var i = 0; i < $scope.artistData.availableOptions.length; i++) {
+                if (!$scope.artistData.availableOptions[i]['active']) $scope.artistData.availableOptions[i]['active'] = true;
+              }
+              for (var i = 0; i < $scope.poiData.availableOptions.length; i++) {
+                console.log("avaiable");
+                if (!$scope.poiData.availableOptions[i]['active']) $scope.poiData.availableOptions[i]['active'] = true;
+              }
               shareRecommendation.setPath(song.label, song.path);
-              data_link = shareRecommendation.getPath();
-              if (data_link[0] !== "") {
-                drawPath();
+              $scope.data_link = shareRecommendation.getPath();
+              if ($scope.data_link[0] !== "") {
+                $scope.track = $scope.data_link[0];
+                $scope.path = $scope.data_link[1];
                 break;
               }
             }
@@ -219,9 +172,6 @@
 
 
 
-        $scope.cancel = function() {
-          $mdDialog.cancel();
-        };
 
       }
     ]);

@@ -24,30 +24,28 @@ md-progress-circular.md-default-theme .md-inner .md-right .md-half-circle, md-pr
   border-right-color: white;
 }
 
-.iframe_container {
+.iframe_container_1 {
   width: 100%;
   text-align: center;
   position: absolute;
-  top: 100px;
+  top: 111px;
   bottom: 90px;
 }
 
-.big_playlist {
-  border: solid;
-  border-color: rgba(226, 243, 232, 0.12);
-  width: 90%;
-  height: 100%;
-  margin: 0 auto;
-}
-
-.small_playlist {
+.iframe_container_2 {
+  position: fixed;
   width: 100%;
   height: 100px;
-  position: fixed;
   z-index: 2;
-  bottom: -20px;
+  bottom: -25px;
   left: 0px;
 }
+
+.playlist {
+  width: 100%;
+  height: 100%;
+}
+
 
 a {
   color: inherit;
@@ -59,14 +57,16 @@ html, body {
   background-color: #181818;
   color: #76a08c;
   height: 100%;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
 }
 
 
 
 .affix {
-  top: 0;
+  top:0;
   width: 100%;
+  z-index: 9999 !important;
 }
 
 .affix+.container-fluid {
@@ -74,7 +74,7 @@ html, body {
 }
 
 .active {
-  border-bottom: solid #1ecc5c;
+  border-bottom: solid #009889;
   pointer-events: none;
   cursor: default;
 }
@@ -84,18 +84,14 @@ html, body {
 }
 
 .top_container {
-  z-index: 2;
-  background-color: #121212;
+  background-color: #009889;
   height: 50px;
   border: none;
-  font-weight: bold;
+  padding-top: 10px;
 }
 
-.top_container h1 {
-  font-family: 'League Gothic';
-  font-style: italic;
-  color: #1ecc5c;
-  font-size: 2em;
+.navbar {
+  margin-bottom: 0px;
 }
 
 .navbar-inverse .navbar-brand {
@@ -123,18 +119,18 @@ html, body {
 
 
 .navbar-inverse .navbar-brand:hover {
-  background-color: #1ecc5c;
+  background-color: #009889;
 }
 
 
 .navbar-inverse span {
-  font-size: 4.6vw;
+  font-size: 1.4em;
 }
 
 .navbar-inverse .option {
   padding: 0;
   margin: 0;
-  height: 100%;
+  height: 60px;
 }
 
 
@@ -205,7 +201,7 @@ html, body {
    width: 60px;
    height: 60px;
    margin: 100px auto;
-   background-color: #1ecc5c;
+   background-color: #009889;
 
    border-radius: 100%;
    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;

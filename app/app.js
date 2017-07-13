@@ -67,6 +67,10 @@
             return $location.path() == '/home' && $scope.spinner_visible;
         };
 
+        $scope.isHome = function(){
+            return $location.path() == '/home';
+        }
+
         var default_playlist = '5tDTLlIwA0EzoYEbEky9Ro';
         $scope.playlist_id = default_playlist;
         var position_data = Geolocation.watchPosition(watchOptions);

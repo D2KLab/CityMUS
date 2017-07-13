@@ -24,7 +24,7 @@
 
 
         $scope.spinner_visible = true;
-        $rootScope.iframeClass = "small_playlist";
+        $rootScope.iframeClass = "iframe_container_2";
 
 
         $scope.enableModification = false;

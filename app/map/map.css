@@ -1,5 +1,5 @@
 .angular-google-map-container {
-    top:100px;
+    top:115px;
     background-color: #edf5e9;
     bottom: 80px;
     left: 0;
@@ -18,9 +18,13 @@
     padding:5px;
 }
 
+#map {
+    border:solid white;
+}
+
 #map_options{
     position:absolute;
-    top:110px;
+    top:115px;
     left:3px;
     max-width:200px;
     background-color: transparent;

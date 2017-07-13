@@ -1,50 +1,45 @@
+<div class="container-fluid visualization-container" ng-if="songList.length > 0">
 
-<div id="graph-container">
-    <md-button id="option_button"class="md-primary md-raised" aria-label="time unit" ng-click="showTabDialog($event)">
-        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-    </md-button>
+    <div class="row vertical-align" style="margin-bottom: 15px;">
+        <select id="artist" style="text-align-last:center;background-color:#ff806c" class="form-control" ng-change="changeActive(1);" ng-model="artistData.selectedOption" ng-options="artist.name disable when !artist.active for artist in artistData.availableOptions">
+            <option selected disabled value="" style="color:darkgray"> Choose an artist...</option>
+        </select>
+    </div>
+    <div class="row vertical-align" ng-repeat="p in path" ng-if="(data_link[0] !=='')&& !$first && !$last && drawEnable" >
+        <div class="direct-chat-text"  ng-if="$even" ng-style="getStyle(p.positions_colors)" style="border:none">
+            <div class="vertical-align" style="width:100%;position:relative;">
+                <div class="cent">
+                    <img class="rdf_img" ng-click="inspect(p.link)" src="http://ahmadassaf.com/images/posts/rdf.png"
+                         alt="RDF Resource Description Framework Icon"/>
+                    <span class="res_span"> {{p.label}} </span>
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="$odd" class="vertical-align" style="width:100%;position:relative;">
+            <div ng-if="$index < data_link[2]"id="arrow1" class="right">
+                <span class="res_span"> {{p.label}} </span>
+            </div>
+            <div ng-if="$index > data_link[2]"id="arrow2" class="right">
+                <span class="res_span"> {{p.label}} </span>
+            </div>
+        </div>
+
+    </div>
+    <div class="row vertical-align" style="margin-top: 15px;">
+        <select id="poi" class="form-control" style="text-align-last:center;background-color:#8293ff" ng-change="changeActive(2);" ng-model="poiData.selectedOption" ng-options="poi.name disable when !poi.active  for poi in poiData.availableOptions">
+            <option disabled value="" style="color:darkgray">Choose a POI...</option>
+        </select>
+    </div>
+
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+
 </div>
 
 <div class="spinner" ng-if="spinner_visible"></div>
 
-<div style="visibility: hidden">
-    <div class="md-dialog-container" id="myDialog">
-        <md-dialog>
-            <form>
-                <md-toolbar>
-                    <div class="md-toolbar-tools" style="background-color: #1ecc5c;">
-                        <h2>Visualization Options</h2>
-                        <span flex></span>
-                        <md-button aria-label="time unit" class="md-icon-button" ng-click="cancel()">
-                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                        </md-button>
-                    </div>
-                </md-toolbar>
-                <md-dialog-content style="max-width:800px;max-height:810px; ">
-                    <md-content class="md-padding">
-                        <form>
-                            <div class="form-group">
-                                <label for="artist">Artist:</label>
-                                <select id="artist"class="form-control" ng-model="selectedArtist" ng-change="changeActive(1)" ng-options="artist.name for artist in artistList | filter:{active: 'true'}">
-                                    <option value=""></option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="poi">Poi:</label>
-                                <select id="poi"class="form-control" ng-model="selectedPoi" ng-change="changeActive(2)" ng-options="poi.name for poi in poiList | filter:{active: 'true'}">
-                                    <option value=""></option>
-                                </select>
-                            </div>
-                        </form>
-                    </md-content>
-                </md-dialog-content>
-
-                <md-dialog-actions layout="row" layout-align="center">
-                    <md-button id="visualize_btn"ng-click="showVisualization();cancel();" >
-                        Visualize Path
-                    </md-button>
-                </md-dialog-actions>
-            </form>
-        </md-dialog>
-    </div>
-</div>
