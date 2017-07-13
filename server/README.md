@@ -31,7 +31,7 @@ Dependencies:
 ## Docker
 
     docker build -t doremus/citymus .
-    docker run -d -p 5080:5000 --restart=unless-stopped --name citymus doremus/citymus
+    docker run -d -p 5080:80 --restart=unless-stopped --name citymus doremus/citymus
 
     # remove
     docker stop citymus

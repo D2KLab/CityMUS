@@ -1,7 +1,9 @@
-(function(angular) {
+(function(angular, window) {
   'use strict';
 
-  const server_address = 'http://localhost:5000';
+  const PROD = 'citymus.doremus.org';
+  const server_address = (window.location.hostname == PROD) ? '.' : 'http://localhost:5000';
+
   angular.module('myApp.recommendation.service', [])
     .factory('Recommendation', ['$q', '$http', 'Geolocation', function($q, $http) {
       var tracks = [];
@@ -131,4 +133,4 @@
         getTrack: () => track
       };
     });
-})(angular);
+})(angular, window);
