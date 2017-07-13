@@ -19,7 +19,8 @@
 }
 
 #map {
-    border:solid white;
+    border-bottom:solid white;
+    border-top:solid white;
 }
 
 #map_options{

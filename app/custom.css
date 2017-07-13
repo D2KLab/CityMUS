@@ -24,6 +24,14 @@ md-progress-circular.md-default-theme .md-inner .md-right .md-half-circle, md-pr
   border-right-color: white;
 }
 
+.nav-item{
+  border: none;
+  float: left;
+  /* width: 33%; */
+  width: calc(100% / 3);
+  display: inline-block;
+}
+
 .iframe_container_1 {
   width: 100%;
   text-align: center;
@@ -62,16 +70,22 @@ html, body {
 }
 
 
-
 .affix {
+  border:none;
   top:0;
   width: 100%;
   z-index: 9999 !important;
 }
-
-.affix+.container-fluid {
-  padding-top: 50px;
+.navbar {
+  margin-bottom: 0px;
 }
+
+.affix ~ .sab{
+  position: relative;
+  top: 61px;
+}
+
+
 
 .active {
   border-bottom: solid #009889;
@@ -90,9 +104,6 @@ html, body {
   padding-top: 10px;
 }
 
-.navbar {
-  margin-bottom: 0px;
-}
 
 .navbar-inverse .navbar-brand {
   color: inherit;
@@ -197,7 +208,14 @@ html, body {
   margin: 0 5px 5px 10px;
 
 
-}.spinner {
+}
+.spinner {
+   position: absolute;
+   top: 150px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
    width: 60px;
    height: 60px;
    margin: 100px auto;
@@ -206,7 +224,7 @@ html, body {
    border-radius: 100%;
    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
    animation: sk-scaleout 1.0s infinite ease-in-out;
- }
+}
 
 @-webkit-keyframes sk-scaleout {
   0% { -webkit-transform: scale(0) }

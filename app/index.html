@@ -29,40 +29,52 @@
 
 <div class="container-fluid top_container">
     <img src="files/logo.png" alt="logo" height="35" style="vertical-align: middle;">
-
 </div>
 
+
 <div ng-controller="NavCtrl">
-    <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="47">
-        <div class="row" style="background-color:black;">
-            <div class="col-xs-4 col-sm-4 col-md-4 option">
+    <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="50">
+        <div class="row" style="background-color:black;border:none;margin:0;padding:0;">
+            <div class="nav-item">
                 <a ui-sref="home" ui-sref-active="active" class='navbar-brand'>
                     <span class="glyphicon glyphicon-music"  aria-hidden="true">  </span>
                 </a>
             </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 option">
+            <div class="nav-item">
                 <a ui-sref="map" ui-sref-active="active" class="navbar-brand">
                     <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> </span>
                 </a>
             </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 option">
+            <div class="nav-item">
                 <a ui-sref="visualization" ui-sref-active="active" class="navbar-brand">
                     <span class="glyphicon glyphicon-eye-open" aria-hidden="true"> </span>
                 </a>
             </div>
         </div>
     </nav>
-    <div class="spinner" ng-if="loading()"></div>
 
 
+
+    <div  class="sab">
+        <div ui-view style="height:auto"></div>
+
+    </div>
     <div class="iframe_container" ng-class="iframeClass">
         <iframe ng_if="showPlaylist" class="playlist" ng-src="{{ 'https://open.spotify.com/embed?uri=spotify:user:doremus_fr:playlist:'+playlist_id+'?autoplay=1' }}"  frameborder="0" allowtransparency="true"></iframe>
     </div>
 
+
+
+
+
+
 </div>
 
 
-<div ui-view style="height:auto"></div>
+
+
+
+
 
 
 
