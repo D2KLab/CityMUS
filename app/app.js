@@ -54,9 +54,14 @@
       enableHighAccuracy: false // may cause errors if true
     })
 
+      .constant('NICE_CENTER', {
+          latitude: 43.709742,
+          longitude: 7.257396
+      })
 
-    .controller("NavCtrl", ['$scope', '$location', '$rootScope', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$window',
-      function($scope, $location, $rootScope, Geolocation, watchOptions, Recommendation, shareRecommendation, $window) {
+
+    .controller("NavCtrl", ['$scope', '$location', '$rootScope', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$window','NICE_CENTER',
+      function($scope, $location, $rootScope, Geolocation, watchOptions, Recommendation, shareRecommendation, $window,NICE_CENTER) {
           $scope.spinner_visible = true;
         $scope.showPlaylist = false;
         $scope.isHome = false;
@@ -75,8 +80,24 @@
         $scope.playlist_id = default_playlist;
         var position_data = Geolocation.watchPosition(watchOptions);
         position_data.then(null, function(err) {
-            $scope.showPlaylist = true;
             $window.alert("You should share your position to use all functionalities!!!");
+                var lat = NICE_CENTER.latitude;
+                var lon = NICE_CENTER.longitude;
+                console.log('getting recommendation');
+                Recommendation.getRecommendation(lat, lon)
+                    .then(function(d) {
+                            $scope.playlist_id = d.id;
+                            $scope.songList = d.tracks_paths;
+                            $scope.showPlaylist = true;
+                            $scope.spinner_visible = false;
+                        },
+                        function(errResponse) {
+                            console.error('Error while fetching recommendation');
+                            $scope.spinner_visible = false;
+                        }
+                    );
+
+
           },
           function(position) {
             var lat = position.coords.latitude;

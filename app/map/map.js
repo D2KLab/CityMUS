@@ -1,16 +1,13 @@
 (function(angular) {
   'use strict';
 
-  const NICE_CENTER = {
-    latitude: 43.709742,
-    longitude: 7.257396
-  };
+
 
   angular.module('myApp.map', [])
 
     // Controller
-    .controller('MapCtrl', ['$scope', '$location', '$log', 'uiGmapGoogleMapApi', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$mdDialog', '$rootScope',
-      function($scope, $location, $log, uiGmapGoogleMapApi, Geolocation, watchOptions, Recommendation, shareRecommendation, $mdDialog, $rootScope) {
+    .controller('MapCtrl', ['$scope', '$location', '$log', 'uiGmapGoogleMapApi', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$mdDialog', '$rootScope','NICE_CENTER',
+      function($scope, $location, $log, uiGmapGoogleMapApi, Geolocation, watchOptions, Recommendation, shareRecommendation, $mdDialog, $rootScope,NICE_CENTER) {
 
         function distance(lat1, lon1, lat2, lon2) {
           var p = 0.017453292519943295;    // Math.PI / 180

@@ -4,17 +4,17 @@
   angular.module('myApp.home', [])
 
     // Controller
-    .controller('HomeCtrl', ['$scope', '$location', '$log', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$window', '$rootScope',
-      function($scope, $location, $log, Geolocation, watchOptions, Recommendation, shareRecommendation, $window, $rootScope) {
+    .controller('HomeCtrl', ['$scope', '$location', '$log', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$window', '$rootScope','NICE_CENTER',
+      function($scope, $location, $log, Geolocation, watchOptions, Recommendation, shareRecommendation, $window, $rootScope,NICE_CENTER) {
         $rootScope.iframeClass = "iframe_container_1";
-        //console.log(watchOptions)
         $scope.selectedTrack = false;
         $scope.flag_select = false;
+
+
         $scope.$watch(Recommendation.getTracks, function() {
           $scope.songList = Recommendation.getTracks();
           $scope.flag_select = !!Object.values($scope.songList).length;
-          if ($scope.flag_select){
-          }
+
         });
 
 
