@@ -1,0 +1,24 @@
+@media only screen and (min-width: 800px) {
+  #page {
+    height: 100%;
+    width: 100%;
+    min-height: 0 !important;
+  }
+  #device {
+    height: 85vh;
+    width: 25em;
+    background: #333;
+    border-radius: 2em;
+    border: 2px solid #333;
+    box-shadow: 1px 1px 8px 3px #656565;
+    display: inline-block;
+    padding: 5em 0;
+    z-index: 99999;
+    margin: 7.5vh calc((100% - 25em) / 2);
+  }
+  #app-content {
+    overflow: auto;
+    height: calc(70vh - 190px);
+  }
+}
+/*# sourceMappingURL=presentation.css.map */
