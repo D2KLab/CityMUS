@@ -1,11 +1,18 @@
 <div class="spinner" ng-if="!map"></div>
+<div class="warning" ng-show="!userLocation.gps">
+  <i class="mdi mdi-alert-circle"></i>
+  It seems that
+  <span>I cannot access to your location now.</span>
+  <span>you are outside Nice.</span>
+  We set your position to Nice center to let you enjoy our app ;)
+</div>
 <div ng-if="map" id="map">
   <div id="map_options">
     <button class="btn btn-default" id="reset_Nice" ng-click="centerToNice()"> <span> Nice </span> </button>
-    <button class="btn btn-default" id="reset_position" ng-show="enableModification" ng-click="disableModification()"><span class="mdi mdi-crosshairs-gps"></span> </button>
+    <button class="btn btn-default" id="reset_position" ng-show="mapGrabbed" ng-click="resetPosition()"><span class="mdi mdi-crosshairs-gps"></span> </button>
     <button class="btn btn-default" id="reset_route" ng-show="enableDirections" ng-click="disableDirections()"> <span class="mdi mdi-directions"></span> </button>
   </div>
-  <ui-gmap-google-map control="map.control" options="map.options" center="map.center" zoom="map.zoom" draggable="true" ng-mousedown="userModification()" style="z-index:-1;">
+  <ui-gmap-google-map control="map.control" options="map.options" center="map.center" zoom="map.zoom" draggable="true" ng-mousedown="grabMap()" style="z-index:-1;">
     <ui-gmap-markers models="markers" coords="'self'" icon="'icon'" click="onClickMarker">
     </ui-gmap-markers>
   </ui-gmap-google-map>
@@ -17,7 +24,7 @@
 
 
 <div style="visibility: hidden">
-  <div class="md-dialog-container"  id="myDialogMap">
+  <div class="md-dialog-container" id="myDialogMap">
     <md-dialog aria-label="Marker Info">
       <div style="background-color: #1ecc5c;">
         <div class="iw-container-search">

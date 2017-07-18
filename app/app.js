@@ -62,7 +62,7 @@
 
     .controller("NavCtrl", ['$scope', '$location', '$rootScope', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$window', 'NICE',
       function($scope, $location, $rootScope, Geolocation, watchOptions, Recommendation, shareRecommendation, $window, NICE) {
-        $rootScope.userLocation = {}
+        $rootScope.userLocation = {};
         $scope.spinner_visible = true;
         $scope.showPlaylist = false;
         $scope.isHome = false;
@@ -80,8 +80,10 @@
           console.warn("Position unknown: setting it to Nice center");
 
           $rootScope.userLocation = {
-            lat: NICE.latitude,
-            lon: NICE.longitude,
+            // lat: NICE.latitude,
+            // lon: NICE.longitude,
+            latitude: NICE.latitude,
+            longitude: NICE.longitude,
             gps: false,
             err: err
           };
@@ -99,9 +101,14 @@
           if (!userInNice)
             console.warn("Position outside Nice: setting it to Nice center");
 
+          let latitude = userInNice ? lat : NICE.latitude,
+          longitude = userInNice ? lat : NICE.latitude;
+
           $rootScope.userLocation = {
-            lat: userInNice ? lat : NICE.latitude,
-            lon: userInNice ? lon : NICE.longitude,
+            // lat: latitude,
+            // lon: longitude,
+            latitude,
+            longitude,
             gps: userInNice
           };
           console.log('getting recommendation');

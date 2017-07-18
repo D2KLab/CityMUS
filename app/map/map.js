@@ -12,8 +12,7 @@
         $scope.spinner_visible = true;
         $rootScope.iframeClass = "iframe_container_2";
 
-
-        $scope.enableModification = false;
+        $scope.mapGrabbed = false;
         $scope.enableDirections = false;
 
         var image_user = {
@@ -52,32 +51,23 @@
           }
         };
 
-        $scope.userModification = function() {
-          if (!$scope.enableModification) {
-            $scope.enableModification = true;
-          }
+        $scope.grabMap = function() {
+          $scope.mapGrabbed = true;
         };
 
         $scope.centerToNice = function() {
           $scope.map.center = NICE;
-          $scope.userModification();
+          $scope.mapGrabbed = true;
         };
 
-
-
-
-        $scope.disableModification = function() {
+        $scope.resetPosition = function() {
           // reset user position to the one coming from GPS
-          if (lat) {
-            $scope.map.center = {
-              latitude: lat,
-              longitude: long
-            };
-          } else {
-            $scope.map.center = NICE;
-          }
-          $scope.map.zoom = 14;
-          $scope.enableModification = false;
+          $scope.map.center = {
+            latitude: $rootScope.userLocation.latitude,
+            longitude: $rootScope.userLocation.longitude
+          };
+
+          $scope.mapGrabbed = false;
         };
 
         $scope.showPath = function(song) {
@@ -135,16 +125,16 @@
           }
 
           let {
-            lat,
-            lon
+            latitude,
+            longitude
           } = coordinates;
-          if (!lat) return;
+          if (!latitude) return;
 
           // marker object
           var position_marker = {
             id: "user_marker",
-            latitude: lat,
-            longitude: lon,
+            latitude,
+            longitude,
             label: 'your position',
             icon: image_user
           };
@@ -168,15 +158,11 @@
           }
 
           $scope.map.center = {
-            latitude: lat,
-            longitude: lon
+            latitude,
+            longitude
           };
 
-          if (!coordinates.gps)
-            $scope.enableModification = true;
-
           $scope.markers.push(position_marker);
-
 
           if ($scope.enableDirections)
             $scope.getDirections();

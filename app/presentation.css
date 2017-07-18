@@ -12,14 +12,17 @@
     border: 2px solid #333;
     box-shadow: 1px 1px 8px 3px #656565;
     display: inline-block;
-    padding: 5em 0;
+    padding: 3em 0;
     z-index: 99999;
     margin: 7.5vh calc((100% - 25em) / 2);
   }
   #app-content {
     overflow-y: auto;
     overflow-x: hidden;
-    height: calc(70vh - 215px);
+    height: calc(70vh - 160px);
+  }
+  .iframe_container_2 {
+    position: absolute !important;
   }
 }
 /*# sourceMappingURL=presentation.css.map */

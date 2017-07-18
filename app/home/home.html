@@ -1,11 +1,12 @@
 <div class="spinner" ng-if="spinner_visible"></div>
 <div id="form-song">
-    <select ng-show="flag_select" class="form-control" style= "margin: 0 auto; width:auto;text_align:center; margin-bottom: 10px;" ng-model="selectedSong" ng-options="song.label for song in songList">
+  <p>
+    Why are you recommending me this song?
+  </p>
+  <div class="interaction">
+    <button ng-show="selectedTrack" type="button" class="btn btn-success" ng-click="visualizePath()">SHOW</button>
+    <select ng-show="flag_select" class="form-control" ng-model="selectedSong" ng-options="song.label for song in songList">
         <option disabled="disabled" value="" style="color:darkgray">Choose a song...</option>
     </select>
-    <button ng-show="selectedTrack" style= "margin: 0 auto;background-color: #009889;border-color: #008e80" type="button" class="btn btn-success" ng-click="visualizePath()">Show Path</button>
+  </div>
 </div>
-
-
-
-

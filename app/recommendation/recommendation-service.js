@@ -23,8 +23,8 @@
         },
 
         getRecommendation: function(location) {
-          let {lat, lon} = location;
-          return $http.get(server_address + '/create_playlist?lat=+' + lat + '&lon=' + lon)
+          let {latitude, longitude} = location;
+          return $http.get(server_address + '/create_playlist?lat=+' + latitude + '&lon=' + longitude)
             .then(function(response) {
               tracks = [];
               for (let key of Object.keys(response.data.tracks_paths)) {

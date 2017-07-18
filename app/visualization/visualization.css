@@ -5,6 +5,11 @@
   min-height: 100%;
   position: relative;
 }
+@media only screen and (max-width: 800px) {
+  .visualization-container {
+    padding-bottom: 120px;
+  }
+}
 .endpoint {
   display: block;
   position: relative;
