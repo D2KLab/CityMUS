@@ -2,8 +2,8 @@
 <div class="warning" ng-show="!userLocation.gps">
   <i class="mdi mdi-alert-circle"></i>
   It seems that
-  <span>I cannot access to your location now.</span>
-  <span>you are outside Nice.</span>
+  <span ng-show="userLocation.err">I cannot access to your location now.</span>
+  <span ng-hide="userLocation.err">you are outside Nice.</span>
   We set your position to Nice center to let you enjoy our app ;)
 </div>
 <div ng-if="map" id="map">
