@@ -1,0 +1,121 @@
+// out: ./visualization.css, sourcemap: true, compress: false, libs: nib rupture
+
+.visualization-container
+  padding 1em
+  color black
+  background-color #f5f5f5
+  min-height 100%
+  position relative
+
+.endpoint
+  display block
+  position relative
+  margin 0
+  font-size 1.2em
+  .rdf_img
+    position absolute
+    top .4em
+    left 0.5em
+    border-right 1px solid #bbb
+    padding-right .5em
+    box-sizing content-box
+  select
+    font-weight bold
+    display block
+    text-align-last center
+    border 2px solid #fff
+    background #fff
+    height 2em
+    width 100%
+    outline none
+    box-shadow 0 1px 3px alpha(#000,.25), 0 1px 2px alpha(#000,.22);
+
+    &:focus
+      border-color darken(#B71C1C, .2)
+    &#poi
+      &:focus
+        border-color darken(#01579B, .2)
+
+.horizontal-align
+  width 100%
+  display flex
+  flex-direction row
+  flex-wrap wrap
+  justify-content center
+  align-items center
+  margin-bottom 15px
+  margin-top 15px
+
+#option_button
+  position absolute
+  bottom 0px
+  right 0px
+  background-color black
+  z-index 1
+  &:hover
+    background-color #1ecc5c
+
+.rdf_img
+  width 20px
+  display inline-block
+  vertical-align top
+
+.res_span
+  display inline-block
+  vertical-align middle
+  box-sizing border-box
+
+.arrow
+  position relative
+  width 50%
+  text-align right
+  border-right 2px dotted black
+  padding 1em .5em
+  &:after
+    content ''
+    position absolute
+    border 3px solid black
+    right -5px
+    width .6em
+    height .6em
+    transform rotate(45deg)
+  &.up:after
+    bottom 0
+    border-left 0
+    border-top 0
+  &.down:after
+    top 0
+    border-bottom 0
+    border-right 0
+  .res_span
+    font-style italic
+    opacity .8
+
+#visualize_btn
+  background-color black
+  color white
+  &:hover
+    background-color #1ecc5c
+
+.intermediate.node
+  background #d2d6de none repeat scroll 0 0
+  border 0
+  border-radius 5px
+  color #444
+  width 250px
+  margin 0 auto
+  padding 5px 5px
+  position relative
+  text-align center
+  .res_span
+    font-size 1.1em
+
+span
+  &.stretch
+    display inline-block
+    transform scale(1,1.8)
+
+.nice-msg
+  text-align center
+  font-size 1.2em
+  margin 4em auto
