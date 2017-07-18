@@ -1,5 +1,5 @@
 <div class="spinner" ng-if="!map"></div>
-<div class="warning" ng-show="!userLocation.gps">
+<div class="warning" ng-show="map && !userLocation.gps">
   <i class="mdi mdi-alert-circle"></i>
   It seems that
   <span ng-show="userLocation.err">I cannot access to your location now.</span>
