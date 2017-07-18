@@ -102,7 +102,7 @@
             console.warn("Position outside Nice: setting it to Nice center");
 
           let latitude = userInNice ? lat : NICE.latitude,
-          longitude = userInNice ? lat : NICE.latitude;
+          longitude = userInNice ? lon : NICE.longitude;
 
           $rootScope.userLocation = {
             // lat: latitude,
