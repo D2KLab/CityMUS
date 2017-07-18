@@ -1,17 +1,17 @@
 <div class="spinner" ng-show="spinner_visible"></div>
 <div class="container-fluid visualization-container" ng-if="songList.length > 0 && !spinner_visible">
-  <div class="endpoint">
-    <img class="rdf_img" ng-if="(data_link[0] !=='')" ng-click="inspect(path[0].link)" src="http://ahmadassaf.com/images/posts/rdf.png" alt="RDF" />
+  <div class="endpoint mdi mdi-chevron-down">
+    <img class="rdf_img" ng-if="(data_link[0] !=='')" ng-click="inspect(path[0].link)" src="./files/rdf.png" alt="RDF" />
     <select id="artist" ng-change="changeActive(1);" ng-model="artistData.selectedOption" ng-options="artist.name disable when !artist.active for artist in artistData.availableOptions">
         <option selected disabled value="">Choose an artist...</option>
       </select>
   </div>
-  <p ng-show="!path || !path.length" class="nice-msg">
+  <p ng-show="artistData.selectedOption == null" class="nice-msg">
     Pick an <strong>Artist</strong> and a <strong>Point of Interest</strong> for discovering their connection!
   </p>
   <div class="row" ng-repeat="p in path" ng-if="(data_link[0] !=='')&& !$first && !$last && drawEnable">
-    <div ng-if="$even" class="intermediate node" ng-style="getStyle(p.positions_colors)">
-      <img class="rdf_img" ng-click="inspect(p.link)" src="http://ahmadassaf.com/images/posts/rdf.png" alt="RDF" />
+    <div ng-if="$even" class="intermediate node" ng-style="{background : p.positions_colors}">
+      <img class="rdf_img" ng-click="inspect(p.link)" src="./files/rdf.png" alt="RDF" />
       <span class="res_span">{{p.label}}</span>
     </div>
 
@@ -25,9 +25,9 @@
     </div>
 
   </div>
-  <div class="endpoint">
-    <img class="rdf_img" ng-if="(data_link[0] !=='')" ng-click="inspect(path.$$last)" src="http://ahmadassaf.com/images/posts/rdf.png" alt="RDF Resource Description Framework Icon" />
-    <select id="poi" ng-change="changeActive(2);" ng-model="poiData.selectedOption" ng-options="poi.name disable when !poi.active  for poi in poiData.availableOptions">
+  <div class="endpoint mdi mdi-chevron-down">
+    <img class="rdf_img" ng-if="(data_link[0] !=='')" ng-click="inspect(path.$$last)" src="./files/rdf.png" alt="RDF Resource Description Framework Icon" />
+    <select id="poi" class="mdi mdi-chevron-down" ng-change="changeActive(2);" ng-model="poiData.selectedOption" ng-options="poi.name disable when !poi.active  for poi in poiData.availableOptions">
         <option disabled value="" style="color:darkgray">Choose a PoI...</option>
       </select>
   </div>

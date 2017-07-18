@@ -12,6 +12,13 @@
   position relative
   margin 0
   font-size 1.2em
+  &:before
+    // opening the select
+    position: absolute;
+    pointer-events: none;
+    right: 0.3em;
+    font-size: 1.4em;
+    line-height: 1.6em;
   .rdf_img
     position absolute
     top .4em
@@ -28,7 +35,11 @@
     height 2em
     width 100%
     outline none
-    box-shadow 0 1px 3px alpha(#000,.25), 0 1px 2px alpha(#000,.22);
+    box-shadow 0 1px 3px alpha(#000,.25), 0 1px 2px alpha(#000,.22)
+    -webkit-appearance none
+    -moz-appearance none
+    appearance none
+    padding 0 3em
 
     &:focus
       border-color darken(#B71C1C, .2)
@@ -71,13 +82,14 @@
   text-align right
   border-right 2px dotted black
   padding 1em .5em
+  margin .2em 0
   &:after
     content ''
     position absolute
-    border 3px solid black
-    right -5px
-    width .6em
-    height .6em
+    border 2px solid black
+    right -.5em
+    width .8em
+    height .8em
     transform rotate(45deg)
   &.up:after
     bottom 0

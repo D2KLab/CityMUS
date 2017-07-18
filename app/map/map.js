@@ -6,19 +6,8 @@
   angular.module('myApp.map', [])
 
     // Controller
-    .controller('MapCtrl', ['$scope', '$location', '$log', 'uiGmapGoogleMapApi', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$mdDialog', '$rootScope','NICE_CENTER',
-      function($scope, $location, $log, uiGmapGoogleMapApi, Geolocation, watchOptions, Recommendation, shareRecommendation, $mdDialog, $rootScope,NICE_CENTER) {
-
-        function distance(lat1, lon1, lat2, lon2) {
-          var p = 0.017453292519943295;    // Math.PI / 180
-          var c = Math.cos;
-          var a = 0.5 - c((lat2 - lat1) * p)/2 +
-              c(lat1 * p) * c(lat2 * p) *
-              (1 - c((lon2 - lon1) * p))/2;
-
-          return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
-        }
-
+    .controller('MapCtrl', ['$scope', '$location', '$log', 'uiGmapGoogleMapApi', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$mdDialog', '$rootScope', 'NICE',
+      function($scope, $location, $log, uiGmapGoogleMapApi, Geolocation, watchOptions, Recommendation, shareRecommendation, $mdDialog, $rootScope, NICE) {
 
         $scope.spinner_visible = true;
         $rootScope.iframeClass = "iframe_container_2";
@@ -26,8 +15,6 @@
 
         $scope.enableModification = false;
         $scope.enableDirections = false;
-        var lat, long;
-
 
         var image_user = {
           url: 'files/user_mark.png'
@@ -39,8 +26,6 @@
         $scope.onClickMarker = function(marker, eventName, model) {
           $scope.show_hide_info(model);
         };
-
-
 
 
         $scope.show_hide_info = function(model) {
@@ -73,8 +58,8 @@
           }
         };
 
-        $scope.centerToNice = function(){
-          $scope.map.center = NICE_CENTER;
+        $scope.centerToNice = function() {
+          $scope.map.center = NICE;
           $scope.userModification();
         };
 
@@ -89,7 +74,7 @@
               longitude: long
             };
           } else {
-            $scope.map.center = NICE_CENTER;
+            $scope.map.center = NICE;
           }
           $scope.map.zoom = 14;
           $scope.enableModification = false;
@@ -142,102 +127,61 @@
         };
         $scope.already_set = false;
 
-        $scope.$watch(Geolocation.getModification, function() {
-          var coordinates = Geolocation.getCoordinates();
-          var err = coordinates[2];
-
-          if (err) {
-            $scope.markers = [];
-            // give me all pois
-            Recommendation.getPois()
-              .then((d) => {
-                $scope.markers = $scope.markers.concat(d);
-              }, (errResponse) => {
-                console.error('Error while fetching pois', errResponse);
-              });
-
-
-            $scope.spinner_visible = false;
-            $scope.map = {
-              control: {},
-              center: {
-                latitude: NICE_CENTER.latitude,
-                longitude: NICE_CENTER.longitude
-              },
-              zoom: 14,
-              options: {
-                disableDefaultUI: true
-              }
-            };
-
+        $rootScope.$watch('userLocation', (coordinates) => {
+          console.log(coordinates);
+          if (!coordinates) {
             $scope.noSharedPosition = true;
             return;
           }
 
-          lat = coordinates[0];
-          long = coordinates[1];
-          if(!lat) return;
+          let {
+            lat,
+            lon
+          } = coordinates;
+          if (!lat) return;
 
           // marker object
           var position_marker = {
             id: "user_marker",
             latitude: lat,
-            longitude: long,
+            longitude: lon,
             label: 'your position',
             icon: image_user
           };
 
-          if (!$scope.already_set) {
-            $scope.spinner_visible = false;
+          if (!$scope.markers) {
             $scope.markers = [];
             Recommendation.getPois()
               .then((d) => {
                 $scope.markers = $scope.markers.concat(d);
               }, (errResponse) => {
-                console.error('Error while fetching Currencies');
+                console.error('Error while fetching PoIs', errResponse);
               });
 
-            $scope.markers.push(position_marker);
-            var center;
-            if (distance(NICE_CENTER.latitude,NICE_CENTER.longitude,lat,long) < 6){
-              center =  {
-                latitude: lat,
-                longitude: long
-              }
-            }
-            else {
-              center =  {
-                latitude: NICE_CENTER.latitude,
-                longitude: NICE_CENTER.longitude
-              };
-              $scope.enableModification = true;
-
-            }
             $scope.map = {
               control: {},
-              center:center,
               zoom: 14,
               options: {
                 disableDefaultUI: true
               }
             };
-            $scope.already_set = true;
-          } else {
-            $scope.markers.push(position_marker);
-            if (!$scope.enableModification) {
-
-              $scope.map.center = {
-                latitude: lat,
-                longitude: long
-              };
-              $scope.map.zoom = 14;
-            }
-            if ($scope.enableDirections) {
-              $scope.getDirections();
-            }
           }
 
+          $scope.map.center = {
+            latitude: lat,
+            longitude: lon
+          };
 
+          if (!coordinates.gps)
+            $scope.enableModification = true;
+
+          $scope.markers.push(position_marker);
+
+
+          if ($scope.enableDirections)
+            $scope.getDirections();
+
+          $scope.spinner_visible = false;
         });
 
       }

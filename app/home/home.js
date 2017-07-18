@@ -4,8 +4,8 @@
   angular.module('myApp.home', [])
 
     // Controller
-    .controller('HomeCtrl', ['$scope', '$location', '$log', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$window', '$rootScope','NICE_CENTER',
-      function($scope, $location, $log, Geolocation, watchOptions, Recommendation, shareRecommendation, $window, $rootScope,NICE_CENTER) {
+    .controller('HomeCtrl', ['$scope', '$location', '$log', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$window', '$rootScope', 'NICE',
+      function($scope, $location, $log, Geolocation, watchOptions, Recommendation, shareRecommendation, $window, $rootScope, NICE) {
         $rootScope.iframeClass = "iframe_container_1";
         $scope.selectedTrack = false;
         $scope.flag_select = false;

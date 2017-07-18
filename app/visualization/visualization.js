@@ -8,27 +8,13 @@
     .controller('VisualizationCtrl', ['$scope', '$location', '$log', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$mdDialog', '$window', '$rootScope',
       function($scope, $location, $log, Geolocation, watchOptions, Recommendation, shareRecommendation, $mdDialog, $window, $rootScope) {
         $rootScope.iframeClass = "iframe_container_2";
-
-
         $scope.data_link = shareRecommendation.getPath();
 
         $scope.drawEnable = true;
 
-        $scope.getStyle = function (color) {
-          if (color == "#f0bf5c"){
-            return {
-              "background-color":color,
-              "margin-top" : "10px",
-              "margin-bottom": "10px"
-            }
-          }
-          else return {"background-color":color}
-          };
-
-
-        $scope.inspect = function(link){
+        $scope.inspect = function(link) {
           window.open(link, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
-        }
+        };
 
         $scope.songList = Recommendation.getTracks();
 
@@ -44,18 +30,18 @@
             if (artist in artistList) artistList[artist].uri_ref.push(poi);
             else {
               artistList[artist] = {};
-              artistList[artist]['uri'] = artist;
-              artistList[artist]['name'] = artist_name;
-              artistList[artist]['uri_ref'] = [poi];
-              artistList[artist]['active'] = true;
+              artistList[artist].uri = artist;
+              artistList[artist].name = artist_name;
+              artistList[artist].uri_ref = [poi];
+              artistList[artist].active = true;
             }
-            if (poi in poiList) poiList[poi]['uri_ref'].push(artist);
+            if (poi in poiList) poiList[poi].uri_ref.push(artist);
             else {
               poiList[poi] = {};
-              poiList[poi]['uri'] = poi;
-              poiList[poi]['name'] = poi_name;
-              poiList[poi]['uri_ref'] = [artist];
-              poiList[poi]['active'] = true;
+              poiList[poi].uri = poi;
+              poiList[poi].name = poi_name;
+              poiList[poi].uri_ref = [artist];
+              poiList[poi].active = true;
             }
             //song
           }
@@ -70,17 +56,17 @@
             availableOptions: poiList_arr
           };
 
-          if ($scope.data_link[0] != "") {
+          if ($scope.data_link[0]) {
             $scope.track = $scope.data_link[0];
             $scope.path = $scope.data_link[1];
 
-            for (var i = 0; i < $scope.artistData.availableOptions.length; i++){
+            for (let i = 0; i < $scope.artistData.availableOptions.length; i++) {
               if ($scope.artistData.availableOptions[i].uri == $scope.path[0].link) {
                 $scope.artistData.selectedOption = $scope.artistData.availableOptions[i];
               }
             }
-            for (var i = 0; i < $scope.poiData.availableOptions.length; i++){
-              if ($scope.poiData.availableOptions[i].uri == $scope.path[$scope.path.length-1].link) {
+            for (let i = 0; i < $scope.poiData.availableOptions.length; i++) {
+              if ($scope.poiData.availableOptions[i].uri == $scope.path[$scope.path.length - 1].link) {
                 $scope.poiData.selectedOption = $scope.poiData.availableOptions[i];
               }
             }
@@ -88,75 +74,79 @@
           }
         });
 
-        $scope.evaluateOption = function(artist){
+        $scope.evaluateOption = function(artist) {
           return false;
-        }
+        };
 
         $scope.changeActive = function(option) {
           var active_poi = [];
           var active_artists = [];
           if (option == 1) {
-            if ($scope.artistData.selectedOption != null) {
-              for (var i = 0; i < $scope.poiData.availableOptions.length; i++) {
-                if ($scope.poiData.availableOptions[i]['uri_ref'].indexOf($scope.artistData.selectedOption['uri']) < 0)
-                  $scope.poiData.availableOptions[i]['active'] = false;
+            if ($scope.artistData.selectedOption) {
+              for (let i = 0; i < $scope.poiData.availableOptions.length; i++) {
+                let curOption = $scope.poiData.availableOptions[i];
+                if (curOption.uri_ref.indexOf($scope.artistData.selectedOption.uri) < 0)
+                  curOption.active = false;
                 else {
                   active_poi.push(i);
-                  if (!$scope.poiData.availableOptions[i]['active']) $scope.poiData.availableOptions[i]['active'] = true;
+                  curOption.active = true;
                 }
               }
             } else {
-              for (var i = 0; i < $scope.poiData.availableOptions.length; i++) {
+              for (let i = 0; i < $scope.poiData.availableOptions.length; i++) {
+                let curOption = $scope.poiData.availableOptions[i];
                 active_poi.push(i);
-                if (!$scope.poiData.availableOptions[i]['active']) $scope.poiData.availableOptions[i]['active'] = true;
+                curOption.active = true;
               }
             }
-            if (active_poi.length == 1){
-              if (!$scope.drawEnable) $scope.drawEnable=true;
-              $scope.poiData.selectedOption =  $scope.poiData.availableOptions[active_poi[0]];
+            if (active_poi.length == 1) {
+              if (!$scope.drawEnable) $scope.drawEnable = true;
+              $scope.poiData.selectedOption = $scope.poiData.availableOptions[active_poi[0]];
               $scope.showVisualization();
-            }
-            else {
-              if ($scope.drawEnable) $scope.drawEnable=false;
+            } else {
+              if ($scope.drawEnable) $scope.drawEnable = false;
             }
           } else if (option == 2) {
-            if ($scope.poiData.selectedOption != null) {
-              for (var i = 0; i < $scope.artistData.availableOptions.length; i++) {
-                if ($scope.artistData.availableOptions[i]['uri_ref'].indexOf($scope.poiData.selectedOption['uri']) < 0)
-                  $scope.artistData.availableOptions[i]['active'] = false;
+            if ($scope.poiData.selectedOption) {
+              for (let i = 0; i < $scope.artistData.availableOptions.length; i++) {
+                let curOption = $scope.artistData.availableOptions[i];
+
+                if (curOption.uri_ref.indexOf($scope.poiData.selectedOption.uri) < 0)
+                  curOption.active = false;
                 else {
                   active_artists.push(i);
-                  if (!$scope.artistData.availableOptions[i]['active']) $scope.artistData.availableOptions[i]['active'] = true;
+                  curOption.active = true;
                 }
               }
             } else {
-              for (var i = 0; i < $scope.artistData.availableOptions.length; i++) {
+              for (let i = 0; i < $scope.artistData.availableOptions.length; i++) {
+                let curOption = $scope.artistData.availableOptions[i];
                 active_artists.push(i);
-                if (!$scope.artistData.availableOptions[i]['active']) $scope.artistData.availableOptions[i]['active'] = true;
+                curOption = true;
               }
             }
-            if (active_artists.length == 1){
-              if (!$scope.drawEnable) $scope.drawEnable=true;
-              $scope.artistData.selectedOption =  $scope.artistData.availableOptions[active_artists[0]];
+            if (active_artists.length == 1) {
+              if (!$scope.drawEnable) $scope.drawEnable = true;
+              $scope.artistData.selectedOption = $scope.artistData.availableOptions[active_artists[0]];
               $scope.showVisualization();
-            }
-            else {
-              if ($scope.drawEnable) $scope.drawEnable=false;
+            } else {
+              if ($scope.drawEnable) $scope.drawEnable = false;
             }
           }
-        }
+        };
 
 
         $scope.showVisualization = function() {
 
           for (var song of $scope.songList) {
-            if ((song.path[0] == $scope.artistData.selectedOption.uri) && (song.path[song.path.length-1] == $scope.poiData.selectedOption.uri)) {
-              for (var i = 0; i < $scope.artistData.availableOptions.length; i++) {
-                if (!$scope.artistData.availableOptions[i]['active']) $scope.artistData.availableOptions[i]['active'] = true;
+            if ((song.path[0] == $scope.artistData.selectedOption.uri) && (song.path[song.path.length - 1] == $scope.poiData.selectedOption.uri)) {
+              for (let i = 0; i < $scope.artistData.availableOptions.length; i++) {
+                let curOption = $scope.artistData.availableOptions[i];
+                curOption.active = true;
               }
-              for (var i = 0; i < $scope.poiData.availableOptions.length; i++) {
-                console.log("avaiable");
-                if (!$scope.poiData.availableOptions[i]['active']) $scope.poiData.availableOptions[i]['active'] = true;
+              for (let i = 0; i < $scope.poiData.availableOptions.length; i++) {
+                let curOption = $scope.poiData.availableOptions[i];
+                curOption.active = true;
               }
               shareRecommendation.setPath(song.label, song.path);
               $scope.data_link = shareRecommendation.getPath();
@@ -168,7 +158,6 @@
             }
           }
         };
-
 
 
 

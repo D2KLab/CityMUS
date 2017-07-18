@@ -42,7 +42,7 @@ md-progress-circular.md-default-theme .md-inner .md-right .md-half-circle, md-pr
 }
 
 .iframe_container_2 {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 80px;
   z-index: 2;

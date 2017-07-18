@@ -25,7 +25,6 @@
               modification = 1;
             }
           }, function(err) {
-            console.error(err);
             error = err;
             q.reject(err);
             modification += 1;
