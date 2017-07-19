@@ -56,8 +56,8 @@ ui-gmap-google-map, .angular-google-map, .angular-google-map-container {
 }
 
 #map_options .btn {
-    line-height: 1.2em;
-    font-size: .9em;
+  line-height: 1.2em;
+  font-size: .9em;
 }
 
 #reset_Nice {
