@@ -1,7 +1,146 @@
 (function(angular) {
   'use strict';
 
-
+  const MAP_STYLE = [{
+      "elementType": "geometry.fill",
+      "stylers": [{
+        "color": "#009688"
+      }]
+    },
+    {
+      "elementType": "labels",
+      "stylers": [{
+        "visibility": "off"
+      }]
+    },
+    {
+      "elementType": "labels.icon",
+      "stylers": [{
+        "visibility": "simplified"
+      }]
+    },
+    {
+      "elementType": "labels.text.fill",
+      "stylers": [{
+          "color": "#ffffff"
+        },
+        {
+          "visibility": "on"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.text.stroke",
+      "stylers": [{
+          "color": "#2aa195"
+        },
+        {
+          "visibility": "on"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.land_parcel",
+      "elementType": "labels",
+      "stylers": [{
+        "visibility": "off"
+      }]
+    },
+    {
+      "featureType": "landscape.man_made",
+      "elementType": "geometry.fill",
+      "stylers": [{
+          "color": "#59c9bd"
+        },
+        {
+          "lightness": -15
+        }
+      ]
+    },
+    {
+      "featureType": "landscape.man_made",
+      "elementType": "geometry.stroke",
+      "stylers": [{
+        "visibility": "off"
+      }]
+    },
+    {
+      "featureType": "poi",
+      "elementType": "labels.text",
+      "stylers": [{
+        "visibility": "off"
+      }]
+    },
+    {
+      "featureType": "poi.business",
+      "stylers": [{
+        "visibility": "off"
+      }]
+    },
+    {
+      "featureType": "poi.park",
+      "elementType": "geometry.fill",
+      "stylers": [{
+          "color": "#63c9a7"
+        },
+        {
+          "lightness": -25
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "geometry.fill",
+      "stylers": [{
+          "color": "#2bd0c0"
+        },
+        {
+          "visibility": "on"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "geometry.stroke",
+      "stylers": [{
+        "visibility": "off"
+      }]
+    },
+    {
+      "featureType": "road",
+      "elementType": "labels.icon",
+      "stylers": [{
+        "visibility": "off"
+      }]
+    },
+    {
+      "featureType": "road.local",
+      "elementType": "labels",
+      "stylers": [{
+        "visibility": "off"
+      }]
+    },
+    {
+      "featureType": "road.local",
+      "elementType": "labels.text",
+      "stylers": [{
+        "visibility": "off"
+      }]
+    },
+    {
+      "featureType": "transit",
+      "stylers": [{
+        "visibility": "off"
+      }]
+    },
+    {
+      "featureType": "water",
+      "elementType": "geometry.fill",
+      "stylers": [{
+        "color": "#afd1e3"
+      }]
+    }
+  ];
 
   angular.module('myApp.map', [])
 
@@ -91,8 +230,8 @@
           var dest_lat = $scope.markers[$scope.model_index].latitude;
           var dest_long = $scope.markers[$scope.model_index].longitude;
 
-          var origin_lat = lat;
-          var origin_long = long;
+          var origin_lat = $rootScope.userLocation.latitude;
+          var origin_long = $rootScope.userLocation.longitude;
 
           var request = {
             origin: new google.maps.LatLng(origin_lat, origin_long),
@@ -118,11 +257,11 @@
         $scope.already_set = false;
 
         $rootScope.$watch('userLocation', (coordinates) => {
-          console.log(coordinates);
           if (!coordinates) {
             $scope.noSharedPosition = true;
             return;
           }
+          console.log('coordinates', coordinates);
 
           let {
             latitude,
@@ -152,7 +291,8 @@
               control: {},
               zoom: 14,
               options: {
-                disableDefaultUI: true
+                disableDefaultUI: true,
+                styles: MAP_STYLE
               }
             };
           }

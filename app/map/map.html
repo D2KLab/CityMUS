@@ -8,7 +8,7 @@
 </div>
 <div ng-if="map" id="map">
   <div id="map_options">
-    <button class="btn btn-default" id="reset_Nice" ng-click="centerToNice()"> <span> Nice </span> </button>
+    <button class="btn btn-default" id="reset_Nice" ng-click="centerToNice()">Nice</button>
     <button class="btn btn-default" id="reset_position" ng-show="mapGrabbed" ng-click="resetPosition()"><span class="mdi mdi-crosshairs-gps"></span> </button>
     <button class="btn btn-default" id="reset_route" ng-show="enableDirections" ng-click="disableDirections()"> <span class="mdi mdi-directions"></span> </button>
   </div>
@@ -26,9 +26,9 @@
 <div style="visibility: hidden">
   <div class="md-dialog-container" id="myDialogMap">
     <md-dialog aria-label="Marker Info">
-      <div style="background-color: #1ecc5c;">
+      <div style="background-color: #009688;">
         <div class="iw-container-search">
-          <div class="iw-title-search" style="widht:100%;text-align:center;background-color: #1ecc5c;height:auto">
+          <div class="iw-title-search">
             <h4 style="color:white;vertical-align:middle">{{model_title}}</h4>
           </div>
           <div class="iw-content-search">

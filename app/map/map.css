@@ -1,21 +1,16 @@
-/*.angular-google-map-container {
-  top: 115px;
-  background-color: #edf5e9;
-  bottom: 80px;
-  left: 0;
-  right: 0;
-  position: absolute;
-  color: black;
-}*/
-
 .iw-container-search {
   background-color: white;
 }
 
+.iw-container-search .btn.btn-success {
+  border-color: #009688;
+  background-color: #009688;
+}
+
 .iw-title-search {
-  widht: 100%;
   text-align: center;
   height: auto;
+  background-color: #009688;
 }
 
 .iw-content-search {
@@ -33,7 +28,7 @@
 
 #map {
   position: relative;
-  height: calc(100vh - 210px);
+  height: calc(100vh - 193px);
 }
 
 .warning+#map {
@@ -60,10 +55,17 @@ ui-gmap-google-map, .angular-google-map, .angular-google-map-container {
   width: 100%;
 }
 
+#map_options .btn {
+    line-height: 1.2em;
+    font-size: .9em;
+}
+
 #reset_Nice {
   height: 30px;
   background: white;
   pointer-events: all;
+
+  text-transform: uppercase;
 }
 
 #reset_position {
