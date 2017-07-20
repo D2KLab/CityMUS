@@ -163,6 +163,7 @@ body {
 
 .navbar-inverse .navbar-brand:hover {
   background-color: #009889;
+  border-bottom: #009889;
 }
 
 
@@ -255,6 +256,12 @@ body {
   border-radius: 100%;
   -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
   animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+#reset_recommendation{
+  display: table;
+  margin: 0 auto;
+  margin-top: 2px;
 }
 
 @-webkit-keyframes sk-scaleout {

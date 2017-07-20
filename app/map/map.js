@@ -33,26 +33,34 @@
           if (model_id != "user_marker") {
             $scope.model_title = model_title;
             $scope.model_index = $scope.markers.indexOf(model);
+            $scope.model_latitude = model.latitude;
+            $scope.model_longitude = model.longitude;
             Recommendation.getSonglistbyPoi(model.latitude, model.longitude)
               .then(
                 function(d) {
                   $scope.model_songList = d;
-                  console.log($scope.model_songList);
+                  $mdDialog.show({
+                    contentElement: '#myDialogMap',
+                    parent: angular.element(document.body),
+                    clickOutsideToClose: true
+                  });
                 },
                 function(errResponse) {
                   console.error('Error while fetching Currencies');
                 }
               );
-            $mdDialog.show({
-              contentElement: '#myDialogMap',
-              parent: angular.element(document.body),
-              clickOutsideToClose: true
-            });
           }
         };
 
         $scope.grabMap = function() {
-          $scope.mapGrabbed = true;
+          console.log($scope.map.center.latitude);
+          console.log($rootScope.userLocation.latitude);
+          console.log($scope.map.center.longitude);
+          console.log($rootScope.userLocation.longitude);
+          if (($scope.map.center.latitude != $rootScope.userLocation.latitude) ||
+              ($scope.map.center.longitude != $rootScope.userLocation.longitude)
+              )
+            $scope.mapGrabbed = true;
         };
 
         $scope.centerToNice = function() {
@@ -66,7 +74,7 @@
             latitude: $rootScope.userLocation.latitude,
             longitude: $rootScope.userLocation.longitude
           };
-
+          $scope.map.zoom = 14;
           $scope.mapGrabbed = false;
         };
 
@@ -83,54 +91,61 @@
           directionsDisplay = new google.maps.DirectionsRenderer(); // this is to render again, otherwise your route wont show for the second time searching
         };
 
+        $scope.switchPlaylist = function(){
+          $rootScope.userLocation.latitude=$scope.model_latitude;
+          $rootScope.userLocation.longitude = $scope.model_longitude;
+          $rootScope.userLocation.fake = true;
+          $rootScope.position_counter ++;
+          $mdDialog.cancel();
+        };
+
 
         var directionsDisplay = new google.maps.DirectionsRenderer();
         var directionsService = new google.maps.DirectionsService();
 
-        $scope.getDirections = function() {
-          var dest_lat = $scope.markers[$scope.model_index].latitude;
-          var dest_long = $scope.markers[$scope.model_index].longitude;
+        $scope.getDirections = function(mode) {
+          if (($rootScope.userLocation.gps) && (!$rootScope.userLocation.fake)){
+            var dest_lat = $scope.markers[$scope.model_index].latitude;
+            var dest_long = $scope.markers[$scope.model_index].longitude;
 
-          var origin_lat = lat;
-          var origin_long = long;
+            var origin_lat = $rootScope.userLocation.latitude;
+            var origin_long = $rootScope.userLocation.longitude;
 
-          var request = {
-            origin: new google.maps.LatLng(origin_lat, origin_long),
-            destination: new google.maps.LatLng(dest_lat, dest_long),
-            travelMode: google.maps.DirectionsTravelMode.DRIVING
-          };
-          directionsService.route(request, function(response, status) {
-            if (status === google.maps.DirectionsStatus.OK) {
-              directionsDisplay.setDirections(response);
-              directionsDisplay.setMap($scope.map.control.getGMap());
-              directionsDisplay.setPanel(document.getElementById('directionsList'));
-              directionsDisplay.setOptions({
-                suppressMarkers: true
-              });
-              $mdDialog.cancel();
-              //$scope.directions.showList = true;
-            } else {
-              alert('Google route unsuccesfull!');
-            }
-          });
-          $scope.enableDirections = true;
+            var request = {
+              origin: new google.maps.LatLng(origin_lat, origin_long),
+              destination: new google.maps.LatLng(dest_lat, dest_long),
+              travelMode: mode
+            };
+
+            directionsService.route(request, function(response, status) {
+              if (status === google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+                directionsDisplay.setMap($scope.map.control.getGMap());
+                directionsDisplay.setPanel(document.getElementById('directionsList'));
+                directionsDisplay.setOptions({
+                  suppressMarkers: true
+                });
+                $mdDialog.cancel();
+                //$scope.directions.showList = true;
+              } else {
+                alert('Google route unsuccesfull!');
+              }
+            });
+            $scope.enableDirections = true;
+          }
         };
         $scope.already_set = false;
 
-        $rootScope.$watch('userLocation', (coordinates) => {
-          console.log(coordinates);
-          if (!coordinates) {
-            $scope.noSharedPosition = true;
-            return;
-          }
+        $scope.$watch('$root.position_counter', function() {
+          console.log('getting position map');
 
-          let {
-            latitude,
-            longitude
-          } = coordinates;
-          if (!latitude) return;
+          if (!$rootScope.userLocation.latitude) return;
 
-          // marker object
+          let latitude = $rootScope.userLocation.latitude,
+              longitude = $rootScope.userLocation.longitude;
+
+
+
           var position_marker = {
             id: "user_marker",
             latitude,
@@ -139,14 +154,18 @@
             icon: image_user
           };
 
-          if (!$scope.markers) {
+          if ($scope.markers){
+            if (!$scope.mapGrabbed) $scope.markers[$scope.markers.length - 1] = position_marker;
+          }
+
+          else {
             $scope.markers = [];
             Recommendation.getPois()
-              .then((d) => {
-                $scope.markers = $scope.markers.concat(d);
-              }, (errResponse) => {
-                console.error('Error while fetching PoIs', errResponse);
-              });
+                .then((d) => {
+              $scope.markers = $scope.markers.concat(d);
+          }, (errResponse) => {
+              console.error('Error while fetching PoIs', errResponse);
+            });
 
             $scope.map = {
               control: {},
@@ -155,20 +174,31 @@
                 disableDefaultUI: true
               }
             };
+            $scope.markers.push(position_marker);
+
           }
 
-          $scope.map.center = {
-            latitude,
-            longitude
-          };
 
-          $scope.markers.push(position_marker);
+
+          if (!$scope.mapGrabbed){
+            $scope.map.center = {
+              latitude,
+              longitude
+            };
+          }
+
+
+
+          console.log($scope.markers);
 
           if ($scope.enableDirections)
             $scope.getDirections();
 
           $scope.spinner_visible = false;
+
         });
+
+
 
       }
     ]);

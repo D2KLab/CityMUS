@@ -14,7 +14,6 @@
         $scope.$watch(Recommendation.getTracks, function() {
           $scope.songList = Recommendation.getTracks();
           $scope.flag_select = !!Object.values($scope.songList).length;
-
         });
 
 

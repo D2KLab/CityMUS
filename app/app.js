@@ -63,6 +63,7 @@
     .controller("NavCtrl", ['$scope', '$location', '$rootScope', 'Geolocation', 'watchOptions', 'Recommendation', 'shareRecommendation', '$window', 'NICE',
       function($scope, $location, $rootScope, Geolocation, watchOptions, Recommendation, shareRecommendation, $window, NICE) {
         $rootScope.userLocation = {};
+        $rootScope.position_counter = 0;
         $scope.spinner_visible = true;
         $scope.showPlaylist = false;
         $scope.isHome = false;
@@ -80,16 +81,12 @@
           console.warn("Position unknown: setting it to Nice center");
 
           $rootScope.userLocation = {
-            // lat: NICE.latitude,
-            // lon: NICE.longitude,
             latitude: NICE.latitude,
             longitude: NICE.longitude,
             gps: false,
             err: err
           };
-          console.log('getting recommendation');
-          Recommendation.getRecommendation($rootScope.userLocation)
-            .then(onRecommendationSuccess, onRecommendationError);
+          $rootScope.position_counter ++;
         }
 
         function onLocationUpdate(position) {
@@ -102,18 +99,24 @@
             console.warn("Position outside Nice: setting it to Nice center");
 
           let latitude = userInNice ? lat : NICE.latitude,
-          longitude = userInNice ? lon : NICE.longitude;
+              longitude = userInNice ? lon : NICE.longitude;
 
-          $rootScope.userLocation = {
-            // lat: latitude,
-            // lon: longitude,
-            latitude,
-            longitude,
-            gps: userInNice
-          };
-          console.log('getting recommendation');
-          Recommendation.getRecommendation($rootScope.userLocation)
-            .then(onRecommendationSuccess, onRecommendationError);
+          if (!$rootScope.userLocation.fake){
+            $rootScope.userLocation = {
+              real_latitude:lat,
+              real_longitude: lon,
+              latitude:latitude,
+              longitude:longitude,
+              gps: userInNice,
+              fake:false
+            };
+            $rootScope.position_counter ++;
+          }
+          else {
+            $rootScope.userLocation.real_latitude = lat;
+            $rootScope.userLocation.real_longitude = lon;
+          }
+
         }
 
         function onRecommendationSuccess(data) {
@@ -128,10 +131,25 @@
           $scope.spinner_visible = false;
         }
 
+        $scope.resetPosition = function(){
+          $rootScope.userLocation.latitude=$rootScope.userLocation.real_latitude;
+          $rootScope.userLocation.longitude = $rootScope.userLocation.real_longitude;
+          $rootScope.userLocation.fake = false;
+          $rootScope.position_counter ++;
+        }
+
         var default_playlist = '5tDTLlIwA0EzoYEbEky9Ro';
         $scope.playlist_id = default_playlist;
         Geolocation.watchPosition(watchOptions)
           .then(null, onLocationError, onLocationUpdate);
+
+        $scope.$watch('$root.position_counter', function() {
+          console.log('getting recommendation');
+          if ($rootScope.userLocation.latitude){
+            Recommendation.getRecommendation($rootScope.userLocation)
+                .then(onRecommendationSuccess, onRecommendationError);
+          }
+        });
       }
     ]);
 

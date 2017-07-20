@@ -46,7 +46,7 @@
         </div>
       </div>
       <div ng-controller="NavCtrl">
-        <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="50">
+        <nav class="navbar navbar-inverse" style="border: none;" data-spy="affix" data-offset-top="50">
           <div class="row" style="background-color:black;border:none;margin:0;padding:0;">
             <div class="nav-item">
               <a ui-sref="home" ui-sref-active="active" class='navbar-brand'>
@@ -67,6 +67,11 @@
         </nav>
 
         <div class="sab" id="app-content">
+          <div class="warning" ng-show="userLocation.fake" style="text-align: center">
+            <i class="mdi mdi-alert-circle"></i>
+            You are listening the playlist related to a PoI.
+            <button class="btn btn-default" id="reset_recommendation" ng-click="resetPosition()"> <span> Reset position </span> </button>
+          </div>
           <div ui-view style="height:auto"></div>
         </div>
 

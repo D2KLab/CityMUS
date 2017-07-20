@@ -6,11 +6,12 @@
   <span ng-hide="userLocation.err">you are outside Nice.</span>
   We set your position to Nice center to let you enjoy our app ;)
 </div>
+
 <div ng-if="map" id="map">
   <div id="map_options">
     <button class="btn btn-default" id="reset_Nice" ng-click="centerToNice()"> <span> Nice </span> </button>
-    <button class="btn btn-default" id="reset_position" ng-show="mapGrabbed" ng-click="resetPosition()"><span class="mdi mdi-crosshairs-gps"></span> </button>
     <button class="btn btn-default" id="reset_route" ng-show="enableDirections" ng-click="disableDirections()"> <span class="mdi mdi-directions"></span> </button>
+    <button class="btn btn-default" id="reset_position" ng-show="mapGrabbed" ng-click="resetPosition()"><span class="mdi mdi-crosshairs-gps"></span> </button>
   </div>
   <ui-gmap-google-map control="map.control" options="map.options" center="map.center" zoom="map.zoom" draggable="true" ng-mousedown="grabMap()" style="z-index:-1;">
     <ui-gmap-markers models="markers" coords="'self'" icon="'icon'" click="onClickMarker">
@@ -26,20 +27,32 @@
 <div style="visibility: hidden">
   <div class="md-dialog-container" id="myDialogMap">
     <md-dialog aria-label="Marker Info">
-      <div style="background-color: #1ecc5c;">
+      <div style="background-color: #009889;">
         <div class="iw-container-search">
-          <div class="iw-title-search" style="widht:100%;text-align:center;background-color: #1ecc5c;height:auto">
+          <div class="iw-title-search">
             <h4 style="color:white;vertical-align:middle">{{model_title}}</h4>
           </div>
           <div class="iw-content-search">
             <ul>
               <li ng-repeat="song in model_songList">
-                <a ng-click="showPath(song)" style="cursor:pointer">{{ song.label }}</a>
+                <a>{{ song.label }}</a>
               </li>
             </ul>
           </div>
-          </br>
-          <button type="button" style="position:absolute; bottom:0px;right:0px;" class="btn btn-success" ng-click="getDirections()"><span class="glyphicon glyphicon-road"></span></button>
+          <div class="dialog-options">
+            <form style="display:inline-block">
+              <button type="button"  class="btn btn-success" ng-click="switchPlaylist()"><span class="glyphicon glyphicon-music"></span></button>
+            </form>
+            <form style="display:inline-block">
+              <button type="button" class="btn btn-success" ng-click="getDirections('DRIVING')"><span class="mdi mdi-car"></span></button>
+            </form>
+
+            <form style="display:inline-block">
+              <button type="button" class="btn btn-success" ng-click="getDirections('WALKING')"><span class="mdi mdi-walk"></span></button>
+            </form>
+
+          </div>
+
         </div>
       </div>
     </md-dialog>

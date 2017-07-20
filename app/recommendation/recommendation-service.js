@@ -23,6 +23,7 @@
         },
 
         getRecommendation: function(location) {
+          console.log(location);
           let {latitude, longitude} = location;
           return $http.get(server_address + '/create_playlist?lat=+' + latitude + '&lon=' + longitude)
             .then(function(response) {
