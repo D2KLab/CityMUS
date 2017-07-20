@@ -28,6 +28,7 @@ def load_pois(poi_artists):
             if poi['uri'] in poi_artists:
                 pois.append(poi)
                 count += 1
+            #poi['category'] = float(row[7])
         return pois
 
 
