@@ -7,8 +7,11 @@ Evaluate DBpedia and Wikidata artist matching with DOREMUS artists, comparing th
 * numpy
 * sparqlwrapper
 * pandas
-* sklearn 
+* sklearn
 * matplotlib
+
+      pip3 install pprint numpy pandas sklearn matplotlib
+      pip3 install git+https://github.com/rdflib/sparqlwrapper#egg=sparqlwrapper
 
 ## File required:
 * doremus_dbpedia_artists.csv
@@ -16,8 +19,8 @@ Evaluate DBpedia and Wikidata artist matching with DOREMUS artists, comparing th
 
 ## Running
 
-open and run 'evaluation.ipynb' notebook 
-	
+open and run 'evaluation.ipynb' notebook
+
 
 ## Output
 
