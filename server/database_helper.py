@@ -7,6 +7,7 @@ from copy import deepcopy
 
 
 POIS_PATH = os.path.normpath('data/dbpedia_match_nogeo_distinct.csv')
+#POIS_PATH = os.path.normpath('data/dbpedia_match_nogeo_distinct_categories.csv')
 POIS_ARTISTS_PATH = os.path.normpath('data/poi_artist_path.json')
 TRACKS_ARTISTS_PATH = os.path.normpath('data/tracks.json')
 
@@ -28,6 +29,7 @@ def load_pois(poi_artists):
             if poi['uri'] in poi_artists:
                 pois.append(poi)
                 count += 1
+            #poi['category'] = float(row[7])
         return pois
 
 
@@ -60,4 +62,3 @@ class PlaylistCollection:
         with self.lock:
             new_playlist = deepcopy(playlist)
             self.playlist_dict[playlist_name] = new_playlist
-

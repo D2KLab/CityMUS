@@ -80,16 +80,11 @@
           console.warn("Position unknown: setting it to Nice center");
 
           $rootScope.userLocation = {
-            // lat: NICE.latitude,
-            // lon: NICE.longitude,
             latitude: NICE.latitude,
             longitude: NICE.longitude,
             gps: false,
             err: err
           };
-          console.log('getting recommendation');
-          Recommendation.getRecommendation($rootScope.userLocation)
-            .then(onRecommendationSuccess, onRecommendationError);
         }
 
         function onLocationUpdate(position) {
@@ -102,18 +97,22 @@
             console.warn("Position outside Nice: setting it to Nice center");
 
           let latitude = userInNice ? lat : NICE.latitude,
-          longitude = userInNice ? lon : NICE.longitude;
+            longitude = userInNice ? lon : NICE.longitude;
 
-          $rootScope.userLocation = {
-            // lat: latitude,
-            // lon: longitude,
-            latitude,
-            longitude,
-            gps: userInNice
-          };
-          console.log('getting recommendation');
-          Recommendation.getRecommendation($rootScope.userLocation)
-            .then(onRecommendationSuccess, onRecommendationError);
+          if (!$rootScope.userLocation.fake) {
+            $rootScope.userLocation = {
+              real_latitude: lat,
+              real_longitude: lon,
+              latitude: latitude,
+              longitude: longitude,
+              gps: userInNice,
+              fake: false
+            };
+          } else {
+            $rootScope.userLocation.real_latitude = lat;
+            $rootScope.userLocation.real_longitude = lon;
+          }
+
         }
 
         function onRecommendationSuccess(data) {
@@ -132,6 +131,15 @@
         $scope.playlist_id = default_playlist;
         Geolocation.watchPosition(watchOptions)
           .then(null, onLocationError, onLocationUpdate);
+
+        $rootScope.$watch('userLocation', (coordinates) => {
+          if (!coordinates || !coordinates.latitude)
+            return;
+
+          console.log('getting recommendation');
+          Recommendation.getRecommendation($rootScope.userLocation)
+            .then(onRecommendationSuccess, onRecommendationError);
+        }, true);
       }
     ]);
 

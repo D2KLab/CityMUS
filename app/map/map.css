@@ -1,5 +1,16 @@
+
+.dialog-options button{
+  margin:3px;
+  background-color: #009889;
+  border-color: #009889;
+}
+.dialog-options button:hover{
+  background-color: #005c52;
+  border-color: #005c52;
+}
 .iw-container-search {
   background-color: white;
+  text-align: center;
 }
 
 .iw-container-search .btn.btn-success {
@@ -14,7 +25,9 @@
 }
 
 .iw-content-search {
+  text-align:left;
   padding: 5px;
+  padding-bottom:0px;
 }
 
 .warning {
@@ -49,7 +62,6 @@ ui-gmap-google-map, .angular-google-map, .angular-google-map-container {
   pointer-events: none;
   z-index: 1;
   padding: .3em;
-
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -78,4 +90,19 @@ ui-gmap-google-map, .angular-google-map, .angular-google-map-container {
   height: 30px;
   background: white;
   pointer-events: all;
+}
+
+.top-to-bottom {
+  border-width: 3px;
+  border-style: solid;
+  -webkit-border-image:
+          -webkit-gradient(linear, 0 0, 0 100%, from(black), to(rgba(0, 0, 0, 0))) 1 100%;
+  -webkit-border-image:
+          -webkit-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;
+  -moz-border-image:
+          -moz-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;
+  -o-border-image:
+          -o-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;
+  border-image:
+          linear-gradient(to bottom, black, rgba(0, 0, 0, 0)) 1 100%;
 }

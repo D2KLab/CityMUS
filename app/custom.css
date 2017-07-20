@@ -102,18 +102,6 @@ body {
   top: 61px;
 }
 
-
-
-.active {
-  border-bottom: solid #009889;
-  pointer-events: none;
-  cursor: default;
-}
-
-.active span {
-  color: white;
-}
-
 .top_container {
   background-color: #009889;
   height: 50px;
@@ -158,11 +146,21 @@ body {
   width: 100%;
   text-align: center;
   height: 100%;
+  border-bottom: solid #000;
+}
+.navbar-brand.active {
+  border-bottom: solid #009889;
+  pointer-events: none;
+  cursor: default;
 }
 
+.navbar-brand.active span {
+  color: white;
+}
 
 .navbar-inverse .navbar-brand:hover {
   background-color: #009889;
+  border-bottom: #009889;
 }
 
 
@@ -255,6 +253,12 @@ body {
   border-radius: 100%;
   -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
   animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+#reset_recommendation{
+  display: table;
+  margin: 0 auto;
+  margin-top: 2px;
 }
 
 @-webkit-keyframes sk-scaleout {
