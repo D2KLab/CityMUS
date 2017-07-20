@@ -7,6 +7,7 @@ from copy import deepcopy
 
 
 POIS_PATH = os.path.normpath('data/dbpedia_match_nogeo_distinct.csv')
+#POIS_PATH = os.path.normpath('data/dbpedia_match_nogeo_distinct_categories.csv')
 POIS_ARTISTS_PATH = os.path.normpath('data/poi_artist_path.json')
 TRACKS_ARTISTS_PATH = os.path.normpath('data/tracks.json')
 
