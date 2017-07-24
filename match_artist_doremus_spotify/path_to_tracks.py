@@ -37,14 +37,6 @@ for row in rows:
             poi_artist_path[row[12]][row[0]] = path_tracks
 
 
-# In[24]:
-
-artists
-
-
-# In[20]:
-
-poi_artist_path
 
 
 # In[29]:

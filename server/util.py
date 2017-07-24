@@ -64,6 +64,7 @@ def select_tracks(playlist_name, pois, poi_artists):
     """given a playlist name, return list of tracks and related paths"""
 
     groups = playlist_name.split('_')
+    print(groups)
     poi_weight_list = [group.split(':') for group in groups]
     track_path_list = set()
 

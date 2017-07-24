@@ -1,13 +1,19 @@
+from spotipy.oauth2 import SpotifyClientCredentials
+client_credentials_manager = SpotifyClientCredentials(client_id='4b115cf521ba4691a64a622eb3158f44', client_secret='8d8e24a769cf4f6797e6325b33b16016')
+
 import csv
 import os
 import json
 import spotipy
+import pickle
+
 
 from SPARQLWrapper import SPARQLWrapper, JSON
 
 
 def get_artist_tracks(artist_name):
-    sp = spotipy.Spotify()
+    
+    sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
     sp.trace = False
 
     # get matching artist
@@ -23,6 +29,7 @@ def get_artist_tracks(artist_name):
     return_tracks = []
     for track in top_tracks:
         return_tracks.append((track['id'], track['name']))
+    
     return return_tracks
 
 
@@ -68,7 +75,9 @@ def get_doremus_label(uri):
 
 ARTIST_PATH = os.path.normpath('../data/doremus_dbpedia_artists.csv')
 
+trace = 0
 with open(ARTIST_PATH, 'r') as input_fp:
+    trace += 1
     count = 0
     reader = csv.reader(input_fp, )
     # skip header
@@ -76,9 +85,6 @@ with open(ARTIST_PATH, 'r') as input_fp:
     artists = dict()
     rows = []
     for row in reader:
-        if float(row[2]) > 4.0:
-            rows.append(row)
-    for row in rows:
         artist = dict()
         artist['doremus_uri'] = row[0]
         artist['doremus_label'] = get_doremus_label(artist['doremus_uri'])
@@ -89,6 +95,10 @@ with open(ARTIST_PATH, 'r') as input_fp:
             count += 1
             print(count)
             artists[artist['doremus_uri']] = artist
+        if trace % 100 == 0:
+            pickle.dump( artist, open( "artist.p", "wb" ) )
+            pickle.dump( trace, open( "trace.p", "wb" ) )
+            
 
 ARTIST_PATH = os.path.normpath('../data/artists_tracks.json')
 
