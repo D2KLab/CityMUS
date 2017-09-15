@@ -72,11 +72,13 @@ def select_tracks(playlist_name, pois, poi_artists):
         poi_index = int(p_w[0])
         weight = int(p_w[1])
         dbpedia_uri = pois[poi_index-1]['uri']
+
         artists_tracks_path = [poi_artists[dbpedia_uri][artist] for artist in poi_artists[dbpedia_uri]]
         artists_tracks = [dictionary['tracks'] for dictionary in artists_tracks_path]
 
         # create lists of tracks for each artist
-        artists_tracks = [zip(*_)[0] for _ in artists_tracks]
+        artists_zipped = [zip(*_) for _ in artists_tracks]
+        artists_tracks = [a[0] for a in artists_zipped if len(a)]
 
         artists_path = [dictionary['path'] for dictionary in artists_tracks_path]
 

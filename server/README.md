@@ -18,7 +18,7 @@ Dependencies:
     export FLASK_APP=main.py
     python -m flask run
 
-## Change the user for spotify
+## Change the user for Spotify
 
 * change the `username` in `spotipy_util.py`
 * Login on [Spotify Dev Page](https://developer.spotify.com/my-applications),

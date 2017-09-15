@@ -1,11 +1,11 @@
+from datetime import timedelta
+from functools import update_wrapper
+
 from flask import Flask, request, jsonify, abort, make_response, current_app
+
 import database_helper
 import spotipy_util
 import util
-import threading
-from datetime import timedelta
-from functools import update_wrapper
-from copy import deepcopy
 
 # initialization phase: load everything in memory
 
@@ -154,7 +154,7 @@ def create_playlist_from_position():
     # find nearest poi
     point = (lat, lon)
     near_pois = util.get_near_pois(point, pois)
-    print(near_pois)
+    # print(near_pois)
     playlist_name = util.create_playlist_name(near_pois)
     print(playlist_name)
 
