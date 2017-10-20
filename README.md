@@ -2,6 +2,8 @@
 
 The experience of a walk in the city with the most suitable soundtrack, on the base of the urban context.
 
+[DEMO](https://citymus.doremus.org) - [Slides](https://docs.google.com/presentation/d/1UqjRT2UrgYTE65wLAtynNRMo0Bks29aV3gOQjVfmrdU/edit?usp=sharing)
+
 ## Abstract
 
 Linked Data make possible the discovering of interesting connection between semantic entities that belongs to different domains. This report contains all the material we realised for developing **_cityMus_**, a web application that gives to the user the experience of a walk in the city with the most suitable soundtrack, on the base of the urban context. The application relies on a recommender system that search the shorter path in the graph between the _Points of Interest_ (PoIs) nearby the user and music composers, making use of a combination of [DBpedia](http://dbpedia.org) and domain-specific datasets like [3cixty](http://3cixty.eurecom.fr/) for tourism and [DOREMUS](http://doremus.org) for music metadata.
